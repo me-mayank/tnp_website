@@ -317,7 +317,7 @@ export default function ContactUsPage() {
             <h1 className="text-4xl font-extrabold text-brand-800 tracking-tight">Contact Us</h1>
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4 shadow-sm"></div>
             <p className="mt-6 text-muted max-w-2xl mx-auto text-lg leading-relaxed">
-              Find contact details of our Director, T&amp;P Office, co-ordinators and team members below.
+              Find contact details of our T&amp;P Officer, co-ordinators and team members below.
             </p>
           </div>
 
