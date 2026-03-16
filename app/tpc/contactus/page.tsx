@@ -31,20 +31,20 @@ const leadership: Person[] = [
 
 const coordinators: Person[] = [
   {
-    name: "Akhilesh Pratap Singh",
-    role: "Coordinator",
-    dept: "CSE",
-    phone: "+91 88108 28730",
-    img: "/images/tnp_members/akhilesh_pratap_singh.jpeg",
-    linkedin: "https://www.linkedin.com/in/akhilesh-pratap-singh-3b9048296/"
-  },
-  {
     name: "Aryan Pandey",
     role: "Coordinator",
     dept: "Civil Engineering",
     phone: "+91 93057 85058",
     img: "/images/tnp_members/aryan_pandey.jpg",
     linkedin: "https://www.linkedin.com/in/aryan-pandey-391a30253/"
+  },
+  {
+    name: "Akhilesh Pratap Singh",
+    role: "Coordinator",
+    dept: "CSE",
+    phone: "+91 88108 28730",
+    img: "/images/tnp_members/akhilesh_pratap_singh.jpeg",
+    linkedin: "https://www.linkedin.com/in/akhilesh-pratap-singh-3b9048296/"
   },
   {
     name: "Shivansh Gupta",
@@ -73,14 +73,6 @@ const webAdmins: Person[] = [
     img: "/images/tnp_members/priyanshu_mishra.jpg",
     linkedin: "https://www.linkedin.com/in/priyanshu-mishra-6a1011220/"
   },
-  {
-    name: "Saumya Srivastava",
-    role: "Web Admin",
-    dept: "MCA",
-    phone: "+91 82991 75668",
-    img: "/images/tnp_members/saumya_srivastav.jpg",
-    linkedin: "https://www.linkedin.com/in/saumya-srivastavaa/"
-  }
 ];
 
 const teamMembers: Person[] = [
@@ -343,7 +335,7 @@ export default function ContactUsPage() {
               <div className={`px-6 pb-8 md:px-8 md:pb-10 transition-all duration-300 ease-in-out ${
                 webAdminOpen ? "block" : "hidden"
               }`}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
                   {webAdmins.map((person) => (
                     <PersonCard key={person.name} person={person} />
                   ))}
