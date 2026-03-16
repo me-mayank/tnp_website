@@ -85,14 +85,6 @@ const webAdmins: Person[] = [
 
 const teamMembers: Person[] = [
   {
-    name: "Aditya Singh",
-    role: "Team Member",
-    dept: "Civil Engineering",
-    phone: "+91 88408 36408",
-    img: "/images/tnp_members/aditya_singh.jpg",
-    linkedin: "https://www.linkedin.com/in/aditya-singh-96661731b/"
-  },
-  {
     name: "Affan Ali",
     role: "Team Member",
     dept: "Mechanical Engineering",
@@ -101,28 +93,12 @@ const teamMembers: Person[] = [
     linkedin: "https://www.linkedin.com/in/affan-ali-25b5781ab/"
   },
   {
-    name: "Akash Kapoor",
-    role: "Team Member",
-    dept: "Mechanical Engineering",
-    phone: "+91 75350 0951",
-    img: "/images/tnp_members/akash_kapoor.jpg",
-    linkedin: "https://www.linkedin.com/in/akash-kapoor-4a8382256/"
-  },
-  {
     name: "Anjali Tomar",
     role: "Team Member",
     dept: "Civil Engineering",
     phone: "+91 86300 59863",
     img: "/images/tnp_members/anjali_tomar.png",
     linkedin: "https://www.linkedin.com/in/anjali-tomar-71522a266/"
-  },
-  {
-    name: "Ayush Pandey",
-    role: "Team Member",
-    dept: "CSE - AI",
-    phone: "+91 63066 84715",
-    img: "/images/tnp_members/ayush_pandey.jpg",
-    linkedin: "https://www.linkedin.com/in/ayush-pandey-ayushpandey1306/"
   },
   {
     name: "Ayushi Agarwal",
@@ -141,22 +117,6 @@ const teamMembers: Person[] = [
     linkedin: "https://www.linkedin.com/in/jannu-hans-16181a2a1/"
   },
   {
-    name: "Prashant Yadav",
-    role: "Team Member",
-    dept: "CSE-SF",
-    phone: "+91 93359 82102",
-    img: "/images/tnp_members/prashant_yadav.jpg",
-    linkedin: "https://www.linkedin.com/in/"
-  },
-  {
-    name: "Pratham Dixit",
-    role: "Team Member",
-    dept: "CSE",
-    phone: "+91 63078 03699",
-    img: "/images/tnp_members/pratham_dixit.jpg",
-    linkedin: "https://www.linkedin.com/in/pratham-dixit-7472b7249/"
-  },
-  {
     name: "Rimjhim Singh",
     role: "Team Member",
     dept: "Civil Engineering",
@@ -172,14 +132,6 @@ const teamMembers: Person[] = [
     img: "/images/tnp_members/utkarsh.jpg",
     linkedin: "https://www.linkedin.com/in/utkarshsingh-iet/"
   },
-  {
-    name: "Vikrant Singh Tomar",
-    role: "Team Member",
-    dept: "MCA",
-    phone: "+91 93158 39354",
-    img: "/images/tnp_members/vikrant_singh_tomar.jpg",
-    linkedin: "https://www.linkedin.com/in/vikrantsinghtomar011/"
-  }
 ];
 
 function PersonCard({ person, large = false }: { person: Person; large?: boolean }) {
