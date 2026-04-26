@@ -227,6 +227,7 @@ export default function HeroSection() {
       <section className="sticky-panel sticky top-0 h-[100dvh] flex items-center bg-gradient-to-br from-white via-sky-95 to-blue-100 overflow-hidden origin-top z-10 shadow-xl">
         {/* Continuous horizontal scrolling stats */}
         <div className="absolute top-[-1px] left-0 w-full z-20 " style={{ height: '50px' }}>
+          {/* @ts-ignore */}
           <LogoLoop
             logos={MARQUEE_ITEMS}
             speed={80}

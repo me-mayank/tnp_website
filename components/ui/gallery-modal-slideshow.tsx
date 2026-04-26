@@ -192,6 +192,7 @@ export default function GalleryModalSlideshow({
           <div className="relative bg-black">
             <div className="relative w-full h-[65vh] sm:h-[70vh]">
               {current ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
                 <img
                   src={current.src}
                   alt={current.alt}

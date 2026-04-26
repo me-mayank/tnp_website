@@ -186,6 +186,7 @@ export default function TopPlacements() {
               }
             }}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
               src={card.src} 
               alt={card.label} 
