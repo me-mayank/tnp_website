@@ -2,12 +2,47 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+const insightsLinks = [
+  { href: '/insights/aboutiet', label: 'About IET', description: 'Institution profile and academic legacy' },
+  { href: '/insights/message', label: 'Message', description: 'Leadership note and placement vision' },
+  { href: '/insights/recruiters', label: 'Past Recruiters', description: 'Trusted hiring partners across sectors' },
+];
+
+const recruiterLinks = [
+  { href: '/recruiters/invitation', label: 'Invitation', description: 'Campus recruitment invite and overview' },
+  { href: '/recruiters/procedure', label: 'Procedure', description: 'Drive flow, schedules, and process details' },
+  { href: '/recruiters/contactform', label: 'Company Contact Form', description: 'Share requirements directly with the cell' },
+  { href: '/recruiters/demographic', label: 'Statistics', description: 'Placement data, demographics, and performance' },
+];
+
+const downloadLinks = [
+  { href: '/files/Placement_Brouchure_2025-26.pdf', label: 'Placement Brochure' },
+  { href: '/files/JNF_IET_Lucknow_2025-26.docx', label: 'Job Notification Form' },
+  { href: '/files/Company_Guidlines_21-22.pdf', label: 'Company Guidelines' },
+];
 
 export default function Header() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileInsightsOpen, setMobileInsightsOpen] = useState(false);
   const [mobileRecruiterOpen, setMobileRecruiterOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMobileInsightsOpen(false);
+    setMobileRecruiterOpen(false);
+  }, [pathname]);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -16,200 +51,213 @@ export default function Header() {
   };
 
   return (
-    <header id="top" className="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-1">
-          <Link href="/" className="flex items-center gap-3 sm:gap-3">
-            <div>
-              <Image
-                className="w-10 h-10 sm:w-20 sm:h-20"
-                src="/images/logo.png"
-                alt="ietlogo"
-                width={80}
-                height={80}
-                sizes="(max-width: 640px) 40px, 80px"
-                priority
-              />
+    <header
+      id="top"
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/80 backdrop-blur-xl border-b border-slate-200/60 shadow-sm'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-8 h-16 lg:h-[72px]">
+        {/* ─── Logo ─── */}
+        <Link href="/" className="flex items-center gap-3 min-w-0">
+          <Image
+            className="h-9 w-9 sm:h-10 sm:w-10 shrink-0"
+            src="/images/logo.png"
+            alt="IET Lucknow logo"
+            width={40}
+            height={40}
+            sizes="40px"
+            priority
+          />
+          <div className="min-w-0 hidden sm:block">
+            <div className="text-[13px] font-semibold text-slate-900 tracking-tight leading-tight truncate">
+              Training &amp; Placement Cell
             </div>
-            <div className="min-w-0">
-              <div className="sm:text-2xl text-xs font-extrabold text-brand-800">Training & Placement Cell</div>
-              <div className="text-[10px] sm:text-sm text-muted">Institute of Engineering & Technology, Lucknow</div>
+            <div className="text-[11px] text-slate-400 tracking-tight truncate">
+              IET Lucknow
             </div>
+          </div>
+        </Link>
+
+        {/* ─── Desktop Nav ─── */}
+        <nav className="hidden lg:flex items-center gap-1 text-[13px] font-medium text-slate-600">
+          <Link
+            href="/tpc/aboutus"
+            className="px-3.5 py-2 rounded-lg transition-colors hover:text-slate-900 hover:bg-slate-50"
+          >
+            About
           </Link>
 
-          {/* DESKTOP NAV */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium relative">
-            <Link href="/tpc/aboutus" className="text-muted hover:text-brand-800 transition-colors">
-              About Us
-            </Link>
-
-            {/* INSIGHTS DROPDOWN */}
-            <div className="relative group  ">
-              <button className="inline-flex items-center gap-2 text-muted hover:text-brand-800 transition">
-                INSIGHTS
-                <svg className="w-3 h-3 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-[320px] bg-white border border-gray-100 rounded-xl shadow-lg z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200">
-                <div className="absolute inset-x-0 -top-4 h-4 bg-transparent"></div>
-                <div className="divide-y">
-                  <Link href="/insights/aboutiet" className="block px-6 py-3 hover:bg-gray-50 text-sm text-brand-800">
-                    ABOUT IET
-                  </Link>
-                  <Link href="/insights/message" className="block px-6 py-3 hover:bg-gray-50 text-sm text-muted">
-                    MESSAGE
-                  </Link>
-                  
-                  <Link href="/insights/recruiters" className="block px-6 py-3 hover:bg-gray-50 text-sm text-muted">
-                    PAST RECRUITERS
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* RECRUITER DROPDOWN */}
-            <div className="relative group">
-              <button className="inline-flex items-center gap-2 text-muted hover:text-brand-800 transition">
-                FOR RECRUITER
-                <svg className="w-3 h-3 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-[380px] bg-white border border-gray-100 rounded-xl shadow-lg z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200">
-                <div className="absolute inset-x-0 -top-4 h-4 bg-transparent"></div>
-                <div className="p-4 space-y-1">
-                  <Link href="/recruiters/invitation" className="block px-4 py-2 hover:bg-gray-50 text-sm text-brand-800">
-                    INVITATION
-                  </Link>
-                  <Link href="/recruiters/procedure" className="block px-4 py-2 hover:bg-gray-50 text-sm text-muted">
-                    PROCEDURE
-                  </Link>
-                  <Link href="/recruiters/contactform" className="block px-4 py-2 hover:bg-gray-50 text-sm text-muted">
-                    COMPANY CONTACT FORM
-                  </Link>
-                  <Link href="/recruiters/demographic" className="block px-4 py-2 hover:bg-gray-50 text-sm text-muted">
-                    STATISTICS
-                  </Link>
-
-                  <div className="pt-3 border-t">
-                    <div className="text-xs font-semibold text-muted mb-2 px-1">Downloads</div>
-                    <a href="/files/Placement_Brouchure_2025-26.pdf" className="block px-2 py-2 hover:bg-gray-50 text-sm">
-                      Placement Brochure
-                    </a>
-                    <a href="/files/JNF_IET_Lucknow_2025-26.docx" className="block px-2 py-2 hover:bg-gray-50 text-sm">
-                      Job Notification Form
-                    </a>
-                    <a href="/files/Company_Guidlines_21-22.pdf" className="block px-2 py-2 hover:bg-gray-50 text-sm">
-                      Company Guidelines
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <Link href="/gallery" className="text-muted hover:text-brand-800 transition-colors">
-              Gallery
-            </Link>
-            <Link href="/downloads" className="text-muted hover:text-brand-800 transition-colors">
-              Downloads
-            </Link>
-            <Link href="/tpc/contactus" className="bg-brand-700 hover:bg-brand-800 text-white px-4 py-2 rounded-full shadow transition-all">
-              Contact Us
-            </Link>
-          </nav>
-
-          {/* MOBILE BUTTON */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-brand-800 hover:bg-gray-100"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          {/* Insights dropdown */}
+          <div className="group relative">
+            <button className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg transition-colors hover:text-slate-900 hover:bg-slate-50">
+              Insights
+              <svg className="h-3 w-3 text-slate-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
+
+            <div className="absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 rounded-xl border border-slate-100 bg-white p-2 shadow-lg opacity-0 pointer-events-none transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100 translate-y-1 group-hover:translate-y-0">
+              {insightsLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
+                >
+                  <div className="text-sm font-medium text-slate-900">{item.label}</div>
+                  <div className="text-xs text-slate-400 mt-0.5">{item.description}</div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+
+          {/* Recruiters dropdown */}
+          <div className="group relative">
+            <button className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg transition-colors hover:text-slate-900 hover:bg-slate-50">
+              Recruiters
+              <svg className="h-3 w-3 text-slate-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <div className="absolute right-0 top-full z-50 mt-2 w-[26rem] rounded-xl border border-slate-100 bg-white p-2 shadow-lg opacity-0 pointer-events-none transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100 translate-y-1 group-hover:translate-y-0">
+              <div className="grid grid-cols-[1.2fr_0.8fr] gap-2">
+                <div className="space-y-0.5">
+                  {recruiterLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
+                    >
+                      <div className="text-sm font-medium text-slate-900">{item.label}</div>
+                      <div className="text-xs text-slate-400 mt-0.5">{item.description}</div>
+                    </Link>
+                  ))}
+                </div>
+                <div className="rounded-lg bg-slate-50 p-3">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-semibold mb-3">Downloads</div>
+                  {downloadLinks.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="block rounded-md px-2.5 py-2 text-sm text-slate-600 transition-colors hover:text-slate-900 hover:bg-white"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Link
+            href="/gallery"
+            className="px-3.5 py-2 rounded-lg transition-colors hover:text-slate-900 hover:bg-slate-50"
+          >
+            Gallery
+          </Link>
+          <Link
+            href="/downloads"
+            className="px-3.5 py-2 rounded-lg transition-colors hover:text-slate-900 hover:bg-slate-50"
+          >
+            Downloads
+          </Link>
+
+          {/* CTA */}
+          <Link
+            href="/tpc/contactus"
+            className="ml-4 inline-flex items-center px-5 py-2 rounded-lg bg-slate-900 text-white text-[13px] font-semibold transition-all hover:bg-slate-800 hover:-translate-y-px hover:shadow-md"
+          >
+            Contact
+          </Link>
+        </nav>
+
+        {/* ─── Mobile hamburger ─── */}
+        <button
+          onClick={() => setMobileMenuOpen((v) => !v)}
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 transition-colors hover:bg-slate-50 lg:hidden"
+          aria-label="Toggle navigation menu"
+        >
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {mobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7h16M4 12h16M4 17h16" />
+            )}
+          </svg>
+        </button>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* ─── Mobile menu panel ─── */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t bg-white shadow-md">
-          <div className="px-6 py-4 space-y-3">
-            <Link href="/tpc/aboutus" className="block py-2 text-brand-800 font-medium" onClick={closeMobileMenu}>
+        <div className="lg:hidden border-t border-slate-100 bg-white px-6 pb-6 pt-4">
+          <div className="space-y-1">
+            <Link href="/tpc/aboutus" className="block rounded-lg px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50" onClick={closeMobileMenu}>
               About
             </Link>
 
-            {/* Insights */}
-            <div>
+            {/* Insights accordion */}
+            <div className="rounded-lg overflow-hidden">
               <button
-                onClick={() => setMobileInsightsOpen(!mobileInsightsOpen)}
-                className="w-full flex justify-between py-2 text-brand-800 font-medium"
+                onClick={() => setMobileInsightsOpen((v) => !v)}
+                className="flex w-full items-center justify-between px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg"
               >
                 Insights
-                <span>▼</span>
+                <svg className={`h-3.5 w-3.5 text-slate-400 transition-transform ${mobileInsightsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-
               {mobileInsightsOpen && (
-                <div className="pl-4 mt-2 space-y-2">
-                  <Link href="/insights/aboutiet" className="block py-2 text-muted" onClick={closeMobileMenu}>
-                    About IET
-                  </Link>
-                  <Link href="/insights/message" className="block py-2 text-muted" onClick={closeMobileMenu}>
-                    Message
-                  </Link>
-                  
-                  <Link href="/insights/recruiters" className="block py-2 text-muted" onClick={closeMobileMenu}>
-                    Past Recruiters
-                  </Link>
+                <div className="pl-4 pb-2 space-y-0.5">
+                  {insightsLinks.map((item) => (
+                    <Link key={item.href} href={item.href} className="block rounded-lg px-4 py-2 text-sm text-slate-500 hover:text-slate-900 hover:bg-slate-50" onClick={closeMobileMenu}>
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
 
-            {/* Recruiter */}
-            <div>
+            {/* Recruiters accordion */}
+            <div className="rounded-lg overflow-hidden">
               <button
-                onClick={() => setMobileRecruiterOpen(!mobileRecruiterOpen)}
-                className="w-full flex justify-between py-2 text-brand-800 font-medium"
+                onClick={() => setMobileRecruiterOpen((v) => !v)}
+                className="flex w-full items-center justify-between px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg"
               >
-                For Recruiter
-                <span>▼</span>
+                Recruiters
+                <svg className={`h-3.5 w-3.5 text-slate-400 transition-transform ${mobileRecruiterOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-
               {mobileRecruiterOpen && (
-                <div className="pl-4 mt-2 space-y-2">
-                  <Link href="/recruiters/invitation" className="block py-2 text-muted" onClick={closeMobileMenu}>
-                    Invitation
-                  </Link>
-                  <Link href="/recruiters/procedure" className="block py-2 text-muted" onClick={closeMobileMenu}>
-                    Procedure
-                  </Link>
-                  <Link href="/recruiters/contactform" className="block py-2 text-muted" onClick={closeMobileMenu}>
-                    Company Contact Form
-                  </Link>
-                  <Link href="/recruiters/demographic" className="block py-2 text-muted" onClick={closeMobileMenu}>
-                    Statistics
-                  </Link>
+                <div className="pl-4 pb-2 space-y-0.5">
+                  {recruiterLinks.map((item) => (
+                    <Link key={item.href} href={item.href} className="block rounded-lg px-4 py-2 text-sm text-slate-500 hover:text-slate-900 hover:bg-slate-50" onClick={closeMobileMenu}>
+                      {item.label}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
 
-            <Link href="/gallery" className="block py-2 text-brand-800 font-medium" onClick={closeMobileMenu}>
+            <Link href="/gallery" className="block rounded-lg px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50" onClick={closeMobileMenu}>
               Gallery
             </Link>
-            <Link href="/downloads" className="block py-2 text-brand-800 font-medium" onClick={closeMobileMenu}>
+            <Link href="/downloads" className="block rounded-lg px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50" onClick={closeMobileMenu}>
               Downloads
             </Link>
-            <Link
-              href="/tpc/contactus"
-              className="block bg-brand-700 text-white px-4 py-2 rounded-md text-center font-medium"
-              onClick={closeMobileMenu}
-            >
-              Contact Us
-            </Link>
+
+            <div className="pt-3">
+              <Link
+                href="/tpc/contactus"
+                className="block rounded-lg bg-slate-900 px-4 py-3 text-center text-sm font-semibold text-white"
+                onClick={closeMobileMenu}
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       )}
