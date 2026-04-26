@@ -13,29 +13,21 @@ const GALLERY_IMAGES = [
   {
     src: "/images/PI.jpg",
     alt: "Placement interview at IET Lucknow",
-    title: "Interview Readiness",
-    description: "Well-equipped spaces for personal interviews and one-on-one sessions.",
     stat: " interview spaces",
   },
   {
     src: "/images/gd.jpg",
     alt: "Group discussion round",
-    title: "Assessment Process",
-    description: "Structured group discussions and evaluation stages managed on campus.",
     stat: "GD and screening rounds",
   },
   {
     src: "/images/training session.jpg",
     alt: "Training session at IET Lucknow",
-    title: "Student Preparation",
-    description: "Training sessions designed to improve confidence, aptitude, and placement outcomes.",
     stat: "Pre-placement training",
   },
   {
     src: "/images/presentation.jpg",
     alt: "Company presentation at IET Lucknow",
-    title: "Industry Engagement",
-    description: "Pre-placement talks and company presentations that connect students with opportunity.",
     stat: "Recruiter interaction",
   },
 ];
@@ -142,7 +134,7 @@ export default function PlacementGallery() {
         <div className="placement-highlight-grid mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
           {GALLERY_IMAGES.map((item) => (
             <article
-              key={item.title}
+              key={item.src}
               className="placement-highlight-card group relative overflow-hidden rounded-2xl border border-slate-100 bg-white p-3 shadow-sm"
             >
               <div className="relative aspect-[4/4.8] overflow-hidden rounded-xl">
@@ -157,10 +149,6 @@ export default function PlacementGallery() {
                   <span className="rounded-full border border-white/15 bg-white/14 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-md">
                     {item.stat}
                   </span>
-                </div>
-                <div className="absolute inset-x-4 bottom-4 rounded-xl border border-white/10 bg-black/25 p-4 backdrop-blur-md">
-                  <div className="text-lg font-semibold text-white">{item.title}</div>
-                  <p className="mt-2 text-sm leading-6 text-white/78">{item.description}</p>
                 </div>
               </div>
             </article>
