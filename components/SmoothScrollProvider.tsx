@@ -8,10 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    const lenis = new Lenis({ 
-      lerp: 0.08, 
+    const lenis = new Lenis({
+      lerp: 0.08,
       smoothWheel: true,
-      // Professional settings
       wheelMultiplier: 1,
       touchMultiplier: 2,
       infinite: false,
@@ -19,21 +18,23 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
 
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    const raf = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
+
+    gsap.ticker.add(raf);
 
     gsap.ticker.lagSmoothing(0);
 
-    // Refresh ScrollTrigger on load and after a short delay
-    window.addEventListener("load", () => ScrollTrigger.refresh());
+    const onLoad = () => ScrollTrigger.refresh();
+    window.addEventListener("load", onLoad);
     const timeout = setTimeout(() => ScrollTrigger.refresh(), 1000);
 
     return () => {
+      window.removeEventListener("load", onLoad);
+      lenis.off("scroll", ScrollTrigger.update);
       lenis.destroy();
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
+      gsap.ticker.remove(raf);
       clearTimeout(timeout);
     };
   }, []);
