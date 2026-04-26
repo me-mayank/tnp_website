@@ -8,7 +8,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Plus_Jakarta_Sans, Poppins, Inter } from "next/font/google";
 import MagneticButton from "./MagneticButton";
 import AnimatedCounter from "./AnimatedCounter";
-import LogoLoop from "./LogoLoop";
+import LogoLoopOriginal from "./LogoLoop";
+const LogoLoop = LogoLoopOriginal as any;
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 const poppins = Poppins({ weight: ["700", "800"], subsets: ["latin"] });
@@ -227,7 +228,6 @@ export default function HeroSection() {
       <section className="sticky-panel sticky top-0 h-[100dvh] flex items-center bg-gradient-to-br from-white via-sky-95 to-blue-100 overflow-hidden origin-top z-10 shadow-xl">
         {/* Continuous horizontal scrolling stats */}
         <div className="absolute top-[-1px] left-0 w-full z-20 " style={{ height: '50px' }}>
-          {/* @ts-ignore */}
           <LogoLoop
             logos={MARQUEE_ITEMS}
             speed={80}
