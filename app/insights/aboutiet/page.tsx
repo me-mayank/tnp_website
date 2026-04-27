@@ -8,7 +8,7 @@ export default function AboutIetPage() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-extrabold text-brand-800">About IET</h1>
-            <p className="mt-4 text-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-4 text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Institute of Engineering &amp; Technology, Lucknow — nurturing excellence since 1984.
             </p>
           </div>
@@ -32,7 +32,7 @@ export default function AboutIetPage() {
                 </div>
               </div>
 
-              <div className="text-muted text-justify leading-relaxed">
+              <div className="text-slate-600 text-justify leading-relaxed">
                 <p className="mb-4">
                   The institute of engineering and technology since its first batch commencement in 1984 has been functioning to achieve excellence in
                   every field of education. It has been an outstanding institute in developing and nourishing creativity and passion in the field of
@@ -69,7 +69,7 @@ export default function AboutIetPage() {
             <div className="grid lg:grid-cols-2 gap-10">
               <div className="bg-white border border-gray-200 rounded-2xl shadow-glow-sm p-8 hover:shadow-glow-md transition-all">
                 <h3 className="text-2xl font-bold text-brand-700 mb-4">VISION</h3>
-                <p className="text-muted leading-relaxed text-justify">
+                <p className="text-slate-600 leading-relaxed text-justify">
                   To effectively contribute towards the national endeavor of producing world class manpower and to usher in technology driven
                   economic development of the country in order to enrich the quality of life of its citizens by promoting innovative technologies and
                   optimal utilization of resources for sustainable development.
@@ -78,15 +78,15 @@ export default function AboutIetPage() {
 
               <div className="bg-white border border-gray-200 rounded-2xl shadow-glow-sm p-8 hover:shadow-glow-md transition-all">
                 <h3 className="text-2xl font-bold text-brand-700 mb-4">MISSION</h3>
-                <p className="text-muted leading-relaxed mb-3 text-justify">
+                <p className="text-slate-600 leading-relaxed mb-3 text-justify">
                   To establish global state-of-the-art facilities and resources that will prepare and enrich the human resource by promoting
                   all-inclusive research and developments.
                 </p>
-                <p className="text-muted leading-relaxed mb-3 text-justify">
+                <p className="text-slate-600 leading-relaxed mb-3 text-justify">
                   To inculcate entrepreneurship skills in the students in order to optimize resources to achieve the economic growth by improving
                   the quality of life of the citizens.
                 </p>
-                <p className="text-muted leading-relaxed text-justify">
+                <p className="text-slate-600 leading-relaxed text-justify">
                   To instill problem-solving skills for overcoming real life challenges by imparting values-based professional education.
                 </p>
               </div>
@@ -99,21 +99,21 @@ export default function AboutIetPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-glow-sm hover:shadow-glow-md transition-all">
                 <h3 className="text-xl font-bold text-brand-700 mb-2">Top Rank</h3>
-                <p className="text-muted text-sm">
+                <p className="text-slate-600 text-sm">
                   IET is ranked 1st among the 700+ engineering colleges under DR APJ Abdul Kalam Technical University.
                 </p>
               </div>
 
               <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-glow-sm hover:shadow-glow-md transition-all">
                 <h3 className="text-xl font-bold text-brand-700 mb-2">Placement Excellence</h3>
-                <p className="text-muted text-sm">
+                <p className="text-slate-600 text-sm">
                   Has an excellent record of placement with a 21% increase in placement offers this year.
                 </p>
               </div>
 
               <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-glow-sm hover:shadow-glow-md transition-all">
                 <h3 className="text-xl font-bold text-brand-700 mb-2">National Recognition</h3>
-                <p className="text-muted text-sm">
+                <p className="text-slate-600 text-sm">
                   Hon&apos;ble Education Minister Shri Prakash Javadekar presented IET with the &apos;India Excellence Award 2017&apos; as the best government
                   engineering college in North India.
                 </p>

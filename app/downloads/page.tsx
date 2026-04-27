@@ -38,7 +38,7 @@ export default function DownloadsPage() {
           <div className="mb-16 text-center">
             <h1 className="text-4xl font-extrabold text-brand-800 tracking-tight">Resources</h1>
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
-            <p className="mt-6 text-muted max-w-2xl mx-auto text-lg">
+            <p className="mt-6 text-slate-600 max-w-2xl mx-auto text-lg">
               Official documents, placement policies, and department-specific brochures for students and recruiters.
             </p>
           </div>
@@ -58,7 +58,7 @@ export default function DownloadsPage() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-brand-800 text-lg truncate">{doc.title}</h3>
-                    <p className="text-xs text-muted mb-4">{doc.subtitle}</p>
+                    <p className="text-xs text-slate-600 mb-4">{doc.subtitle}</p>
                     <a href={doc.href} download className="text-brand-700 font-bold text-sm flex items-center gap-2 hover:text-brand-accent transition-colors">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>

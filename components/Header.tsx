@@ -98,17 +98,19 @@ export default function Header() {
               </svg>
             </button>
 
-            <div className="absolute left-1/2 top-full z-50 mt-2 w-72 -translate-x-1/2 rounded-xl border border-slate-100 bg-white p-2 shadow-lg opacity-0 pointer-events-none transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100 translate-y-1 group-hover:translate-y-0">
-              {insightsLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
-                >
-                  <div className="text-sm font-medium text-slate-900">{item.label}</div>
-                  <div className="text-xs text-slate-400 mt-0.5">{item.description}</div>
-                </Link>
-              ))}
+            <div className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-2 opacity-0 pointer-events-none transition-all duration-300 delay-150 group-hover:delay-0 group-hover:pointer-events-auto group-hover:opacity-100">
+              <div className="rounded-xl border border-slate-100 bg-white p-2 shadow-lg translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                {insightsLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
+                  >
+                    <div className="text-sm font-medium text-slate-900">{item.label}</div>
+                    <div className="text-xs text-slate-400 mt-0.5">{item.description}</div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -121,31 +123,33 @@ export default function Header() {
               </svg>
             </button>
 
-            <div className="absolute right-0 top-full z-50 mt-2 w-[26rem] rounded-xl border border-slate-100 bg-white p-2 shadow-lg opacity-0 pointer-events-none transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100 translate-y-1 group-hover:translate-y-0">
-              <div className="grid grid-cols-[1.2fr_0.8fr] gap-2">
-                <div className="space-y-0.5">
-                  {recruiterLinks.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
-                    >
-                      <div className="text-sm font-medium text-slate-900">{item.label}</div>
-                      <div className="text-xs text-slate-400 mt-0.5">{item.description}</div>
-                    </Link>
-                  ))}
-                </div>
-                <div className="rounded-lg bg-slate-50 p-3">
-                  <div className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-semibold mb-3">Downloads</div>
-                  {downloadLinks.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      className="block rounded-md px-2.5 py-2 text-sm text-slate-600 transition-colors hover:text-slate-900 hover:bg-white"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
+            <div className="absolute right-0 top-full z-50 w-[26rem] pt-2 opacity-0 pointer-events-none transition-all duration-300 delay-150 group-hover:delay-0 group-hover:pointer-events-auto group-hover:opacity-100">
+              <div className="rounded-xl border border-slate-100 bg-white p-2 shadow-lg translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                <div className="grid grid-cols-[1.2fr_0.8fr] gap-2">
+                  <div className="space-y-0.5">
+                    {recruiterLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block rounded-lg px-3 py-2.5 transition-colors hover:bg-slate-50"
+                      >
+                        <div className="text-sm font-medium text-slate-900">{item.label}</div>
+                        <div className="text-xs text-slate-400 mt-0.5">{item.description}</div>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="rounded-lg bg-slate-50 p-3">
+                    <div className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-semibold mb-3">Downloads</div>
+                    {downloadLinks.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="block rounded-md px-2.5 py-2 text-sm text-slate-600 transition-colors hover:text-slate-900 hover:bg-white"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

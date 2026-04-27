@@ -8,7 +8,7 @@ export default function AboutUsPage() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-extrabold text-brand-800">Training &amp; Placement Cell</h1>
-            <p className="mt-4 text-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="mt-4 text-slate-600 max-w-3xl mx-auto leading-relaxed">
               The Placement Office at IET Lucknow is dedicated to connecting students with recruiters
               and ensuring smooth execution of all placement activities through a structured,
               well-equipped system and a highly coordinated student team.
@@ -19,7 +19,7 @@ export default function AboutUsPage() {
             <h2 className="text-2xl font-bold text-brand-800 mb-4 border-l-4 border-brand-accent pl-4">
               The Cell
             </h2>
-            <p className="text-muted leading-relaxed text-justify">
+            <p className="text-slate-600 leading-relaxed text-justify">
               The Placement Office is responsible for campus placement at IET Lucknow. The Placement-in-Charge,
               the Assistant Placement Officer, the Placement Office staff and the student representatives handle
               various crucial tasks like reaching out to companies, scheduling activities and managing all official
@@ -50,7 +50,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Workspace</h3>
-                  <p className="text-muted text-sm">
+                  <p className="text-slate-600 text-sm">
                     A modern workspace for all official placement processes.
                   </p>
                 </div>
@@ -68,7 +68,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Interview Rooms</h3>
-                  <p className="text-muted text-sm">
+                  <p className="text-slate-600 text-sm">
                     6 air-conditioned interview cabins equipped with WiFi-enabled PCs and printing facilities.
                   </p>
                 </div>
@@ -86,7 +86,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Group Discussion Room</h3>
-                  <p className="text-muted text-sm">
+                  <p className="text-slate-600 text-sm">
                     A dedicated Group Discussion Hall for placement procedure rounds by visiting companies.
                   </p>
                 </div>
@@ -104,7 +104,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Computer Center</h3>
-                  <p className="text-muted text-sm">
+                  <p className="text-slate-600 text-sm">
                     Department labs with modern systems for conducting online technical rounds.
                   </p>
                 </div>
@@ -122,7 +122,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Presentation Room</h3>
-                  <p className="text-muted text-sm">
+                  <p className="text-slate-600 text-sm">
                     A connected lecture theatre with AC, projector, sound system and seating for 120.
                   </p>
                 </div>
@@ -140,7 +140,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Auditorium</h3>
-                  <p className="text-muted text-sm">
+                  <p className="text-slate-600 text-sm">
                     State of art auditorium (850 capacity) for Pre-Placement Talks and Seminars.
                   </p>
                 </div>
@@ -158,7 +158,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Training Classroom</h3>
-                  <p className="text-muted text-sm">
+                  <p className="text-slate-600 text-sm">
                     Dedicated training space for technical and professional skill development.
                   </p>
                 </div>
@@ -176,7 +176,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-brand-700 mb-2">Other Facilities</h3>
-                  <p className="text-muted text-sm">
+                  <p className="text-slate-600 text-sm">
                     Lodging &amp; transport for HR teams along with customized meal options.
                   </p>
                 </div>
@@ -189,7 +189,7 @@ export default function AboutUsPage() {
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-brand-800">Past Impressive Records</h2>
                 <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
-                <p className="text-muted mt-6 max-w-2xl mx-auto text-lg">
+                <p className="text-slate-600 mt-6 max-w-2xl mx-auto text-lg">
                   IET Lucknow has consistently delivered excellent placement outcomes, showcasing a steady upward trajectory
                   in salary packages and recruiter trust.
                 </p>
@@ -266,15 +266,15 @@ export default function AboutUsPage() {
 
                       <div className="space-y-4 pt-4 border-t border-gray-50 mt-auto">
                         <div className="flex justify-between items-center">
-                          <span className="text-xs text-muted uppercase tracking-wider">Highest CTC</span>
+                          <span className="text-xs text-slate-600 uppercase tracking-wider">Highest CTC</span>
                           <span className="text-brand-accent font-bold">{record.highest}</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-xs text-muted uppercase tracking-wider">Average CTC</span>
+                          <span className="text-xs text-slate-600 uppercase tracking-wider">Average CTC</span>
                           <span className="text-brand-800 font-bold">{record.average}</span>
                         </div>
                         <div className="mt-4">
-                          <span className="text-[10px] text-muted uppercase font-bold tracking-widest block mb-3">Top Recruiters</span>
+                          <span className="text-[10px] text-slate-600 uppercase font-bold tracking-widest block mb-3">Top Recruiters</span>
                           <div className="flex items-center justify-between w-full">
                             {record.recruiters.map((recruiter, idx) => (
                               <Image

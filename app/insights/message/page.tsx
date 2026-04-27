@@ -44,18 +44,18 @@ export default function Message() {
                   <div className="text-sm font-semibold text-brand-800">
                     Dr. Arun Kumar Tiwari
                   </div>
-                  <div className="text-xs text-muted">
+                  <div className="text-xs text-slate-600">
                     Office Incharge, Training &amp; Placement Cell
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-2 flex flex-col">
-                <div className="prose prose-sm sm:prose-base max-w-none text-justify text-muted leading-relaxed">
-                  <div className="prose prose-sm sm:prose-base max-w-none text-justify text-muted leading-relaxed">
+                <div className="prose prose-sm sm:prose-base max-w-none text-justify text-slate-600 leading-relaxed">
+                  <div className="prose prose-sm sm:prose-base max-w-none text-justify text-slate-600 leading-relaxed">
                     <MagicText
                       text="On behalf of Institute of Engineering and Technology, Lucknow, it is my pleasure to invite you to our beautiful academic campus to conduct campus selection programme for our students. Established in the year 1984, the institute has improved in every domain in the last three decades. The students of this institute are occupying enviable positions in various organizations at home and abroad. Our students have lived up to the expectations of organizations that visit the campus, looking for bright candidates to take up important and challenging responsibilities at their workplace. The Institute has earned fame not only for its excellent academic and extracurricular activities but also for its research, consultancy and development activities. I am furnishing in the pages to follow all pertinent information about our college and students studying here. I would request you to kindly visit our campus for selecting candidates of your choice on any date convenient to both of us. Here at IET we look forward to nurture and extend our relationship in upcoming years. We truly appreciate the faith bestowed upon us by your organization and we look forward to continuing our relationship with you. Looking forward to meeting you at our campus!"
-                      className="text-right text-muted"
+                      className="text-right text-slate-600"
                     />
                   </div>
                 </div>

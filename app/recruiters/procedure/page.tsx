@@ -33,14 +33,14 @@ export default function Procedure() {
         <p className="mb-2 text-xl font-bold text-brand-800">
           Placement season timeline
         </p>
-        <p className="text-sm text-muted">
+        <p className="text-sm text-slate-600">
           The Placement Season typically commences in the month of August and
           continues until May of the following academic year (for example, from
           August 2025 to May 2026). During this period, various organizations
           participate in recruitment activities, including internships and
           full-time roles.
         </p>
-        <p className="mt-2 text-sm text-muted">
+        <p className="mt-2 text-sm text-slate-600">
           The entire process is carefully planned and monitored by the Placement
           Office to ensure a smooth and structured experience for both students
           and recruiters.
@@ -70,14 +70,14 @@ export default function Procedure() {
         <p className="mb-2 text-xl font-bold text-brand-800">
           Invitations & Job Notification Form (JNF)
         </p>
-        <p className="text-sm text-muted">
+        <p className="text-sm text-slate-600">
           The Placement Office formally reaches out to organizations by sharing
           placement invitations along with the Job Notification Form (JNF). The
           JNF captures essential details such as job profile, eligibility
           criteria, compensation structure, selection process, and preferred
           dates.
         </p>
-        <p className="mt-2 text-sm text-muted">
+        <p className="mt-2 text-sm text-slate-600">
           Organizations interested in recruiting from the institute can
           communicate directly with the Placement Office at{" "}
           <a
@@ -114,13 +114,13 @@ export default function Procedure() {
         <p className="mb-2 text-xl font-bold text-brand-800">
           Candidate shortlisting
         </p>
-        <p className="text-sm text-muted">
+        <p className="text-sm text-slate-600">
           Once a company confirms its participation and finalizes the eligibility
           criteria, a list of interested and eligible candidates is prepared.
           This shortlist is based on academic performance, branch, skills, and
           other criteria specified in the JNF.
         </p>
-        <p className="mt-2 text-sm text-muted">
+        <p className="mt-2 text-sm text-slate-600">
           The shortlisted candidates are then informed in advance about the
           upcoming selection process and relevant instructions.
         </p>
@@ -151,13 +151,13 @@ export default function Procedure() {
         <p className="mb-2 text-xl font-bold text-brand-800">
           Schedule finalization & arrangements
         </p>
-        <p className="text-sm text-muted">
+        <p className="text-sm text-slate-600">
           A tentative visit or virtual engagement date is mutually decided
           between the organization and the Placement Office. Upon confirmation,
           all necessary arrangements are made for the Pre-Placement Talk (PPT),
           written tests, interviews, and other selection rounds.
         </p>
-        <p className="mt-2 text-sm text-muted">
+        <p className="mt-2 text-sm text-slate-600">
           The institute ensures seamless coordination, infrastructure support,
           and communication throughout the recruitment process.
         </p>
@@ -190,13 +190,13 @@ export default function Procedure() {
         <p className="mb-2 text-xl font-bold text-brand-800">
           Selection process & results
         </p>
-        <p className="text-sm text-muted">
+        <p className="text-sm text-slate-600">
           The organization conducts its recruitment process, which may include
           aptitude tests, technical assessments, group discussions, and personal
           interviews. Based on performance, candidates are shortlisted for final
           selection.
         </p>
-        <p className="mt-2 text-sm text-muted">
+        <p className="mt-2 text-sm text-slate-600">
           In most cases, the final results are declared on the same day or within
           a short stipulated timeframe communicated by the company.
         </p>
@@ -225,13 +225,13 @@ export default function Procedure() {
         <p className="mb-2 text-xl font-bold text-brand-800">
           Student placement policy
         </p>
-        <p className="text-sm text-muted">
+        <p className="text-sm text-slate-600">
           Students who receive an official offer or confirmation letter are
           considered reserved for that particular organization and are not
           permitted to participate in other companies offering roles within the
           same pay-scale bracket.
         </p>
-        <p className="mt-2 text-sm text-muted">
+        <p className="mt-2 text-sm text-slate-600">
           Additionally, once a student enters the selection process of a
           company, withdrawing at any intermediate stage is strictly not
           allowed, in accordance with institute placement policies.
@@ -249,7 +249,7 @@ export default function Procedure() {
               <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-800 tracking-tight">
                 Placement Procedure
               </h1>
-              <p className="mt-3 text-muted max-w-2xl mx-auto">
+              <p className="mt-3 text-slate-600 max-w-2xl mx-auto">
                 A structured and transparent process ensuring seamless coordination between recruiters and students.
               </p>
 

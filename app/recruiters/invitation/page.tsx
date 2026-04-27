@@ -13,7 +13,7 @@ export default function Invitation() {
             <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-800 tracking-tight">
               INVITATION
             </h1>
-            <p className="mt-3 text-muted font-medium">
+            <p className="mt-3 text-slate-600 font-medium">
               INSTITUTE OF ENGINEERING AND TECHNOLOGY, LUCKNOW<br />
               Training and Placement Cell • Uttar Pradesh, India
             </p>
@@ -27,7 +27,7 @@ export default function Invitation() {
 
           {/* Letter Body */}
           <div className="bg-white border border-gray-200 rounded-2xl shadow-glow-md p-8 sm:p-10 lg:p-12">
-            <div className="prose prose-sm sm:prose-base max-w-none text-muted leading-relaxed text-justify">
+            <div className="prose prose-sm sm:prose-base max-w-none text-slate-600 leading-relaxed text-justify">
               <p><strong>Dear Sir / Madam,</strong></p>
               <br />
 

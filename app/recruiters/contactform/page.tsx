@@ -84,7 +84,7 @@ export default function ContactForm() {
           <div className="mb-12 text-center">
             <h1 className="text-4xl font-extrabold text-brand-800 tracking-tight">Corporate Interest Form</h1>
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4 shadow-sm"></div>
-            <p className="mt-6 text-muted max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="mt-6 text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
               Partner with IET Lucknow for your recruitment needs. Please fill out the details below, and our T&P team will
               get back to you shortly.
             </p>

@@ -391,7 +391,7 @@ export default function Demographic() {
                 PLACEMENT OFFERS
               </div>
               <h2 className="mt-3 text-2xl font-semibold text-gray-900">Session-wise Placement Offers</h2>
-              <p className="mt-2 text-muted max-w-3xl">
+              <p className="mt-2 text-slate-600 max-w-3xl">
                 Placement offers across recent academic sessions.
               </p>
             </div>
@@ -410,7 +410,7 @@ export default function Demographic() {
                 PACKAGES OFFERED
               </div>
               <h2 className="mt-3 text-2xl font-semibold text-gray-900">Highest vs Average Packages</h2>
-              <p className="mt-2 text-muted max-w-3xl">
+              <p className="mt-2 text-slate-600 max-w-3xl">
                 Year-wise comparison of highest and average packages offered.
               </p>
             </div>
@@ -427,7 +427,7 @@ export default function Demographic() {
             <div className="inline-block px-3 py-1 rounded-full bg-brand-800/5 text-brand-800 font-semibold">
               ACADEMIC PROGRAMMES
             </div>
-            <p className="mt-4 text-muted max-w-3xl">
+            <p className="mt-4 text-slate-600 max-w-3xl">
               The college has various under graduation and post graduations program, each run and supervised by its own departments, with most no. of students in B Tech degree program totaling up to 541.
             </p>
           </div>
@@ -476,7 +476,7 @@ export default function Demographic() {
               </div>
 
               {/* Program description */}
-              <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm text-sm text-muted space-y-3">
+              <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm text-sm text-slate-600 space-y-3">
                 <div className="text-brand-800 font-semibold">{desc.title}</div>
                 <div>{desc.text}</div>
               </div>
@@ -514,7 +514,7 @@ export default function Demographic() {
                 <div className="mt-6 w-full max-w-xl hidden sm:block">
                   <div className="flex flex-wrap gap-3">
                     {currentData.labels.map((label, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-muted">
+                      <div key={i} className="flex items-center gap-2 text-xs text-slate-600">
                         <span 
                           style={{ 
                             background: currentData.colors[i],
@@ -555,7 +555,7 @@ export default function Demographic() {
                           {label}
                         </div>
                       </div>
-                      <div className="ml-auto text-sm text-muted">
+                      <div className="ml-auto text-sm text-slate-600">
                         {currentData.values[idx]}
                       </div>
                     </div>
