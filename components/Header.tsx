@@ -60,22 +60,21 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-8 h-16 lg:h-[72px]">
-        {/* ─── Logo ─── */}
-        <Link href="/" className="flex items-center gap-3 min-w-0">
+        <Link href="/" className="flex items-center gap-3.5 min-w-0">
           <Image
-            className="h-9 w-9 sm:h-10 sm:w-10 shrink-0"
+            className="h-11 w-11 sm:h-14 sm:w-14 shrink-0"
             src="/images/logo.png"
             alt="IET Lucknow logo"
-            width={40}
-            height={40}
-            sizes="40px"
+            width={56}
+            height={56}
+            sizes="56px"
             priority
           />
           <div className="min-w-0 hidden sm:block">
-            <div className="text-[13px] font-semibold text-slate-900 tracking-tight leading-tight truncate">
+            <div className="text-[15px] font-bold text-slate-900 tracking-tight leading-tight truncate">
               Training &amp; Placement Cell
             </div>
-            <div className="text-[11px] text-slate-400 tracking-tight truncate">
+            <div className="text-[13px] font-medium text-slate-500 tracking-tight truncate">
               IET Lucknow
             </div>
           </div>
