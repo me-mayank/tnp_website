@@ -364,21 +364,17 @@ export default function HeroSection() {
                 {/* CTA on last slide */}
                 {index === STORY_SLIDES.length - 1 && (
                   <div className={`mt-10 flex gap-4 ${index % 2 !== 0 ? "justify-end" : ""}`}>
-                    <MagneticButton>
-                      <Link href="/recruiters/invitation"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white text-sm font-semibold transition-all hover:bg-blue-700 hover:shadow-lg">
-                        Hire Our Talent
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </Link>
-                    </MagneticButton>
-                    <MagneticButton>
-                      <Link href="/downloads"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 text-slate-700 text-sm font-semibold transition-all hover:bg-slate-50">
-                        Download Brochure
-                      </Link>
-                    </MagneticButton>
+                    <Link href="/recruiters/invitation"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white text-sm font-semibold transition-all hover:bg-blue-700 hover:shadow-lg">
+                      Hire Our Talent
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                    <Link href="/downloads"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 text-slate-700 text-sm font-semibold transition-all hover:bg-slate-50">
+                      Download Brochure
+                    </Link>
                   </div>
                 )}
               </div>
