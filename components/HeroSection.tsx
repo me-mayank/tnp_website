@@ -8,8 +8,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Plus_Jakarta_Sans, Poppins, Inter } from "next/font/google";
 import MagneticButton from "./MagneticButton";
 import AnimatedCounter from "./AnimatedCounter";
-import LogoLoopOriginal from "./LogoLoop";
-const LogoLoop = LogoLoopOriginal as any;
+import dynamic from 'next/dynamic';
+const LogoLoop = dynamic(() => import('./LogoLoop'), { ssr: false }) as any;
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 const poppins = Poppins({ weight: ["700", "800"], subsets: ["latin"] });
@@ -38,8 +38,7 @@ const MARQUEE_ITEMS = [
   { node: <span className="text-sm md:text-base font-bold tracking-widest text-slate-300">|</span> },
   { node: <span className="text-sm md:text-base font-bold tracking-widest uppercase whitespace-nowrap text-slate-700">COMPANIES 90+</span> },
   { node: <span className="text-sm md:text-base font-bold tracking-widest text-slate-300">|</span> },
-  { node: <span className="text-sm md:text-base font-bold tracking-widest uppercase whitespace-nowrap text-slate-700">
-NAAC A+ ACCREDITED</span> },
+  { node: <span className="text-sm md:text-base font-bold tracking-widest uppercase whitespace-nowrap text-slate-700">NAAC A+ ACCREDITED</span> },
   { node: <span className="text-sm md:text-base font-bold tracking-widest text-slate-300">|</span> },
   { node: <span className="text-sm md:text-base font-bold tracking-widest uppercase whitespace-nowrap text-slate-700">500+ (2024-2025)</span> },
   { node: <span className="text-sm md:text-base font-bold tracking-widest text-slate-300">|</span> },
@@ -92,12 +91,12 @@ export default function HeroSection() {
             ease: "power2.out"
           });
           
-          gsap.to(".hero-bg-svg", {
-             x: -xPos,
-             y: -yPos,
-             duration: 1.5,
-             ease: "power2.out"
-          });
+          // gsap.to(".hero-bg-svg", { 
+          //   x: -xPos, 
+          //   y: -yPos, 
+          //   duration: 1.5, 
+          //   ease: "power2.out" 
+          // });
         };
         window.addEventListener("mousemove", mmListener);
       }
@@ -227,7 +226,7 @@ export default function HeroSection() {
           ═══════════════════════════════════════════════ */}
       <section className="sticky-panel sticky top-0 h-[100dvh] flex items-center bg-gradient-to-br from-white via-sky-95 to-blue-100 overflow-hidden origin-top z-10 shadow-xl">
         {/* Continuous horizontal scrolling stats */}
-        <div className="absolute top-[-1px] left-0 w-full z-20 " style={{ height: '50px' }}>
+        <div suppressHydrationWarning className="absolute top-[-1px] left-0 w-full z-20 " style={{ height: '50px' }}>
           <LogoLoop
             logos={MARQUEE_ITEMS}
             speed={80}

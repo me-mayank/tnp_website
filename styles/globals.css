@@ -295,6 +295,7 @@ html.lenis body {
 
 .logoloop {
   position: relative;
+  overflow: hidden;
 
   --logoloop-gap: 32px;
   --logoloop-logoHeight: 28px;
@@ -467,4 +468,14 @@ html.lenis body {
   .logoloop__node {
     transition: none !important;
   }
+}
+
+html, 
+body {
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }

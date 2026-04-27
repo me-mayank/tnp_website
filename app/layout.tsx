@@ -58,8 +58,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} ${poppins.variable} ${inter.variable} bg-white text-brand-800 antialiased overflow-x-hidden`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${poppins.className} ${poppins.variable} ${inter.variable} bg-white text-brand-800 antialiased overflow-x-hidden`} suppressHydrationWarning>
         <SmoothScrollProvider>
           <Header />
           {children}
