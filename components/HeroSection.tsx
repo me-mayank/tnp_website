@@ -20,7 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
 /* ── Two key story slides ───────────────────────────── */
 const STORY_SLIDES = [
   {
-    image: "/images/main -2-pacement-1-photo.jpeg",
+    image: "/images/main-4-placement.png",
     tag: "The Beginning",
     headline: "Where It All Starts",
     body: "IET Lucknow — a legacy of 42 years nurturing engineering excellence and building future-ready professionals.",
