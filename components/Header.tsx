@@ -9,6 +9,7 @@ const insightsLinks = [
   { href: '/insights/aboutiet', label: 'About IET', description: 'Institution profile and academic legacy' },
   { href: '/insights/message', label: 'Message', description: 'Leadership note and placement vision' },
   { href: '/insights/recruiters', label: 'Past Recruiters', description: 'Trusted hiring partners across sectors' },
+  { href: '/insights/alumni', label: 'Notable Alumni', description: 'Our graduates leading global innovation' },
 ];
 
 const recruiterLinks = [
@@ -53,11 +54,7 @@ export default function Header() {
   return (
     <header
       id="top"
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/80 backdrop-blur-xl border-b border-slate-200/60 shadow-sm'
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 z-50 w-full transition-all duration-300 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 shadow-sm"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-8 h-16 lg:h-[72px]">
         <Link href="/" className="flex items-center gap-3.5 min-w-0">

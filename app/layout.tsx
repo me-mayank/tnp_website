@@ -62,7 +62,9 @@ export default function RootLayout({
       <body className={`${poppins.className} ${poppins.variable} ${inter.variable} bg-white text-brand-800 antialiased overflow-x-hidden`} suppressHydrationWarning>
         <SmoothScrollProvider>
           <Header />
-          {children}
+          <div className="pt-16 lg:pt-[72px]">
+            {children}
+          </div>
           <Footer />
         </SmoothScrollProvider>
       </body>
