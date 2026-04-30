@@ -1,279 +1,225 @@
 'use client';
 
-import Footer from '@/components/Footer';
-import { Timeline } from '@/components/ui/timeline';
 import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { Poppins } from 'next/font/google';
+import { 
+  Calendar, 
+  FileText, 
+  Users, 
+  ClipboardCheck, 
+  Trophy, 
+  ShieldCheck,
+  ArrowRight,
+  Mail,
+  Building2,
+  TrendingUp,
+  UserCheck
+} from 'lucide-react';
+import BorderGlow from '@/components/BorderGlow';
 
-export default function Procedure() {
-  const dataset = [
+const poppins = Poppins({ weight: ["700", "800"], subsets: ["latin"] });
+
+const steps = [
   {
-    title: "Step 1",
-    content: (
-      <div>
-        <div className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-brand-50 text-brand-800">
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="h-24 w-24"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M8 2v3M16 2v3" />
-            <path d="M3 9h18" />
-            <rect x="3" y="5" width="18" height="16" rx="2" />
-            <path d="M8 13h2" />
-            <path d="M14 13h2" />
-            <path d="M8 17h2" />
-            <path d="M14 17h2" />
-          </svg>
-        </div>
-        <p className="mb-2 text-xl font-bold text-brand-800">
-          Placement season timeline
-        </p>
-        <p className="text-sm text-slate-600">
-          The Placement Season typically commences in the month of August and
-          continues until May of the following academic year (for example, from
-          August 2025 to May 2026). During this period, various organizations
-          participate in recruitment activities, including internships and
-          full-time roles.
-        </p>
-        <p className="mt-2 text-sm text-slate-600">
-          The entire process is carefully planned and monitored by the Placement
-          Office to ensure a smooth and structured experience for both students
-          and recruiters.
-        </p>
-      </div>
-    ),
+    id: '01',
+    title: "Placement season timeline",
+    icon: <Calendar className="w-6 h-6 text-blue-600" />,
+    bottomIcon: <Calendar className="w-10 h-10 text-blue-400 opacity-20" />,
+    description: "The Placement Season typically commences in the month of August and continues until May of the following academic year (for example, from August 2025 to May 2026). Various organizations participate in recruitment activities, including internships and full-time roles.",
+    extra: "The entire process is carefully planned and monitored by the Placement Office to ensure a smooth and structured experience for both students and recruiters."
   },
   {
-    title: "Step 2",
-    content: (
-      <div>
-        <div className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-brand-50 text-brand-800">
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="h-24 w-24"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
-            <path d="m22 8-8.97 6.2a2 2 0 0 1-2.06 0L2 8" />
-          </svg>
-        </div>
-        <p className="mb-2 text-xl font-bold text-brand-800">
-          Invitations & Job Notification Form (JNF)
-        </p>
-        <p className="text-sm text-slate-600">
-          The Placement Office formally reaches out to organizations by sharing
-          placement invitations along with the Job Notification Form (JNF). The
-          JNF captures essential details such as job profile, eligibility
-          criteria, compensation structure, selection process, and preferred
-          dates.
-        </p>
-        <p className="mt-2 text-sm text-slate-600">
-          Organizations interested in recruiting from the institute can
-          communicate directly with the Placement Office at{" "}
-          <a
-            href="mailto:placement@ietlucknow.ac.in"
-            className="text-brand-700 underline"
-          >
-            placement@ietlucknow.ac.in
-          </a>
-          .
-        </p>
-      </div>
-    ),
+    id: '02',
+    title: "Invitations & Job Notification Form (JNF)",
+    icon: <Mail className="w-6 h-6 text-blue-600" />,
+    bottomIcon: <Building2 className="w-10 h-10 text-blue-400 opacity-20" />,
+    description: "The Placement Office formally reaches out to organizations by sharing placement invitations along with the Job Notification Form (JNF). The JNF captures essential details such as job profile, eligibility criteria, compensation structure, selection process, and preferred dates.",
+    extra: "Organizations interested in recruiting from the institute can communicate directly with the Placement Office at placement@ietlucknow.ac.in."
   },
   {
-    title: "Step 3",
-    content: (
-      <div>
-        <div className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-brand-50 text-brand-800">
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="h-24 w-24"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M9 11l2 2 4-4" />
-            <path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" />
-            <path d="M8 7h8" />
-          </svg>
-        </div>
-        <p className="mb-2 text-xl font-bold text-brand-800">
-          Candidate shortlisting
-        </p>
-        <p className="text-sm text-slate-600">
-          Once a company confirms its participation and finalizes the eligibility
-          criteria, a list of interested and eligible candidates is prepared.
-          This shortlist is based on academic performance, branch, skills, and
-          other criteria specified in the JNF.
-        </p>
-        <p className="mt-2 text-sm text-slate-600">
-          The shortlisted candidates are then informed in advance about the
-          upcoming selection process and relevant instructions.
-        </p>
-      </div>
-    ),
+    id: '03',
+    title: "Candidate shortlisting",
+    icon: <Users className="w-6 h-6 text-blue-600" />,
+    bottomIcon: <UserCheck className="w-10 h-10 text-blue-400 opacity-20" />,
+    description: "Once a company confirms its participation and finalizes the eligibility criteria, a list of interested and eligible candidates is prepared. This shortlist is based on academic performance, branch, skills, and other criteria specified in the JNF.",
+    extra: "The shortlisted candidates are then informed in advance about the upcoming selection process and relevant instructions."
   },
   {
-    title: "Step 4",
-    content: (
-      <div>
-        <div className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-brand-50 text-brand-800">
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="h-24 w-24"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M4 19V5" />
-            <path d="M4 5h9l2 2h5v12H4" />
-            <path d="M8 11h8" />
-            <path d="M8 15h6" />
-          </svg>
-        </div>
-        <p className="mb-2 text-xl font-bold text-brand-800">
-          Schedule finalization & arrangements
-        </p>
-        <p className="text-sm text-slate-600">
-          A tentative visit or virtual engagement date is mutually decided
-          between the organization and the Placement Office. Upon confirmation,
-          all necessary arrangements are made for the Pre-Placement Talk (PPT),
-          written tests, interviews, and other selection rounds.
-        </p>
-        <p className="mt-2 text-sm text-slate-600">
-          The institute ensures seamless coordination, infrastructure support,
-          and communication throughout the recruitment process.
-        </p>
-      </div>
-    ),
+    id: '04',
+    title: "Schedule finalization & arrangements",
+    icon: <Calendar className="w-6 h-6 text-blue-600" />,
+    bottomIcon: <Calendar className="w-10 h-10 text-blue-400 opacity-20" />,
+    description: "A tentative visit or virtual engagement date is mutually decided between the organization and the Placement Office. Upon confirmation, all necessary arrangements are made for the Pre-Placement Talk (PPT), written tests, interviews, and other selection rounds.",
+    extra: "The institute ensures seamless coordination, infrastructure support, and communication throughout the recruitment process."
   },
   {
-    title: "Step 5",
-    content: (
-      <div>
-        <div className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-brand-50 text-brand-800">
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="h-24 w-24"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M8 21h8" />
-            <path d="M12 17v4" />
-            <path d="M7 4h10" />
-            <path d="M17 4v6a5 5 0 0 1-10 0V4" />
-            <path d="M5 7h2" />
-            <path d="M17 7h2" />
-          </svg>
-        </div>
-        <p className="mb-2 text-xl font-bold text-brand-800">
-          Selection process & results
-        </p>
-        <p className="text-sm text-slate-600">
-          The organization conducts its recruitment process, which may include
-          aptitude tests, technical assessments, group discussions, and personal
-          interviews. Based on performance, candidates are shortlisted for final
-          selection.
-        </p>
-        <p className="mt-2 text-sm text-slate-600">
-          In most cases, the final results are declared on the same day or within
-          a short stipulated timeframe communicated by the company.
-        </p>
-      </div>
-    ),
+    id: '05',
+    title: "Selection process & results",
+    icon: <Trophy className="w-6 h-6 text-blue-600" />,
+    bottomIcon: <TrendingUp className="w-10 h-10 text-blue-400 opacity-20" />,
+    description: "The organization conducts its recruitment process, which may include aptitude tests, technical assessments, group discussions, and personal interviews. Based on performance, candidates are shortlisted for final selection.",
+    extra: "In most cases, the final results are declared on the same day or within a short stipulated timeframe communicated by the company."
   },
   {
-    title: "Step 6",
-    content: (
-      <div>
-        <div className="mb-3 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-brand-50 text-brand-800">
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="h-24 w-24"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 2 4 5v6c0 5 3.2 9.4 8 11 4.8-1.6 8-6 8-11V5l-8-3Z" />
-            <path d="M9 12l2 2 4-4" />
-          </svg>
-        </div>
-        <p className="mb-2 text-xl font-bold text-brand-800">
-          Student placement policy
-        </p>
-        <p className="text-sm text-slate-600">
-          Students who receive an official offer or confirmation letter are
-          considered reserved for that particular organization and are not
-          permitted to participate in other companies offering roles within the
-          same pay-scale bracket.
-        </p>
-        <p className="mt-2 text-sm text-slate-600">
-          Additionally, once a student enters the selection process of a
-          company, withdrawing at any intermediate stage is strictly not
-          allowed, in accordance with institute placement policies.
-        </p>
-      </div>
-    ),
-  },
+    id: '06',
+    title: "Student placement policy",
+    icon: <ShieldCheck className="w-6 h-6 text-blue-600" />,
+    bottomIcon: <ShieldCheck className="w-10 h-10 text-blue-400 opacity-20" />,
+    description: "Students who receive an official offer or confirmation letter are considered reserved for that particular organization and are not permitted to participate in other companies offering roles within the same pay-scale bracket.",
+    extra: "Additionally, once a student enters the selection process of a company, withdrawing at any intermediate stage is strictly not allowed, in accordance with institute placement policies."
+  }
 ];
 
-    return (
-      <div className="bg-white">
-        <main className="bg-white py-20" id="procedure">
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-800 tracking-tight">
-                Placement Procedure
-              </h1>
-              <p className="mt-3 text-slate-600 max-w-2xl mx-auto">
-                A structured and transparent process ensuring seamless coordination between recruiters and students.
-              </p>
+export default function Procedure() {
+  return (
+    <div className="bg-white min-h-screen">
+      {/* Hero Section */}
+      <section className="relative w-full h-[70vh] min-h-[600px] flex items-center overflow-hidden">
+        {/* Background Image with Gradient Mask */}
+        <motion.div 
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="absolute right-0 top-0 w-2/3 h-full bg-cover bg-center hidden md:block"
+          style={{ 
+            backgroundImage: "url('/images/placement-1.png')",
+            maskImage: "linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)"
+          }}
+        />
+        <div 
+          className="absolute right-0 top-0 w-full h-full bg-cover bg-center md:hidden opacity-20"
+          style={{ backgroundImage: "url('/images/iet_campus-alumin.png')" }}
+        />
 
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/recruiters/contactform"
-                  className="px-4 py-2 rounded-full bg-brand-800 text-white text-sm font-semibold hover:bg-brand-900 transition"
-                >
-                  Company Contact Form
-                </Link>
-                <Link
-                  href="/recruiters/invitation"
-                  className="px-4 py-2 rounded-full border border-brand-200 text-brand-800 text-sm font-semibold hover:bg-brand-50 transition"
-                >
-                  View Invitation
-                </Link>
-              </div>
-            </div>
-
-            <div className="bg-white border border-gray-200 rounded-2xl shadow-glow-md p-6 sm:p-8">
-              <Timeline data={dataset} />
-            </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="max-w-2xl">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-blue-600 font-bold tracking-[0.2em] text-xs uppercase mb-6 block"
+            >
+              FOR RECRUITERS
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className={`text-5xl md:text-7xl font-bold text-slate-900 leading-[1.1] mb-8 ${poppins.className}`}
+            >
+              Placement <span className="text-blue-600">Procedure</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-xl text-slate-600 mb-12 max-w-lg leading-relaxed"
+            >
+              A structured and transparent process ensuring seamless coordination between recruiters and students.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-5"
+            >
+              <Link 
+                href="/recruiters/contactform"
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-blue-900 text-white rounded-full font-bold shadow-lg shadow-blue-900/20 hover:bg-blue-950 transition-all group hover:scale-105 active:scale-95"
+              >
+                <FileText className="w-5 h-5" />
+                Company Contact Form
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link 
+                href="/recruiters/invitation"
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-blue-900 border-2 border-slate-100 rounded-full font-bold shadow-sm hover:border-blue-100 hover:bg-slate-50 transition-all group hover:scale-105 active:scale-95"
+              >
+                <FileText className="w-5 h-5" />
+                View Invitation
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
           </div>
-        </main>
-      </div>
-    );
+        </div>
+      </section>
+
+      {/* Steps Section */}
+      <section className="py-32 bg-slate-50/30">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-16 relative">
+            {steps.map((step, index) => (
+              <BorderGlow
+                key={step.id}
+                edgeSensitivity={30}
+                glowColor="220 80 50"
+                backgroundColor="#ffffff"
+                borderRadius={28}
+                glowRadius={50}
+                glowIntensity={1}
+                coneSpread={25}
+                animated={false}
+                colors={['#3b82f6', '#8b5cf6', '#06b6d4']}
+                className="group transition-all duration-500 hover:-translate-y-2 h-full border border-slate-100"
+              >
+                <div className="p-8 flex flex-col h-full overflow-hidden relative">
+                  {/* Card Background Pattern */}
+                  <div className="absolute inset-0 pointer-events-none opacity-[0.3] z-0">
+                    <Image 
+                      src="/images/back7.png" 
+                      alt="" 
+                      fill 
+                      className="object-cover object-center"
+                    />
+                  </div>
+
+                  {/* Icon Area */}
+                  <div className="relative mb-6 z-10">
+                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                      {step.icon}
+                    </div>
+                  </div>
+
+                  <div className="relative z-10 flex-1">
+                    <h3 className="text-xl font-bold text-brand-800 mb-1.5 transition-colors group-hover:text-blue-600">
+                      {step.title}
+                    </h3>
+                    <div className="h-1 w-7 bg-blue-600 rounded-full mb-6"></div>
+                    
+                    <p className="text-slate-500 leading-relaxed text-sm font-medium mb-6">
+                      {step.description}
+                    </p>
+
+                    {step.extra && (
+                      <div className="pt-6 border-t border-slate-50">
+                        <p className="text-slate-400 leading-relaxed text-xs italic">
+                          {step.extra}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Faded Background Icon */}
+                  <div className="absolute bottom-6 right-6 transition-transform duration-500 group-hover:scale-110 group-hover:opacity-60 opacity-20 z-10">
+                    {step.bottomIcon}
+                  </div>
+                  
+                  {/* Connecting Line (Desktop) - Decorative */}
+                  {index % 3 !== 2 && (
+                    <div className="hidden lg:block absolute top-14 -right-10 w-16 h-[2px] bg-slate-100 z-0 opacity-50">
+                      <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full border border-slate-200 bg-white" />
+                    </div>
+                  )}
+                </div>
+              </BorderGlow>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
