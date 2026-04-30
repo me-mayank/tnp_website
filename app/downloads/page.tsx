@@ -15,6 +15,7 @@ import {
   BarChart3,
   Search
 } from 'lucide-react';
+import BorderGlow from '@/components/BorderGlow';
 
 const instituteDocs = [
   {
@@ -148,26 +149,41 @@ export default function DownloadsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group relative bg-white border border-slate-100 rounded-[2rem] p-8 hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500 flex items-center gap-8"
+                className="h-full"
               >
-                <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform duration-500">
-                  <FileText className="w-8 h-8" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{doc.title}</h3>
-                  <p className="text-slate-400 text-xs font-medium mb-4">{doc.subtitle}</p>
-                  <a 
-                    href={doc.href} 
-                    download 
-                    className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:underline"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download {doc.type}
-                  </a>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                  <ArrowRight className="w-4 h-4" />
-                </div>
+                <BorderGlow
+                  edgeSensitivity={30}
+                  glowColor="220 80 50"
+                  backgroundColor="#ffffff"
+                  borderRadius={28}
+                  glowRadius={50}
+                  glowIntensity={1}
+                  coneSpread={25}
+                  animated={false}
+                  colors={['#3b82f6', '#8b5cf6', '#06b6d4']}
+                  className="group transition-all duration-500 hover:-translate-y-2 h-full border border-slate-100"
+                >
+                  <div className="p-8 flex items-center gap-8 h-full">
+                    <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform duration-500">
+                      <FileText className="w-8 h-8" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{doc.title}</h3>
+                      <p className="text-slate-400 text-xs font-medium mb-4">{doc.subtitle}</p>
+                      <a 
+                        href={doc.href} 
+                        download 
+                        className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:underline"
+                      >
+                        <Download className="w-4 h-4" />
+                        Download {doc.type}
+                      </a>
+                    </div>
+                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </BorderGlow>
               </motion.div>
             ))}
           </div>
@@ -198,25 +214,40 @@ export default function DownloadsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group bg-white border border-slate-100 rounded-3xl p-6 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-500"
+                className="h-full"
               >
-                <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded-full mb-4">
-                  {doc.type}
-                </span>
-                <h3 className="text-lg font-bold text-slate-900 mb-6 group-hover:text-blue-600 transition-colors">{doc.name}</h3>
-                <div className="flex items-center justify-between mt-auto">
-                  <a 
-                    href={doc.href} 
-                    download 
-                    className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:underline"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download
-                  </a>
-                  <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                    <ArrowRight className="w-3.5 h-3.5" />
+                <BorderGlow
+                  edgeSensitivity={30}
+                  glowColor="220 80 50"
+                  backgroundColor="#ffffff"
+                  borderRadius={28}
+                  glowRadius={50}
+                  glowIntensity={1}
+                  coneSpread={25}
+                  animated={false}
+                  colors={['#3b82f6', '#8b5cf6', '#06b6d4']}
+                  className="group transition-all duration-500 hover:-translate-y-2 h-full border border-slate-100"
+                >
+                  <div className="p-6 flex flex-col h-full">
+                    <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded-full mb-4 self-start">
+                      {doc.type}
+                    </span>
+                    <h3 className="text-lg font-bold text-slate-900 mb-6 group-hover:text-blue-600 transition-colors">{doc.name}</h3>
+                    <div className="flex items-center justify-between mt-auto">
+                      <a 
+                        href={doc.href} 
+                        download 
+                        className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:underline"
+                      >
+                        <Download className="w-4 h-4" />
+                        Download
+                      </a>
+                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </BorderGlow>
               </motion.div>
             ))}
           </div>
@@ -247,21 +278,36 @@ export default function DownloadsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="group flex items-center justify-between p-4 bg-white border border-slate-100 rounded-2xl hover:border-blue-200 hover:shadow-lg hover:shadow-blue-900/5 transition-all duration-300"
+                className="h-full"
               >
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                    <Building className="w-5 h-5" />
-                  </div>
-                  <span className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">{dept.name}</span>
-                </div>
-                <a 
-                  href={dept.href} 
-                  download 
-                  className="p-2 text-slate-400 hover:text-blue-600 transition-colors"
+                <BorderGlow
+                  edgeSensitivity={20}
+                  glowColor="220 80 50"
+                  backgroundColor="#ffffff"
+                  borderRadius={16}
+                  glowRadius={30}
+                  glowIntensity={0.8}
+                  coneSpread={25}
+                  animated={false}
+                  colors={['#3b82f6', '#8b5cf6', '#06b6d4']}
+                  className="group transition-all duration-300 hover:-translate-y-1 h-full border border-slate-100"
                 >
-                  <Download className="w-5 h-5" />
-                </a>
+                  <div className="p-4 flex items-center justify-between h-full">
+                    <div className="flex items-center gap-4 min-w-0">
+                      <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                        <Building className="w-5 h-5" />
+                      </div>
+                      <span className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">{dept.name}</span>
+                    </div>
+                    <a 
+                      href={dept.href} 
+                      download 
+                      className="p-2 text-slate-400 hover:text-blue-600 transition-colors"
+                    >
+                      <Download className="w-5 h-5" />
+                    </a>
+                  </div>
+                </BorderGlow>
               </motion.div>
             ))}
           </div>
