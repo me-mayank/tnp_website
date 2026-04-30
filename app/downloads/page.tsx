@@ -1,4 +1,20 @@
+'use client';
+
 import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { 
+  FileText, 
+  ShieldCheck, 
+  Building, 
+  ChevronRight, 
+  Download, 
+  ArrowRight,
+  Code2,
+  MessageSquare,
+  BarChart3,
+  Search
+} from 'lucide-react';
 
 const instituteDocs = [
   {
@@ -30,131 +46,282 @@ const departmentDocs = [
   { name: 'Mechanical Engineering', href: '/files/Mechanical_dept_2019-20.pdf' }
 ];
 
+const prepResources = [
+  {
+    title: 'DSA Handbooks',
+    description: 'Topic-wise data structures & algorithms notes from top alumni.',
+    icon: <Code2 className="w-5 h-5" />,
+    linkText: 'Access Drive',
+    href: '#'
+  },
+  {
+    title: 'Interview Experiences',
+    description: 'Archive of technical interview questions from FAANG & Top MNCs.',
+    icon: <MessageSquare className="w-5 h-5" />,
+    linkText: 'Read Blogs',
+    href: '#'
+  },
+  {
+    title: 'Aptitude & Core',
+    description: 'Practice sets for Quant, Logical, and Core Subjects (OS, DBMS).',
+    icon: <BarChart3 className="w-5 h-5" />,
+    linkText: 'Download Packs',
+    href: '#'
+  }
+];
+
 export default function DownloadsPage() {
   return (
-    <>
-      <main className="bg-gray-50/50 py-16" id="downloads">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <h1 className="text-4xl font-extrabold text-brand-800 tracking-tight">Resources</h1>
-            <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
-            <p className="mt-6 text-slate-600 max-w-2xl mx-auto text-lg">
-              Official documents, placement policies, and department-specific brochures for students and recruiters.
-            </p>
-          </div>
+    <div className="bg-white min-h-screen">
+      {/* Hero Section */}
+      <section className="relative w-full h-[60vh] min-h-[500px] flex items-center overflow-hidden">
+        {/* Background Image with Gradient Mask */}
+        <motion.div 
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="absolute right-0 top-0 w-2/3 h-full bg-cover bg-center hidden md:block"
+          style={{ 
+            backgroundImage: "url('/images/iet_campus-alumin.png')",
+            maskImage: "linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
+            WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)"
+          }}
+        />
+        <div 
+          className="absolute right-0 top-0 w-full h-full bg-cover bg-center md:hidden opacity-10"
+          style={{ backgroundImage: "url('/images/iet_campus-alumin.png')" }}
+        />
 
-          <div className="mb-20">
-            <h2 className="text-xl font-bold text-brand-800 mb-8 flex items-center gap-3">
-              <span className="w-8 h-1 bg-brand-accent rounded-full"></span>
-              INSTITUTE DOCUMENTS
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {instituteDocs.map((doc) => (
-                <div key={doc.title} className="bg-white border-2 border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-brand-accent/30 transition-all group flex items-center gap-6">
-                  <div className="p-4 bg-blue-50 text-blue-600 rounded-2xl shrink-0">
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-brand-800 text-lg truncate">{doc.title}</h3>
-                    <p className="text-xs text-slate-600 mb-4">{doc.subtitle}</p>
-                    <a href={doc.href} download className="text-brand-700 font-bold text-sm flex items-center gap-2 hover:text-brand-accent transition-colors">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                      </svg>
-                      Download {doc.type}
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mb-20">
-            <h2 className="text-xl font-bold text-brand-800 mb-8 flex items-center gap-3">
-              <span className="w-8 h-1 bg-brand-accent rounded-full"></span>
-              STUDENT POLICIES &amp; FORMS
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {studentDocs.map((doc) => (
-                <div key={doc.name} className="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group">
-                  <div className="text-[10px] font-bold text-brand-accent uppercase mb-2">{doc.type}</div>
-                  <h3 className="font-bold text-brand-800 mb-6 h-10 overflow-hidden text-sm leading-tight">{doc.name}</h3>
-                  <a href={doc.href} download className="w-full py-2 bg-blue-400 text-white rounded-lg text-xs font-bold hover:bg-brand-700 hover:text-white transition-all flex items-center justify-center gap-2">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    Download
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mb-20">
-            <h2 className="text-xl font-bold text-brand-800 mb-8 flex items-center gap-3">
-              <span className="w-8 h-1 bg-brand-accent rounded-full"></span>
-              DEPARTMENT BROCHURES
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {departmentDocs.map((dept) => (
-                <div key={dept.name} className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:border-brand-accent transition-all group">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                    </div>
-                    <span className="text-sm font-bold text-brand-800 truncate">{dept.name}</span>
-                  </div>
-                  <a href={dept.href} download className="p-2 text-brand-700 hover:bg-brand-700 hover:text-white rounded-lg transition-all">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div id="study-material" className="pt-10">
-            <div className="bg-brand-900 rounded-[3rem] p-8 md:p-12 text-white relative overflow-hidden">
-              <div className="relative z-10">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-                  <div>
-                    <h2 className="text-3xl font-bold">Placement Preparation Hub</h2>
-                    <p className="text-white/60 mt-2">Curated resources to crack top-tier technical and HR interviews.</p>
-                  </div>
-                  <a href="#" className="bg-brand-accent text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-brand-accent/20 hover:scale-105 transition-transform text-center">View All Assets</a>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                    </div>
-                    <h4 className="font-bold text-lg mb-2">DSA Handbooks</h4>
-                    <p className="text-sm text-white/50 mb-4">Topic-wise data structures &amp; algorithms notes from top alumni.</p>
-                    <a href="#" className="text-brand-accent text-sm font-bold flex items-center gap-2">Access Drive <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
-                    </div>
-                    <h4 className="font-bold text-lg mb-2">Interview Experiences</h4>
-                    <p className="text-sm text-white/50 mb-4">Archive of technical interview questions from FAANG &amp; Top MNCs.</p>
-                    <a href="#" className="text-brand-accent text-sm font-bold flex items-center gap-2">Read Blogs <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                    </div>
-                    <h4 className="font-bold text-lg mb-2">Aptitude &amp; Core</h4>
-                    <p className="text-sm text-white/50 mb-4">Practice sets for Quant, Logical, and Core Subjects (OS, DBMS).</p>
-                    <a href="#" className="text-brand-accent text-sm font-bold flex items-center gap-2">Download Packs <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-brand-accent/10 rounded-full blur-3xl"></div>
-            </div>
+        <div className="container mx-auto px-6 relative z-10 pt-16">
+          <div className="max-w-2xl">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-blue-600 font-bold tracking-[0.2em] text-xs uppercase mb-6 block"
+            >
+              DOWNLOADS
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-6xl md:text-7xl font-bold text-slate-900 leading-[1.1] mb-8"
+            >
+              All <span className="text-blue-600">Resources</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-xl text-slate-600 mb-12 max-w-lg leading-relaxed font-medium"
+            >
+              Access official documents, policies, and department-specific brochures for students and recruiters.
+            </motion.p>
           </div>
         </div>
-      </main>
-    </>
+      </section>
+
+      <div className="container mx-auto px-6 pb-32">
+        {/* Institute Documents */}
+        <section className="mb-24">
+          <div className="flex items-center justify-between mb-12">
+            <div className="flex items-center gap-5">
+              <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600">
+                <FileText className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900">Institute Documents</h2>
+                <p className="text-slate-500 text-sm font-medium">Essential documents for placements and partnerships.</p>
+              </div>
+            </div>
+            <Link href="#" className="hidden sm:flex items-center gap-2 text-blue-600 font-bold text-sm hover:translate-x-1 transition-transform">
+              View All <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {instituteDocs.map((doc, idx) => (
+              <motion.div
+                key={doc.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="group relative bg-white border border-slate-100 rounded-[2rem] p-8 hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-500 flex items-center gap-8"
+              >
+                <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:scale-110 transition-transform duration-500">
+                  <FileText className="w-8 h-8" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-blue-600 transition-colors">{doc.title}</h3>
+                  <p className="text-slate-400 text-xs font-medium mb-4">{doc.subtitle}</p>
+                  <a 
+                    href={doc.href} 
+                    download 
+                    className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:underline"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download {doc.type}
+                  </a>
+                </div>
+                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Student Policies & Forms */}
+        <section className="mb-24">
+          <div className="flex items-center justify-between mb-12">
+            <div className="flex items-center gap-5">
+              <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900">Student Policies & Forms</h2>
+                <p className="text-slate-500 text-sm font-medium">Important policies and forms for student placements.</p>
+              </div>
+            </div>
+            <Link href="#" className="hidden sm:flex items-center gap-2 text-blue-600 font-bold text-sm hover:translate-x-1 transition-transform">
+              View All <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {studentDocs.map((doc, idx) => (
+              <motion.div
+                key={doc.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="group bg-white border border-slate-100 rounded-3xl p-6 hover:shadow-xl hover:shadow-blue-900/5 transition-all duration-500"
+              >
+                <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded-full mb-4">
+                  {doc.type}
+                </span>
+                <h3 className="text-lg font-bold text-slate-900 mb-6 group-hover:text-blue-600 transition-colors">{doc.name}</h3>
+                <div className="flex items-center justify-between mt-auto">
+                  <a 
+                    href={doc.href} 
+                    download 
+                    className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:underline"
+                  >
+                    <Download className="w-4 h-4" />
+                    Download
+                  </a>
+                  <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Department Brochures */}
+        <section className="mb-32">
+          <div className="flex items-center justify-between mb-12">
+            <div className="flex items-center gap-5">
+              <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600">
+                <Building className="w-6 h-6" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900">Department Brochures</h2>
+                <p className="text-slate-500 text-sm font-medium">Department-specific placement brochures and resources.</p>
+              </div>
+            </div>
+            <Link href="#" className="hidden sm:flex items-center gap-2 text-blue-600 font-bold text-sm hover:translate-x-1 transition-transform">
+              View All <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {departmentDocs.map((dept, idx) => (
+              <motion.div
+                key={dept.name}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="group flex items-center justify-between p-4 bg-white border border-slate-100 rounded-2xl hover:border-blue-200 hover:shadow-lg hover:shadow-blue-900/5 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                    <Building className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">{dept.name}</span>
+                </div>
+                <a 
+                  href={dept.href} 
+                  download 
+                  className="p-2 text-slate-400 hover:text-blue-600 transition-colors"
+                >
+                  <Download className="w-5 h-5" />
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Placement Preparation Hub */}
+        <section>
+          <div className="bg-[#0B1F3A] rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden">
+            {/* Background Decorative Elements */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2"></div>
+            
+            <div className="relative z-10">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16">
+                <div className="flex items-center gap-6">
+                  <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-600/20">
+                    <Search className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold">Placement Preparation Hub</h2>
+                    <p className="text-blue-200/60 mt-2 font-medium">Curated resources to crack top-tier technical and HR interviews.</p>
+                  </div>
+                </div>
+                <Link 
+                  href="#" 
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-xl font-bold shadow-xl shadow-blue-600/30 hover:bg-blue-700 transition-all group active:scale-95"
+                >
+                  View All Assets
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {prepResources.map((res, idx) => (
+                  <motion.div
+                    key={res.title}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors duration-300"
+                  >
+                    <div className="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center text-blue-400 mb-6">
+                      {res.icon}
+                    </div>
+                    <h4 className="font-bold text-xl mb-3">{res.title}</h4>
+                    <p className="text-sm text-blue-100/40 mb-8 leading-relaxed font-medium">
+                      {res.description}
+                    </p>
+                    <Link href={res.href} className="inline-flex items-center gap-2 text-blue-400 font-bold text-sm hover:text-blue-300 transition-colors group">
+                      {res.linkText}
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   );
 }
