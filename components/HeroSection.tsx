@@ -246,7 +246,7 @@ export default function HeroSection() {
         }} />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(255,255,255,0.4)_100%)]" />
 
-        <div className="hero-opening-content hero-parallax-element relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full py-24">
+        <div className="hero-opening-content hero-parallax-element relative z-10 max-w-7xl mx-auto px-6 lg:pl-0 lg:pr-8 w-full py-24">
           {/* Background College Image SVG (balanced sizing and opacity) */}
           <div className="hero-bg-svg absolute right-[-9%] top-1/2 -translate-y-1/2 w-[120%] h-[110%] opacity-[1] pointer-events-none select-none z-[-1]">
             <Image
