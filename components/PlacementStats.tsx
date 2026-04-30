@@ -4,6 +4,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import SplitText from '@/components/ui/SplitText';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import { DottedMultiLineChart } from "@/components/ui/dotted-multi-line";
@@ -174,6 +176,17 @@ export default function PlacementStats() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* More Stats Button */}
+        <div className="flex justify-center mt-16 lg:mt-24">
+          <Link 
+            href="/recruiters/demographic"
+            className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#0B1F3A] text-white rounded-xl font-bold shadow-xl shadow-blue-900/10 hover:bg-[#2563EB] transition-all hover:scale-105 active:scale-95"
+          >
+            Explore Detailed Statistics
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>
