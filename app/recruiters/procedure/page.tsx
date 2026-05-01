@@ -241,7 +241,7 @@ export default function PlacementProcedure(): JSX.Element {
             onClick={goPrevious}
             disabled={currentStep === 0 || animating}
           >
-            Previous Step
+            Previous
           </motion.button>
 
           <motion.button
@@ -252,7 +252,7 @@ export default function PlacementProcedure(): JSX.Element {
             onClick={goNext}
             disabled={currentStep === steps.length - 1 || animating}
           >
-            Next Step
+            Next
           </motion.button>
         </div>
       </motion.div>
