@@ -455,7 +455,7 @@ function OverallTab() {
                   </Pie>
 
                   <Tooltip
-                    formatter={(value: number, name: string) => [`${value} students`, name]}
+                    formatter={(value, name) => [`${value ?? 0} students`, name ?? "Programme"]}
                     contentStyle={{
                       borderRadius: "14px",
                       border: "1px solid #e2e8f0",

@@ -377,7 +377,7 @@ export default function PastRecruiters() {
                               </p>
 
                               <p className="mt-5 text-[15px] leading-8 text-white/85">
-                                &quot;{item.text}&quot;
+                                {`"${item.text}"`}
                               </p>
                             </div>
 
