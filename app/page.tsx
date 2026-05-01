@@ -8,6 +8,7 @@ import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { HoverSlider, HoverSliderImage, HoverSliderImageWrap, TextStaggerHover } from '@/components/ui/animated-slideshow';
 import { InteractiveSelector } from '@/components/ui/interactive-selector';
 import SplitText from '@/components/ui/SplitText';
+import PlacementSection from '@/components/PlacementSection';
 
 const INFRASTRUCTURE_SLIDES = [
   {
@@ -460,6 +461,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Placement Section */}
+      <PlacementSection />
 
       {/* Video Section */}
       <section id="glimpse" className="bg-white">
