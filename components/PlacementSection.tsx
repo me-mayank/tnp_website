@@ -229,7 +229,7 @@ const PlacementSection = () => {
               >
                 {/* Base text (normal state) */}
                 <div className="relative z-10 w-full flex flex-col items-center">
-                  <div className="placement-stat-value text-[32px] md:text-[36px] font-black text-[#3b82f6] leading-none mb-1.5" data-target={stat.value} data-suffix={stat.suffix}>
+                  <div className="placement-stat-value text-[32px] md:text-[36px] font-black text-[#60a5fa] leading-none mb-1.5" data-target={stat.value} data-suffix={stat.suffix}>
                     0
                   </div>
                   <h5 className="text-[12px] md:text-[13px] font-black text-black uppercase tracking-normal leading-none">{stat.label}</h5>
@@ -237,7 +237,7 @@ const PlacementSection = () => {
 
                 {/* Fill layer (active/hover state) */}
                 <div
-                  className={`absolute inset-0 bg-[#3b82f6] flex flex-col justify-center items-center text-center z-20 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${activeCard === index ? '[clip-path:inset(0_0_0_0)]' : '[clip-path:inset(100%_0_0_0)] group-hover:[clip-path:inset(0_0_0_0)]'}`}
+                  className={`absolute inset-0 bg-[#60a5fa] flex flex-col justify-center items-center text-center z-20 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${activeCard === index ? '[clip-path:inset(0_0_0_0)]' : '[clip-path:inset(100%_0_0_0)] group-hover:[clip-path:inset(0_0_0_0)]'}`}
                 >
                   <div className="placement-stat-value text-[32px] md:text-[36px] font-black text-white leading-none mb-1.5" data-target={stat.value} data-suffix={stat.suffix}>
                     0
