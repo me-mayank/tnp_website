@@ -64,7 +64,7 @@ export default function PlacementProcedure(): JSX.Element {
   // Explicitly type the ref for the div element
   const cardRef = useRef<HTMLDivElement | null>(null);
 
-  const themeClass: string = currentStep % 2 === 0 ? "theme-even" : "theme-odd";
+  const themeClass: string = "theme-even";
 
   useEffect(() => {
     const observer = new IntersectionObserver(

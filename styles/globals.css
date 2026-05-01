@@ -165,7 +165,7 @@ html {
   color: var(--text-dark);
   font-family: inherit;
   transition: background 0.35s ease;
-  background: var(--offwhite);
+  background: transparent;
   text-align: center;
 }
 
