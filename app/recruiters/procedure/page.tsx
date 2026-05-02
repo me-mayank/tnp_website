@@ -64,7 +64,7 @@ export default function PlacementProcedure(): JSX.Element {
   // Explicitly type the ref for the div element
   const cardRef = useRef<HTMLDivElement | null>(null);
 
-  const themeClass: string = currentStep % 2 === 0 ? "theme-even" : "theme-odd";
+  const themeClass: string = "theme-even";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -241,7 +241,7 @@ export default function PlacementProcedure(): JSX.Element {
             onClick={goPrevious}
             disabled={currentStep === 0 || animating}
           >
-            Previous Step
+            Previous
           </motion.button>
 
           <motion.button
@@ -252,7 +252,7 @@ export default function PlacementProcedure(): JSX.Element {
             onClick={goNext}
             disabled={currentStep === steps.length - 1 || animating}
           >
-            Next Step
+            Next
           </motion.button>
         </div>
       </motion.div>
