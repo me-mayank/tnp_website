@@ -240,8 +240,8 @@ export default function PastRecruiters() {
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {recruiterLogos.map((logo, index) => (
-                <div key={`${logo.src}-${index}`} className="w-full">
-                  <div className="group relative aspect-[4/3] w-full [perspective:1000px]">
+                <div key={`${logo.src}-${index}`} className="aspect-[4/3] w-full">
+                  <div className="group relative h-full w-full [perspective:1000px]">
                     <div className="relative h-full w-full rounded-xl transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
 
                       <div className="absolute inset-0 flex items-center justify-center rounded-xl border border-gray-100 bg-white p-3 shadow-sm [backface-visibility:hidden]">
@@ -250,18 +250,14 @@ export default function PastRecruiters() {
                           alt={logo.alt}
                           width={160}
                           height={100}
-                          loading="lazy"
                           className="max-h-16 w-auto object-contain sm:max-h-20"
-                          sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1280px) 20vw, 14vw"
                         />
                       </div>
 
-                      <div className="absolute inset-0 flex rotate-y-180 items-center justify-center rounded-xl border border-blue-950/10 bg-[linear-gradient(135deg,#10213e_0%,#1d3a6a_100%)] p-4 text-center text-white shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                        <div>
-                          <div className="text-2xl font-extrabold leading-none tracking-tight sm:text-3xl">
-                            {logo.recruitments}
-                          </div>
-                          <div className="mt-2 text-[10px] uppercase tracking-[0.18em] text-white/80 sm:text-xs">
+                      <div className="absolute inset-0 flex items-center justify-center rounded-xl border border-blue-950/10 bg-slate-900 text-white shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold">{logo.recruitments}</div>
+                          <div className="mt-1 text-xs uppercase tracking-wider text-white/80">
                             Recruitments
                           </div>
                         </div>
@@ -336,8 +332,8 @@ export default function PastRecruiters() {
                       >
                         <div
                           className={`group relative rounded-[26px] p-[1px] ${isActive
-                              ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
-                              : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
+                            ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
+                            : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
                             }`}
                         >
                           <div className="relative overflow-hidden rounded-2xl p-8 text-white border border-white/10 bg-[linear-gradient(135deg,#1e3354,#243b63)]">
@@ -413,8 +409,8 @@ export default function PastRecruiters() {
                     type="button"
                     onClick={() => setActiveIndex(index)}
                     className={`h-2.5 rounded-full transition-all duration-300 ${activeIndex === index
-                        ? "w-8 bg-blue-900"
-                        : "w-2.5 bg-blue-200 hover:bg-blue-400"
+                      ? "w-8 bg-blue-900"
+                      : "w-2.5 bg-blue-200 hover:bg-blue-400"
                       }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
