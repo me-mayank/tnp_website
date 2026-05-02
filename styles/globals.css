@@ -165,7 +165,7 @@ html {
   color: var(--text-dark);
   font-family: inherit;
   transition: background 0.35s ease;
-  background: var(--offwhite);
+  background: transparent;
   text-align: center;
 }
 
@@ -526,6 +526,21 @@ html {
 
   .flip-card,
   .flip-card-inner {
-    min-height: 360px;
+    min-height: 480px;
+  }
+
+  .flip-face {
+    padding: 28px 24px;
+    gap: 12px;
+  }
+
+  .flip-face h3 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .flip-face p {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }

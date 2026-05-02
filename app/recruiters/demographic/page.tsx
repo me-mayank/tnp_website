@@ -274,7 +274,7 @@ function OverallTab() {
           </div>
 
           <div className="inline-flex w-fit items-center rounded-full bg-[#f5f7fa] px-4 py-2 text-sm font-semibold text-[#123a6f] ring-1 ring-slate-200/70">
-            5 Academic Sessions
+            4 Academic Programmes
           </div>
         </div>
 
