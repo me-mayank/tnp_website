@@ -81,9 +81,9 @@ export default function AboutUsPage() {
 
   return (
     <>
-      <main className="bg-white py-20" id="about">
+      <main className="bg-white py-12" id="about">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h1 className="text-4xl font-extrabold text-brand-800">Training &amp; Placement Cell</h1>
             <p className="mt-4 text-muted max-w-3xl mx-auto leading-relaxed">
               The Placement Office at IET Lucknow is dedicated to connecting students with recruiters
@@ -92,7 +92,7 @@ export default function AboutUsPage() {
             </p>
           </div>
 
-          <div className="relative bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] shadow-glow-md rounded-3xl p-8 md:p-12 mb-20 overflow-hidden border border-[#e2e8f0]">
+          <div className="relative bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] shadow-glow-md rounded-3xl p-8 md:p-12 mb-12 overflow-hidden border border-[#e2e8f0]">
             {/* Animated SVG Border Two-Pointers Effect */}
             <motion.svg
               className="absolute inset-0 w-full h-full pointer-events-none"
@@ -158,7 +158,7 @@ export default function AboutUsPage() {
             </div>
           </div>
 
-          <div className="mt-16 relative">
+          <div className="mt-10 relative">
             <h2 className="text-3xl font-extrabold text-brand-800 mb-10 text-center">
               Facilities
             </h2>
@@ -228,7 +228,7 @@ export default function AboutUsPage() {
             </button>
           </div>
 
-          <section id="records" className="py-20 mt-10 bg-gray-50/50 rounded-3xl">
+          <section id="records" className="py-12 mt-8 bg-gray-50/50 rounded-3xl">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
               <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-brand-800">Past Impressive Records</h2>
