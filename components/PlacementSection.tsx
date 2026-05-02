@@ -253,7 +253,7 @@ const PlacementSection = () => {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ type: "ease", duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+                    transition={{ type: "tween", duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                     className="block lg:hidden w-full overflow-hidden"
                   >
                     <div className="pt-2 pb-2">
@@ -381,7 +381,7 @@ function PlacementOffersChart({ data }: { data: any[] }) {
   );
 
   useMotionValueEvent(valueSpring, "change", (latest) => {
-    setSpringValue(Math.round(latest));
+    setSpringValue(Math.round(Number(latest)));
   });
 
   return (
