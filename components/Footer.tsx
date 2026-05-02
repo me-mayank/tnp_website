@@ -1,85 +1,125 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#0B1A2E] text-white pt-20 pb-10 overflow-hidden">
+    <footer className="relative bg-[#0B1A2E] text-white pt-16 pb-10 overflow-hidden">
       {/* Decorative Top Border Glow */}
       <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-brand-accent/50 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
-          {/* Insights Column */}
-          <div className="lg:col-span-2 group/col">
-            <h4 className="text-white font-bold text-base mb-4 relative inline-block">
-              Insights
-              <span className="absolute -bottom-1.5 left-0 w-1/2 h-0.5 bg-brand-accent rounded-full transition-all duration-500 group-hover/col:w-full group-hover/col:shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
-            </h4>
-            <ul className="space-y-3 text-sm font-medium">
-              <li><Link href="/insights/aboutiet" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">About IET</Link></li>
-              <li><Link href="/insights/message" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">TPO&apos;s Message</Link></li>
-              <li><Link href="/insights/recruiters" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Past Recruiters</Link></li>
-            </ul>
-          </div>
+          {/* Left Section: Links and Map */}
+          <div className="lg:col-span-8 flex flex-col gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Insights Column */}
+              <div className="group/col">
+                <h4 className="text-white font-bold text-lg mb-6 relative inline-block">
+                  Insights
+                  <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-brand-accent rounded-full transition-all duration-500 group-hover/col:w-full group-hover/col:shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
+                </h4>
+                <ul className="space-y-4 text-[15px] font-medium text-white/70">
+                  <li><Link href="/insights/aboutiet" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">About IET</Link></li>
+                  <li><Link href="/insights/message" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">TPO&apos;s Message</Link></li>
+                  <li><Link href="/insights/recruiters" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Past Recruiters</Link></li>
+                </ul>
+              </div>
 
-          {/* For Recruiters Column */}
-          <div className="lg:col-span-3 group/col">
-            <h4 className="text-white font-bold text-base mb-4 relative inline-block">
-              For Recruiters
-              <span className="absolute -bottom-1.5 left-0 w-1/2 h-0.5 bg-brand-accent rounded-full transition-all duration-500 group-hover/col:w-full group-hover/col:shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
-            </h4>
-            <ul className="space-y-3 text-sm font-medium">
-              <li><Link href="/recruiters/procedure" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Procedure</Link></li>
-              <li><Link href="/recruiters/invitation" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Invitation</Link></li>
-              <li><Link href="/recruiters/contactform" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Company Contact Form</Link></li>
-              <li><Link href="/recruiters/demographic" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Statistics</Link></li>
-            </ul>
-          </div>
+              {/* For Recruiters Column */}
+              <div className="group/col">
+                <h4 className="text-white font-bold text-lg mb-6 relative inline-block">
+                  For Recruiters
+                  <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-brand-accent rounded-full transition-all duration-500 group-hover/col:w-full group-hover/col:shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
+                </h4>
+                <ul className="space-y-4 text-[15px] font-medium text-white/70">
+                  <li><Link href="/recruiters/procedure" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Procedure</Link></li>
+                  <li><Link href="/recruiters/invitation" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Invitation</Link></li>
+                  <li><Link href="/recruiters/contactform" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Company Contact Form</Link></li>
+                  <li><Link href="/recruiters/demographic" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Statistics</Link></li>
+                </ul>
+              </div>
 
-          {/* For Students Column */}
-          <div className="lg:col-span-3 group/col">
-            <h4 className="text-white font-bold text-base mb-4 relative inline-block">
-              For Students
-              <span className="absolute -bottom-1.5 left-0 w-1/2 h-0.5 bg-brand-accent rounded-full transition-all duration-500 group-hover/col:w-full group-hover/col:shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
-            </h4>
-            <ul className="space-y-3 text-sm font-medium">
-              <li><Link href="/files/Student_Placement_Policy.pdf" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Placement Policy</Link></li>
-              <li><Link href="/files/Internship_Guidelines.pdf" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Internship Guidelines</Link></li>
-              <li><Link href="/downloads" className="text-white/70 hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Downloads</Link></li>
-            </ul>
-          </div>
+              {/* For Students Column */}
+              <div className="group/col">
+                <h4 className="text-white font-bold text-lg mb-6 relative inline-block">
+                  For Students
+                  <span className="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-brand-accent rounded-full transition-all duration-500 group-hover/col:w-full group-hover/col:shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
+                </h4>
+                <ul className="space-y-4 text-[15px] font-medium text-white/70">
+                  <li><Link href="/files/Student_Placement_Policy.pdf" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Placement Policy</Link></li>
+                  <li><Link href="/files/Internship_Guidelines.pdf" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Internship Guidelines</Link></li>
+                  <li><Link href="/downloads" className="hover:text-brand-accent inline-block hover:translate-x-1.5 transition-all duration-300">Downloads</Link></li>
+                </ul>
+              </div>
+            </div>
 
-          {/* Contact Card */}
-          <div className="lg:col-span-4 group/card perspective-1000">
-            <div className="bg-gradient-to-br from-white/[0.08] to-transparent p-6 md:p-8 rounded-2xl border border-white/10 shadow-xl backdrop-blur-sm relative overflow-hidden h-full flex flex-col justify-center transition-all duration-500 hover:shadow-2xl hover:shadow-brand-900/20 hover:border-brand-accent/30 hover:-translate-y-1 hover:bg-white/[0.12]">
-              {/* Decorative circle */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-transform duration-700 group-hover/card:scale-150 animate-[pulse_4s_ease-in-out_infinite]"></div>
+            {/* Campus Map Section */}
+            <a 
+              href="https://www.google.com/maps/search/IET+Lucknow+226021" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="relative rounded-xl overflow-hidden border border-white/10 group cursor-pointer h-[160px] shadow-lg shadow-black/20 block"
+            >
+              <img 
+                src="/images/campus-map-minimal.png" 
+                alt="IET Lucknow Campus Map" 
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-90 group-hover:opacity-100" 
+              />
+              <div className="absolute inset-0 bg-[#0B1A2E]/40 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <h4 className="font-bold text-lg mb-3 text-white transition-transform duration-300 group-hover/card:translate-x-1">
+              {/* Hover Overlay Text */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-brand-900/40 backdrop-blur-[2px]">
+                <div className="bg-brand-accent text-brand-900 text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-500">
+                  Open in Google Maps
+                </div>
+              </div>
+
+              <div className="absolute bottom-4 left-5 flex items-center gap-3 transition-transform duration-500 group-hover:translate-x-1">
+                <div className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-accent"></span>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/90">IET Campus Location</span>
+                  <span className="text-[9px] text-white/50 font-medium tracking-tight">Lucknow - 226021</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          {/* Right Section: Contact Card */}
+          <div className="lg:col-span-4 group/card perspective-1000">
+            <div className="bg-gradient-to-br from-white/[0.08] to-transparent p-8 md:p-10 rounded-2xl border border-white/10 shadow-xl backdrop-blur-sm relative overflow-hidden h-full flex flex-col justify-center transition-all duration-500 hover:shadow-2xl hover:shadow-brand-900/20 hover:border-brand-accent/30 hover:-translate-y-1 hover:bg-white/[0.12]">
+              {/* Decorative circle */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-brand-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-transform duration-700 group-hover/card:scale-150 animate-[pulse_4s_ease-in-out_infinite]"></div>
+              
+              <h4 className="font-bold text-xl mb-4 text-white transition-transform duration-300 group-hover/card:translate-x-1">
                 Training & Placement Office
               </h4>
-              <p className="text-[13px] text-white/70 leading-relaxed mb-4 font-medium transition-transform duration-300 group-hover/card:translate-x-1">
+              <p className="text-[14px] text-white/70 leading-relaxed mb-6 font-medium transition-transform duration-300 group-hover/card:translate-x-1">
                 Lecture Theatre Building,<br />Institute of Engineering and Technology,<br />Lucknow - 226021
               </p>
 
-              <div className="space-y-3 text-[13px] font-medium">
-                <div className="flex items-center gap-2.5 group/email">
+              <div className="space-y-4 text-[14px] font-medium">
+                <a href="mailto:placement@ietlucknow.ac.in" className="flex items-center gap-2 text-white/80 hover:text-brand-accent group/email transition-all duration-300">
                   <div className="text-brand-accent transition-transform duration-300 group-hover/email:scale-110 group-hover/email:text-white">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                   </div>
-                  <a href="mailto:placement@ietlucknow.ac.in" className="text-white/80 hover:text-brand-accent hover:translate-x-1 transition-all duration-300">placement@ietlucknow.ac.in</a>
-                </div>
+                  <span className="group-hover/email:translate-x-1 transition-transform duration-300">placement@ietlucknow.ac.in</span>
+                </a>
 
-                <div className="pt-4 border-t border-white/10 transition-colors duration-500 group-hover/card:border-white/20">
-                  <div className="text-[12px] text-white/90 font-bold mb-1">Officer Incharge</div>
-                  <div className="text-[13px] text-white/70 mb-2">Dr. Arun Kumar Tiwari</div>
-                  <div className="flex items-center gap-2.5 group/email2">
+                <div className="pt-5 border-t border-white/10 transition-colors duration-500 group-hover/card:border-white/20">
+                  <div className="text-[13px] text-white/90 font-bold mb-1.5">Officer Incharge</div>
+                  <div className="text-[14px] text-white/70 mb-3">Dr. Arun Kumar Tiwari</div>
+                  <a href="mailto:aruntiwari@ietlucknow.ac.in" className="flex items-center gap-2 text-white/80 hover:text-brand-accent group/email2 transition-all duration-300">
                     <div className="text-brand-accent transition-transform duration-300 group-hover/email2:scale-110 group-hover/email2:text-white">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                      <svg className="w-4.5 h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     </div>
-                    <a href="mailto:aruntiwari@ietlucknow.ac.in" className="text-white/80 hover:text-brand-accent hover:translate-x-1 transition-all duration-300">aruntiwari@ietlucknow.ac.in</a>
-                  </div>
+                    <span className="group-hover/email2:translate-x-1 transition-transform duration-300">aruntiwari@ietlucknow.ac.in</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -87,8 +127,11 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-5">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-5 order-2 md:order-1">
+            <a href="mailto:placement@ietlucknow.ac.in" className="text-white/70 hover:text-brand-accent transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </a>
             <a href="https://www.facebook.com/ietplacementcell/" className="text-white/70 hover:text-brand-accent transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.5)]">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
             </a>
@@ -100,15 +143,21 @@ const Footer = () => {
             </a>
           </div>
           
-          <div className="text-xs text-white/50 font-medium text-center">
+          <div className="text-xs text-white/50 font-medium text-center order-3 md:order-2">
             © 2025 Institute of Engineering & Technology, Lucknow. All Rights Reserved.
           </div>
           
-          <div className="flex items-center text-xs font-medium group/top">
-            <a href="#top" className="flex items-center gap-2 text-white hover:text-brand-accent transition-colors bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full duration-300">
-              Go to Top
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover/top:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" /></svg>
-            </a>
+          <div className="flex items-center group/top order-1 md:order-3">
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="flex items-center gap-2 px-6 py-2.5 bg-brand-accent text-[#0B1A2E] rounded-full font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:bg-white hover:scale-105 shadow-[0_0_15px_rgba(56,189,248,0.3)] active:scale-95"
+            >
+              Back to Top
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover/top:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 15l7-7 7 7" /></svg>
+            </button>
           </div>
         </div>
       </div>

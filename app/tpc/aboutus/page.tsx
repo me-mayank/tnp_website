@@ -146,7 +146,6 @@ export default function AboutUsPage() {
                   <span className="ml-4 h-[2px] w-12 bg-brand-accent rounded-full inline-block"></span>
                 </h2>
                 <p className="text-muted text-base leading-relaxed text-justify relative">
-                  <span className="absolute -left-5 -top-3 text-4xl text-brand-accent/20 font-serif leading-none">&quot;</span>
                   The Placement Office is responsible for campus placement at IET Lucknow. The Placement-in-Charge,
                   the Assistant Placement Officer, the Placement Office staff and the student representatives handle
                   various crucial tasks like reaching out to companies, scheduling activities and managing all official
@@ -154,7 +153,6 @@ export default function AboutUsPage() {
                   The Placement Managers, Company Coordinators and Department Placement Coordinators ensure policies are
                   followed, recruiters are assisted, and students are industry-ready. The office is supported with excellent
                   infrastructure to handle every stage of the placement process smoothly.
-                  <span className="absolute -bottom-6 text-4xl text-brand-accent/20 font-serif leading-none rotate-180 inline-block translate-y-1 translate-x-3">&quot;</span>
                 </p>
               </div>
             </div>
