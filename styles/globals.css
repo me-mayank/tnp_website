@@ -66,6 +66,16 @@ body {
   to { box-shadow: 0 0 30px rgba(44, 116, 179, 0.8); }
 }
 
+@keyframes mail-float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-3px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.animate-mail {
+  animation: mail-float 2s ease-in-out infinite;
+}
+
 .slide-in-left {
   animation: slideInLeft 1s ease-out;
 }
