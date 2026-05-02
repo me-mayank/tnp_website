@@ -238,36 +238,31 @@ export default function PastRecruiters() {
               List of past recruiters&apos; logos
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
               {recruiterLogos.map((logo, index) => (
-                <div
-                  key={`${logo.src}-${index}`}
-                  className="h-36"
-                >
-                  <div className="flip-card">
-                    <div className="flip-card-inner">
-                      <div className="flip-card-front bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+                <div key={`${logo.src}-${index}`} className="aspect-[4/3] w-full">
+                  <div className="group relative h-full w-full [perspective:1000px]">
+                    <div className="relative h-full w-full rounded-xl transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+
+                      <div className="absolute inset-0 flex items-center justify-center rounded-xl border border-gray-100 bg-white p-3 shadow-sm [backface-visibility:hidden]">
                         <Image
                           src={logo.src}
                           alt={logo.alt}
-                          className="max-h-full max-w-full object-contain"
-                          width={200}
-                          height={144}
-                          sizes="(max-width: 640px) 40vw, (max-width: 1024px) 25vw, 16vw"
-                          loading="lazy"
+                          width={160}
+                          height={100}
+                          className="max-h-16 w-auto object-contain sm:max-h-20"
                         />
                       </div>
 
-                      <div className="flip-card-back border border-blue-950/10 shadow-lg">
-                        <div className="flip-card-back-content">
-                          <div className="flip-card-count">
-                            {logo.recruitments}
-                          </div>
-                          <div className="flip-card-label">
+                      <div className="absolute inset-0 flex items-center justify-center rounded-xl border border-blue-950/10 bg-slate-900 text-white shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                        <div className="text-center">
+                          <div className="text-2xl font-bold">{logo.recruitments}</div>
+                          <div className="mt-1 text-xs uppercase tracking-wider text-white/80">
                             Recruitments
                           </div>
                         </div>
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -336,11 +331,10 @@ export default function PastRecruiters() {
                         style={cardStyle}
                       >
                         <div
-                          className={`group relative rounded-[26px] p-[1px] ${
-                            isActive
-                              ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
-                              : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
-                          }`}
+                          className={`group relative rounded-[26px] p-[1px] ${isActive
+                            ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
+                            : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
+                            }`}
                         >
                           <div className="relative overflow-hidden rounded-2xl p-8 text-white border border-white/10 bg-[linear-gradient(135deg,#1e3354,#243b63)]">
                             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.10),transparent_30%)]" />
@@ -414,11 +408,10 @@ export default function PastRecruiters() {
                     key={index}
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
-                      activeIndex === index
-                        ? "w-8 bg-blue-900"
-                        : "w-2.5 bg-blue-200 hover:bg-blue-400"
-                    }`}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${activeIndex === index
+                      ? "w-8 bg-blue-900"
+                      : "w-2.5 bg-blue-200 hover:bg-blue-400"
+                      }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
