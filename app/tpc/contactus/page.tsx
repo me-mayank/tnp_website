@@ -172,7 +172,7 @@ function PersonCard({ person, large = false }: { person: Person; large?: boolean
       <div className="flex-1 min-w-0 text-center sm:text-left">
         <div className={`${roleText} font-extrabold text-brand-accent uppercase mb-2 opacity-90`}>{person.role}</div>
         <div className={`${nameText} text-brand-800 truncate group-hover:text-brand-700 leading-tight`}>{person.name}</div>
-        <div className={`${large ? "text-base mt-1" : "text-sm"} text-muted font-medium mb-3`}>{person.dept}</div>
+        <div className={`${large ? "text-base mt-1" : "text-sm"} text-slate-600 font-medium mb-3`}>{person.dept}</div>
         <div className="flex flex-wrap justify-center sm:justify-start gap-3">
           {person.email && (
             <div className="flex flex-col items-center gap-2">
@@ -260,7 +260,7 @@ export default function ContactUsPage() {
           <div className="mb-16 text-center">
             <h1 className="text-4xl font-extrabold text-brand-800 tracking-tight">Contact Us</h1>
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4 shadow-sm"></div>
-            <p className="mt-6 text-muted max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="mt-6 text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
               Find contact details of our T&amp;P Officer, co-ordinators and team members below.
             </p>
           </div>

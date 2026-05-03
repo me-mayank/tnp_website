@@ -125,10 +125,7 @@ export const InteractiveSelector: React.FC<InteractiveSelectorProps> = ({ option
                     })}
                 </div>
             ) : (
-                <div 
-                    className="flex w-full max-w-[1150px] h-[360px] sm:h-[420px] lg:h-[480px] mx-auto items-stretch overflow-hidden relative"
-                    style={{ overflowAnchor: 'none' }}
-                >
+                <div className="flex w-full max-w-[1150px] h-[360px] sm:h-[420px] lg:h-[480px] mx-auto items-stretch overflow-hidden relative">
                     {options.map((option, index) => {
                         const IconComponent = iconMap[option.icon as keyof typeof iconMap];
 
