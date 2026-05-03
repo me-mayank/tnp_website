@@ -1,0 +1,170 @@
+@keyframes cardEntrance {
+  0%   { opacity: 0; transform: translateY(24px) scale(0.94); }
+  100% { opacity: 1; transform: translateY(0px)  scale(1);    }
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes shimmerSweep {
+  0%   { left: -80%; opacity: 0;   }
+  20%  { opacity: 1;               }
+  80%  { opacity: 1;               }
+  100% { left: 120%; opacity: 0;   }
+}
+
+.card-wrapper {
+  height: 144px !important;
+  min-height: 144px !important;
+  max-height: 144px !important;
+  overflow: visible;
+  position: relative;
+  animation: cardEntrance 0.55s cubic-bezier(0.22, 1, 0.36, 1) both,
+             cardFloat 4s ease-in-out infinite;
+  animation-delay: var(--card-delay, 0ms), calc(var(--card-delay, 0ms) + 0.6s);
+}
+
+.card-wrapper:hover {
+  animation: cardEntrance 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--card-delay, 0ms);
+}
+
+.flip-card {
+  perspective: 1000px;
+  display: block;
+  width: 100%;
+  height: 144px !important;
+  min-height: 144px !important;
+  max-height: 144px !important;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 144px !important;
+  min-height: 144px !important;
+  max-height: 144px !important;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.07),
+    0 6px 20px rgba(0, 0, 0, 0.11),
+    0 14px 36px rgba(0, 0, 0, 0.08);
+}
+
+.card-wrapper:hover .flip-card-front {
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.10),
+    0 10px 28px rgba(0, 0, 0, 0.15),
+    0 22px 48px rgba(0, 0, 0, 0.11);
+}
+
+.flip-card-front::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.60) 50%,
+    transparent 70%
+  );
+  transform: skewX(-12deg);
+  animation: shimmerSweep 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.flip-card-back {
+  background: linear-gradient(145deg, #0f1e3d 0%, #1a3060 60%, #0d1a35 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  transform: rotateY(180deg);
+  z-index: 1;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.07),
+    0 6px 20px rgba(0, 0, 0, 0.11),
+    0 14px 36px rgba(0, 0, 0, 0.08);
+}
+
+.flip-card-back::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(99,102,241,0.24) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(59,130,246,0.20) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.flip-card-back-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.flip-card-count {
+  font-size: 1.75rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #ffffff 20%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px rgba(147, 197, 253, 0.55));
+}
+
+.flip-card-divider {
+  width: 32px;
+  height: 1.5px;
+  margin: 0.45rem auto;
+  background: linear-gradient(90deg, transparent, rgba(147, 197, 253, 0.75), transparent);
+  border-radius: 99px;
+}
+
+.flip-card-label {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.68);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .flip-card-count { font-size: 1.4rem; }
+  .flip-card-label { font-size: 0.68rem; }
+}

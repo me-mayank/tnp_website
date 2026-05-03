@@ -1,5 +1,6 @@
 "use client";
 
+import "./recruiters.css";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
@@ -106,15 +107,12 @@ export default function PastRecruiters() {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % recruiterTestimonials.length);
     }, 3500);
-
     return () => clearInterval(timer);
   }, []);
 
   const prevSlide = useCallback((): void => {
     setActiveIndex(
-      (prev) =>
-        (prev - 1 + recruiterTestimonials.length) %
-        recruiterTestimonials.length
+      (prev) => (prev - 1 + recruiterTestimonials.length) % recruiterTestimonials.length
     );
   }, []);
 
@@ -125,108 +123,16 @@ export default function PastRecruiters() {
   const getPosition = (index: number): number => {
     const total = recruiterTestimonials.length;
     let diff = index - activeIndex;
-
     if (diff > total / 2) diff -= total;
     if (diff < -total / 2) diff += total;
-
     return diff;
   };
 
   return (
     <div className="bg-white">
-      <style jsx>{`
-        .flip-card {
-          perspective: 1000px;
-          width: 100%;
-          height: 100%;
-        }
-
-        .flip-card-inner {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          transform-style: preserve-3d;
-          -webkit-transform-style: preserve-3d;
-          transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .flip-card:hover .flip-card-inner {
-          transform: rotateY(180deg);
-        }
-
-        .flip-card-front,
-        .flip-card-back {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-          border-radius: 0.75rem;
-          overflow: hidden;
-        }
-
-        .flip-card-front {
-          background: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .flip-card-back {
-          transform: rotateY(180deg);
-          background: linear-gradient(135deg, #10213e 0%, #1d3a6a 100%);
-          color: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          padding: 1rem;
-        }
-
-        .flip-card-back::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background:
-            radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 35%),
-            radial-gradient(circle at bottom right, rgba(96,165,250,0.18), transparent 38%);
-          pointer-events: none;
-        }
-
-        .flip-card-back-content {
-          position: relative;
-          z-index: 1;
-        }
-
-        .flip-card-count {
-          font-size: 1.6rem;
-          line-height: 1;
-          font-weight: 800;
-          letter-spacing: -0.04em;
-        }
-
-        .flip-card-label {
-          margin-top: 0.45rem;
-          font-size: 0.86rem;
-          color: rgba(255, 255, 255, 0.82);
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
-        }
-
-        @media (max-width: 640px) {
-          .flip-card-count {
-            font-size: 1.3rem;
-          }
-
-          .flip-card-label {
-            font-size: 0.76rem;
-          }
-        }
-      `}</style>
-
       <main className="bg-white py-20" id="recruiters">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
+
           <div className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-800">
               PAST RECRUITERS
@@ -238,35 +144,47 @@ export default function PastRecruiters() {
               List of past recruiters&apos; logos
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-              {recruiterLogos.map((logo, index) => (
-                <div key={`${logo.src}-${index}`} className="aspect-[4/3] w-full">
-                  <div className="group relative h-full w-full [perspective:1000px]">
-                    <div className="relative h-full w-full rounded-xl transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+            <div
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+              style={{ gridAutoRows: "144px", alignItems: "start" }}
+            >
+              {recruiterLogos.map((logo, index) => {
+                const delay = `${Math.min(index * 35, 800)}ms`;
 
-                      <div className="absolute inset-0 flex items-center justify-center rounded-xl border border-gray-100 bg-white p-3 shadow-sm [backface-visibility:hidden]">
-                        <Image
-                          src={logo.src}
-                          alt={logo.alt}
-                          width={160}
-                          height={100}
-                          className="max-h-16 w-auto object-contain sm:max-h-20"
-                        />
-                      </div>
+                return (
+                  <div
+                    key={`${logo.src}-${index}`}
+                    className="card-wrapper"
+                    style={{ "--card-delay": delay } as React.CSSProperties}
+                  >
+                    <div className="flip-card">
+                      <div className="flip-card-inner">
 
-                      <div className="absolute inset-0 flex items-center justify-center rounded-xl border border-blue-950/10 bg-slate-900 text-white shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold">{logo.recruitments}</div>
-                          <div className="mt-1 text-xs uppercase tracking-wider text-white/80">
-                            Recruitments
+                        <div className="flip-card-front">
+                          <Image
+                            src={logo.src}
+                            alt={logo.alt}
+                            className="max-h-full max-w-full object-contain relative z-10"
+                            width={200}
+                            height={120}
+                            sizes="(max-width: 640px) 40vw, (max-width: 1024px) 25vw, 16vw"
+                            loading="lazy"
+                          />
+                        </div>
+
+                        <div className="flip-card-back">
+                          <div className="flip-card-back-content">
+                            <div className="flip-card-count">{logo.recruitments}</div>
+                            <div className="flip-card-divider" />
+                            <div className="flip-card-label">Recruitments</div>
                           </div>
                         </div>
-                      </div>
 
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </section>
 
@@ -276,7 +194,6 @@ export default function PastRecruiters() {
                 <p className="text-xs tracking-[0.28em] uppercase text-slate-600 mb-2">
                   Shared Perspectives
                 </p>
-
                 <h2 className="text-4xl font-bold text-slate-700">
                   Voices of Recruiters
                 </h2>
@@ -291,37 +208,16 @@ export default function PastRecruiters() {
                     const isActive = position === 0;
 
                     let cardStyle: React.CSSProperties = {};
-
                     if (position === 0) {
-                      cardStyle = {
-                        transform: "translateX(0px) scale(1) rotateY(0deg)",
-                        opacity: 1,
-                        zIndex: 30,
-                      };
+                      cardStyle = { transform: "translateX(0px) scale(1) rotateY(0deg)", opacity: 1, zIndex: 30 };
                     } else if (position === -1) {
-                      cardStyle = {
-                        transform: "translateX(-76%) scale(0.92) rotateY(16deg)",
-                        opacity: 0.96,
-                        zIndex: 20,
-                      };
+                      cardStyle = { transform: "translateX(-76%) scale(0.92) rotateY(16deg)", opacity: 0.96, zIndex: 20 };
                     } else if (position === 1) {
-                      cardStyle = {
-                        transform: "translateX(76%) scale(0.92) rotateY(-16deg)",
-                        opacity: 0.96,
-                        zIndex: 20,
-                      };
+                      cardStyle = { transform: "translateX(76%) scale(0.92) rotateY(-16deg)", opacity: 0.96, zIndex: 20 };
                     } else if (position < 0) {
-                      cardStyle = {
-                        transform: "translateX(-102%) scale(0.82) rotateY(18deg)",
-                        opacity: 0,
-                        zIndex: 10,
-                      };
+                      cardStyle = { transform: "translateX(-102%) scale(0.82) rotateY(18deg)", opacity: 0, zIndex: 10 };
                     } else {
-                      cardStyle = {
-                        transform: "translateX(102%) scale(0.82) rotateY(-18deg)",
-                        opacity: 0,
-                        zIndex: 10,
-                      };
+                      cardStyle = { transform: "translateX(102%) scale(0.82) rotateY(-18deg)", opacity: 0, zIndex: 10 };
                     }
 
                     return (
@@ -331,22 +227,18 @@ export default function PastRecruiters() {
                         style={cardStyle}
                       >
                         <div
-                          className={`group relative rounded-[26px] p-[1px] ${isActive
-                            ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
-                            : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
-                            }`}
+                          className={`group relative rounded-[26px] p-[1px] ${
+                            isActive
+                              ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
+                              : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
+                          }`}
                         >
                           <div className="relative overflow-hidden rounded-2xl p-8 text-white border border-white/10 bg-[linear-gradient(135deg,#1e3354,#243b63)]">
                             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.10),transparent_30%)]" />
                             <div className="pointer-events-none absolute inset-[1px] rounded-2xl border border-white/5" />
 
                             <div className="relative z-10 flex items-center justify-between gap-3 mb-5">
-                              <img
-                                src={item.companyLogo}
-                                alt={`${item.company} logo`}
-                                className="h-7 object-contain brightness-110"
-                              />
-
+                              <img src={item.companyLogo} alt={`${item.company} logo`} className="h-7 object-contain brightness-110" />
                               <span className="rounded-full border border-white/10 bg-white/10 px-3.5 py-1.5 text-[11px] font-medium text-white/85 backdrop-blur-sm">
                                 {item.role}
                               </span>
@@ -365,14 +257,8 @@ export default function PastRecruiters() {
                               <h3 className="text-[2rem] leading-none font-extrabold tracking-[-0.04em] text-white">
                                 {item.name}
                               </h3>
-
-                              <p className="mt-2 text-[15px] text-white/75">
-                                {item.role}
-                              </p>
-
-                              <p className="mt-5 text-[15px] leading-8 text-white/85">
-                                {`"${item.text}"`}
-                              </p>
+                              <p className="mt-2 text-[15px] text-white/75">{item.role}</p>
+                              <p className="mt-5 text-[15px] leading-8 text-white/85">{`"${item.text}"`}</p>
                             </div>
 
                             <div className="pointer-events-none absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
@@ -388,18 +274,14 @@ export default function PastRecruiters() {
                   type="button"
                   className="absolute left-2 md:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-40 h-12 w-12 rounded-full border border-blue-900/10 bg-white/90 backdrop-blur shadow-md text-blue-900 text-xl hover:scale-105 transition"
                   aria-label="Previous testimonial"
-                >
-                  ←
-                </button>
+                >←</button>
 
                 <button
                   onClick={nextSlide}
                   type="button"
                   className="absolute right-2 md:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-40 h-12 w-12 rounded-full border border-blue-900/10 bg-white/90 backdrop-blur shadow-md text-blue-900 text-xl hover:scale-105 transition"
                   aria-label="Next testimonial"
-                >
-                  →
-                </button>
+                >→</button>
               </div>
 
               <div className="mt-10 flex justify-center gap-3">
@@ -408,16 +290,16 @@ export default function PastRecruiters() {
                     key={index}
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${activeIndex === index
-                      ? "w-8 bg-blue-900"
-                      : "w-2.5 bg-blue-200 hover:bg-blue-400"
-                      }`}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      activeIndex === index ? "w-8 bg-blue-900" : "w-2.5 bg-blue-200 hover:bg-blue-400"
+                    }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
             </div>
           </section>
+
         </div>
       </main>
     </div>
