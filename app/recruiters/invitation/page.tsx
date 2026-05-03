@@ -107,7 +107,7 @@ function HeroSection(): JSX.Element {
 
 function Letter(): JSX.Element {
   return (
-    <section className="relative -mt-[40vh] md:-mt-[30vh] z-10 px-4 md:px-6 mb-32">
+    <section className="relative -mt-[40vh] md:-mt-[30vh] z-10 px-4 md:px-6 mb-10">
       <div className="max-w-6xl mx-auto">
         <div className="bg-[#efeee9] border border-black/10 rounded-[26px] shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:p-14 px-2">
           <div className="relative max-w-5xl mx-auto w-full bg-white border border-gray-300 rounded-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.05)] px-6 sm:px-8 md:px-12 py-8 md:py-10 overflow-hidden">
@@ -244,204 +244,6 @@ function Letter(): JSX.Element {
 }
 
 // =============================================================================
-// RECRUITERS SECTION
-// =============================================================================
-
-function Recruiters(): JSX.Element {
-  const recruiterRows: RecruiterKey[][] = [
-    ["adobe", "amazon", "arcad", "ashok", "atlassian"],
-    ["bajaj", "bharatelectronics", "birlasoft", "bny", "capgemini"],
-    ["cisco", "cognizant", "dlf", "eicher", "ericsson"],
-    ["escorts", "essar", "forbes", "gainsight", "goldman"],
-    ["google", "groupon", "hcl", "hero", "honda"],
-    ["hul", "ibm-logo-hd", "infosys", "InMobi", "inox"],
-    ["Intuit", "jaroeducation", "lntinfotech", "LT", "mahindra"],
-    ["meesho", "microsoft", "morgan", "newgen", "oracle"],
-    ["paytm", "persistant", "prism", "rippling", "salesforce"],
-    ["samsung", "servicenow", "shapoorji", "slice", "soti"],
-    ["tactai", "tata_motors", "tcs", "torrent", "uber"],
-    ["unacademy", "upstox", "usefulbi", "volvo", "wayfair"],
-    ["wipro", "zeta", "zomato", "zs", "zscaler"],
-  ];
-
-  const recruiterLogos: Record<RecruiterKey, string> = {
-    adobe: "adobe.png",
-    amazon: "amazon.png",
-    arcad: "arcad.png",
-    ashok: "ashok.png",
-    atlassian: "atlassian.png",
-    bajaj: "bajaj.jpg",
-    bharatelectronics: "bharatelectronics.png",
-    birlasoft: "birlasoft.png",
-    bny: "bny.png",
-    capgemini: "capgemini.png",
-    cisco: "cisco.png",
-    cognizant: "cognizant.jpg",
-    dlf: "dlf.png",
-    eicher: "eicher.png",
-    ericsson: "ericsson.png",
-    escorts: "escorts.jpg",
-    essar: "essar.png",
-    forbes: "forbes.png",
-    gainsight: "gainsight.png",
-    goldman: "goldman.png",
-    google: "google.png",
-    groupon: "groupon.png",
-    hcl: "hcl.png",
-    hero: "hero.png",
-    honda: "honda.svg",
-    hul: "hul.png",
-    "ibm-logo-hd": "ibm-logo-hd.png",
-    infosys: "infosys.jpg",
-    InMobi: "InMobi.png",
-    inox: "inox.jpg",
-    Intuit: "Intuit.png",
-    jaroeducation: "jaroeducation.png",
-    lntinfotech: "lntinfotech.jpg",
-    LT: "LT.avif",
-    mahindra: "mahindra.png",
-    meesho: "meesho.webp",
-    microsoft: "microsoft.png",
-    morgan: "morgan.png",
-    newgen: "newgen.avif",
-    oracle: "oracle.png",
-    paytm: "paytm.png",
-    persistant: "persistant.png",
-    prism: "prism.png",
-    rippling: "rippling.png",
-    salesforce: "salesforce.png",
-    samsung: "samsung.svg",
-    servicenow: "servicenow.png",
-    shapoorji: "shapoorji.png",
-    slice: "slice.jpg",
-    soti: "soti.png",
-    tactai: "tactai.png",
-    tata_motors: "tata_motors.png",
-    tcs: "tcs.png",
-    torrent: "torrent.png",
-    uber: "uber.svg",
-    unacademy: "unacademy.png",
-    upstox: "upstox.png",
-    usefulbi: "usefulbi.png",
-    volvo: "volvo.png",
-    wayfair: "wayfair.png",
-    wipro: "wipro.png",
-    zeta: "zeta.png",
-    zomato: "zomato.png",
-    zs: "zs.png",
-    zscaler: "zscaler.svg",
-  };
-
-  const [visibleRows, setVisibleRows] = useState<number>(1);
-
-  const showMore = useCallback((): void => {
-    setVisibleRows((prev) =>
-      prev < recruiterRows.length ? prev + 1 : prev
-    );
-  }, [recruiterRows.length]);
-
-  const showLess = useCallback((): void => {
-    setVisibleRows(1);
-  }, []);
-
-  const isLastRowVisible = visibleRows === recruiterRows.length;
-
-  return (
-    <section className="py-24 border-blue-900/10">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold text-slate-700">
-            Our Esteemed Recruiters
-          </h2>
-          <p className="text-gray-500 mt-2">
-            Trusted by leading global organizations
-          </p>
-        </div>
-
-        <div className="space-y-8 py-4 overflow-visible">
-          {recruiterRows.slice(0, visibleRows).map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className="grid grid-cols-2 md:grid-cols-5 gap-6 animate-fadeIn overflow-visible"
-            >
-              {row.map((name, i) => {
-                const fileName = recruiterLogos[name];
-
-                return (
-                  <div
-                    key={`${name}-${i}`}
-                    className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-blue-500/20 via-transparent to-purple-500/20 transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-[1.04] hover:z-20"
-                  >
-                    <div className="relative min-h-[110px] bg-white/70 backdrop-blur-xl border border-blue-900/10 rounded-2xl p-6 flex items-center justify-center overflow-hidden transition-all duration-500 group-hover:shadow-[0_25px_60px_rgba(0,33,71,0.2)] group-hover:border-blue-900/30">
-                      <span className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-blue-200/40 via-white to-purple-200/40 blur-2xl transition-all duration-700" />
-
-                      <span className="absolute inset-0 overflow-hidden">
-                        <span className="absolute -left-1/2 top-0 h-full w-1/2 bg-white/30 blur-md rotate-12 translate-x-[-100%] group-hover:translate-x-[300%] transition-transform duration-1000" />
-                      </span>
-
-                      <img
-                        src={`/images/pastRecruiter/${fileName}`}
-                        alt={`${name} logo`}
-                        className="relative z-10 h-16 md:h-20 w-full max-w-[180px] object-contain  opacity-70 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          ))}
-        </div>
-
-        <div className="flex justify-center mt-12">
-          {!isLastRowVisible ? (
-            <button
-              onClick={showMore}
-              type="button"
-              className="flex flex-col items-center text-blue-900 hover:opacity-70 transition"
-              aria-label="Show more recruiters"
-            >
-              <span className="text-xs uppercase tracking-widest">
-                View More
-              </span>
-              <span className="text-3xl animate-bounce">⌄</span>
-            </button>
-          ) : (
-            <button
-              onClick={showLess}
-              type="button"
-              className="flex flex-col items-center text-blue-900 hover:opacity-70 transition"
-              aria-label="Show less recruiters"
-            >
-              <span className="text-xs uppercase tracking-widest">
-                View Less
-              </span>
-              <span className="text-3xl">⌃</span>
-            </button>
-          )}
-        </div>
-      </div>
-
-      <style jsx>{`
-        .animate-fadeIn {
-          animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(14px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
-    </section>
-  );
-}
-
-// =============================================================================
 // TESTIMONIALS SECTION
 // =============================================================================
 
@@ -523,7 +325,7 @@ function Testimonials(): JSX.Element {
   };
 
   return (
-    <section className="py-24 overflow-hidden">
+    <section className="py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between  gap-8 ">
           <div>
@@ -628,7 +430,7 @@ function Testimonials(): JSX.Element {
                           </p>
 
                           <p className="mt-5 text-[15px] leading-8 text-white/85">
-                            {`"${item.text}"`}
+                            &quot;{item.text}&quot;
                           </p>
                         </div>
 
@@ -689,7 +491,6 @@ export default function PlacementPage(): JSX.Element {
     <>
       <HeroSection />
       <Letter />
-      <Recruiters />
       <Testimonials />
     </>
   );
