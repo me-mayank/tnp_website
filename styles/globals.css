@@ -148,6 +148,48 @@ body {
   animation: scroll 30s linear infinite;
 }
 
+.nav-link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #2C74B3; /* brand-accent */
+  transition: width 0.3s ease;
+  border-radius: 99px;
+}
+
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+.dropdown-link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #2C74B3; /* brand-accent */
+  transition: width 0.3s ease;
+  border-radius: 99px;
+}
+
+.dropdown-link-underline:hover::after {
+  width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
 }

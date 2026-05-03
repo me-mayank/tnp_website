@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 mt-4 mb-2 sticky top-4 z-[100] pointer-events-none">
-        <header id="top" className={`mx-auto max-w-7xl pointer-events-auto backdrop-blur-xl bg-white/80 border border-white/50 shadow-xl shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
+        <header id="top" className={`mx-auto max-w-7xl pointer-events-auto backdrop-blur-xl bg-white/80 border border-brand-800/40 shadow-xl shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-2 sm:py-3">
             <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
@@ -40,30 +40,30 @@ export default function Header() {
 
             {/* DESKTOP NAV */}
             <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold relative">
-              <Link href="/tpc/aboutus" className="text-brand-900/70 hover:text-brand-accent transition-colors">
+              <Link href="/tpc/aboutus" className="text-brand-900/70 hover:text-brand-accent transition-colors nav-link-underline">
                 About Us
               </Link>
 
               {/* INSIGHTS DROPDOWN */}
               <div className="relative group">
                 <button className="inline-flex items-center gap-1.5 text-brand-900/70 hover:text-brand-accent transition-colors">
-                  INSIGHTS
+                  <span className="nav-link-underline uppercase">INSIGHTS</span>
                   <svg className="w-4 h-4 text-brand-900/40 group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
 
-                <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-[280px] bg-white/95 backdrop-blur-md border border-white shadow-2xl rounded-2xl z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-[280px] bg-white/95 backdrop-blur-md border-2 border-brand-accent/20 shadow-2xl rounded-2xl z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   <div className="absolute inset-x-0 -top-4 h-4 bg-transparent"></div>
                   <div className="p-2 space-y-1">
                     <Link href="/insights/aboutiet" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      ABOUT IET
+                      <span className="dropdown-link-underline">ABOUT IET</span>
                     </Link>
                     <Link href="/insights/message" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      MESSAGE
+                      <span className="dropdown-link-underline">MESSAGE</span>
                     </Link>
                     <Link href="/insights/recruiters" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      PAST RECRUITERS
+                      <span className="dropdown-link-underline">PAST RECRUITERS</span>
                     </Link>
                   </div>
                 </div>
@@ -72,48 +72,48 @@ export default function Header() {
               {/* RECRUITER DROPDOWN */}
               <div className="relative group">
                 <button className="inline-flex items-center gap-1.5 text-brand-900/70 hover:text-brand-accent transition-colors">
-                  FOR RECRUITER
+                  <span className="nav-link-underline uppercase">FOR RECRUITER</span>
                   <svg className="w-4 h-4 text-brand-900/40 group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
 
-                <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-[340px] bg-white/95 backdrop-blur-md border border-white shadow-2xl rounded-2xl z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-[340px] bg-white/95 backdrop-blur-md border-2 border-brand-accent/20 shadow-2xl rounded-2xl z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   <div className="absolute inset-x-0 -top-4 h-4 bg-transparent"></div>
                   <div className="p-2 space-y-1">
                     <Link href="/recruiters/invitation" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      INVITATION
+                      <span className="dropdown-link-underline">INVITATION</span>
                     </Link>
                     <Link href="/recruiters/procedure" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      PROCEDURE
+                      <span className="dropdown-link-underline">PROCEDURE</span>
                     </Link>
                     <Link href="/recruiters/contactform" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      COMPANY CONTACT FORM
+                      <span className="dropdown-link-underline">COMPANY CONTACT FORM</span>
                     </Link>
                     <Link href="/recruiters/demographic" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      STATISTICS
+                      <span className="dropdown-link-underline">STATISTICS</span>
                     </Link>
 
                     <div className="pt-3 pb-1 mt-2 border-t border-gray-100">
                       <div className="text-[10px] font-bold tracking-widest text-brand-accent/60 mb-2 px-4 uppercase">Downloads</div>
                       <a href="/files/Placement_Brouchure_2025-26.pdf" className="block px-4 py-2 hover:bg-brand-50 rounded-xl text-sm text-brand-700 transition-colors">
-                        Placement Brochure
+                        <span className="dropdown-link-underline text-xs">Placement Brochure</span>
                       </a>
                       <a href="/files/JNF_IET_Lucknow_2025-26.docx" className="block px-4 py-2 hover:bg-brand-50 rounded-xl text-sm text-brand-700 transition-colors">
-                        Job Notification Form
+                        <span className="dropdown-link-underline text-xs">Job Notification Form</span>
                       </a>
                       <a href="/files/Company_Guidlines_21-22.pdf" className="block px-4 py-2 hover:bg-brand-50 rounded-xl text-sm text-brand-700 transition-colors">
-                        Company Guidelines
+                        <span className="dropdown-link-underline text-xs">Company Guidelines</span>
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <Link href="/gallery" className="text-brand-900/70 hover:text-brand-accent transition-colors">
+              <Link href="/gallery" className="text-brand-900/70 hover:text-brand-accent transition-colors nav-link-underline">
                 Gallery
               </Link>
-              <Link href="/downloads" className="text-brand-900/70 hover:text-brand-accent transition-colors">
+              <Link href="/downloads" className="text-brand-900/70 hover:text-brand-accent transition-colors nav-link-underline">
                 Downloads
               </Link>
               <Link href="/tpc/contactus" className="ml-2 bg-gradient-to-r from-brand-700 to-brand-800 hover:from-brand-600 hover:to-brand-700 text-white px-6 py-2.5 rounded-full shadow-lg shadow-brand-800/20 transform hover:-translate-y-0.5 transition-all">
