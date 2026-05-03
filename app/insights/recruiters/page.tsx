@@ -1,8 +1,9 @@
 "use client";
- 
+
+import "./recruiters.css";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
- 
+
 const recruiterLogos = [
   { src: "/images/pastRecruiter/dlf.png", alt: "DLF logo", recruitments: 48 },
   { src: "/images/pastRecruiter/zeta.png", alt: "Zeta logo", recruitments: 22 },
@@ -71,7 +72,7 @@ const recruiterLogos = [
   { src: "/images/pastRecruiter/lntinfotech.jpg", alt: "L&T Infotech logo", recruitments: 41 },
   { src: "/images/pastRecruiter/usefulbi.png", alt: "UsefulBI logo", recruitments: 8 },
 ];
- 
+
 const recruiterTestimonials = [
   {
     name: "Sarah Chen",
@@ -99,199 +100,26 @@ const recruiterTestimonials = [
   },
 ];
 
-const recruiterStyles = `
-  @keyframes cardEntrance {
-    0%   { opacity: 0; transform: translateY(24px) scale(0.94); }
-    100% { opacity: 1; transform: translateY(0px)  scale(1);    }
-  }
-
-  @keyframes cardFloat {
-    0%, 100% { transform: translateY(0px);  }
-    50%       { transform: translateY(-5px); }
-  }
-
-  @keyframes shimmerSweep {
-    0%   { left: -80%; opacity: 0;   }
-    20%  { opacity: 1;               }
-    80%  { opacity: 1;               }
-    100% { left: 120%; opacity: 0;   }
-  }
-
-  .card-wrapper {
-    height: 144px !important;
-    min-height: 144px !important;
-    max-height: 144px !important;
-    overflow: visible;
-    position: relative;
-    animation: cardEntrance 0.55s cubic-bezier(0.22, 1, 0.36, 1) both,
-               cardFloat 4s ease-in-out infinite;
-    animation-delay: var(--card-delay, 0ms), calc(var(--card-delay, 0ms) + 0.6s);
-  }
-
-  .card-wrapper:hover {
-    animation: cardEntrance 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: var(--card-delay, 0ms);
-  }
-
-  .flip-card {
-    perspective: 1000px;
-    display: block;
-    width: 100%;
-    height: 144px !important;
-    min-height: 144px !important;
-    max-height: 144px !important;
-  }
-
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 144px !important;
-    min-height: 144px !important;
-    max-height: 144px !important;
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
-    transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 14px;
-    overflow: hidden;
-  }
-
-  .flip-card-front {
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    z-index: 1;
-    box-shadow:
-      0 2px 6px rgba(0, 0, 0, 0.07),
-      0 6px 20px rgba(0, 0, 0, 0.11),
-      0 14px 36px rgba(0, 0, 0, 0.08);
-  }
-
-  .card-wrapper:hover .flip-card-front {
-    box-shadow:
-      0 4px 10px rgba(0, 0, 0, 0.10),
-      0 10px 28px rgba(0, 0, 0, 0.15),
-      0 22px 48px rgba(0, 0, 0, 0.11);
-  }
-
-  .flip-card-front::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -80%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-      105deg,
-      transparent 30%,
-      rgba(255, 255, 255, 0.60) 50%,
-      transparent 70%
-    );
-    transform: skewX(-12deg);
-    animation: shimmerSweep 3.8s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .flip-card-back {
-    background: linear-gradient(145deg, #0f1e3d 0%, #1a3060 60%, #0d1a35 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1rem;
-    transform: rotateY(180deg);
-    z-index: 1;
-    box-shadow:
-      0 2px 6px rgba(0, 0, 0, 0.07),
-      0 6px 20px rgba(0, 0, 0, 0.11),
-      0 14px 36px rgba(0, 0, 0, 0.08);
-  }
-
-  .flip-card-back::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 20%, rgba(99,102,241,0.24) 0%, transparent 55%),
-      radial-gradient(ellipse at 80% 80%, rgba(59,130,246,0.20) 0%, transparent 55%);
-    pointer-events: none;
-  }
-
-  .flip-card-back-content {
-    position: relative;
-    z-index: 2;
-    color: white;
-  }
-
-  .flip-card-count {
-    font-size: 1.75rem;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    background: linear-gradient(135deg, #ffffff 20%, #93c5fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 10px rgba(147, 197, 253, 0.55));
-  }
-
-  .flip-card-divider {
-    width: 32px;
-    height: 1.5px;
-    margin: 0.45rem auto;
-    background: linear-gradient(90deg, transparent, rgba(147, 197, 253, 0.75), transparent);
-    border-radius: 99px;
-  }
-
-  .flip-card-label {
-    font-size: 0.76rem;
-    color: rgba(255, 255, 255, 0.68);
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  @media (max-width: 640px) {
-    .flip-card-count { font-size: 1.4rem; }
-    .flip-card-label { font-size: 0.68rem; }
-  }
-`;
- 
 export default function PastRecruiters() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
- 
+
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % recruiterTestimonials.length);
     }, 3500);
     return () => clearInterval(timer);
   }, []);
- 
+
   const prevSlide = useCallback((): void => {
     setActiveIndex(
       (prev) => (prev - 1 + recruiterTestimonials.length) % recruiterTestimonials.length
     );
   }, []);
- 
+
   const nextSlide = useCallback((): void => {
     setActiveIndex((prev) => (prev + 1) % recruiterTestimonials.length);
   }, []);
- 
+
   const getPosition = (index: number): number => {
     const total = recruiterTestimonials.length;
     let diff = index - activeIndex;
@@ -299,59 +127,67 @@ export default function PastRecruiters() {
     if (diff < -total / 2) diff += total;
     return diff;
   };
- 
+
   return (
     <div className="bg-white">
-      <style dangerouslySetInnerHTML={{ __html: recruiterStyles }} />
- 
       <main className="bg-white py-20" id="recruiters">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
- 
+
           <div className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl font-extrabold text-brand-800">
               PAST RECRUITERS
             </h1>
           </div>
- 
+
           <section aria-labelledby="past-recruiters" className="mt-8">
             <div id="past-recruiters" className="sr-only">
               List of past recruiters&apos; logos
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
-              {recruiterLogos.map((logo, index) => (
-                <div key={`${logo.src}-${index}`} className="aspect-[4/3] w-full">
-                  <div className="group relative h-full w-full [perspective:1000px]">
-                    <div className="relative h-full w-full rounded-xl transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+            <div
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+              style={{ gridAutoRows: "144px", alignItems: "start" }}
+            >
+              {recruiterLogos.map((logo, index) => {
+                const delay = `${Math.min(index * 35, 800)}ms`;
 
-                      <div className="absolute inset-0 flex items-center justify-center rounded-xl border border-gray-100 bg-white p-3 shadow-sm [backface-visibility:hidden]">
-                        <Image
-                          src={logo.src}
-                          alt={logo.alt}
-                          width={160}
-                          height={100}
-                          className="max-h-16 w-auto object-contain sm:max-h-20"
-                        />
-                      </div>
+                return (
+                  <div
+                    key={`${logo.src}-${index}`}
+                    className="card-wrapper"
+                    style={{ "--card-delay": delay } as React.CSSProperties}
+                  >
+                    <div className="flip-card">
+                      <div className="flip-card-inner">
 
-                      <div className="absolute inset-0 flex items-center justify-center rounded-xl border border-blue-950/10 bg-slate-900 text-white shadow-lg [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold">{logo.recruitments}</div>
-                          <div className="mt-1 text-xs uppercase tracking-wider text-white/80">
-                            Recruitments
+                        <div className="flip-card-front">
+                          <Image
+                            src={logo.src}
+                            alt={logo.alt}
+                            className="max-h-full max-w-full object-contain relative z-10"
+                            width={200}
+                            height={120}
+                            sizes="(max-width: 640px) 40vw, (max-width: 1024px) 25vw, 16vw"
+                            loading="lazy"
+                          />
+                        </div>
+
+                        <div className="flip-card-back">
+                          <div className="flip-card-back-content">
+                            <div className="flip-card-count">{logo.recruitments}</div>
+                            <div className="flip-card-divider" />
+                            <div className="flip-card-label">Recruitments</div>
                           </div>
                         </div>
- 
-                      </div>
 
+                      </div>
                     </div>
                   </div>
                 );
               })}
             </div>
           </section>
- 
-          {/* ── TESTIMONIALS CAROUSEL ─────────────────────────── */}
+
           <section className="py-40 overflow-hidden">
             <div className="flex flex-col md:flex-row justify-between mb-10 gap-8">
               <div className="text-left">
@@ -363,14 +199,14 @@ export default function PastRecruiters() {
                 </h2>
               </div>
             </div>
- 
+
             <div className="relative max-w-6xl mx-auto">
               <div className="relative h-[560px] md:h-[590px] flex items-center justify-center">
                 <div className="relative w-full h-full flex items-center justify-center [perspective:2000px]">
                   {recruiterTestimonials.map((item, index) => {
                     const position = getPosition(index);
                     const isActive = position === 0;
- 
+
                     let cardStyle: React.CSSProperties = {};
                     if (position === 0) {
                       cardStyle = { transform: "translateX(0px) scale(1) rotateY(0deg)", opacity: 1, zIndex: 30 };
@@ -383,7 +219,7 @@ export default function PastRecruiters() {
                     } else {
                       cardStyle = { transform: "translateX(102%) scale(0.82) rotateY(-18deg)", opacity: 0, zIndex: 10 };
                     }
- 
+
                     return (
                       <div
                         key={`${item.name}-${index}`}
@@ -391,22 +227,23 @@ export default function PastRecruiters() {
                         style={cardStyle}
                       >
                         <div
-                          className={`group relative rounded-[26px] p-[1px] ${isActive
-                            ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
-                            : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
-                            }`}
+                          className={`group relative rounded-[26px] p-[1px] ${
+                            isActive
+                              ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
+                              : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
+                          }`}
                         >
                           <div className="relative overflow-hidden rounded-2xl p-8 text-white border border-white/10 bg-[linear-gradient(135deg,#1e3354,#243b63)]">
                             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.10),transparent_30%)]" />
                             <div className="pointer-events-none absolute inset-[1px] rounded-2xl border border-white/5" />
- 
+
                             <div className="relative z-10 flex items-center justify-between gap-3 mb-5">
                               <img src={item.companyLogo} alt={`${item.company} logo`} className="h-7 object-contain brightness-110" />
                               <span className="rounded-full border border-white/10 bg-white/10 px-3.5 py-1.5 text-[11px] font-medium text-white/85 backdrop-blur-sm">
                                 {item.role}
                               </span>
                             </div>
- 
+
                             <div className="relative z-10 mb-5 overflow-hidden rounded-xl border border-white/10 bg-black/10">
                               <img
                                 src={item.img}
@@ -415,7 +252,7 @@ export default function PastRecruiters() {
                               />
                               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                             </div>
- 
+
                             <div className="relative z-10">
                               <h3 className="text-[2rem] leading-none font-extrabold tracking-[-0.04em] text-white">
                                 {item.name}
@@ -423,7 +260,7 @@ export default function PastRecruiters() {
                               <p className="mt-2 text-[15px] text-white/75">{item.role}</p>
                               <p className="mt-5 text-[15px] leading-8 text-white/85">{`"${item.text}"`}</p>
                             </div>
- 
+
                             <div className="pointer-events-none absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
                           </div>
                         </div>
@@ -431,14 +268,14 @@ export default function PastRecruiters() {
                     );
                   })}
                 </div>
- 
+
                 <button
                   onClick={prevSlide}
                   type="button"
                   className="absolute left-2 md:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-40 h-12 w-12 rounded-full border border-blue-900/10 bg-white/90 backdrop-blur shadow-md text-blue-900 text-xl hover:scale-105 transition"
                   aria-label="Previous testimonial"
                 >←</button>
- 
+
                 <button
                   onClick={nextSlide}
                   type="button"
@@ -446,24 +283,23 @@ export default function PastRecruiters() {
                   aria-label="Next testimonial"
                 >→</button>
               </div>
- 
+
               <div className="mt-10 flex justify-center gap-3">
                 {recruiterTestimonials.map((_, index) => (
                   <button
                     key={index}
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${activeIndex === index
-                      ? "w-8 bg-blue-900"
-                      : "w-2.5 bg-blue-200 hover:bg-blue-400"
-                      }`}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      activeIndex === index ? "w-8 bg-blue-900" : "w-2.5 bg-blue-200 hover:bg-blue-400"
+                    }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
             </div>
           </section>
- 
+
         </div>
       </main>
     </div>
