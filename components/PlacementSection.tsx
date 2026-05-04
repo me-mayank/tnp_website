@@ -218,15 +218,27 @@ const PlacementSection = () => {
               <React.Fragment key={index}>
                 <div
                   key={index}
-                onClick={() => {
-                  if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-                    setActiveCard(activeCard === index ? null : index);
-                  } else {
-                    setActiveCard(index);
-                  }
-                }}
-                className="relative overflow-hidden cursor-pointer group bg-white py-5 px-4 border-2 border-[#dbeafe] flex flex-col justify-center items-center text-center transition-shadow hover:shadow-md"
-              >
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+                      setActiveCard(activeCard === index ? null : index);
+                    } else {
+                      setActiveCard(index);
+                    }
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+                        setActiveCard(activeCard === index ? null : index);
+                      } else {
+                        setActiveCard(index);
+                      }
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  className="relative overflow-hidden cursor-pointer group bg-white py-5 px-4 border-2 border-[#dbeafe] flex flex-col justify-center items-center text-center transition-shadow hover:shadow-md focus:outline-none focus-visible:outline-none no-tap-highlight"
+                >
                 {/* Base text (normal state) */}
                 <div className="relative z-10 w-full flex flex-col items-center">
                   <div className="placement-stat-value text-[32px] md:text-[36px] font-black text-[#60a5fa] leading-none mb-1.5" data-target={stat.value} data-suffix={stat.suffix}>
