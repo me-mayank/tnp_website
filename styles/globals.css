@@ -144,6 +144,27 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+.no-tap-highlight {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* Remove mobile tap/focus outlines from chart and SVG elements */
+.recharts-wrapper,
+.recharts-responsive-container,
+.recharts-surface,
+.recharts-layer,
+.recharts-pie,
+.recharts-bar,
+.recharts-line,
+.recharts-area,
+.recharts-tooltip-wrapper,
+.recharts-legend-wrapper,
+svg {
+  -webkit-tap-highlight-color: transparent;
+  outline: none !important;
+}
+
 .animate-scroll {
   animation: scroll 30s linear infinite;
 }
