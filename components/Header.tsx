@@ -70,10 +70,7 @@ export default function Header() {
                           <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Past Recruiters</div>
                           <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Organizations that trust and hire our graduates</div>
                         </Link>
-                        <Link href="/recruiters/demographic" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
-                          <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Statistics</div>
-                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Year-wise placement data and performance</div>
-                        </Link>
+
                       </div>
 
                       {/* RIGHT COLUMN: STUDENT RESOURCES */}
@@ -202,9 +199,7 @@ export default function Header() {
                   <Link href="/insights/recruiters" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
                     Past Recruiters
                   </Link>
-                  <Link href="/recruiters/demographic" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
-                    Statistics
-                  </Link>
+
 
                   <div className="pt-2 pb-1 px-2 text-[10px] font-bold text-brand-accent/60 uppercase tracking-wider">Resources</div>
                   <Link href="/downloads#departmental-brochures" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
