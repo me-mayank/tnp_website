@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 mt-4 mb-2 sticky top-4 z-[100] pointer-events-none">
-        <header id="top" className={`mx-auto max-w-7xl pointer-events-auto backdrop-blur-xl bg-white/80 border border-brand-800/40 shadow-xl shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
+      <header id="top" className={`mx-auto max-w-7xl pointer-events-auto bg-white border border-brand-800/40 shadow-xl shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-2 sm:py-3">
             <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
@@ -53,18 +53,45 @@ export default function Header() {
                   </svg>
                 </button>
 
-                <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-[280px] bg-white/95 backdrop-blur-md border-2 border-brand-accent/20 shadow-2xl rounded-2xl z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  <div className="absolute inset-x-0 -top-4 h-4 bg-transparent"></div>
-                  <div className="p-2 space-y-1">
-                    <Link href="/insights/aboutiet" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      <span className="dropdown-link-underline">ABOUT IET</span>
-                    </Link>
-                    <Link href="/insights/message" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      <span className="dropdown-link-underline">MESSAGE</span>
-                    </Link>
-                    <Link href="/insights/recruiters" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      <span className="dropdown-link-underline">PAST RECRUITERS</span>
-                    </Link>
+                <div className="absolute left-1/2 -translate-x-1/2 pt-4 w-[640px] z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                  <div className="bg-white border-2 border-brand-accent/20 shadow-2xl rounded-2xl overflow-hidden">
+                    <div className="grid grid-cols-[1.4fr_1fr]">
+                      {/* LEFT COLUMN: LINKS & DESCRIPTIONS */}
+                      <div className="p-4 space-y-1 border-r border-gray-100">
+                        <Link href="/insights/aboutiet" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
+                          <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">About IET</div>
+                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Heritage, infrastructure, and academic excellence</div>
+                        </Link>
+                        <Link href="/insights/message" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
+                          <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Messages</div>
+                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Vision from our Director and T&P Cell</div>
+                        </Link>
+                        <Link href="/insights/recruiters" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
+                          <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Past Recruiters</div>
+                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Organizations that trust and hire our graduates</div>
+                        </Link>
+                        <Link href="/recruiters/demographic" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
+                          <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Statistics</div>
+                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Year-wise placement data and performance</div>
+                        </Link>
+                      </div>
+
+                      {/* RIGHT COLUMN: STUDENT RESOURCES */}
+                      <div className="bg-gray-50 p-4">
+                        <div className="px-4 pt-2 pb-4 text-[10px] font-bold tracking-[0.2em] text-brand-accent/60 uppercase">Student Resources</div>
+                        <div className="space-y-1">
+                          <Link href="/downloads#departmental-brochures" className="block px-4 py-3 hover:bg-white hover:shadow-md rounded-xl text-sm text-brand-700 font-semibold transition-all duration-200">
+                            Departmental Brochures
+                          </Link>
+                          <a href="/files/SUMMER_INTERNSHIP_NOC.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-white hover:shadow-md rounded-xl text-sm text-brand-700 font-semibold transition-all duration-200">
+                            Training Form
+                          </a>
+                          <a href="/files/FINAL_SEMESTER_INTERNSHIP_NOC.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-white hover:shadow-md rounded-xl text-sm text-brand-700 font-semibold transition-all duration-200">
+                            Internship NOC
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -78,33 +105,41 @@ export default function Header() {
                   </svg>
                 </button>
 
-                <div className="absolute left-1/2 -translate-x-1/2 mt-4 w-[340px] bg-white/95 backdrop-blur-md border-2 border-brand-accent/20 shadow-2xl rounded-2xl z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  <div className="absolute inset-x-0 -top-4 h-4 bg-transparent"></div>
-                  <div className="p-2 space-y-1">
-                    <Link href="/recruiters/invitation" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      <span className="dropdown-link-underline">INVITATION</span>
-                    </Link>
-                    <Link href="/recruiters/procedure" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      <span className="dropdown-link-underline">PROCEDURE</span>
-                    </Link>
-                    <Link href="/recruiters/contactform" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      <span className="dropdown-link-underline">COMPANY CONTACT FORM</span>
-                    </Link>
-                    <Link href="/recruiters/demographic" className="block px-4 py-2.5 hover:bg-brand-50 rounded-xl text-sm text-brand-800 font-medium transition-colors">
-                      <span className="dropdown-link-underline">STATISTICS</span>
-                    </Link>
+                <div className="absolute left-1/2 -translate-x-1/2 pt-4 w-[640px] z-50 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                  <div className="bg-white border-2 border-brand-accent/20 shadow-2xl rounded-2xl overflow-hidden">
+                    <div className="grid grid-cols-[1.4fr_1fr]">
+                      {/* LEFT COLUMN: LINKS & DESCRIPTIONS */}
+                      <div className="p-4 space-y-1 border-r border-gray-100">
+                        <Link href="/recruiters/invitation" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
+                          <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Invitation</div>
+                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Campus recruitment invitation and overview</div>
+                        </Link>
+                        <Link href="/recruiters/procedure" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
+                          <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Procedure</div>
+                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Drive flow, schedules, and process details</div>
+                        </Link>
+                        <Link href="/recruiters/contactform" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
+                          <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Company Contact Form</div>
+                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Share requirements directly with the cell</div>
+                        </Link>
+                        <Link href="/recruiters/demographic" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
+                          <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Statistics</div>
+                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Placement data, demographics and performance</div>
+                        </Link>
+                      </div>
 
-                    <div className="pt-3 pb-1 mt-2 border-t border-gray-100">
-                      <div className="text-[10px] font-bold tracking-widest text-brand-accent/60 mb-2 px-4 uppercase">Downloads</div>
-                      <a href="/files/Placement_Brouchure_2025-26.pdf" className="block px-4 py-2 hover:bg-brand-50 rounded-xl text-sm text-brand-700 transition-colors">
-                        <span className="dropdown-link-underline text-xs">Placement Brochure</span>
-                      </a>
-                      <a href="/files/JNF_IET_Lucknow_2025-26.docx" className="block px-4 py-2 hover:bg-brand-50 rounded-xl text-sm text-brand-700 transition-colors">
-                        <span className="dropdown-link-underline text-xs">Job Notification Form</span>
-                      </a>
-                      <a href="/files/Company_Guidlines_21-22.pdf" className="block px-4 py-2 hover:bg-brand-50 rounded-xl text-sm text-brand-700 transition-colors">
-                        <span className="dropdown-link-underline text-xs">Company Guidelines</span>
-                      </a>
+                      {/* RIGHT COLUMN: DOWNLOADS */}
+                      <div className="bg-gray-50 p-4">
+                        <div className="px-4 pt-2 pb-4 text-[10px] font-bold tracking-[0.2em] text-brand-accent/60 uppercase">Downloads</div>
+                        <div className="space-y-1">
+                          <a href="/files/Placement_Brouchure_2025-26.pdf" className="block px-4 py-3 hover:bg-white hover:shadow-md rounded-xl text-sm text-brand-700 font-semibold transition-all duration-200">
+                            Placement Brochure
+                          </a>
+                          <a href="/files/JNF_IET_Lucknow_2025-26.docx" className="block px-4 py-3 hover:bg-white hover:shadow-md rounded-xl text-sm text-brand-700 font-semibold transition-all duration-200">
+                            Job Notification Form
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -138,7 +173,7 @@ export default function Header() {
 
       {/* MOBILE MENU */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-2 mx-auto max-w-7xl bg-white/95 backdrop-blur-xl shadow-2xl border border-white/50 pointer-events-auto rounded-3xl overflow-hidden">
+        <div className="lg:hidden mt-2 mx-auto max-w-7xl bg-white shadow-2xl border border-white/50 pointer-events-auto rounded-3xl overflow-hidden">
           <div className="px-6 py-4 space-y-3">
             <Link href="/tpc/aboutus" className="block py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>
               About
@@ -167,6 +202,20 @@ export default function Header() {
                   <Link href="/insights/recruiters" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
                     Past Recruiters
                   </Link>
+                  <Link href="/recruiters/demographic" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
+                    Statistics
+                  </Link>
+
+                  <div className="pt-2 pb-1 px-2 text-[10px] font-bold text-brand-accent/60 uppercase tracking-wider">Resources</div>
+                  <Link href="/downloads#departmental-brochures" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
+                    Departmental Brochures
+                  </Link>
+                  <a href="/files/SUMMER_INTERNSHIP_NOC.pdf" target="_blank" rel="noopener noreferrer" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
+                    Training Form
+                  </a>
+                  <a href="/files/FINAL_SEMESTER_INTERNSHIP_NOC.pdf" target="_blank" rel="noopener noreferrer" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
+                    Internship NOC
+                  </a>
                 </div>
               )}
             </div>
@@ -209,7 +258,7 @@ export default function Header() {
                 Downloads
               </Link>
             </div>
-            
+
             <div className="pt-2">
               <Link
                 href="/tpc/contactus"
