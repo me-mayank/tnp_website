@@ -285,15 +285,16 @@ export default function Home() {
       </RevealSection>
 
       {/* About Section */}
-      <AboutSection />
+      {/* <AboutSection /> */}
 
       {/* Centre of Excellence */}
       <CentreOfExcellence />
 
       {/* Stats Section */}
-      <PlacementStats />
+      {/* <PlacementStats /> */}
 
       {/* Recruiters Section */}
+      {false && (
       <RevealSection id="recruiters" className="py-20 bg-white relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.1] z-0">
@@ -362,6 +363,7 @@ export default function Home() {
           </div>
         </div>
       </RevealSection>
+      )}
 
       {/* Infrastructure Section */}
       <RevealSection id="infrastructure" className="py-20 bg-white">
@@ -635,6 +637,7 @@ export default function Home() {
       </RevealSection>
 
       {/* Students Section */}
+      {false && (
       <RevealSection id="students" className="py-20 bg-gray-50 relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute right-0 top-0 w-full h-full pointer-events-none opacity-[0.11] z-0">
@@ -871,6 +874,7 @@ export default function Home() {
           </div>
         </div>
       </RevealSection>
+      )}
 
       {/* Contact Section */}
       <RevealSection id="contact" className="py-20 bg-white">
