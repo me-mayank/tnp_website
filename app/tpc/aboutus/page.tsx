@@ -18,6 +18,11 @@ const facilities = [
 
 export default function AboutUsPage() {
   const [activeFacility, setActiveFacility] = useState(0);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const prevFacility = () => setActiveFacility((prev) => (prev - 1 + facilities.length) % facilities.length);
   const nextFacility = () => setActiveFacility((prev) => (prev + 1) % facilities.length);
@@ -32,6 +37,12 @@ export default function AboutUsPage() {
       clearInterval(timer);
     };
   }, [activeFacility]);
+
+  const getXOffset = (normalizedOffset: number) => {
+    if (!mounted) return normalizedOffset * 280;
+    const width = typeof window !== 'undefined' ? window.innerWidth : 1200;
+    return normalizedOffset * (width < 640 ? 180 : 280);
+  };
   const records = [
     {
       year: "2024",
@@ -108,11 +119,11 @@ export default function AboutUsPage() {
                 strokeWidth="4"
                 variants={{
                   hidden: { pathLength: 0, pathOffset: 0, opacity: 0 },
-                  visible: { 
-                    pathLength: 0.2, 
-                    pathOffset: [0, 1], 
+                  visible: {
+                    pathLength: 0.2,
+                    pathOffset: [0, 1],
                     opacity: [0, 1, 1, 0],
-                    transition: { duration: 3, ease: "linear", repeat: Infinity } 
+                    transition: { duration: 3, ease: "linear", repeat: Infinity }
                   }
                 }}
               />
@@ -124,16 +135,16 @@ export default function AboutUsPage() {
                 strokeWidth="3"
                 variants={{
                   hidden: { pathLength: 0, pathOffset: 0.5, opacity: 0 },
-                  visible: { 
-                    pathLength: 0.2, 
-                    pathOffset: [0.5, 1.5], 
+                  visible: {
+                    pathLength: 0.2,
+                    pathOffset: [0.5, 1.5],
                     opacity: [0, 1, 1, 0],
-                    transition: { duration: 3, ease: "linear", repeat: Infinity } 
+                    transition: { duration: 3, ease: "linear", repeat: Infinity }
                   }
                 }}
               />
             </motion.svg>
-            
+
             <div className="relative z-10 flex flex-col md:flex-row gap-8 items-start">
               <div className="shrink-0 hidden md:flex items-center justify-center w-16 h-16 bg-[#eef5fc] text-brand-accent rounded-2xl shadow-sm border border-[#d6e6f5]">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,44 +174,59 @@ export default function AboutUsPage() {
               Facilities
             </h2>
 
-            <div className="relative flex justify-center items-center h-[260px] sm:h-[340px] md:h-[400px] lg:h-[480px] mt-8 [perspective:1400px] overflow-hidden">
+            <div className="relative flex justify-center items-center h-[260px] sm:h-[340px] md:h-[400px] lg:h-[480px] mt-8 [perspective:1400px]">
               {facilities.map((fac, idx) => {
                 const offset = (idx - activeFacility + facilities.length) % facilities.length;
                 let normalizedOffset = offset;
                 if (offset > facilities.length / 2) {
-                   normalizedOffset -= facilities.length;
+                  normalizedOffset -= facilities.length;
                 }
-                
+
                 const isCenter = normalizedOffset === 0;
                 const absOffset = Math.abs(normalizedOffset);
 
                 return (
-                  <motion.div 
-                    key={idx} 
-                    className={`absolute w-[300px] sm:w-[420px] md:w-[500px] lg:w-[600px] group bg-white rounded-3xl shadow-glow-sm border border-gray-100 overflow-hidden cursor-pointer ${isCenter ? 'shadow-2xl shadow-brand-900/15 border-brand-accent/20' : ''}`}
+                  <motion.div
+                    key={idx}
+                    className={`absolute w-[300px] sm:w-[420px] md:w-[500px] lg:w-[600px] group bg-white rounded-3xl shadow-glow-sm border border-gray-100 overflow-hidden cursor-pointer outline-none select-none ${isCenter ? 'shadow-2xl shadow-brand-900/15 border-brand-accent/20' : ''}`}
                     onClick={() => setActiveFacility(idx)}
                     initial={false}
                     animate={{
-                      x: normalizedOffset * (typeof window !== 'undefined' && window.innerWidth < 640 ? 180 : 280), 
-                      z: isCenter ? 0 : -absOffset * 180, 
-                      rotateY: normalizedOffset * -25, 
+                      x: getXOffset(normalizedOffset),
+                      z: isCenter ? 0 : -absOffset * 180,
+                      rotateY: normalizedOffset * -25,
                       scale: isCenter ? 1 : Math.max(0.8, 1 - absOffset * 0.12),
                       opacity: isCenter ? 1 : Math.max(0, 0.85 - absOffset * 0.3),
                       zIndex: 10 - absOffset
                     }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    style={{ pointerEvents: absOffset > 2 ? 'none' : 'auto' }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 120, 
+                      damping: 20,
+                      mass: 0.8,
+                      opacity: { duration: 0.6 },
+                      scale: { duration: 0.6 }
+                    }}
+                    style={{
+                      pointerEvents: absOffset > 2 ? 'none' : 'auto',
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                      willChange: 'transform, opacity',
+                      transform: 'translate3d(0,0,0)',
+                      isolation: 'isolate'
+                    }}
                   >
-                    <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 relative">
+                    <div className="aspect-[4/3] w-full overflow-hidden bg-white relative">
                       <Image
                         src={fac.src}
                         alt={fac.title}
                         className={`object-cover transition-transform duration-700 ${isCenter ? 'group-hover:scale-110' : ''}`}
                         fill
                         sizes="(max-width: 1024px) 100vw, 50vw"
+                        priority={isCenter}
                       />
                     </div>
-                    <div className="p-6 md:p-8 bg-white/95 backdrop-blur absolute bottom-0 inset-x-0 border-t border-gray-100/50">
+                    <div className="p-6 md:p-8 bg-white absolute bottom-0 inset-x-0 border-t border-gray-100/50">
                       <h3 className="text-xl md:text-2xl font-extrabold text-brand-800 mb-2 md:mb-3">{fac.title}</h3>
                       <p className="text-muted text-sm md:text-base line-clamp-3">
                         {fac.desc}
@@ -211,20 +237,20 @@ export default function AboutUsPage() {
               })}
             </div>
 
-            <button 
-              onClick={prevFacility} 
+            <button
+              onClick={prevFacility}
               className="absolute left-0 top-1/2 translate-y-4 -ml-2 md:ml-4 z-20 bg-white shadow-md p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
               aria-label="Previous"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/></svg>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             </button>
-            
-            <button 
-              onClick={nextFacility} 
+
+            <button
+              onClick={nextFacility}
               className="absolute right-0 top-1/2 translate-y-4 -mr-2 md:mr-4 z-20 bg-white shadow-md p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
               aria-label="Next"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/></svg>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
 
@@ -243,7 +269,7 @@ export default function AboutUsPage() {
                 {records.map((record, index) => (
                   <div key={index} className="group h-[180px] hover:h-[380px] transition-all duration-700 ease-in-out [perspective:1000px]">
                     <div className="relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-                      
+
                       {/* Front Face */}
                       <div className="absolute inset-0 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm flex flex-col justify-between [backface-visibility:hidden] overflow-hidden">
                         <div>
