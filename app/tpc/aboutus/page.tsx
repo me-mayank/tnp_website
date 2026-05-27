@@ -92,7 +92,7 @@ export default function AboutUsPage() {
 
   return (
     <>
-      <main className="bg-white py-12" id="about">
+      <main className="bg-white py-12 overflow-x-hidden" id="about">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-10">
             <h1 className="text-4xl font-extrabold text-brand-800">Training &amp; Placement Cell</h1>
@@ -188,7 +188,7 @@ export default function AboutUsPage() {
                 return (
                   <motion.div
                     key={idx}
-                    className={`absolute w-[300px] sm:w-[420px] md:w-[500px] lg:w-[600px] group bg-white rounded-3xl shadow-glow-sm border border-gray-100 overflow-hidden cursor-pointer outline-none select-none ${isCenter ? 'shadow-2xl shadow-brand-900/15 border-brand-accent/20' : ''}`}
+                    className={`absolute w-[280px] min-[340px]:w-[300px] sm:w-[420px] md:w-[500px] lg:w-[600px] group bg-white rounded-3xl shadow-glow-sm border border-gray-100 overflow-hidden cursor-pointer outline-none select-none ${isCenter ? 'shadow-2xl shadow-brand-900/15 border-brand-accent/20' : ''}`}
                     onClick={() => setActiveFacility(idx)}
                     initial={false}
                     animate={{
@@ -226,8 +226,8 @@ export default function AboutUsPage() {
                         priority={isCenter}
                       />
                     </div>
-                    <div className="p-6 md:p-8 bg-white absolute bottom-0 inset-x-0 border-t border-gray-100/50">
-                      <h3 className="text-xl md:text-2xl font-extrabold text-brand-800 mb-2 md:mb-3">{fac.title}</h3>
+                    <div className="p-4 sm:p-6 md:p-8 bg-white absolute bottom-0 inset-x-0 border-t border-gray-100/50">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold text-brand-800 mb-2 md:mb-3">{fac.title}</h3>
                       <p className="text-muted text-sm md:text-base line-clamp-3">
                         {fac.desc}
                       </p>
