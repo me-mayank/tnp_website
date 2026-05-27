@@ -12,7 +12,7 @@ import BorderGlow from '@/components/BorderGlow';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import RevealSection from '@/components/RevealSection';
 import RecruiterMarquee from '@/components/RecruiterMarquee';
-import PlacementGallery from '@/components/PlacementGallery';
+// import PlacementGallery from '@/components/PlacementGallery';
 import TopPlacements from '@/components/TopPlacements';
 import ParallaxVideo from '@/components/ParallaxVideo';
 import HeroSection from '@/components/HeroSection';
@@ -149,26 +149,6 @@ const GALLERY_OPTIONS = [
 
 export default function Home() {
   useEffect(() => {
-    // Smooth scroll for anchor links
-    const handleAnchorClick = (e: Event) => {
-      e.preventDefault();
-      const target = e.currentTarget as HTMLAnchorElement;
-      const href = target.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-    };
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', handleAnchorClick);
-    });
-
     // Infrastructure slider
     const setupInfraSlider = () => {
       const infraSlider = document.getElementById('infra-slider');
@@ -260,9 +240,6 @@ export default function Home() {
     return () => {
       cleanupInfra?.();
       cleanupGallery?.();
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.removeEventListener('click', handleAnchorClick);
-      });
     };
   }, []);
 
@@ -271,7 +248,7 @@ export default function Home() {
       <HeroSection />
       <PlacementSection />
 
-      <PlacementGallery />
+      {/* <PlacementGallery /> */}
       <TopPlacements />
 
       {/* Video Section */}
@@ -408,7 +385,7 @@ export default function Home() {
         </div>
       </RevealSection>
 
-      {/* Gallery Section */}
+      {/* Gallery Section
       <RevealSection id="gallery" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -433,6 +410,7 @@ export default function Home() {
           </div>
         </div>
       </RevealSection>
+      */}
 
 
       {/* Collaboration Section */}
@@ -876,177 +854,6 @@ export default function Home() {
       </RevealSection>
       )}
 
-      {/* Contact Section */}
-      <RevealSection id="contact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-800">Contact Us</h2>
-            <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
-            <p className="text-slate-600 mt-6 max-w-3xl mx-auto">Get in touch with the Training & Placement Cell for any queries or
-              assistance</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-            <div className="bg-gradient-to-br from-brand-800 to-brand-700 rounded-2xl p-8 text-white">
-              <h5 className="text-2xl font-bold mb-6">Training & Placement Office</h5>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="mt-1">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Address</h4>
-                    <p className="text-white/90">Lecture Theatre Building, Institute of Engineering and Technology, Lucknow -
-                      226021</p>
-                  </div>
-                </div>
-
-
-
-                <div className="flex items-start gap-4">
-                  <div className="mt-1">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                      </path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Email</h4>
-                    <p className="text-white/90">
-                      <a href="mailto:placement@ietlucknow.ac.in"
-                        className="underline hover:no-underline">placement@ietlucknow.ac.in</a>
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="mt-1">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-1">Office Hours</h4>
-                    <p className="text-white/90">Monday to Friday: 9:00 AM - 5:00 PM</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-white/20">
-                <h4 className="font-semibold mb-3">Officer Incharge</h4>
-                <div className="flex items-start gap-4">
-                  <div className="mt-1">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-medium">Dr. Arun Kumar Tiwari</p>
-                    <p className="text-white/80 text-sm">Officer Incharge, Training & Placement</p>
-                    <p className="text-white/90 mt-1">
-                      <a href="mailto:aruntiwari@ietlucknow.ac.in"
-                        className="underline hover:no-underline">aruntiwari@ietlucknow.ac.in</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 flex gap-4">
-                <a href="https://www.facebook.com/ietplacementcell/"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
-                </a>
-                <a href="https://x.com/iet_lucknow"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.033 10.033 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z" />
-                  </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/arun-kumar-tiwari-18161a1a3/"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Campus Directions */}
-            <div className="bg-gray-50 rounded-2xl p-8">
-              <h5 className="text-2xl font-bold text-brand-800 mb-6">Visit Our Campus</h5>
-
-              <div className="mb-6">
-                <div className="bg-white rounded-xl overflow-hidden shadow-md">
-                  <div className="bg-blue-50 relative aspect-video w-full">
-                    <Image
-                      className="object-cover"
-                      src="/images/campus.jpg"
-                      alt="campus"
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="font-semibold text-lg">How to Reach</h4>
-
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 text-brand-accent">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h5 className="font-medium">By Road</h5>
-                      <p className="text-slate-600 text-sm mt-1">Located on Sitapur Road, easily accessible from all parts of
-                        Lucknow.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white p-4 rounded-lg shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-1 text-brand-accent">
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h5 className="font-medium">Schedule a Visit</h5>
-                      <p className="text-slate-600 text-sm mt-1">For recruiters planning to visit, please contact us in advance to
-                        schedule your visit.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-      </RevealSection>
       
       <FAQSection />
     </main>

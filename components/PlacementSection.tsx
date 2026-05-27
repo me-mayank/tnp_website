@@ -204,7 +204,7 @@ const PlacementSection = () => {
   );
 
   return (
-    <section id="placement" className="py-20 bg-white">
+    <section id="placement" className="relative z-20 bg-white pt-24 pb-20 font-poppins md:pt-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-brand-800 mb-4">Placement Statistics & Insights</h2>

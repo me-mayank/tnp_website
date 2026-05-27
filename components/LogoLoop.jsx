@@ -61,10 +61,34 @@ const useAnimationLoop = (trackRef, targetVelocity, seqWidth, seqHeight, isHover
   const lastTimestampRef = useRef(null);
   const offsetRef = useRef(0);
   const velocityRef = useRef(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const handleMotionChange = () => setPrefersReducedMotion(media.matches);
+    handleMotionChange();
+    media.addEventListener?.('change', handleMotionChange);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: '160px 0px' }
+    );
+    observer.observe(track);
+
+    return () => {
+      media.removeEventListener?.('change', handleMotionChange);
+      observer.disconnect();
+    };
+  }, [trackRef]);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    if (!isVisible || prefersReducedMotion) return;
 
     const seqSize = isVertical ? seqHeight : seqWidth;
 
@@ -112,7 +136,7 @@ const useAnimationLoop = (trackRef, targetVelocity, seqWidth, seqHeight, isHover
       }
       lastTimestampRef.current = null;
     };
-  }, [targetVelocity, seqWidth, seqHeight, isHovered, hoverSpeed, isVertical, trackRef]);
+  }, [targetVelocity, seqWidth, seqHeight, isHovered, hoverSpeed, isVertical, trackRef, isVisible, prefersReducedMotion]);
 };
 
 export const LogoLoop = memo(
