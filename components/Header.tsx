@@ -2,12 +2,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileInsightsOpen, setMobileInsightsOpen] = useState(false);
   const [mobileRecruiterOpen, setMobileRecruiterOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 8);
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -16,8 +26,14 @@ export default function Header() {
   };
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 mt-4 mb-2 sticky top-4 z-[100] pointer-events-none">
-      <header id="top" className={`mx-auto max-w-7xl pointer-events-auto bg-white border border-brand-800/40 shadow-xl shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
+    <div className={`px-4 sm:px-6 lg:px-8 py-3 sticky top-0 z-[100] pointer-events-none transition-colors duration-300 ${
+      isScrolled || mobileMenuOpen
+        ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200/70'
+        : 'bg-white/10 backdrop-blur-md'
+    }`}>
+      <header id="top" className={`mx-auto max-w-7xl pointer-events-auto ${isScrolled || mobileMenuOpen ? 'bg-white/95' : 'bg-white/10'} border border-brand-800/20 transition-all duration-300 ${
+        isScrolled || mobileMenuOpen ? 'shadow-lg shadow-brand-900/10' : 'shadow-sm shadow-brand-900/5'
+      } ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-2 sm:py-3">
             <Link href="/" className="flex items-center gap-3 sm:gap-4 group">

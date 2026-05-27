@@ -8,6 +8,19 @@ body {
     "Helvetica Neue", Arial;
 }
 
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -209,10 +222,6 @@ svg {
 
 .dropdown-link-underline:hover::after {
   width: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 #top {

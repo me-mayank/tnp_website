@@ -21,43 +21,45 @@ export default function ParallaxVideo({ src, poster, title, subtitle }: Parallax
   useEffect(() => {
     if (!containerRef.current || !videoRef.current || !textRef.current) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true,
-      },
-    });
-
-    // Parallax effect on video
-    tl.fromTo(
-      videoRef.current,
-      { y: "-15%" },
-      { y: "15%", ease: "none" },
-      0
-    );
-
-    // Subtle scale and fade for text
-    gsap.fromTo(
-      textRef.current,
-      { opacity: 0, y: 50, scale: 0.9 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        ease: "power2.out",
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 70%",
-          end: "top 30%",
+          start: "top bottom",
+          end: "bottom top",
           scrub: true,
         },
-      }
-    );
+      });
+
+      // Parallax effect on video
+      tl.fromTo(
+        videoRef.current,
+        { y: "-15%" },
+        { y: "15%", ease: "none" },
+        0
+      );
+
+      // Subtle scale and fade for text
+      gsap.fromTo(
+        textRef.current,
+        { opacity: 0, y: 50, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 70%",
+            end: "top 30%",
+            scrub: true,
+          },
+        }
+      );
+    }, containerRef);
 
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      ctx.revert();
     };
   }, []);
 
