@@ -25,9 +25,11 @@ html.lenis body {
   width: 10px;
   height: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #2c74b3;
   border-radius: 999px;
@@ -46,7 +48,7 @@ html.lenis body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 20% 80%, rgba(44, 116, 179, 0.3) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(10, 38, 71, 0.4) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(20, 66, 114, 0.2) 0%, transparent 50%);
@@ -66,8 +68,15 @@ html.lenis body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .pulse-glow {
@@ -75,14 +84,27 @@ html.lenis body {
 }
 
 @keyframes pulse-glow {
-  from { box-shadow: 0 0 20px rgba(44, 116, 179, 0.5); }
-  to { box-shadow: 0 0 30px rgba(44, 116, 179, 0.8); }
+  from {
+    box-shadow: 0 0 20px rgba(44, 116, 179, 0.5);
+  }
+
+  to {
+    box-shadow: 0 0 30px rgba(44, 116, 179, 0.8);
+  }
 }
 
 @keyframes mail-float {
-  0% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-3px) scale(1.1); }
-  100% { transform: translateY(0) scale(1); }
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-3px) scale(1.1);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }
 
 .animate-mail {
@@ -98,13 +120,27 @@ html.lenis body {
 }
 
 @keyframes slideInLeft {
-  from { transform: translateX(-50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideInRight {
-  from { transform: translateX(50px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .typewriter {
@@ -116,13 +152,25 @@ html.lenis body {
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #2C74B3; }
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #2C74B3;
+  }
 }
 
 .stat-number {
@@ -131,18 +179,22 @@ html.lenis body {
 
 /* Hide scrollbar specifically for the esteemed recruiters logo slider */
 #logo-slider {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 #logo-slider::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 @keyframes scroll {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -194,7 +246,8 @@ svg {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #2C74B3; /* brand-accent */
+  background-color: #2C74B3;
+  /* brand-accent */
   transition: width 0.3s ease;
   border-radius: 99px;
 }
@@ -215,7 +268,8 @@ svg {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #2C74B3; /* brand-accent */
+  background-color: #2C74B3;
+  /* brand-accent */
   transition: width 0.3s ease;
   border-radius: 99px;
 }
@@ -801,7 +855,7 @@ svg {
 
   .flip-card,
   .flip-card-inner {
-    height: 480px;
+    height: 530px;
   }
 
   .flip-face {
