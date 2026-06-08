@@ -267,7 +267,7 @@ export default function AboutUsPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
                 {records.map((record, index) => (
-                  <div key={index} className="group h-[180px] hover:h-[380px] transition-all duration-700 ease-in-out [perspective:1000px]">
+                  <div key={index} className="group h-[220px] hover:h-[380px] transition-all duration-700 ease-in-out [perspective:1000px]">
                     <div className="relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
 
                       {/* Front Face */}
