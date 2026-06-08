@@ -45,6 +45,28 @@ export default function AboutUsPage() {
   };
   const records = [
     {
+      year: "2026",
+      description: "Outstanding placement drive with strong recruitment from top-tier tech firms.",
+      highest: "52 LPA",
+      average: "6.52 LPA",
+      recruiters: [
+        { name: "Google", logo: "https://www.google.com/s2/favicons?domain=google.com&sz=128" },
+        { name: "Microsoft", logo: "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" },
+        { name: "InMobi", logo: "https://www.google.com/s2/favicons?domain=inmobi.com&sz=128" }
+      ]
+    },
+    {
+      year: "2025",
+      description: "Remarkable achievements with top global brands and high compensation packages.",
+      highest: "54 LPA",
+      average: "7 LPA",
+      recruiters: [
+        { name: "Google", logo: "https://www.google.com/s2/favicons?domain=google.com&sz=128" },
+        { name: "Amazon", logo: "https://www.google.com/s2/favicons?domain=amazon.com&sz=128" },
+        { name: "Intuit", logo: "https://www.google.com/s2/favicons?domain=intuit.com&sz=128" }
+      ]
+    },
+    {
       year: "2024",
       description: "500+ students placed across leading product & service companies.",
       highest: "52 LPA",
@@ -64,28 +86,6 @@ export default function AboutUsPage() {
         { name: "Wipro", logo: "https://www.google.com/s2/favicons?domain=wipro.com&sz=128" },
         { name: "HCL", logo: "/images/pastRecruiter/hcl1.png" },
         { name: "Capgemini", logo: "https://www.google.com/s2/favicons?domain=capgemini.com&sz=128" }
-      ]
-    },
-    {
-      year: "2022",
-      description: "Strong campus presence with core and IT companies.",
-      highest: "38 LPA",
-      average: "7.8 LPA",
-      recruiters: [
-        { name: "TCS", logo: "/images/pastRecruiter/tcs1.png" },
-        { name: "Infosys", logo: "https://www.google.com/s2/favicons?domain=infosys.com&sz=128" },
-        { name: "IBM", logo: "/images/pastRecruiter/ibm-logo-hd.png" }
-      ]
-    },
-    {
-      year: "2021",
-      description: "Resilient performance despite global challenges.",
-      highest: "32 LPA",
-      average: "7.1 LPA",
-      recruiters: [
-        { name: "Accenture", logo: "https://www.google.com/s2/favicons?domain=accenture.com&sz=128" },
-        { name: "Cognizant", logo: "https://www.google.com/s2/favicons?domain=cognizant.com&sz=128" },
-        { name: "Tech Mahindra", logo: "https://www.google.com/s2/favicons?domain=techmahindra.com&sz=128" }
       ]
     }
   ];
