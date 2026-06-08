@@ -46,7 +46,7 @@ export default function AboutUsPage() {
   const records = [
     {
       year: "2026",
-      description: "Outstanding placement drive with strong recruitment from top-tier tech firms.",
+      description: "525+ offers and counting",
       highest: "52 LPA",
       average: "6.52 LPA",
       recruiters: [
@@ -57,7 +57,7 @@ export default function AboutUsPage() {
     },
     {
       year: "2025",
-      description: "Remarkable achievements with top global brands and high compensation packages.",
+      description: "515+ students placed, 10 international offers, 90+ companies visited",
       highest: "54 LPA",
       average: "7 LPA",
       recruiters: [
