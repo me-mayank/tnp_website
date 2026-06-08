@@ -46,7 +46,7 @@ export default function AboutUsPage() {
   const records = [
     {
       year: "2026",
-      description: "525+ offers and counting",
+      description: "525+ offers and counting, multiple international roles, top-tier tech recruiters",
       highest: "52 LPA",
       average: "6.52 LPA",
       recruiters: [
