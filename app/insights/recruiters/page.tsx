@@ -4,73 +4,80 @@ import "./recruiters.css";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
+// ─── Real recruiter data from IET Lucknow Placement Report 2025-26 ───────────
+// Source: IET_Lucknow_Placement_2025_26.pdf  |  Grand Total Offers: 526
+// Recruitments are aggregated across all sub-categories per company.
 const recruiterLogos = [
-  { src: "/images/pastRecruiter/dlf.png", alt: "DLF logo", recruitments: 48 },
-  { src: "/images/pastRecruiter/zeta.png", alt: "Zeta logo", recruitments: 22 },
-  { src: "/images/pastRecruiter/InMobi.png", alt: "InMobi logo", recruitments: 31 },
-  { src: "/images/pastRecruiter/amazon.png", alt: "Amazon logo", recruitments: 64 },
-  { src: "/images/pastRecruiter/Intuit.png", alt: "Intuit logo", recruitments: 19 },
-  { src: "/images/pastRecruiter/soti.png", alt: "SOTI logo", recruitments: 17 },
-  { src: "/images/pastRecruiter/meesho.webp", alt: "Meesho logo", recruitments: 26 },
-  { src: "/images/pastRecruiter/uber.svg", alt: "Uber logo", recruitments: 14 },
-  { src: "/images/pastRecruiter/bharatelectronics.png", alt: "Bharat Electronics logo", recruitments: 37 },
-  { src: "/images/pastRecruiter/adobe.png", alt: "Adobe logo", recruitments: 24 },
-  { src: "/images/pastRecruiter/forbes.png", alt: "Forbes logo", recruitments: 8 },
-  { src: "/images/pastRecruiter/google.png", alt: "Google logo", recruitments: 29 },
-  { src: "/images/pastRecruiter/arcad.png", alt: "ARCAD logo", recruitments: 11 },
-  { src: "/images/pastRecruiter/microsoft.png", alt: "Microsoft logo", recruitments: 34 },
-  { src: "/images/pastRecruiter/paytm.png", alt: "Paytm logo", recruitments: 27 },
-  { src: "/images/pastRecruiter/volvo.png", alt: "Volvo logo", recruitments: 15 },
-  { src: "/images/pastRecruiter/zscaler.svg", alt: "Zscaler logo", recruitments: 18 },
-  { src: "/images/pastRecruiter/zomato.png", alt: "Zomato logo", recruitments: 21 },
-  { src: "/images/pastRecruiter/wayfair.png", alt: "Wayfair logo", recruitments: 16 },
-  { src: "/images/pastRecruiter/upstox.png", alt: "Upstox logo", recruitments: 13 },
-  { src: "/images/pastRecruiter/tactai.png", alt: "Tact.ai logo", recruitments: 9 },
-  { src: "/images/pastRecruiter/eicher.png", alt: "Eicher logo", recruitments: 28 },
-  { src: "/images/pastRecruiter/slice.jpg", alt: "Slice logo", recruitments: 12 },
-  { src: "/images/pastRecruiter/servicenow.png", alt: "ServiceNow logo", recruitments: 20 },
-  { src: "/images/pastRecruiter/salesforce.png", alt: "Salesforce logo", recruitments: 23 },
-  { src: "/images/pastRecruiter/rippling.png", alt: "Rippling logo", recruitments: 10 },
-  { src: "/images/pastRecruiter/persistant.png", alt: "Persistent logo", recruitments: 42 },
-  { src: "/images/pastRecruiter/hul.png", alt: "HUL logo", recruitments: 30 },
-  { src: "/images/pastRecruiter/groupon.png", alt: "Groupon logo", recruitments: 7 },
-  { src: "/images/pastRecruiter/goldman.webp", alt: "Goldman Sachs logo", recruitments: 25 },
-  { src: "/images/pastRecruiter/gainsight.png", alt: "Gainsight logo", recruitments: 14 },
-  { src: "/images/pastRecruiter/cisco.png", alt: "Cisco logo", recruitments: 33 },
-  { src: "/images/pastRecruiter/capgemini.png", alt: "Capgemini logo", recruitments: 58 },
-  { src: "/images/pastRecruiter/bny.png", alt: "BNY logo", recruitments: 18 },
-  { src: "/images/pastRecruiter/inox.jpg", alt: "INOX logo", recruitments: 6 },
-  { src: "/images/pastRecruiter/atlassian.png", alt: "Atlassian logo", recruitments: 17 },
-  { src: "/images/pastRecruiter/wayfair.png", alt: "Wayfair logo", recruitments: 16 },
-  { src: "/images/pastRecruiter/morgan.png", alt: "Morgan Stanley logo", recruitments: 22 },
-  { src: "/images/pastRecruiter/LT.avif", alt: "L&T logo", recruitments: 46 },
-  { src: "/images/pastRecruiter/newgen.avif", alt: "Newgen logo", recruitments: 24 },
-  { src: "/images/pastRecruiter/samsung.svg", alt: "Samsung logo", recruitments: 27 },
-  { src: "/images/pastRecruiter/shapoorji.png", alt: "Shapoorji Pallonji logo", recruitments: 19 },
-  { src: "/images/pastRecruiter/tcs.png", alt: "TCS logo", recruitments: 72 },
-  { src: "/images/pastRecruiter/intel.svg", alt: "Intel logo", recruitments: 20 },
-  { src: "/images/pastRecruiter/ashok.png", alt: "Ashok Leyland logo", recruitments: 26 },
-  { src: "/images/pastRecruiter/bajaj.jpg", alt: "Bajaj logo", recruitments: 31 },
-  { src: "/images/pastRecruiter/escorts.jpg", alt: "Escorts logo", recruitments: 15 },
-  { src: "/images/pastRecruiter/cognizant.jpg", alt: "Cognizant logo", recruitments: 61 },
-  { src: "/images/pastRecruiter/ericsson.png", alt: "Ericsson logo", recruitments: 18 },
-  { src: "/images/pastRecruiter/essar.png", alt: "Essar logo", recruitments: 12 },
-  { src: "/images/pastRecruiter/hcl.png", alt: "HCL logo", recruitments: 55 },
-  { src: "/images/pastRecruiter/hero.png", alt: "Hero logo", recruitments: 29 },
-  { src: "/images/pastRecruiter/honda.svg", alt: "Honda logo", recruitments: 21 },
-  { src: "/images/pastRecruiter/mahindra.png", alt: "Mahindra logo", recruitments: 39 },
-  { src: "/images/pastRecruiter/oracle.png", alt: "Oracle logo", recruitments: 28 },
-  { src: "/images/pastRecruiter/prism.png", alt: "Prism logo", recruitments: 9 },
-  { src: "/images/pastRecruiter/tata_motors.png", alt: "Tata Motors logo", recruitments: 44 },
-  { src: "/images/pastRecruiter/torrent.png", alt: "Torrent logo", recruitments: 13 },
-  { src: "/images/pastRecruiter/unacademy.png", alt: "Unacademy logo", recruitments: 11 },
-  { src: "/images/pastRecruiter/wipro.png", alt: "Wipro logo", recruitments: 67 },
-  { src: "/images/pastRecruiter/zs.png", alt: "ZS logo", recruitments: 32 },
-  { src: "/images/pastRecruiter/birlasoft.png", alt: "Birlasoft logo", recruitments: 36 },
-  { src: "/images/pastRecruiter/jaroeducation.png", alt: "Jaro Education logo", recruitments: 14 },
-  { src: "/images/pastRecruiter/infosys.jpg", alt: "Infosys logo", recruitments: 74 },
-  { src: "/images/pastRecruiter/lntinfotech.jpg", alt: "L&T Infotech logo", recruitments: 41 },
-  { src: "/images/pastRecruiter/usefulbi.png", alt: "UsefulBI logo", recruitments: 8 },
+  // TCS: Ninja (47) + Digital (12) + Prime (1) = 60
+  { src: "/images/pastRecruiter/tcs.png", alt: "TCS logo", recruitments: 60 },
+  { src: "/images/pastRecruiter/averixis.png", alt: "Averixis Solutions logo", recruitments: 33 },
+  { src: "/images/pastRecruiter/eduveda.png", alt: "Eduveda Academy logo", recruitments: 32 },
+  { src: "/images/pastRecruiter/Launched.png", alt: "Launched Global logo", recruitments: 31 },
+  // Torrent: Torrent Power (20) + Torrent Gas (8) = 28
+  { src: "/images/pastRecruiter/torrent.png", alt: "Torrent logo", recruitments: 28 },
+  { src: "/images/pastRecruiter/elythra.jpg", alt: "Elythra Edufyi Tech logo", recruitments: 20 },
+  { src: "/images/pastRecruiter/persevex.png", alt: "Persevex logo", recruitments: 18 },
+  // Reliance: RIL (16) + Reliance Industries (3) = 19
+  { src: "/images/pastRecruiter/reliance.png", alt: "Reliance Industries logo", recruitments: 16 },
+  { src: "/images/pastRecruiter/glowlogics.jpg", alt: "GlowLogics logo", recruitments: 17 },
+  { src: "/images/pastRecruiter/usefulbi.png", alt: "UsefulBI logo", recruitments: 15 },
+  { src: "/images/pastRecruiter/simpel.png", alt: "Simpel Techlabs logo", recruitments: 15 },
+  { src: "/images/pastRecruiter/Mindseekers.jpg", alt: "Mindseekers logo", recruitments: 14 },
+  // IBM: IBM (8) + IBM Diversity (6) = 14
+  { src: "/images/pastRecruiter/ibm-logo-hd.png", alt: "IBM logo", recruitments: 14 },
+  { src: "/images/pastRecruiter/mycaptain.png", alt: "MyCaptain logo", recruitments: 11 },
+  { src: "/images/pastRecruiter/globalautotech.png", alt: "Global Autotech logo", recruitments: 10 },
+  { src: "/images/pastRecruiter/soti.png", alt: "SOTI logo", recruitments: 9 },
+  { src: "/images/pastRecruiter/dcmshriram.png", alt: "DCM Shriram Sugar logo", recruitments: 8 },
+  { src: "/images/pastRecruiter/ncc.jpg", alt: "NCC logo", recruitments: 8 },
+  { src: "/images/pastRecruiter/ioagpl.gif", alt: "IOAGPL logo", recruitments: 8 },
+  // IndiaMART: FSF (7) + Tele (1) = 8
+  { src: "/images/pastRecruiter/indiamart.png", alt: "IndiaMART logo", recruitments: 8 },
+  { src: "/images/pastRecruiter/lawsikho.jpg", alt: "LawSikho & Skill Arbitrage logo", recruitments: 7 },
+  { src: "/images/pastRecruiter/zeta.png", alt: "Zeta logo", recruitments: 7 },
+  { src: "/images/pastRecruiter/InMobi.png", alt: "InMobi Group logo", recruitments: 7 },
+  { src: "/images/pastRecruiter/inox.jpg", alt: "INOX logo", recruitments: 7 },
+  { src: "/images/pastRecruiter/bharatelectronics.png", alt: "BEL logo", recruitments: 7 },
+  { src: "/images/pastRecruiter/arcad.png", alt: "Arcad Software logo", recruitments: 7 },
+  { src: "/images/pastRecruiter/hightechnext.jpg", alt: "High Technext logo", recruitments: 6 },
+  { src: "/images/pastRecruiter/paramount.jpg", alt: "Paramount Powders logo", recruitments: 6 },
+  // NewGenesis: NewGenesis (5) + NewGenesis PG (1) = 6
+  { src: "/images/pastRecruiter/newgen.avif", alt: "NewGenesis logo", recruitments: 6 },
+  { src: "/images/pastRecruiter/dlf.png", alt: "DLF logo", recruitments: 5 },
+  { src: "/images/pastRecruiter/balrampur.jpg", alt: "Balrampur Chini Mills logo", recruitments: 5 },
+  { src: "/images/pastRecruiter/vecv.png", alt: "VECV logo", recruitments: 5 },
+  { src: "/images/pastRecruiter/PlanetSpark.jpg", alt: "PlanetSpark logo", recruitments: 5 },
+  { src: "/images/pastRecruiter/bot.jpg", alt: "BOT logo", recruitments: 5 },
+  { src: "/images/pastRecruiter/cemtics.jpg", alt: "Cemtics logo", recruitments: 5 },
+  { src: "/images/pastRecruiter/sagardefence.png", alt: "Sagar Defence logo", recruitments: 5 },
+  { src: "/images/pastRecruiter/lognormalanalytics.jpg", alt: "Lognormal Analytics logo", recruitments: 4 },
+  { src: "/images/pastRecruiter/adrosonic.png", alt: "Adrosonic logo", recruitments: 4 },
+  { src: "/images/pastRecruiter/meghaeng.jpg", alt: "Megha Engineering logo", recruitments: 4 },
+  // L&T: Larsen & Toubro (2) + Larsen & Toubro PG (1) = 3
+  { src: "/images/pastRecruiter/LT.avif", alt: "Larsen & Toubro logo", recruitments: 3 },
+  { src: "/images/pastRecruiter/airtel.jpg", alt: "Bharti Airtel logo", recruitments: 3 },
+  { src: "/images/pastRecruiter/fundsaudit.jpg", alt: "FundsAudit logo", recruitments: 3 },
+  { src: "/images/pastRecruiter/hul.png", alt: "Hindustan Unilever logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/Apollo_Tyres.jpg", alt: "Apollo Tyres logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/walmart.jpg", alt: "Walmart logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/deloitte.png", alt: "Deloitte logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/inteligenai.jpg", alt: "InteligenAI logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/jyesta.jpg", alt: "Jyesta Corporate Entity logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/npcl.png", alt: "NPCL logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/innoknowvex.jpg", alt: "Innoknowvex logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/intellipaat.jpg", alt: "Intellipaat logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/bacl.jpg", alt: "BACL logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/triveni.webp", alt: "Triveni Almirah logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/escorts.jpg", alt: "Escorts Kubota logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/jaroeducation.png", alt: "Jaro Education logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/forbes.png", alt: "Forbes Marshall logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/assaabloy.jpg", alt: "ASSA ABLOY logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/gocomet.svg", alt: "GoComet logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/faceprep.svg", alt: "FACE Prep logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/biopetro.jpg", alt: "Bio Petro Clean India logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/carnation.png", alt: "Carnation Infotech logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/garism.jpg", alt: "Grasim Industries logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/asahi.jpg", alt: "Asahi India Glass logo", recruitments: 1 },
 ];
 
 const recruiterTestimonials = [
@@ -164,9 +171,9 @@ export default function PastRecruiters() {
                           <Image
                             src={logo.src}
                             alt={logo.alt}
-                            className="max-h-full max-w-full object-contain relative z-10"
-                            width={200}
-                            height={120}
+                            className="w-full h-full object-contain relative z-10"
+                            width={240}
+                            height={140}
                             sizes="(max-width: 640px) 40vw, (max-width: 1024px) 25vw, 16vw"
                             loading="lazy"
                           />
@@ -227,11 +234,10 @@ export default function PastRecruiters() {
                         style={cardStyle}
                       >
                         <div
-                          className={`group relative rounded-[26px] p-[1px] ${
-                            isActive
-                              ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
-                              : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
-                          }`}
+                          className={`group relative rounded-[26px] p-[1px] ${isActive
+                            ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
+                            : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
+                            }`}
                         >
                           <div className="relative overflow-hidden rounded-2xl p-8 text-white border border-white/10 bg-[linear-gradient(135deg,#1e3354,#243b63)]">
                             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.10),transparent_30%)]" />
@@ -290,9 +296,8 @@ export default function PastRecruiters() {
                     key={index}
                     type="button"
                     onClick={() => setActiveIndex(index)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
-                      activeIndex === index ? "w-8 bg-blue-900" : "w-2.5 bg-blue-200 hover:bg-blue-400"
-                    }`}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${activeIndex === index ? "w-8 bg-blue-900" : "w-2.5 bg-blue-200 hover:bg-blue-400"
+                      }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
