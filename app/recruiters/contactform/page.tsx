@@ -65,6 +65,9 @@ function AnimatedCounter({ value }: { value: string }) {
 
 const inputClass = "w-full px-5 py-4 bg-white border border-gray-200 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 hover:shadow-md focus:shadow-lg focus:shadow-blue-500/20 transition-all duration-300 outline-none text-slate-800 font-bold placeholder:text-gray-400 shadow-sm transform focus:-translate-y-1 hover:-translate-y-0.5";
 
+const WEB3FORMS_ACCESS_KEY = 'a5197714-bfe3-4a98-abac-9fbd8ce340b4';
+const TNP_EMAIL = 'placement@ietlucknow.ac.in';
+
 export default function ContactForm() {
   const [form, setForm] = useState<CompanyContactPayload>({
     companyName: '',
@@ -94,13 +97,30 @@ export default function ContactForm() {
     setStatus('submitting');
     setError('');
     try {
-      const res = await fetch('/api/company-contact/', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: 'New Corporate Interest Form Submission - IET Lucknow',
+          from_name: 'IET Lucknow T&P Website',
+          replyto: form.workEmail,
+          to: TNP_EMAIL,
+          ...form,
+        }),
       });
-      const data = (await res.json()) as { ok: boolean; error?: string };
-      if (!res.ok || !data.ok) throw new Error(data.error || 'Failed to submit the form.');
+
+      const data = (await res.json()) as {
+        success: boolean;
+        message?: string;
+      };
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || 'Failed to submit the form.');
+      }
       setStatus('success');
       setForm({
         companyName: '', industrySector: 'IT / Software', contactPersonName: '',
