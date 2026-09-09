@@ -80,7 +80,7 @@ export default function Header() {
                         </Link>
                         <Link href="/insights/message" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
                           <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Messages</div>
-                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Vision from our Director and T&P Cell</div>
+                          <div className="text-[11px] text-brand-accent/70 mt-1 leading-relaxed font-medium">Vision from our T&P Officer</div>
                         </Link>
                         <Link href="/insights/recruiters" className="group/item block px-4 py-3 hover:bg-brand-50 rounded-xl transition-all duration-200">
                           <div className="text-sm text-brand-800 font-semibold uppercase tracking-wide group-hover/item:text-brand-accent transition-colors">Past Recruiters</div>
