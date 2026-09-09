@@ -107,11 +107,11 @@ export default function HeroSection() {
                 />
               ),
             }))}
-            speed={80}
+            speed={35}
             direction="left"
             logoHeight={50}
             gap={40}
-            hoverSpeed={20}
+            hoverSpeed={10}
             fadeOut={false}
             ariaLabel="Placement highlights"
           />
@@ -128,20 +128,20 @@ export default function HeroSection() {
             style={{ objectPosition: HERO_BG.objectPosition }}
           />
 
-          <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-950/70 via-slate-950/20 to-transparent px-4 pb-[9%] pt-[128px] md:hidden">
-            <h1 className={`hero-title flex h-[60%] max-w-[58%] flex-col justify-between text-left text-[clamp(1.05rem,5.5vw,1.8rem)] font-[700] leading-[0.94] ${poppins.className}`}>
-              <span className="block w-full text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Architecting</span>
-              <span className="block w-full text-white [text-shadow:0_2px_10px_rgba(15,23,42,0.3)]">Careers</span>
-              <span className="block w-full text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Fostering</span>
-              <span className="block w-full text-white [text-shadow:0_2px_10px_rgba(15,23,42,0.3)]">Innovation</span>
+          <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-transparent px-5 pb-6 pt-[120px] flex flex-col justify-center md:hidden">
+            <h1 className={`hero-title flex flex-col gap-0.5 text-left text-[clamp(1.35rem,6.2vw,2.1rem)] font-[800] leading-[1.08] tracking-tight ${poppins.className}`}>
+              <span className="block w-full text-blue-500 [text-shadow:0_2px_10px_rgba(37,99,235,0.4)]">Architecting</span>
+              <span className="block w-full text-white [text-shadow:0_2px_10px_rgba(15,23,42,0.5)]">Careers</span>
+              <span className="block w-full text-blue-500 [text-shadow:0_2px_10px_rgba(37,99,235,0.4)]">Fostering</span>
+              <span className="block w-full text-white [text-shadow:0_2px_10px_rgba(15,23,42,0.5)]">Innovation</span>
             </h1>
           </div>
         </div>
 
         <div className="hero-opening-content relative z-10 hidden min-h-[100svh] items-start pb-16 pl-[clamp(24px,3.8vw,56px)] pr-4 pt-[180px] sm:pr-6 md:flex md:pt-[168px] lg:pb-12">
           <div className="w-full">
-            <div className="max-w-[min(40rem,92vw)]">
-              <h1 className={`hero-title max-w-[12ch] text-[clamp(0.5rem,1.65vw,1.225rem)] font-[700] leading-[0.94] ${poppins.className}`}>
+            <div className="max-w-[min(48rem,92vw)]">
+              <h1 className={`hero-title max-w-[15ch] text-[clamp(2.4rem,4.5vw,4.5rem)] font-[800] leading-[1.05] tracking-tight ${poppins.className}`}>
                 <span className="block text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Architecting</span>
                 <span className="block text-[#0B1F3A] [text-shadow:0_2px_10px_rgba(255,255,255,0.28)]">Careers</span>
                 <span className="block text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Fostering</span>
