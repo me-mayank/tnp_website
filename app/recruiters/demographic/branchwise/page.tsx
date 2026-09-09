@@ -35,102 +35,128 @@ const branches = [
     { key: "che", label: "Chemical Engineering" },
 ];
 
-const branchPlacementOffers: Record<
-    string,
-    { session: string; offers: number; placed: number }[]
-> = {
-    cse: [
-        { session: "2020-21", offers: 312, placed: 241 },
-        { session: "2021-22", offers: 396, placed: 301 },
-        { session: "2022-23", offers: 452, placed: 348 },
-        { session: "2023-24", offers: 541, placed: 412 },
-        { session: "2024-25", offers: 608, placed: 487 },
+const branchPlacementOffers: Record<string, { session: string; offers: number; placed: number }[]> = {
+    "cse": [
+        {"session":"2023-24","offers":60,"placed":0},
+        {"session":"2024-25","offers":86,"placed":0},
+        {"session":"2025-26","offers":78,"placed":0},
     ],
-    ece: [
-        { session: "2020-21", offers: 182, placed: 126 },
-        { session: "2021-22", offers: 214, placed: 158 },
-        { session: "2022-23", offers: 248, placed: 181 },
-        { session: "2023-24", offers: 276, placed: 206 },
-        { session: "2024-25", offers: 304, placed: 231 },
+    "cse_sf": [
+        {"session":"2024-25","offers":78,"placed":0},
+        {"session":"2025-26","offers":62,"placed":0},
     ],
-    ee: [
-        { session: "2020-21", offers: 141, placed: 96 },
-        { session: "2021-22", offers: 169, placed: 118 },
-        { session: "2022-23", offers: 193, placed: 133 },
-        { session: "2023-24", offers: 221, placed: 156 },
-        { session: "2024-25", offers: 246, placed: 174 },
+    "cse_ai": [
+        {"session":"2024-25","offers":71,"placed":0},
+        {"session":"2025-26","offers":48,"placed":0},
     ],
-    me: [
-        { session: "2020-21", offers: 126, placed: 84 },
-        { session: "2021-22", offers: 153, placed: 101 },
-        { session: "2022-23", offers: 171, placed: 116 },
-        { session: "2023-24", offers: 196, placed: 134 },
-        { session: "2024-25", offers: 219, placed: 149 },
+    "it": [
+        {"session":"2023-24","offers":56,"placed":0},
     ],
-    ce: [
-        { session: "2020-21", offers: 84, placed: 57 },
-        { session: "2021-22", offers: 103, placed: 71 },
-        { session: "2022-23", offers: 117, placed: 83 },
-        { session: "2023-24", offers: 132, placed: 95 },
-        { session: "2024-25", offers: 148, placed: 109 },
+    "ece": [
+        {"session":"2023-24","offers":26,"placed":0},
+        {"session":"2024-25","offers":71,"placed":0},
+        {"session":"2025-26","offers":51,"placed":0},
     ],
-    che: [
-        { session: "2020-21", offers: 73, placed: 49 },
-        { session: "2021-22", offers: 88, placed: 62 },
-        { session: "2022-23", offers: 97, placed: 70 },
-        { session: "2023-24", offers: 111, placed: 81 },
-        { session: "2024-25", offers: 124, placed: 91 },
+    "ei": [
+        {"session":"2023-24","offers":44,"placed":0},
     ],
-};
-
-const branchPlacementTrendData: Record<
-    string,
-    { session: string; highest: number; median: number; average: number }[]
-> = {
-    cse: [
-        { session: "2020-21", highest: 18.4, median: 10.2, average: 8.7 },
-        { session: "2021-22", highest: 22.1, median: 11.8, average: 9.6 },
-        { session: "2022-23", highest: 25.6, median: 13.2, average: 10.8 },
-        { session: "2023-24", highest: 28.9, median: 14.5, average: 11.9 },
-        { session: "2024-25", highest: 32.4, median: 16.1, average: 13.5 },
+    "ee": [
+        {"session":"2023-24","offers":29,"placed":0},
+        {"session":"2024-25","offers":29,"placed":0},
+        {"session":"2025-26","offers":46,"placed":0},
     ],
-    ece: [
-        { session: "2020-21", highest: 14.2, median: 8.1, average: 6.9 },
-        { session: "2021-22", highest: 16.8, median: 9.0, average: 7.5 },
-        { session: "2022-23", highest: 19.5, median: 10.4, average: 8.3 },
-        { session: "2023-24", highest: 21.6, median: 11.3, average: 9.1 },
-        { session: "2024-25", highest: 24.0, median: 12.2, average: 10.0 },
+    "me": [
+        {"session":"2023-24","offers":33,"placed":0},
+        {"session":"2024-25","offers":42,"placed":0},
+        {"session":"2025-26","offers":57,"placed":0},
     ],
-    ee: [
-        { session: "2020-21", highest: 13.0, median: 7.4, average: 6.2 },
-        { session: "2021-22", highest: 15.1, median: 8.2, average: 6.8 },
-        { session: "2022-23", highest: 17.7, median: 9.4, average: 7.5 },
-        { session: "2023-24", highest: 19.8, median: 10.1, average: 8.2 },
-        { session: "2024-25", highest: 22.3, median: 11.0, average: 9.0 },
+    "ce": [
+        {"session":"2023-24","offers":20,"placed":0},
+        {"session":"2024-25","offers":22,"placed":0},
+        {"session":"2025-26","offers":38,"placed":0},
     ],
-    me: [
-        { session: "2020-21", highest: 9.5, median: 5.6, average: 4.8 },
-        { session: "2021-22", highest: 11.2, median: 6.2, average: 5.4 },
-        { session: "2022-23", highest: 13.0, median: 7.0, average: 6.0 },
-        { session: "2023-24", highest: 14.6, median: 7.8, average: 6.6 },
-        { session: "2024-25", highest: 16.1, median: 8.4, average: 7.2 },
+    "che": [
+        {"session":"2023-24","offers":36,"placed":0},
+        {"session":"2024-25","offers":18,"placed":0},
+        {"session":"2025-26","offers":34,"placed":0},
     ],
-    ce: [
-        { session: "2020-21", highest: 8.8, median: 5.1, average: 4.4 },
-        { session: "2021-22", highest: 10.1, median: 5.8, average: 5.0 },
-        { session: "2022-23", highest: 11.7, median: 6.5, average: 5.5 },
-        { session: "2023-24", highest: 13.4, median: 7.1, average: 6.1 },
-        { session: "2024-25", highest: 15.0, median: 7.8, average: 6.7 },
+    "mca": [
+        {"session":"2023-24","offers":37,"placed":0},
+        {"session":"2024-25","offers":48,"placed":0},
+        {"session":"2025-26","offers":64,"placed":0},
     ],
-    che: [
-        { session: "2020-21", highest: 10.3, median: 5.9, average: 5.1 },
-        { session: "2021-22", highest: 12.0, median: 6.6, average: 5.7 },
-        { session: "2022-23", highest: 13.8, median: 7.3, average: 6.3 },
-        { session: "2023-24", highest: 15.2, median: 8.0, average: 6.9 },
-        { session: "2024-25", highest: 17.0, median: 8.7, average: 7.5 },
+    "mba": [
+        {"session":"2023-24","offers":48,"placed":0},
+        {"session":"2024-25","offers":54,"placed":0},
+        {"session":"2025-26","offers":38,"placed":0},
+    ],
+    "mtech": [
+        {"session":"2023-24","offers":1,"placed":0},
+        {"session":"2024-25","offers":6,"placed":0},
+        {"session":"2025-26","offers":10,"placed":0},
     ],
 };
-
+const branchPlacementTrendData: Record<string, { session: string; highest: number; median: number; average: number }[]> = {
+    "cse": [
+        {"session":"2023-24","highest":59.91,"median":7.5,"average":9.77},
+        {"session":"2024-25","highest":54,"median":6,"average":7.63},
+        {"session":"2025-26","highest":16,"median":7,"average":7.58},
+    ],
+    "cse_sf": [
+        {"session":"2024-25","highest":54,"median":6,"average":8.89},
+        {"session":"2025-26","highest":16,"median":6.5,"average":6.96},
+    ],
+    "cse_ai": [
+        {"session":"2024-25","highest":12.5,"median":4.8,"average":5.56},
+        {"session":"2025-26","highest":12,"median":6.5,"average":6.4},
+    ],
+    "it": [
+        {"session":"2023-24","highest":44.5,"median":7.5,"average":8.24},
+    ],
+    "ece": [
+        {"session":"2023-24","highest":20,"median":7.25,"average":7.15},
+        {"session":"2024-25","highest":25,"median":4.8,"average":5.75},
+        {"session":"2025-26","highest":12,"median":6.5,"average":6.79},
+    ],
+    "ei": [
+        {"session":"2023-24","highest":16,"median":7.5,"average":7.07},
+    ],
+    "ee": [
+        {"session":"2023-24","highest":10,"median":5,"average":5.48},
+        {"session":"2024-25","highest":11,"median":4,"average":4.89},
+        {"session":"2025-26","highest":12,"median":6,"average":6.53},
+    ],
+    "me": [
+        {"session":"2023-24","highest":10,"median":5,"average":5.35},
+        {"session":"2024-25","highest":8,"median":4,"average":4.75},
+        {"session":"2025-26","highest":12.36,"median":5.5,"average":6.37},
+    ],
+    "ce": [
+        {"session":"2023-24","highest":7.5,"median":4.25,"average":4.83},
+        {"session":"2024-25","highest":8,"median":4,"average":4.54},
+        {"session":"2025-26","highest":12,"median":5.5,"average":5.77},
+    ],
+    "che": [
+        {"session":"2023-24","highest":7.5,"median":5,"average":5.1},
+        {"session":"2024-25","highest":8,"median":4,"average":4.67},
+        {"session":"2025-26","highest":12.36,"median":6,"average":5.93},
+    ],
+    "mca": [
+        {"session":"2023-24","highest":7.5,"median":3.5,"average":4.31},
+        {"session":"2024-25","highest":8,"median":3.5,"average":4.41},
+        {"session":"2025-26","highest":12,"median":6.35,"average":6.32},
+    ],
+    "mba": [
+        {"session":"2023-24","highest":8,"median":5,"average":5.1},
+        {"session":"2024-25","highest":8,"median":4,"average":4.45},
+        {"session":"2025-26","highest":12.36,"median":6,"average":5.99},
+    ],
+    "mtech": [
+        {"session":"2023-24","highest":3.75,"median":3.75,"average":3.75},
+        {"session":"2024-25","highest":8,"median":4,"average":5.17},
+        {"session":"2025-26","highest":8.6,"median":7.32,"average":6.57},
+    ],
+};
 const branchDocuments: Record<
     string,
     {
@@ -143,6 +169,13 @@ const branchDocuments: Record<
         url: string;
     }[]
 > = {
+    "cse_sf": [],
+    "cse_ai": [],
+    "it": [],
+    "ei": [],
+    "mca": [],
+    "mba": [],
+    "mtech": [],
     cse: [
         {
             id: 1,
@@ -430,6 +463,13 @@ const branchAchievementStats: Record<
     string,
     { label: string; value: string }[]
 > = {
+    "cse_sf": { alumni: 0, patents: 0, papers: 0 },
+    "cse_ai": { alumni: 0, patents: 0, papers: 0 },
+    "it": { alumni: 0, patents: 0, papers: 0 },
+    "ei": { alumni: 0, patents: 0, papers: 0 },
+    "mca": { alumni: 0, patents: 0, papers: 0 },
+    "mba": { alumni: 0, patents: 0, papers: 0 },
+    "mtech": { alumni: 0, patents: 0, papers: 0 },
     cse: [
         { label: "Placements", value: "92%" },
         { label: "Top Package", value: "₹32 LPA" },
@@ -481,6 +521,13 @@ const branchAchievements: Record<
         image: string;
     }[]
 > = {
+    "cse_sf": [],
+    "cse_ai": [],
+    "it": [],
+    "ei": [],
+    "mca": [],
+    "mba": [],
+    "mtech": [],
     cse: [
         {
             id: 1,
@@ -752,38 +799,21 @@ function CustomPlacementTooltip({
     if (!active || !payload || !payload.length) return null;
 
     const offers = payload.find((item) => item.name === "Total Offers")?.value ?? 0;
-    const placed = payload.find((item) => item.name === "Students Placed")?.value ?? 0;
-    const conversion = offers ? ((placed / offers) * 100).toFixed(1) : "0.0";
 
     return (
         <div className="min-w-[290px] rounded-[28px] border border-slate-200/80 bg-white px-5 py-5 shadow-[0_28px_70px_rgba(11,60,109,0.16)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#1f5aa6]">
+            <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
                 Session
             </p>
-            <h4 className="mt-2 text-[18px] font-bold text-[#1f2933]">{label}</h4>
+            <h4 className="mt-2 text-[18px] font-bold text-[#071733]">{label}</h4>
 
             <div className="mt-5 space-y-4">
-                <div className="flex items-center justify-between gap-8">
+                <div className="flex items-center justify-between gap-6">
                     <div className="flex items-center gap-3">
-                        <span className="h-3.5 w-3.5 rounded-full bg-[#1f5aa6]" />
+                        <span className="h-3.5 w-3.5 rounded-full bg-[#0A2647]" />
                         <span className="text-sm text-[#52606d]">Total Offers</span>
                     </div>
-                    <span className="text-sm font-bold text-[#1f2933]">{offers}</span>
-                </div>
-
-                <div className="flex items-center justify-between gap-8">
-                    <div className="flex items-center gap-3">
-                        <span className="h-3.5 w-3.5 rounded-full bg-[#f4b400]" />
-                        <span className="text-sm text-[#52606d]">Students Placed</span>
-                    </div>
-                    <span className="text-sm font-bold text-[#1f2933]">{placed}</span>
-                </div>
-            </div>
-
-            <div className="mt-5 border-t border-slate-100 pt-4">
-                <div className="flex items-center justify-between gap-8">
-                    <span className="text-sm text-[#52606d]">Placement Conversion</span>
-                    <span className="text-sm font-bold text-[#123a6f]">{conversion}%</span>
+                    <span className="text-sm font-bold text-[#071733]">{offers}</span>
                 </div>
             </div>
         </div>
@@ -803,10 +833,10 @@ function CustomCompensationTooltip({
 
     return (
         <div className="min-w-[290px] rounded-[28px] border border-slate-200/80 bg-white px-5 py-5 shadow-[0_28px_70px_rgba(11,60,109,0.16)]">
-            <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#1f5aa6]">
+            <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
                 Session
             </p>
-            <h4 className="mt-2 text-[18px] font-bold text-[#1f2933]">{label}</h4>
+            <h4 className="mt-2 text-[18px] font-bold text-[#071733]">{label}</h4>
         </div>
     );
 }
@@ -814,7 +844,7 @@ function CustomCompensationTooltip({
 export default function PlacementTabsOnly() {
     const router = useRouter();
     const pathname = usePathname() ?? "";
-    const isBranchRoute = pathname.includes("branchwise");
+
 
     const [isBranchMenuOpen, setIsBranchMenuOpen] = useState(false);
     const [selectedBranch, setSelectedBranch] = useState("cse");
@@ -831,52 +861,10 @@ export default function PlacementTabsOnly() {
 
     return (
         <div className="mt-4 w-full space-y-6">
-            <div className="mx-auto w-full max-w-3xl">
-                <div className="rounded-[28px] border border-white/60 bg-white/80 p-2 shadow-[0_20px_60px_rgba(11,60,109,0.12)] backdrop-blur-xl">
-                    <div
-                        role="tablist"
-                        aria-label="Placement statistics tabs"
-                        className="grid grid-cols-2 rounded-[22px] bg-gradient-to-r from-slate-100 to-slate-50 p-1.5"
-                    >
-                        {tabs.map((tab) => {
-                            const isBranch = tab.key === "branch";
-                            const isActive =
-                                (tab.key === "overall" && !isBranchRoute) ||
-                                (tab.key === "branch" && isBranchRoute);
-
-                            return (
-                                <button
-                                    key={tab.key}
-                                    role="tab"
-                                    aria-selected={isActive}
-                                    onClick={() => {
-                                        if (isBranch) {
-                                            router.push("/recruiters/demographic/branchwise");
-                                        } else {
-                                            router.push("/recruiters/demographic");
-                                        }
-                                    }}
-                                    className={[
-                                        "flex min-h-[58px] items-center justify-center rounded-[18px] px-4 sm:px-6",
-                                        "text-center text-sm font-semibold tracking-[-0.01em] transition-all duration-300",
-                                        isActive
-                                            ? "bg-[linear-gradient(135deg,#0b3c6d,#1f5aa6)] text-white shadow-[0_10px_30px_rgba(11,60,109,0.28)]"
-                                            : "bg-transparent text-[#52606d] hover:bg-white hover:shadow-md",
-                                    ].join(" ")}
-                                >
-                                    <span className="hidden sm:inline">{tab.label}</span>
-                                    <span className="sm:hidden">{tab.short}</span>
-                                </button>
-                            );
-                        })}
-                    </div>
-                </div>
-            </div>
-
-            {isBranchRoute && (
+            
                 <div className="mx-auto w-full max-w-3xl">
                     <div className="relative">
-                        <label className="mb-2 block text-sm font-semibold text-[#123a6f]">
+                        <label className="mb-2 block text-sm font-semibold text-[#144272]">
                             Select Branch
                         </label>
 
@@ -886,13 +874,13 @@ export default function PlacementTabsOnly() {
                             aria-expanded={isBranchMenuOpen}
                             aria-controls="branch-listbox"
                             onClick={() => setIsBranchMenuOpen((prev) => !prev)}
-                            className="flex min-h-[56px] w-full items-center justify-between rounded-[20px] border border-slate-200/80 bg-white px-5 py-3 text-left shadow-[0_12px_30px_rgba(11,60,109,0.08)] transition-all duration-300 hover:border-[#1f5aa6]/30 hover:shadow-[0_16px_36px_rgba(11,60,109,0.12)]"
+                            className="flex min-h-[56px] w-full items-center justify-between rounded-[20px] border border-slate-200/80 bg-white px-5 py-3 text-left shadow-[0_12px_30px_rgba(11,60,109,0.08)] transition-all duration-300 hover:border-[#2C74B3]/30 hover:shadow-[0_16px_36px_rgba(11,60,109,0.12)]"
                         >
                             <div>
                                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#52606d]">
                                     Branch
                                 </p>
-                                <p className="mt-1 text-sm font-semibold text-[#1f2933]">
+                                <p className="mt-1 text-sm font-semibold text-[#071733]">
                                     {activeBranch.label}
                                 </p>
                             </div>
@@ -924,12 +912,12 @@ export default function PlacementTabsOnly() {
                                                     setIsBranchMenuOpen(false);
                                                 }}
                                                 className={`flex w-full items-center justify-between rounded-[16px] px-4 py-3 text-left transition-all duration-200 ${isSelected
-                                                    ? "bg-[#eaf1fb] text-[#0b3c6d]"
-                                                    : "text-[#52606d] hover:bg-slate-50 hover:text-[#1f2933]"
+                                                    ? "bg-[#eaf1fb] text-[#0A2647]"
+                                                    : "text-[#52606d] hover:bg-slate-50 hover:text-[#071733]"
                                                     }`}
                                             >
                                                 <span className="text-sm font-medium">{branch.label}</span>
-                                                {isSelected && <Check className="h-4 w-4 text-[#0b3c6d]" />}
+                                                {isSelected && <Check className="h-4 w-4 text-[#0A2647]" />}
                                             </button>
                                         );
                                     })}
@@ -938,16 +926,14 @@ export default function PlacementTabsOnly() {
                         )}
                     </div>
                 </div>
-            )}
 
-            {isBranchRoute && (
-                <section className="mx-auto max-w-7xl rounded-[34px] border border-slate-200/70 bg-white p-6 shadow-[0_20px_60px_rgba(11,60,109,0.08)] sm:p-8">
+            <section className="mx-auto max-w-7xl rounded-[34px] border border-slate-200/70 bg-white p-6 shadow-[0_20px_60px_rgba(11,60,109,0.08)] sm:p-8">
                     <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
-                            <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#1f5aa6]">
+                            <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
                                 PLACEMENT OFFERS
                             </p>
-                            <h3 className="mt-3 text-[30px] font-bold tracking-[-0.03em] text-[#1f2933] sm:text-[34px]">
+                            <h3 className="mt-3 text-[30px] font-bold tracking-[-0.03em] text-[#071733] sm:text-[34px]">
                                 Session-wise Placement Offers
                             </h3>
                             <p className="mt-2 text-sm text-[#52606d] sm:text-base">
@@ -967,13 +953,13 @@ export default function PlacementTabsOnly() {
                                 >
                                     <defs>
                                         <linearGradient id="offersGradient" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="0%" stopColor="#2f67b2" />
-                                            <stop offset="100%" stopColor="#133f73" />
+                                            <stop offset="0%" stopColor="#2C74B3" />
+                                            <stop offset="100%" stopColor="#0A2647" />
                                         </linearGradient>
 
                                         <linearGradient id="placedGradient" x1="0" y1="0" x2="0" y2="1">
-                                            <stop offset="0%" stopColor="#ffd54a" />
-                                            <stop offset="100%" stopColor="#ffbf00" />
+                                            <stop offset="0%" stopColor="#38BDF8" />
+                                            <stop offset="100%" stopColor="#2C74B3" />
                                         </linearGradient>
                                     </defs>
 
@@ -1018,13 +1004,7 @@ export default function PlacementTabsOnly() {
                                         )}
                                     />
 
-                                    <Bar
-                                        dataKey="placed"
-                                        name="Students Placed"
-                                        fill="url(#placedGradient)"
-                                        radius={[14, 14, 0, 0]}
-                                        maxBarSize={40}
-                                    />
+                                    
 
                                     <Bar
                                         dataKey="offers"
@@ -1038,16 +1018,15 @@ export default function PlacementTabsOnly() {
                         </div>
                     </div>
                 </section>
-            )}
 
             <section className="mx-auto w-full max-w-7xl grid grid-cols-1 gap-6 xl:grid-cols-[1.2fr_0.8fr]">
                 <div className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-7">
                     <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
-                            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1f5aa6]">
+                            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2C74B3]">
                                 BRANCH PLACEMENT TREND
                             </p>
-                            <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#1f2933]">
+                            <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733]">
                                 Highest, Median & Average Placement
                             </h3>
                             <p className="mt-2 text-sm text-[#52606d]">
@@ -1055,7 +1034,7 @@ export default function PlacementTabsOnly() {
                             </p>
                         </div>
 
-                        <div className="inline-flex w-fit items-center rounded-full bg-[#f5f7fa] px-4 py-2 text-sm font-semibold text-[#123a6f] ring-1 ring-slate-200/70">
+                        <div className="inline-flex w-fit items-center rounded-full bg-[#f5f7fa] px-4 py-2 text-sm font-semibold text-[#144272] ring-1 ring-slate-200/70">
                             {activeBranch.label}
                         </div>
                     </div>
@@ -1092,40 +1071,40 @@ export default function PlacementTabsOnly() {
 
                                         return (
                                             <div className="min-w-[290px] rounded-[28px] border border-slate-200/80 bg-white px-5 py-5 shadow-[0_28px_70px_rgba(11,60,109,0.16)]">
-                                                <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#1f5aa6]">
+                                                <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
                                                     Session
                                                 </p>
-                                                <h4 className="mt-2 text-[18px] font-bold text-[#1f2933]">
+                                                <h4 className="mt-2 text-[18px] font-bold text-[#071733]">
                                                     {label}
                                                 </h4>
 
                                                 <div className="mt-5 space-y-4">
                                                     <div className="flex items-center justify-between gap-8">
                                                         <div className="flex items-center gap-3">
-                                                            <span className="h-3.5 w-3.5 rounded-full bg-[#0b3c6d]" />
+                                                            <span className="h-3.5 w-3.5 rounded-full bg-[#071733]" />
                                                             <span className="text-sm text-[#52606d]">Highest</span>
                                                         </div>
-                                                        <span className="text-sm font-bold text-[#1f2933]">
+                                                        <span className="text-sm font-bold text-[#071733]">
                                                             {highest} LPA
                                                         </span>
                                                     </div>
 
                                                     <div className="flex items-center justify-between gap-8">
                                                         <div className="flex items-center gap-3">
-                                                            <span className="h-3.5 w-3.5 rounded-full bg-[#f4b400]" />
+                                                            <span className="h-3.5 w-3.5 rounded-full bg-[#144272]" />
                                                             <span className="text-sm text-[#52606d]">Median</span>
                                                         </div>
-                                                        <span className="text-sm font-bold text-[#1f2933]">
+                                                        <span className="text-sm font-bold text-[#071733]">
                                                             {median} LPA
                                                         </span>
                                                     </div>
 
                                                     <div className="flex items-center justify-between gap-8">
                                                         <div className="flex items-center gap-3">
-                                                            <span className="h-3.5 w-3.5 rounded-full bg-[#1f5aa6]" />
+                                                            <span className="h-3.5 w-3.5 rounded-full bg-[#2C74B3]" />
                                                             <span className="text-sm text-[#52606d]">Average</span>
                                                         </div>
-                                                        <span className="text-sm font-bold text-[#1f2933]">
+                                                        <span className="text-sm font-bold text-[#071733]">
                                                             {average} LPA
                                                         </span>
                                                     </div>
@@ -1144,27 +1123,27 @@ export default function PlacementTabsOnly() {
                                     type="monotone"
                                     dataKey="highest"
                                     name="Highest"
-                                    stroke="#0b3c6d"
+                                    stroke="#071733"
                                     strokeWidth={3}
-                                    dot={{ r: 4, fill: "#0b3c6d", strokeWidth: 0 }}
+                                    dot={{ r: 4, fill: "#071733", strokeWidth: 0 }}
                                     activeDot={{ r: 6 }}
                                 />
                                 <Line
                                     type="monotone"
                                     dataKey="median"
                                     name="Median"
-                                    stroke="#f4b400"
+                                    stroke="#144272"
                                     strokeWidth={3}
-                                    dot={{ r: 4, fill: "#f4b400", strokeWidth: 0 }}
+                                    dot={{ r: 4, fill: "#144272", strokeWidth: 0 }}
                                     activeDot={{ r: 6 }}
                                 />
                                 <Line
                                     type="monotone"
                                     dataKey="average"
                                     name="Average"
-                                    stroke="#1f5aa6"
+                                    stroke="#2C74B3"
                                     strokeWidth={3}
-                                    dot={{ r: 4, fill: "#1f5aa6", strokeWidth: 0 }}
+                                    dot={{ r: 4, fill: "#2C74B3", strokeWidth: 0 }}
                                     activeDot={{ r: 6 }}
                                 />
                             </LineChart>
@@ -1175,10 +1154,10 @@ export default function PlacementTabsOnly() {
                 <div className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-7">
                     <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
-                            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1f5aa6]">
+                            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2C74B3]">
                                 DOCUMENTS
                             </p>
-                            <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#1f2933]">
+                            <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733]">
                                 Branch Documents
                             </h3>
                             <p className="mt-2 text-sm text-[#52606d]">
@@ -1187,24 +1166,24 @@ export default function PlacementTabsOnly() {
                         </div>
                     </div>
 
-                    <div className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto pr-2 [scrollbar-width:thin] [scrollbar-color:#1f5aa6_#eaf1fb]">
+                    <div className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
                         {branchDocuments[activeBranch.key].map((doc, index) => (
                             <div
                                 key={`${doc.id}-${doc.year ?? "common"}`}
-                                className="group rounded-[22px] border border-slate-200/70 bg-[#fcfdff] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#1f5aa6]/20 hover:shadow-[0_12px_30px_rgba(11,60,109,0.10)]"
+                                className="group rounded-[22px] border border-slate-200/70 bg-[#fcfdff] p-4 transition-all duration-300 hover:border-[#2C74B3]/20 hover:shadow-[0_12px_30px_rgba(11,60,109,0.10)]"
                             >
                                 <div className="flex items-start justify-between gap-3">
                                     <div className="min-w-0 flex-1">
                                         <div className="flex items-center gap-2">
-                                            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#eaf1fb] text-xs font-bold text-[#0b3c6d]">
+                                            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#eaf1fb] text-xs font-bold text-[#0A2647]">
                                                 {index + 1}
                                             </div>
-                                            <h4 className="truncate text-sm font-bold text-[#1f2933]">
+                                            <h4 className="truncate text-sm font-bold text-[#071733]">
                                                 {doc.title}
                                             </h4>
                                         </div>
 
-                                        <p className="mt-3 text-sm font-semibold text-[#0b3c6d]">
+                                        <p className="mt-3 text-sm font-semibold text-[#0A2647]">
                                             {doc.type}
                                         </p>
 
@@ -1223,14 +1202,14 @@ export default function PlacementTabsOnly() {
                                                 href={doc.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex min-h-[40px] items-center justify-center rounded-[12px] bg-[#0b3c6d] px-4 text-xs font-semibold text-white transition-all duration-300 hover:bg-[#123a6f]"
+                                                className="inline-flex min-h-[40px] items-center justify-center rounded-[12px] bg-[#0A2647] px-4 text-xs font-semibold text-white transition-all duration-300 hover:bg-[#144272]"
                                             >
                                                 View PDF
                                             </a>
                                         </div>
                                     </div>
 
-                                    <div className="shrink-0 rounded-full bg-[#fff6db] px-3 py-1 text-sm font-bold text-[#9a6a00]">
+                                    <div className="shrink-0 rounded-full bg-[#E0F2FE] px-3 py-1 text-sm font-bold text-[#0369A1]">
                                         {doc.format}
                                     </div>
                                 </div>
@@ -1241,15 +1220,15 @@ export default function PlacementTabsOnly() {
             </section>
 
             <section className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-[32px] bg-gradient-to-br from-[#f8fbff] to-white p-6 shadow-[0_25px_60px_rgba(11,60,109,0.12)] ring-1 ring-slate-200/60 sm:p-8">
-                <div className="absolute -top-20 -right-20 h-[300px] w-[300px] rounded-full bg-[#1f5aa6]/10 blur-3xl" />
-                <div className="absolute -bottom-20 -left-20 h-[260px] w-[260px] rounded-full bg-[#f4b400]/10 blur-3xl" />
+                <div className="absolute -top-20 -right-20 h-[300px] w-[300px] rounded-full bg-[#2C74B3]/10 blur-3xl" />
+                <div className="absolute -bottom-20 -left-20 h-[260px] w-[260px] rounded-full bg-[#2C74B3]/10 blur-3xl" />
 
                 <div className="relative">
                     <div className="border-b border-slate-200/60 pb-6">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1f5aa6]">
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2C74B3]">
                             ACHIEVEMENTS
                         </p>
-                        <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#1f2933]">
+                        <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733]">
                             Student Achievement Highlights
                         </h3>
                         <p className="mt-2 text-sm text-[#52606d]">
@@ -1262,11 +1241,11 @@ export default function PlacementTabsOnly() {
                         {branchAchievements[activeBranch.key].map((item) => (
                             <article
                                 key={item.id}
-                                className="grid min-h-[280px] grid-cols-1 gap-5 rounded-[28px] border border-slate-200/70 bg-white/85 p-5 shadow-[0_12px_32px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(11,60,109,0.12)] sm:grid-cols-[1.08fr_0.92fr]"
+                                className="grid min-h-[280px] grid-cols-1 gap-5 rounded-[28px] border border-slate-200/70 bg-white/85 p-5 shadow-[0_12px_32px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all duration-300 hover:shadow-[0_18px_45px_rgba(11,60,109,0.12)] sm:grid-cols-[1.08fr_0.92fr]"
                             >
                                 <div className="flex flex-col">
                                     <div className="flex items-center justify-between">
-                                        <span className="inline-flex w-fit items-center rounded-full bg-[#edf4ff] px-3 py-1 text-xs font-semibold text-[#123a6f]">
+                                        <span className="inline-flex w-fit items-center rounded-full bg-[#edf4ff] px-3 py-1 text-xs font-semibold text-[#144272]">
                                             {item.category}
                                         </span>
 
