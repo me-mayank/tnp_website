@@ -70,14 +70,14 @@ export default function PlacementStats() {
           <SplitText
             text="Placement Statistics"
             tag="h2"
-            className="text-4xl md:text-5xl font-bold text-[#0B1F3A] tracking-tight mb-6"
+            className="text-4xl md:text-5xl font-bold text-[#071733] tracking-tight mb-6"
             delay={30}
             duration={1}
             splitType="chars"
             from={{ opacity: 0, y: 20 }}
             to={{ opacity: 1, y: 0 }}
           />
-          <div className="h-1.5 w-20 bg-[#2563EB] rounded-full mx-auto mb-6"></div>
+          <div className="h-1.5 w-20 bg-[#2C74B3] rounded-full mx-auto mb-6"></div>
           <p className="text-slate-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Our strong placement ecosystem empowers students with top career opportunities, industry exposure, and exceptional recruiter connections.
           </p>
@@ -120,22 +120,22 @@ export default function PlacementStats() {
                 className="w-full shadow-lg border border-gray-100"
               >
                 <div className="p-6">
-                  <h4 className="text-xl font-bold text-[#0B1F3A] mb-4">Placement Insights</h4>
+                  <h4 className="text-xl font-bold text-[#071733] mb-4">Placement Insights</h4>
                   <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1" className="border-gray-100">
-                      <AccordionTrigger className="text-[#0B1F3A] hover:no-underline">Top Recruiting Sectors</AccordionTrigger>
+                      <AccordionTrigger className="text-[#071733] hover:no-underline">Top Recruiting Sectors</AccordionTrigger>
                       <AccordionContent className="text-slate-600">
                         IT & Software (45%), Core Engineering (25%), Analytics & Consulting (15%), and Finance (10%) are our primary recruiting sectors.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2" className="border-gray-100">
-                      <AccordionTrigger className="text-[#0B1F3A] hover:no-underline">Global Opportunities</AccordionTrigger>
+                      <AccordionTrigger className="text-[#071733] hover:no-underline">Global Opportunities</AccordionTrigger>
                       <AccordionContent className="text-slate-600">
                         Over 15% of our students secured international offers or roles in multinational corporations with global headquarters.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3" className="border-none">
-                      <AccordionTrigger className="text-[#0B1F3A] hover:no-underline">Internship to PPO Ratio</AccordionTrigger>
+                      <AccordionTrigger className="text-[#071733] hover:no-underline">Internship to PPO Ratio</AccordionTrigger>
                       <AccordionContent className="text-slate-600">
                         An impressive 40% of our students converted their summer internships into Pre-Placement Offers (PPOs) this year.
                       </AccordionContent>
@@ -148,29 +148,29 @@ export default function PlacementStats() {
             {/* Clean Typographic Stats (Single Row) */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-4 mt-10 px-2">
               <div ref={addToRefs} className="flex flex-col">
-                <div className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mb-1 flex items-baseline gap-1">
-                  <AnimatedCounter value={54} /> <span className="text-sm text-[#2563EB] font-bold">LPA</span>
+                <div className="text-3xl md:text-4xl font-bold text-[#071733] mb-1 flex items-baseline gap-1">
+                  <AnimatedCounter value={54} /> <span className="text-sm text-[#2C74B3] font-bold">LPA</span>
                 </div>
                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-tight">Highest<br/>Package</div>
               </div>
 
               <div ref={addToRefs} className="flex flex-col">
-                <div className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mb-1">
+                <div className="text-3xl md:text-4xl font-bold text-[#071733] mb-1">
                   <AnimatedCounter value={518} />
                 </div>
                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-tight">Students<br/>Placed</div>
               </div>
 
               <div ref={addToRefs} className="flex flex-col">
-                <div className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mb-1 flex items-baseline gap-1">
-                  <AnimatedCounter value={90} /> <span className="text-xl text-[#2563EB] font-bold">+</span>
+                <div className="text-3xl md:text-4xl font-bold text-[#071733] mb-1 flex items-baseline gap-1">
+                  <AnimatedCounter value={90} /> <span className="text-xl text-[#2C74B3] font-bold">+</span>
                 </div>
                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-tight">Companies<br/>Visited</div>
               </div>
 
               <div ref={addToRefs} className="flex flex-col">
-                <div className="text-3xl md:text-4xl font-bold text-[#0B1F3A] mb-1 flex items-baseline gap-1">
-                  <AnimatedCounter value={33} /> <span className="text-sm text-[#2563EB] font-bold">%</span>
+                <div className="text-3xl md:text-4xl font-bold text-[#071733] mb-1 flex items-baseline gap-1">
+                  <AnimatedCounter value={33} /> <span className="text-sm text-[#2C74B3] font-bold">%</span>
                 </div>
                 <div className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-tight">Placement<br/>Growth</div>
               </div>
@@ -182,7 +182,7 @@ export default function PlacementStats() {
         <div className="flex justify-center mt-16 lg:mt-24">
           <Link 
             href="/recruiters/demographic"
-            className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#0B1F3A] text-white rounded-xl font-bold shadow-xl shadow-blue-900/10 hover:bg-[#2563EB] transition-all hover:scale-105 active:scale-95"
+            className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#071733] text-white rounded-xl font-bold shadow-xl shadow-blue-900/10 hover:bg-[#2C74B3] transition-all hover:scale-105 active:scale-95"
           >
             Explore Detailed Statistics
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
