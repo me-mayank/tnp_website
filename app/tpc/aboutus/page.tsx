@@ -47,8 +47,8 @@ export default function AboutUsPage() {
     {
       year: "2026",
       description: "525+ offers with top international & tech roles.",
-      highest: "52 LPA",
-      average: "6.52 LPA",
+      highest: "60 LPA",
+      average: "7 LPA",
       recruiters: [
         { name: "Google", logo: "https://www.google.com/s2/favicons?domain=google.com&sz=128" },
         { name: "Microsoft", logo: "https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" },
