@@ -57,7 +57,7 @@ export default function AboutUsPage() {
     },
     {
       year: "2025",
-      description: "515+ students placed across 90+ top recruiters.",
+      description: "515+ offers made by premier recruiters.",
       highest: "54 LPA",
       average: "7 LPA",
       recruiters: [
