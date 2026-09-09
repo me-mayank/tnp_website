@@ -105,7 +105,7 @@ const FAQSection = () => {
             <p className="text-slate-500 text-sm">
                 Still have questions? Contact the T&P Cell at 
                 <a href="mailto:tpo@ietlucknow.ac.in" className="text-brand-accent font-semibold ml-1 hover:underline">
-                    tpo@ietlucknow.ac.in
+                    placement@ietlucknow.ac.in
                 </a>
             </p>
         </div>
