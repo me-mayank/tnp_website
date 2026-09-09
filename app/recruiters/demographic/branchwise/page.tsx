@@ -463,13 +463,13 @@ const branchAchievementStats: Record<
     string,
     { label: string; value: string }[]
 > = {
-    "cse_sf": { alumni: 0, patents: 0, papers: 0 },
-    "cse_ai": { alumni: 0, patents: 0, papers: 0 },
-    "it": { alumni: 0, patents: 0, papers: 0 },
-    "ei": { alumni: 0, patents: 0, papers: 0 },
-    "mca": { alumni: 0, patents: 0, papers: 0 },
-    "mba": { alumni: 0, patents: 0, papers: 0 },
-    "mtech": { alumni: 0, patents: 0, papers: 0 },
+    "cse_sf": [],
+    "cse_ai": [],
+    "it": [],
+    "ei": [],
+    "mca": [],
+    "mba": [],
+    "mtech": [],
     cse: [
         { label: "Placements", value: "92%" },
         { label: "Top Package", value: "₹32 LPA" },
