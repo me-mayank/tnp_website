@@ -32,7 +32,7 @@ export default function AboutUsPage() {
     let timer = setInterval(() => {
       setActiveFacility((prev) => (prev + 1) % facilities.length);
     }, 3000);
-    
+
     return () => {
       clearInterval(timer);
     };
@@ -46,7 +46,7 @@ export default function AboutUsPage() {
   const records = [
     {
       year: "2026",
-      description: "525+ offers and counting, multiple international roles, top-tier tech recruiters",
+      description: "525+ offers with top international & tech roles.",
       highest: "52 LPA",
       average: "6.52 LPA",
       recruiters: [
@@ -57,7 +57,7 @@ export default function AboutUsPage() {
     },
     {
       year: "2025",
-      description: "515+ students placed, 10 international offers, 90+ companies visited",
+      description: "515+ students placed across 90+ top recruiters.",
       highest: "54 LPA",
       average: "7 LPA",
       recruiters: [
@@ -68,7 +68,7 @@ export default function AboutUsPage() {
     },
     {
       year: "2024",
-      description: "500+ students placed across leading product & service companies.",
+      description: "500+ placed across premier product & tech firms.",
       highest: "52 LPA",
       average: "12 LPA",
       recruiters: [
@@ -79,7 +79,7 @@ export default function AboutUsPage() {
     },
     {
       year: "2023",
-      description: "470+ offers across multiple engineering branches.",
+      description: "470+ offers across all engineering branches.",
       highest: "45 LPA",
       average: "8.5 LPA",
       recruiters: [
@@ -199,9 +199,9 @@ export default function AboutUsPage() {
                       opacity: isCenter ? 1 : Math.max(0, 0.85 - absOffset * 0.3),
                       zIndex: 10 - absOffset
                     }}
-                    transition={{ 
-                      type: "spring", 
-                      stiffness: 120, 
+                    transition={{
+                      type: "spring",
+                      stiffness: 120,
                       damping: 20,
                       mass: 0.8,
                       opacity: { duration: 0.6 },
@@ -267,31 +267,35 @@ export default function AboutUsPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
                 {records.map((record, index) => (
-                  <div key={index} className="group h-[220px] hover:h-[380px] transition-all duration-700 ease-in-out [perspective:1000px]">
+                  <div key={index} className="group h-[300px] transition-all duration-700 ease-in-out [perspective:1000px]">
                     <div className="relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
 
                       {/* Front Face */}
-                      <div className="absolute inset-0 bg-white border border-gray-100 rounded-3xl p-6 shadow-sm flex flex-col justify-between [backface-visibility:hidden] overflow-hidden">
-                        <div>
-                          <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-3xl font-extrabold text-brand-800 group-hover:text-brand-accent transition-colors">{record.year}</h3>
-                            <div className="p-2 bg-[#eef5fc] rounded-lg text-brand-accent">
-                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                      <div className="absolute inset-0 bg-white border border-gray-100 rounded-3xl shadow-sm flex flex-col [backface-visibility:hidden] overflow-hidden">
+                        <div className="flex flex-col flex-1 p-5 justify-between">
+                          {/* Header */}
+                          <div className="flex items-start justify-between">
+                            <div>
+                              <h3 className="text-3xl font-extrabold text-brand-800">{record.year}</h3>
+                              <span className="text-[10px] uppercase tracking-widest text-muted font-semibold mt-0.5 block">Placement Season</span>
+                            </div>
+                            <div className="p-2 bg-gray-50 rounded-xl text-brand-accent border border-gray-100">
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                               </svg>
                             </div>
                           </div>
-                        </div>
 
-                        <div className="space-y-3 pt-3 border-t border-gray-50 mt-auto">
-                          <div className="flex justify-between items-center">
-                            <span className="text-xs text-muted uppercase tracking-wider">Highest CTC</span>
-                            <span className="text-brand-accent font-bold text-lg">{record.highest}</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-xs text-muted uppercase tracking-wider">Average CTC</span>
-                            <span className="text-brand-800 font-bold text-lg">{record.average}</span>
+                          {/* Stats stacked */}
+                          <div className="flex flex-col gap-2">
+                            <div className="bg-gray-50 rounded-2xl px-4 py-3 border border-gray-100">
+                              <span className="text-[9px] uppercase tracking-widest text-muted font-bold block mb-1">Highest CTC</span>
+                              <span className="text-brand-accent font-extrabold text-lg leading-none">{record.highest}</span>
+                            </div>
+                            <div className="bg-gray-50 rounded-2xl px-4 py-3 border border-gray-100">
+                              <span className="text-[9px] uppercase tracking-widest text-muted font-bold block mb-1">Average CTC</span>
+                              <span className="text-brand-800 font-extrabold text-lg leading-none">{record.average}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -299,12 +303,12 @@ export default function AboutUsPage() {
                       {/* Back Face */}
                       <div className="absolute inset-0 bg-gradient-to-br from-brand-800 to-brand-900 border border-brand-700 rounded-3xl p-6 shadow-xl flex flex-col justify-between [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-hidden">
                         <div>
-                          <h3 className="text-2xl font-extrabold text-white mb-4">{record.year} Highlights</h3>
+                          <h3 className="text-2xl font-extrabold text-white mb-2">{record.year} Highlights</h3>
                           <p className="text-sm text-blue-50 font-medium leading-relaxed">
                             {record.description}
                           </p>
                         </div>
-                        <div className="mt-auto pt-4 border-t border-brand-700/50">
+                        <div className="mt-4 pt-3 border-t border-brand-700/50">
                           <span className="text-[10px] text-brand-accent uppercase font-bold tracking-widest block mb-3">Top Recruiters</span>
                           <div className="flex items-center justify-between w-full bg-white/95 rounded-xl p-3 shadow-inner">
                             {record.recruiters.map((recruiter, idx) => (
