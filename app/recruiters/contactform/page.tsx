@@ -2,7 +2,7 @@
 
 import { useMemo, useState, useEffect, useRef } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
-import Orb from '@/components/Orb';
+import { BadgeCheck, FlaskConical, TrendingUp, Users, Globe, Zap } from 'lucide-react';
 
 type CompanyContactPayload = {
   companyName: string;
@@ -26,18 +26,18 @@ const MONTHS = [
 
 const STATS = [
   { value: '500+', label: 'Eligible Students', sublabel: 'Across all branches' },
-  { value: '12 LPA', label: 'Average Package', sublabel: 'Placement Year 2024–25' },
-  { value: '45 LPA', label: 'Highest Package', sublabel: 'Placement Year 2024–25' },
-  { value: '120+', label: 'Companies Visited', sublabel: 'Across all sectors' },
+  { value: '7 LPA', label: 'Average Package', sublabel: 'Placement Year 2025–26' },
+  { value: '60 LPA', label: 'Highest Package', sublabel: 'Placement Year 2025–26' },
+  { value: '80+', label: 'Companies Visited', sublabel: 'Across all sectors' },
 ];
 
 const HIGHLIGHTS = [
-  { icon: '🏛️', title: 'AICTE Approved', desc: 'Fully accredited institution with a strong academic legacy.' },
-  { icon: '🧪', title: 'Industry-Ready Labs', desc: 'Students trained on the latest tech stacks and industry tools.' },
-  { icon: '📊', title: '95%+ Placement Rate', desc: 'Consistent high placements across all branches every year.' },
-  { icon: '🤝', title: 'Dedicated T&P Cell', desc: 'A full-time team to coordinate every step of your campus drive.' },
-  { icon: '🌐', title: 'Pan-India Recruiters', desc: 'Trusted by companies from startups to Fortune 500s.' },
-  { icon: '⚡', title: 'Fast Turnaround', desc: 'From form submission to drive date in under 2 weeks.' },
+  { Icon: BadgeCheck, title: 'AICTE Approved', desc: 'Fully accredited institution with a strong academic legacy.', iconColor: 'text-emerald-500', iconBg: 'bg-emerald-50  border-emerald-200', iconBgHover: 'group-hover:bg-emerald-100' },
+  { Icon: FlaskConical, title: 'Industry-Ready Labs', desc: 'Students trained on the latest tech stacks and industry tools.', iconColor: 'text-violet-500', iconBg: 'bg-violet-50   border-violet-200', iconBgHover: 'group-hover:bg-violet-100' },
+  { Icon: TrendingUp, title: '95%+ Placement Rate', desc: 'Consistent high placements across all branches every year.', iconColor: 'text-blue-500', iconBg: 'bg-blue-50     border-blue-200', iconBgHover: 'group-hover:bg-blue-100' },
+  { Icon: Users, title: 'Dedicated T&P Cell', desc: 'A full-time team to coordinate every step of your campus drive.', iconColor: 'text-orange-500', iconBg: 'bg-orange-50   border-orange-200', iconBgHover: 'group-hover:bg-orange-100' },
+  { Icon: Globe, title: 'Pan-India Recruiters', desc: 'Trusted by companies from startups to Fortune 500s.', iconColor: 'text-cyan-500', iconBg: 'bg-cyan-50     border-cyan-200', iconBgHover: 'group-hover:bg-cyan-100' },
+  { Icon: Zap, title: 'Fast Turnaround', desc: 'From form submission to drive date in under 2 weeks.', iconColor: 'text-yellow-500', iconBg: 'bg-yellow-50   border-yellow-200', iconBgHover: 'group-hover:bg-yellow-100' },
 ];
 
 function AnimatedCounter({ value }: { value: string }) {
@@ -137,18 +137,41 @@ export default function ContactForm() {
 
       {/* ══ HERO & STATS ══════════════════════════════════════════════════════ */}
       <div className="py-10 px-6">
-        <div className="max-w-6xl mx-auto relative overflow-hidden rounded-[2.5rem] bg-brand-800 text-white shadow-2xl flex flex-col items-center justify-center min-h-[380px] border border-brand-800/50">
-          {/* Animated Background Component */}
+        <div
+          className="max-w-6xl mx-auto relative overflow-hidden rounded-[2.5rem] bg-[#0B1A2E] hover:brightness-110 text-white shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center min-h-[380px] border border-white/10"
+        >
+          {/* Background decoration */}
           <div className="absolute inset-0 z-0 pointer-events-none opacity-50 mix-blend-screen">
-            <Orb hoverIntensity={0.4} rotateOnHover={true} hue={215} forceHoverState={false} />
           </div>
 
           {/* Hero Content */}
           <div className="relative z-10 max-w-4xl mx-auto text-center px-6 py-12">
             <motion.h1
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 tracking-tight">
-              Hire the <span className="text-blue-400">Best Talent</span><br />from IET Lucknow
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+                }
+              }}
+              className="text-5xl md:text-7xl font-extrabold leading-tight mb-6 tracking-tight flex flex-col items-center">
+              <span className="overflow-hidden inline-block pb-2">
+                <motion.span
+                  variants={{ hidden: { y: "110%" }, visible: { y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}
+                  className="inline-block"
+                >
+                  Hire the <span className="text-blue-400">Best Talent</span>
+                </motion.span>
+              </span>
+              <span className="overflow-hidden inline-block pb-2 mt-[-10px]">
+                <motion.span
+                  variants={{ hidden: { y: "110%" }, visible: { y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } } }}
+                  className="inline-block"
+                >
+                  from IET Lucknow
+                </motion.span>
+              </span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
@@ -158,10 +181,8 @@ export default function ContactForm() {
             </motion.p>
 
             <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.4 }} className="relative inline-block">
-              {/* Animated ping/pulse effect behind button */}
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 opacity-60 blur-md animate-pulse pointer-events-none" />
-              <a href="#contact-form" className="relative inline-flex items-center gap-2 px-8 py-4 rounded-full font-extrabold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all hover:scale-105 active:scale-95 text-lg">
-                Register Your Company
+              <a href="#contact-form" className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-extrabold text-white bg-blue-600 hover:bg-blue-500 shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95 text-lg">
+                Connect with Us
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
@@ -210,27 +231,33 @@ export default function ContactForm() {
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {HIGHLIGHTS.map((h, i) => (
+            {HIGHLIGHTS.map(({ Icon, title, desc, iconColor, iconBg }, i) => (
               <motion.div
-                key={h.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                key={title}
+                initial={{ opacity: 0, y: 40, scale: 0.85 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 18, delay: i * 0.1 }}
+                whileHover={{ y: -6, scale: 1.02, transition: { type: 'spring', stiffness: 260, damping: 18 } }}
+                className="cursor-default"
               >
-                <motion.div
-                  animate={{ y: [-8, 8, -8] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }}
-                  className="w-full h-full flex flex-col p-8 bg-gradient-to-br from-[#1e3a8a] to-[#0f172a] border border-blue-400/40 rounded-3xl justify-center text-white relative overflow-hidden group shadow-[0_15px_40px_rgba(30,58,138,0.4)] hover:shadow-[0_25px_60px_rgba(30,58,138,0.7)] transition-shadow duration-300"
-                >
-                  <div className="absolute inset-0 bg-blue-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                  <div className="text-6xl mb-6 relative z-10">{h.icon}</div>
-                  <h3 className="font-extrabold text-2xl mb-3 tracking-tight relative z-10 text-blue-50">{h.title}</h3>
-                  <p className="text-sm text-blue-200/80 leading-relaxed font-medium relative z-10">{h.desc}</p>
-                </motion.div>
+                <div className="w-full h-full flex flex-col p-8 bg-white border border-slate-200 rounded-3xl justify-center relative overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(0,0,0,0.10)] hover:bg-slate-50 transition-all duration-300">
+                  {/* icon box */}
+                  <div className={`mb-6 w-14 h-14 rounded-2xl border flex items-center justify-center ${iconBg}`}>
+                    <motion.div
+                      whileHover={{ scale: 1.2, transition: { type: 'spring', stiffness: 300, damping: 15 } }}
+                    >
+                      <Icon className={`w-7 h-7 ${iconColor}`} strokeWidth={1.8} />
+                    </motion.div>
+                  </div>
+                  <h3 className="font-extrabold text-xl mb-2 tracking-tight text-slate-800">{title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed font-medium">{desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
+
+
 
         </div>
       </section>
@@ -364,8 +391,8 @@ export default function ContactForm() {
                         <button key={m.value} type="button"
                           onClick={() => setForm(p => ({ ...p, recruitmentMonth: m.value }))}
                           className={`p-4 rounded-2xl border-2 text-left transition-all ${form.recruitmentMonth === m.value
-                              ? 'border-blue-600 bg-blue-50/50 shadow-md'
-                              : 'border-gray-100 bg-white hover:border-gray-300 hover:bg-gray-50'
+                            ? 'border-blue-600 bg-blue-50/50 shadow-md'
+                            : 'border-gray-100 bg-white hover:border-gray-300 hover:bg-gray-50'
                             }`}>
                           <p className={`text-sm font-extrabold mb-1 ${form.recruitmentMonth === m.value ? 'text-blue-700' : 'text-brand-800'}`}>
                             {m.label}
