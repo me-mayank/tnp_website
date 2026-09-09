@@ -95,31 +95,20 @@ export default function PlacementProcedure(): JSX.Element {
   const [rotation, setRotation] = useState<number>(0);
   const [animating, setAnimating] = useState<boolean>(false);
 
-  // Explicitly type the ref for the div element
-  const cardRef = useRef<HTMLDivElement | null>(null);
+  const animationTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const themeClass: string = "theme-even";
 
+  // Cleanup safety timer on unmount
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (rotation === 0) {
-              setRotation(180);
-              setFlipped(true);
-            }
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+    return () => {
+      if (animationTimerRef.current) {
+        clearTimeout(animationTimerRef.current);
+      }
+    };
+  }, []);
 
-    if (cardRef.current) observer.observe(cardRef.current);
-    return () => observer.disconnect();
-  }, [rotation]);
-
-  // Define parameter types for the flip logic
+  // Define parameter types for the flip logic with guaranteed auto-release
   const triggerFlip = (nextIndex: number, dir: "next" | "prev"): void => {
     if (animating || nextIndex === currentStep) return;
 
@@ -127,6 +116,21 @@ export default function PlacementProcedure(): JSX.Element {
     setCurrentStep(nextIndex);
     setRotation((prev) => prev + (dir === "next" ? 180 : -180));
     setFlipped((prev) => !prev);
+
+    // Fail-safe: ensure animating lock is always released even if Framer Motion drops onAnimationComplete
+    if (animationTimerRef.current) {
+      clearTimeout(animationTimerRef.current);
+    }
+    animationTimerRef.current = setTimeout(() => {
+      setAnimating(false);
+    }, 700);
+  };
+
+  const handleAnimationComplete = (): void => {
+    if (animationTimerRef.current) {
+      clearTimeout(animationTimerRef.current);
+    }
+    setAnimating(false);
   };
 
   const goNext = (): void => {
@@ -240,7 +244,7 @@ export default function PlacementProcedure(): JSX.Element {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
       >
-        <div className={`flip-card ${themeClass}`} ref={cardRef}>
+        <div className={`flip-card ${themeClass}`}>
           <motion.div
             className="flip-card-inner"
             animate={{
@@ -252,7 +256,7 @@ export default function PlacementProcedure(): JSX.Element {
               type: "spring",
               bounce: 0.25
             }}
-            onAnimationComplete={() => setAnimating(false)}
+            onAnimationComplete={handleAnimationComplete}
           >
             {/* Front Side */}
             <div className="flip-face flip-front">
