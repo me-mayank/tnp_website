@@ -142,7 +142,7 @@ export default function Header() {
                 </div>
               </div>
 
-              <Link href="/gallery" className="text-brand-900/70 hover:text-brand-accent transition-colors nav-link-underline">
+              <Link href="/gallery" prefetch={true} className="text-brand-900/70 hover:text-brand-accent transition-colors nav-link-underline">
                 Gallery
               </Link>
               <Link href="/downloads" className="text-brand-900/70 hover:text-brand-accent transition-colors nav-link-underline">
@@ -246,7 +246,7 @@ export default function Header() {
             </div>
 
             <div className="border-t border-gray-100 pt-2">
-              <Link href="/gallery" className="block py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>
+              <Link href="/gallery" prefetch={true} className="block py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>
                 Gallery
               </Link>
               <Link href="/downloads" className="block py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>

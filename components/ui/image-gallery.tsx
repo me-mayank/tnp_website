@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { getOptimizedImageUrl } from '@/lib/cloudinary-gallery';
 
 export type GalleryThumbImage = {
   src: string;
@@ -35,11 +36,16 @@ export default function Gallerythumb({
 
   const normalizedImages: GalleryThumbImage[] = images
     .filter((img) => Boolean(img))
-    .map((img, idx) =>
-      typeof img === "string" 
-        ? { src: img, alt: `${title} image ${idx + 1}`, title: `${title} #${idx + 1}` } 
-        : img
-    );
+    .map((img, idx) => {
+      const item =
+        typeof img === "string"
+          ? { src: img, alt: `${title} image ${idx + 1}`, title: `${title} #${idx + 1}` }
+          : img;
+      return {
+        ...item,
+        src: getOptimizedImageUrl(item.src),
+      };
+    });
 
   if (normalizedImages.length === 0) {
     return (
@@ -234,7 +240,7 @@ export default function Gallerythumb({
 
 const LAB_FACILITIES_METADATA = [
   { category: "High Performance", title: "Computing Lab" },
-  { category: "R&D Research", title: "Innovation Hub" },
+  { category: "Training & Placement", title: "Placement Cell" },
   { category: "Skill Development", title: "Training Center" },
   { category: "Placement Drives", title: "Interview Suites" },
   { category: "Smart Classrooms", title: "Presentation Hall" },
@@ -318,13 +324,7 @@ function ElasticGallerySection({
                     {displayTitle}
                   </h3>
 
-                  {/* Call to Action */}
-                  <div className="mt-1 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-300 md:mt-3 md:text-sm">
-                    View Project{" "}
-                    <svg className="h-3 w-3 md:h-4 md:w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 17L17 7M17 7H7M17 7V17" />
-                    </svg>
-                  </div>
+
                 </div>
 
                 {/* Inactive Content: Vertical Text (Desktop) / Short Label (Mobile) */}

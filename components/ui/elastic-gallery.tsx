@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { getOptimizedImageUrl } from "@/lib/cloudinary-gallery";
 
 export interface ElasticItemProps {
   id: string;
@@ -29,10 +30,10 @@ const DEFAULT_ITEMS: ElasticItemProps[] = [
   },
   {
     id: "02",
-    title: "Innovation Hub",
-    category: "R&D Research",
+    title: "Placement Cell",
+    category: "Training & Placement",
     src: "/images/facilities/workspace.webp",
-    alt: "Innovation Workspace",
+    alt: "Placement Cell",
   },
   {
     id: "03",
@@ -59,7 +60,7 @@ const DEFAULT_ITEMS: ElasticItemProps[] = [
     id: "06",
     title: "Auditorium",
     category: "Campus Events",
-    src: "/images/facilities/audi.jpg",
+    src: "/images/newaudi.jpg",
     alt: "Main Auditorium",
   },
 ];
@@ -100,7 +101,7 @@ export function ElasticGallery({
             {/* Background Image Layer */}
             <div className="absolute inset-0 h-full w-full">
               <Image
-                src={item.src}
+                src={getOptimizedImageUrl(item.src)}
                 alt={item.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -142,10 +143,7 @@ export function ElasticGallery({
                   {item.title}
                 </h3>
 
-                {/* Call to Action */}
-                <div className="mt-1 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-300 md:mt-3 md:text-sm">
-                  Explore Facility <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4" />
-                </div>
+
               </div>
 
               {/* Inactive Content: Vertical Text (Desktop) / Short Label (Mobile) */}
