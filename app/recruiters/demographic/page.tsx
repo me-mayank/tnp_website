@@ -326,7 +326,7 @@ function OverallTab() {
             subtitle="Highest-value student offers with recruiter and branch details."
           />
 
-          <div className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
+          <div data-lenis-prevent className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
             {topPlacements.map((student, index) => (
               <div
                 key={student.id}
