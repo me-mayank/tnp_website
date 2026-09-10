@@ -131,13 +131,13 @@ export default function HeroSection() {
 
             {/* Mobile Hero Heading & Tagline */}
             <div className="absolute top-0 left-0 z-10 w-full pt-28 sm:pt-32 px-6 sm:px-8">
-              <h1 className={`hero-title flex flex-col text-left text-[clamp(1.6rem,6.2vw,2.3rem)] font-[800] leading-[1.06] tracking-tight ${poppins.className}`}>
+              <h1 className={`hero-title flex flex-col text-left text-[clamp(1.76rem,6.5vw,2.5rem)] font-[800] leading-[1.06] tracking-tight ${poppins.className}`}>
                 <span className="block text-[#0B1F3A]">Architecting</span>
                 <span className="block text-[#2563EB]">Careers</span>
                 <span className="block text-[#2563EB]">Fostering</span>
                 <span className="block text-[#0B1F3A]">Innovation</span>
               </h1>
-              <div className="mt-2 text-[9px] sm:text-[10px] font-bold text-slate-700/90 uppercase tracking-[0.16em] leading-snug">
+              <div className="mt-0.01 text-[10px] sm:text-[12px] font-bold text-slate-600/80 uppercase tracking-[0.14em] leading-snug">
                 <div>TALENT &bull; OPPORTUNITY</div>
                 <div className="mt-0.5">BRIGHTER TOMORROW</div>
               </div>

@@ -16,8 +16,9 @@ export default function Header() {
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 relative z-50 pointer-events-none">
-      <header id="top" className={`mx-auto max-w-7xl pointer-events-auto bg-white border border-brand-800/40 shadow-lg shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
+
+    <div className="fixed top-0 left-0 right-0 w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 z-50">
+      <header id="top" className={`mx-auto max-w-7xl bg-white border border-brand-800/40 shadow-lg shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-2 sm:py-3">
             <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
