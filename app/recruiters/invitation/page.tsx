@@ -1,86 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useCallback } from "react";
-
-// =============================================================================
-// TYPE DEFINITIONS
-// =============================================================================
-
-type RecruiterKey =
-  | "adobe"
-  | "amazon"
-  | "arcad"
-  | "ashok"
-  | "atlassian"
-  | "bajaj"
-  | "bharatelectronics"
-  | "birlasoft"
-  | "bny"
-  | "capgemini"
-  | "cisco"
-  | "cognizant"
-  | "dlf"
-  | "eicher"
-  | "ericsson"
-  | "escorts"
-  | "essar"
-  | "forbes"
-  | "gainsight"
-  | "goldman"
-  | "google"
-  | "groupon"
-  | "hcl"
-  | "hero"
-  | "honda"
-  | "hul"
-  | "ibm-logo-hd"
-  | "infosys"
-  | "InMobi"
-  | "inox"
-  | "Intuit"
-  | "jaroeducation"
-  | "lntinfotech"
-  | "LT"
-  | "mahindra"
-  | "meesho"
-  | "microsoft"
-  | "morgan"
-  | "newgen"
-  | "oracle"
-  | "paytm"
-  | "persistant"
-  | "prism"
-  | "rippling"
-  | "salesforce"
-  | "samsung"
-  | "servicenow"
-  | "shapoorji"
-  | "slice"
-  | "soti"
-  | "tactai"
-  | "tata_motors"
-  | "tcs"
-  | "torrent"
-  | "uber"
-  | "unacademy"
-  | "upstox"
-  | "usefulbi"
-  | "volvo"
-  | "wayfair"
-  | "wipro"
-  | "zeta"
-  | "zomato"
-  | "zs"
-  | "zscaler";
-
-interface Testimonial {
-  name: string;
-  role: string;
-  company: RecruiterKey;
-  img: string;
-  text: string;
-}
 
 // =============================================================================
 // HERO SECTION
@@ -88,15 +8,15 @@ interface Testimonial {
 
 function HeroSection(): JSX.Element {
   return (
-    <section className="relative w-full h-[60vh]">
+    <section className="relative w-full h-[36vh] sm:h-[48vh] md:h-[60vh] bg-slate-900">
       <Image
         src="/images/college.png"
         alt="IET Lucknow College"
         fill
         priority
-        className="object-cover"
+        className="object-contain sm:object-cover object-center sm:object-top"
       />
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
     </section>
   );
 }
@@ -107,7 +27,7 @@ function HeroSection(): JSX.Element {
 
 function Letter(): JSX.Element {
   return (
-    <section className="relative -mt-[40vh] md:-mt-[30vh] z-10 px-4 md:px-6 mb-10">
+    <section className="relative -mt-10 sm:-mt-[20vh] md:-mt-[28vh] z-10 px-3 sm:px-4 md:px-6 mb-10">
       <div className="max-w-6xl mx-auto">
         <div className="bg-[#efeee9] border border-black/10 rounded-[26px] shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:p-14 px-2">
           <div className="relative max-w-5xl mx-auto w-full bg-white border border-gray-300 rounded-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.05)] px-6 sm:px-8 md:px-12 py-8 md:py-10 overflow-hidden">
@@ -244,245 +164,6 @@ function Letter(): JSX.Element {
 }
 
 // =============================================================================
-// TESTIMONIALS SECTION
-// =============================================================================
-
-function Testimonials(): JSX.Element {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-
-  const alumniTestimonials: Testimonial[] = [
-    {
-      name: "Rahul Sharma",
-      role: "SDE @ Google",
-      company: "google",
-      img: "/images/testimonials/a1.webp",
-      text: "This institute completely shaped my career.",
-    },
-    {
-      name: "Priya Verma",
-      role: "PM @ Amazon",
-      company: "amazon",
-      img: "/images/testimonials/a2.jpg",
-      text: "Amazing exposure and mentorship.",
-    },
-    {
-      name: "Rahul Sharma",
-      role: "SDE @ Google",
-      company: "google",
-      img: "/images/testimonials/a3.avif",
-      text: "This institute completely shaped my career.",
-    },
-    {
-      name: "Priya Verma",
-      role: "PM @ Amazon",
-      company: "amazon",
-      img: "/images/testimonials/a4.jpg",
-      text: "Amazing exposure and mentorship.",
-    },
-  ];
-
-  const data: Testimonial[] = alumniTestimonials;
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % data.length);
-    }, 3500);
-
-    return () => clearInterval(timer);
-  }, [data.length]);
-
-  const prevSlide = useCallback((): void => {
-    setActiveIndex((prev) => (prev - 1 + data.length) % data.length);
-  }, [data.length]);
-
-  const nextSlide = useCallback((): void => {
-    setActiveIndex((prev) => (prev + 1) % data.length);
-  }, [data.length]);
-
-  const getPosition = (index: number): number => {
-    const total = data.length;
-    let diff = index - activeIndex;
-
-    if (diff > total / 2) diff -= total;
-    if (diff < -total / 2) diff += total;
-
-    return diff;
-  };
-
-  const getCompanyLogo = (company: RecruiterKey): string => {
-    switch (company) {
-      case "google":
-        return "google.png";
-      case "amazon":
-        return "amazon.png";
-      case "microsoft":
-        return "microsoft.png";
-      case "tcs":
-        return "tcs.png";
-      default:
-        return "";
-    }
-  };
-
-  return (
-    <section className="py-20 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between  gap-8 ">
-          <div>
-            <p className="text-xs tracking-[0.28em] uppercase text-slate-600 mb-2 ">
-              Alumni Perspectives
-            </p>
-
-            <h2 className="text-4xl font-bold text-slate-700">
-              Voices of Leaders
-            </h2>
-          </div>
-        </div>
-
-        <div className="relative max-w-6xl mx-auto">
-          <div className="relative h-[560px] md:h-[590px] flex items-center justify-center">
-            <div className="relative w-full h-full flex items-center justify-center [perspective:2000px]">
-              {data.map((item: Testimonial, index: number) => {
-                const position = getPosition(index);
-                const isActive = position === 0;
-
-                let cardStyle: React.CSSProperties = {};
-
-                if (position === 0) {
-                  cardStyle = {
-                    transform: "translateX(0px) scale(1) rotateY(0deg)",
-                    opacity: 1,
-                    zIndex: 30,
-                  };
-                } else if (position === -1) {
-                  cardStyle = {
-                    transform: "translateX(-76%) scale(0.92) rotateY(16deg)",
-                    opacity: 0.96,
-                    zIndex: 20,
-                  };
-                } else if (position === 1) {
-                  cardStyle = {
-                    transform: "translateX(76%) scale(0.92) rotateY(-16deg)",
-                    opacity: 0.96,
-                    zIndex: 20,
-                  };
-                } else if (position < 0) {
-                  cardStyle = {
-                    transform: "translateX(-102%) scale(0.82) rotateY(18deg)",
-                    opacity: 0,
-                    zIndex: 10,
-                  };
-                } else {
-                  cardStyle = {
-                    transform: "translateX(102%) scale(0.82) rotateY(-18deg)",
-                    opacity: 0,
-                    zIndex: 10,
-                  };
-                }
-
-                return (
-                  <div
-                    key={`alumni-${index}`}
-                    className="absolute w-[330px] sm:w-[360px] md:w-[410px] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-                    style={cardStyle}
-                  >
-                    <div
-                      className={`group relative rounded-[26px] p-[1px] ${
-                        isActive
-                          ? "shadow-[0_25px_80px_rgba(10,25,60,0.28)]"
-                          : "shadow-[0_18px_50px_rgba(10,25,60,0.16)]"
-                      }`}
-                    >
-                      <div className="relative overflow-hidden rounded-2xl p-8 text-white border border-white/10 bg-[linear-gradient(135deg,#1e3354,#243b63)]">
-                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.10),transparent_30%)]" />
-                        <div className="pointer-events-none absolute inset-[1px] rounded-2xl border border-white/5" />
-
-                        <div className="relative z-10 flex items-center justify-between gap-3 mb-5">
-                          <img
-                            src={`/images/pastRecruiter/${getCompanyLogo(
-                              item.company
-                            )}`}
-                            alt={`${item.company} logo`}
-                            className="h-7 object-contain brightness-110"
-                          />
-
-                          <span className="rounded-full border border-white/10 bg-white/10 px-3.5 py-1.5 text-[11px] font-medium text-white/85 backdrop-blur-sm">
-                            {item.role}
-                          </span>
-                        </div>
-
-                        <div className="relative z-10 mb-5 overflow-hidden rounded-xl border border-white/10 bg-black/10">
-                          <img
-                            src={item.img}
-                            alt={item.name}
-                            className="h-40 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          />
-                          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                        </div>
-
-                        <div className="relative z-10">
-                          <h3 className="text-[2rem] leading-none font-extrabold tracking-[-0.04em] text-white">
-                            {item.name}
-                          </h3>
-
-                          <p className="mt-2 text-[15px] text-white/75">
-                            {item.role}
-                          </p>
-
-                          <p className="mt-5 text-[15px] leading-8 text-white/85">
-                            &quot;{item.text}&quot;
-                          </p>
-                        </div>
-
-                        <div className="pointer-events-none absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <button
-              onClick={prevSlide}
-              type="button"
-              className="absolute left-0 sm:left-2 md:left-6 lg:left-12 top-1/2 -translate-y-1/2 z-40 h-12 w-12 rounded-full border border-blue-900/10 bg-white/90 backdrop-blur shadow-md text-blue-900 text-xl hover:scale-105 transition"
-              aria-label="Previous testimonial"
-            >
-              ←
-            </button>
-
-            <button
-              onClick={nextSlide}
-              type="button"
-              className="absolute right-0 sm:right-2 md:right-6 lg:right-12 top-1/2 -translate-y-1/2 z-40 h-12 w-12 rounded-full border border-blue-900/10 bg-white/90 backdrop-blur shadow-md text-blue-900 text-xl hover:scale-105 transition"
-              aria-label="Next testimonial"
-            >
-              →
-            </button>
-          </div>
-
-          <div className="mt-10 flex justify-center gap-3">
-            {data.map((_, index: number) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => setActiveIndex(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  activeIndex === index
-                    ? "w-8 bg-blue-900"
-                    : "w-2.5 bg-blue-200 hover:bg-blue-400"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// =============================================================================
 // MAIN PAGE COMPONENT
 // =============================================================================
 
@@ -491,7 +172,6 @@ export default function PlacementPage(): JSX.Element {
     <>
       <HeroSection />
       <Letter />
-      <Testimonials />
     </>
   );
 }
