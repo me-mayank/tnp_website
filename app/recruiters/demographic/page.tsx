@@ -53,26 +53,26 @@ const compensationTrendData = [
 ];
 
 const topPlacements = [
-  { id: 1, name: "Aarav Singh", company: "Amazon", role: "SDE", package: "₹60.0 LPA", branch: "CSE" },
-  { id: 2, name: "Priya Sharma", company: "Microsoft", role: "Software Engineer", package: "₹48 LPA", branch: "IT" },
-  { id: 3, name: "Rohan Verma", company: "Google", role: "Analyst", package: "₹45 LPA", branch: "CSE" },
-  { id: 4, name: "Sneha Yadav", company: "Adobe", role: "Frontend Engineer", package: "₹42 LPA", branch: "IT" },
-  { id: 5, name: "Aditya Mishra", company: "Atlassian", role: "SDE-1", package: "₹39 LPA", branch: "CSE" },
-  { id: 6, name: "Neha Khan", company: "Deloitte", role: "Consultant", package: "₹26 LPA", branch: "ECE" },
-  { id: 7, name: "Shivam Gupta", company: "Oracle", role: "Developer", package: "₹24 LPA", branch: "IT" },
-  { id: 8, name: "Ananya Roy", company: "ZS", role: "Business Analyst", package: "₹22 LPA", branch: "CSE" },
-  { id: 9, name: "Karan Tiwari", company: "Accenture", role: "Associate", package: "₹19 LPA", branch: "ECE" },
-  { id: 10, name: "Harshita Jain", company: "Infosys", role: "Specialist Programmer", package: "₹18 LPA", branch: "IT" },
-  { id: 11, name: "Vaibhav Singh", company: "Wipro", role: "Project Engineer", package: "₹17 LPA", branch: "EE" },
-  { id: 12, name: "Isha Srivastava", company: "TCS Digital", role: "Digital Engineer", package: "₹16 LPA", branch: "CSE" },
-  { id: 13, name: "Nitin Maurya", company: "Capgemini", role: "Analyst", package: "₹15 LPA", branch: "ME" },
-  { id: 14, name: "Sakshi Patel", company: "Paytm", role: "Software Engineer", package: "₹14 LPA", branch: "AI/DS" },
-  { id: 15, name: "Abhishek Rai", company: "HCL", role: "Graduate Engineer", package: "₹13 LPA", branch: "CE" },
-  { id: 16, name: "Tanvi Sinha", company: "Cognizant", role: "Programmer Analyst", package: "₹12 LPA", branch: "IT" },
-  { id: 17, name: "Yash Tripathi", company: "Tech Mahindra", role: "Engineer", package: "₹11 LPA", branch: "ECE" },
-  { id: 18, name: "Ritika Das", company: "PwC", role: "Associate Consultant", package: "₹10 LPA", branch: "CSE" },
-  { id: 19, name: "Manav Saxena", company: "L&T", role: "GET", package: "₹9 LPA", branch: "ME" },
-  { id: 20, name: "Pooja Agrawal", company: "Flipkart", role: "Operations Analyst", package: "₹8.5 LPA", branch: "EE" },
+  { id: 1, name: "Raj Singh", company: "Google", role: "Software Engineer", package: "₹60.0 LPA", branch: "CSE" },
+  { id: 2, name: "Gaurav Srivastav", company: "Google", role: "Software Engineer", package: "₹60.0 LPA", branch: "CSE" },
+  { id: 3, name: "Yash Kumar", company: "Microsoft", role: "Software Engineer", package: "₹56.0 LPA", branch: "CSE" },
+  { id: 4, name: "Priyanka Bind", company: "Amazon", role: "SDE", package: "₹48.0 LPA", branch: "CSE" },
+  { id: 5, name: "Akash Singh", company: "Amazon", role: "SDE", package: "₹48.0 LPA", branch: "CSE" },
+  { id: 6, name: "Yash Kumar", company: "Amazon", role: "SDE", package: "₹48.0 LPA", branch: "CSE" },
+  { id: 7, name: "Shiv Kumar", company: "Amazon", role: "SDE", package: "₹48.0 LPA", branch: "ECE" },
+  { id: 8, name: "Pratham Dixit", company: "Zomato", role: "Software Engineer", package: "₹29.0 LPA", branch: "CSE" },
+  { id: 9, name: "Kanika Agrawal", company: "BNY Mellon", role: "Software Engineer", package: "₹22.0 LPA", branch: "CSE" },
+  { id: 10, name: "Karnakant Pandey", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 11, name: "Shivansh Singhal", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 12, name: "Amit Pandey", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 13, name: "Samyak Srivastav", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 14, name: "Tanisha Pandey", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 15, name: "Akshit Singh", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 16, name: "Utkarsh Awasthi", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 17, name: "Shivansh Gupta", company: "Zeta", role: "Software Engineer", package: "₹16.0 LPA", branch: "CSE" },
+  { id: 18, name: "Priyanshu Mishra", company: "Zeta", role: "Software Engineer", package: "₹16.0 LPA", branch: "CSE" },
+  { id: 19, name: "Nitin Bajpai", company: "Zeta", role: "Software Engineer", package: "₹16.0 LPA", branch: "CSE" },
+  { id: 20, name: "Satvic Bajpai", company: "Zeta", role: "Software Engineer", package: "₹16.0 LPA", branch: "CSE" },
 ];
 
 const academicProgrammesData = [
@@ -85,34 +85,40 @@ const academicProgrammesData = [
 const overallAchievements = [
   {
     id: 1,
-    category: "GATE 2025 Dual Rank",
-    title: "AIR 23 (DS & AI) & AIR 289 (CS & IT)",
-    stat: "GATE 2025",
+    category: "GATE 2025",
+    title: "Dual All India Rank",
+    stat: "AIR 23 & 289",
     name: "Abhishek Srivastava",
     branch: "Computer Science Engineering",
-    description: "Secured All India Rank (AIR) 23 in Data Science & Artificial Intelligence (DS & AI) and AIR 289 in Computer Science & Information Technology (CS & IT).",
-    badge: "GATE 2025 National Rank",
+    description: "Secured All India Rank (AIR) 23 in Data Science & AI and AIR 289 in Computer Science & IT.",
+    badge: "GATE 2025 Excellence",
     image: "/images/achievements/abhishek_srivastava.png",
+    statBg: "bg-[#0A2647] text-white",
+    catBg: "bg-[#eaf1fb] text-[#0A2647]",
   },
   {
     id: 2,
     category: "UPSC IES",
-    title: "UPSC Indian Engineering Services",
+    title: "Engineering Services Officer",
     stat: "AIR 15",
     name: "Krishna Meerendra",
-    branch: "Indian Engineering Services Officer",
-    description: "Secured 15th Rank All India in the prestigious UPSC Indian Engineering Services examination and selected as an IES Officer.",
-    badge: "UPSC IES Selection",
+    branch: "Indian Engineering Services",
+    description: "Secured 15th Rank All India in the prestigious UPSC Indian Engineering Services examination.",
+    badge: "UPSC IES Officer",
+    statBg: "bg-[#144272] text-white",
+    catBg: "bg-[#fef3c7] text-[#92400e]",
   },
   {
     id: 3,
-    category: "IIT BOMBAY COMPETITION",
+    category: "IIT BOMBAY",
     title: "Agribot e-Yantra Competition",
     stat: "2nd Position",
     name: "Meha Shukla, Aviral Singh, Anmol Sharma, Aparna Gupta",
     branch: "Student Team Project",
     description: "IET Lucknow student team secured 2nd Position nationwide in the Agribot track at e-Yantra, IIT Bombay.",
     badge: "National Finalist",
+    statBg: "bg-[#2C74B3] text-white",
+    catBg: "bg-[#e0f2fe] text-[#0369a1]",
   },
 ];
 
@@ -395,91 +401,58 @@ function OverallTab() {
         <div className="border-b border-slate-100 pb-6">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2C74B3]">EXCELLENCE & HIGHLIGHTS</p>
           <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733] sm:text-3xl">Student Achievements</h3>
-          <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Celebrating outstanding accomplishments in competitive exams, government services, and innovation challenges.</p>
+          <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Spotlight on outstanding student accomplishments in national competitive examinations, civil services, and technical competitions.</p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12">
-          {/* Featured Spotlight Card — Abhishek Srivastava (1st Place) */}
-          <div className="rounded-[28px] bg-gradient-to-br from-[#0A2647] via-[#144272] to-[#071733] p-6 text-white shadow-[0_20px_45px_rgba(10,38,71,0.22)] sm:p-8 lg:col-span-12">
-            <div className="grid grid-cols-1 items-center gap-6 sm:grid-cols-[160px_1fr] md:grid-cols-[210px_1fr] lg:gap-8">
-              {/* Left Side: Big Image */}
-              {overallAchievements[0].image && (
-                <div className="relative mx-auto h-[220px] w-[180px] shrink-0 overflow-hidden rounded-[22px] border border-white/20 shadow-2xl sm:h-[230px] sm:w-[160px] md:h-[250px] md:w-[210px]">
-                  <img
-                    src={overallAchievements[0].image}
-                    alt={overallAchievements[0].name}
-                    className="h-full w-full object-cover object-top"
-                  />
-                </div>
-              )}
-
-              {/* Right Side: Details & Description */}
-              <div className="flex flex-col justify-between h-full">
-                <div>
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-md">
-                      {overallAchievements[0].category}
-                    </span>
-                    <span className="inline-flex rounded-full bg-[#38BDF8] px-3.5 py-1 text-xs font-bold text-[#071733]">
-                      {overallAchievements[0].stat}
-                    </span>
-                  </div>
-
-                  <h4 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
-                    {overallAchievements[0].title}
-                  </h4>
-
-                  <p className="mt-3 text-sm leading-relaxed text-slate-200/90 sm:text-[15px]">
-                    {overallAchievements[0].description}
-                  </p>
-                </div>
-
-                <div className="mt-6 border-t border-white/15 pt-4 flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <p className="text-base font-bold text-white">{overallAchievements[0].name}</p>
-                    <p className="text-xs text-slate-300">{overallAchievements[0].branch}</p>
-                  </div>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-sky-200">
-                    Top National Achievement
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {overallAchievements.map((item) => (
+            <div
+              key={item.id}
+              className="group flex flex-col justify-between rounded-[26px] border border-slate-200/80 bg-[#fcfdff] p-6 shadow-[0_12px_32px_rgba(11,60,109,0.06)] transition-all duration-300 hover:border-[#2C74B3]/40 hover:shadow-[0_20px_45px_rgba(11,60,109,0.12)]"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${item.catBg}`}>
+                    {item.category}
                   </span>
+                  <span className={`inline-flex rounded-full px-3.5 py-1 text-xs font-bold ${item.statBg}`}>
+                    {item.stat}
+                  </span>
+                </div>
+
+                <h4 className="mt-5 text-xl font-bold leading-tight text-[#071733]">
+                  {item.title}
+                </h4>
+
+                <p className="mt-3 text-xs leading-relaxed text-[#52606d] sm:text-sm">
+                  {item.description}
+                </p>
+              </div>
+
+              <div className="mt-6 border-t border-slate-100 pt-4 flex items-center gap-3.5">
+                {item.image ? (
+                  <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-[#2C74B3] shadow-sm">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      width={48}
+                      height={48}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0A2647] text-xs font-bold text-white shadow-sm">
+                    {item.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                  </div>
+                )}
+
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-bold text-[#071733]">{item.name}</p>
+                  <p className="truncate text-xs text-[#52606d]">{item.branch}</p>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Secondary Cards — Krishna Meerendra & Agribot Team */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-12">
-            {overallAchievements.slice(1).map((item) => (
-              <div
-                key={item.id}
-                className="group flex flex-col justify-between rounded-[26px] border border-slate-200/80 bg-[#fcfdff] p-6 shadow-[0_10px_30px_rgba(11,60,109,0.06)] transition-all duration-300 hover:border-[#2C74B3]/30 hover:shadow-[0_16px_36px_rgba(11,60,109,0.12)]"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="inline-flex rounded-full bg-[#eaf1fb] px-3 py-1 text-xs font-semibold text-[#0A2647]">
-                      {item.category}
-                    </span>
-                    <span className="inline-flex rounded-full bg-[#0A2647] px-3.5 py-1 text-xs font-bold text-white">
-                      {item.stat}
-                    </span>
-                  </div>
-
-                  <h5 className="mt-4 text-lg font-bold text-[#071733]">
-                    {item.title}
-                  </h5>
-
-                  <p className="mt-2 text-xs leading-relaxed text-[#52606d] sm:text-sm">
-                    {item.description}
-                  </p>
-                </div>
-
-                <div className="mt-5 border-t border-slate-100 pt-4">
-                  <p className="text-sm font-bold text-[#071733]">{item.name}</p>
-                  <p className="text-xs text-[#52606d]">{item.branch}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       </section>
 
