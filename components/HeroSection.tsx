@@ -16,7 +16,7 @@ const poppins = Poppins({ weight: ["700", "800"], subsets: ["latin"] });
 gsap.registerPlugin(ScrollTrigger);
 
 const HERO_BG = {
-  image: "/images/Hero_Image.png",
+  image: "/images/3Hero_Image.png",
   objectPosition: "68% top",
 };
 
@@ -121,7 +121,7 @@ export default function HeroSection() {
         <div className="relative w-full overflow-hidden bg-slate-950 md:hidden">
           <div className="relative w-full aspect-[2/3]">
             <Image
-              src="/images/2phone-hero.png"
+              src="/images/34phone-hero.png"
               alt="IET Lucknow Placements"
               fill
               priority
