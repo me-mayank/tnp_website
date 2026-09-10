@@ -136,7 +136,7 @@ const overallAchievements = [
 const overallKpis = [
   { label: "Highest Package", value: "₹60.0 LPA", helperText: "Top offer across recent sessions", progress: "100%" },
   { label: "Average Package", value: "₹6.52 LPA", helperText: "Weighted average compensation", progress: "72%" },
-  { label: "Placement Percentage", value: "87%", helperText: "Students placed from eligible batch", progress: "87%" },
+  { label: "Placement Percentage", value: "80%", helperText: "Students placed from eligible batch", progress: "80%" },
   { label: "Total Offers", value: "526", helperText: "Offers received in 2025–26", progress: "100%" },
 ];
 
@@ -240,7 +240,7 @@ function OverallTab() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {["120+ Recruiters", "600+ Offers", "87% Placement"].map((item) => (
+              {["80+ Recruiters", "500+ Offers", "80% Placement"].map((item) => (
                 <div
                   key={item}
                   className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md transition-transform duration-300 "
@@ -263,15 +263,15 @@ function OverallTab() {
 
               <div className="absolute left-0 top-10 z-10 w-[150px] cursor-pointer rounded-[22px] border border-white/20 bg-white/15 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:-translate-x-5 group-hover/spotlight:-translate-y-2 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">Active Hiring</p>
-                <p className="mt-2 text-2xl font-bold">120+</p>
+                <p className="mt-2 text-2xl font-bold">80+</p>
                 <p className="mt-1 text-xs text-white/85">Participating companies</p>
               </div>
 
               <div className="absolute bottom-0 right-2 z-10 w-[190px] cursor-pointer rounded-[24px] border border-white/20 bg-white/15 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:translate-x-4 group-hover/spotlight:translate-y-4 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">Placement Rate</p>
-                <p className="mt-2 text-3xl font-bold text-white">87%</p>
+                <p className="mt-2 text-3xl font-bold text-white">80%</p>
                 <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/20">
-                  <div className="h-full w-[87%] rounded-full bg-[#38BDF8]" />
+                  <div className="h-full w-[80%] rounded-full bg-[#38BDF8]" />
                 </div>
               </div>
 
