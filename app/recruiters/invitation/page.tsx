@@ -9,13 +9,28 @@ import Image from "next/image";
 function HeroSection(): JSX.Element {
   return (
     <section className="relative w-full h-[36vh] sm:h-[48vh] md:h-[60vh] bg-slate-900">
-      <Image
-        src="/images/college.png"
-        alt="IET Lucknow College"
-        fill
-        priority
-        className="object-contain sm:object-cover object-center sm:object-top"
-      />
+      {/* Mobile-only background image */}
+      <div className="sm:hidden relative w-full h-full">
+        <Image
+          src="/images/college_mobile.jpg"
+          alt="IET Lucknow College Mobile"
+          fill
+          priority
+          className="object-contain object-top"
+        />
+      </div>
+
+      {/* Desktop-only background image */}
+      <div className="hidden sm:block relative w-full h-full">
+        <Image
+          src="/images/college.png"
+          alt="IET Lucknow College Desktop"
+          fill
+          priority
+          className="object-cover object-top"
+        />
+      </div>
+
       <div className="absolute inset-0 bg-black/20 pointer-events-none" />
     </section>
   );
@@ -146,13 +161,6 @@ function Letter(): JSX.Element {
                 <p className="mt-1 text-sm text-gray-500">Officer in Charge</p>
                 <p className="text-sm text-gray-500">
                   Training and Placement Cell
-                </p>
-              </div>
-
-              <div className="sm:min-w-[150px]">
-                <div className="h-10 border-b border-gray-400" />
-                <p className="mt-2 text-right text-sm italic text-gray-400">
-                  Signature
                 </p>
               </div>
             </div>
