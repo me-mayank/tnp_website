@@ -607,9 +607,7 @@ svg {
   text-align: left;
   box-shadow: 0 20px 40px rgba(10, 38, 71, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(226, 232, 240, 0.8);
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
+  overflow: hidden;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
