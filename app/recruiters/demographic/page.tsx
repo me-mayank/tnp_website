@@ -76,10 +76,10 @@ const topPlacements = [
 ];
 
 const academicProgrammesData = [
-  { key: "btech", short: "B.Tech", name: "B.Tech", value: 541, color: "#b191d5" },
-  { key: "mtech", short: "M.Tech", name: "M.Tech", value: 108, color: "#7199a8" },
-  { key: "mca", short: "MCA", name: "MCA", value: 67, color: "#ee98b4" },
-  { key: "mba", short: "MBA", name: "MBA", value: 57, color: "#f7c26b" },
+  { key: "btech", short: "B.Tech", name: "B.Tech", value: 541, color: "#0A2647" },
+  { key: "mtech", short: "M.Tech", name: "M.Tech", value: 108, color: "#144272" },
+  { key: "mca", short: "MCA", name: "MCA", value: 67, color: "#2C74B3" },
+  { key: "mba", short: "MBA", name: "MBA", value: 57, color: "#38BDF8" },
 ];
 
 const overallKpis = [
