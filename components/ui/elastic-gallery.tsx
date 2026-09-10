@@ -31,7 +31,7 @@ const DEFAULT_ITEMS: ElasticItemProps[] = [
     id: "02",
     title: "Innovation Hub",
     category: "R&D Research",
-    src: "/images/facilities/workspace.webp",
+    src: "/images/facilities/1workspace.webp.png",
     alt: "Innovation Workspace",
   },
   {
