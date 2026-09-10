@@ -8,20 +8,20 @@ import Image from "next/image";
 
 function HeroSection(): JSX.Element {
   return (
-    <section className="relative w-full h-[36vh] sm:h-[48vh] md:h-[60vh] bg-slate-900">
+    <section className="relative w-full">
       {/* Mobile-only background image */}
-      <div className="sm:hidden relative w-full h-full">
+      <div className="sm:hidden relative w-full aspect-[1024/572]">
         <Image
           src="/images/college_mobile.jpg"
           alt="IET Lucknow College Mobile"
           fill
           priority
-          className="object-contain object-top"
+          className="object-cover object-top"
         />
       </div>
 
       {/* Desktop-only background image */}
-      <div className="hidden sm:block relative w-full h-full">
+      <div className="hidden sm:block relative w-full h-[48vh] md:h-[60vh] bg-slate-900">
         <Image
           src="/images/college.png"
           alt="IET Lucknow College Desktop"
@@ -29,9 +29,8 @@ function HeroSection(): JSX.Element {
           priority
           className="object-cover object-top"
         />
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
-
-      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
     </section>
   );
 }
@@ -42,7 +41,7 @@ function HeroSection(): JSX.Element {
 
 function Letter(): JSX.Element {
   return (
-    <section className="relative -mt-10 sm:-mt-[20vh] md:-mt-[28vh] z-10 px-3 sm:px-4 md:px-6 mb-10">
+    <section className="relative -mt-16 sm:-mt-[20vh] md:-mt-[28vh] z-10 px-3 sm:px-4 md:px-6 mb-10">
       <div className="max-w-6xl mx-auto">
         <div className="bg-[#efeee9] border border-black/10 rounded-[26px] shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:p-14 px-2">
           <div className="relative max-w-5xl mx-auto w-full bg-white border border-gray-300 rounded-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.05)] px-6 sm:px-8 md:px-12 py-8 md:py-10 overflow-hidden">
