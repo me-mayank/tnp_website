@@ -1034,7 +1034,7 @@ export default function PlacementTabsOnly() {
                     </div>
 
                     <div className="mt-8 rounded-[30px] bg-[#fcfdff] p-4 sm:p-6">
-                        <div className="h-[470px] w-full">
+                        <div className="h-[380px] w-full">
                             <ResponsiveContainer width="100%" height="100%">
                                 <BarChart
                                     data={placementOffersData}

@@ -85,51 +85,34 @@ const academicProgrammesData = [
 const overallAchievements = [
   {
     id: 1,
-    category: "GATE 2026",
-    title: "AIR 12 — All India Rank",
-    stat: "99.8 Percentile",
-    name: "Ananya Sharma",
-    branch: "CSE (2022–26)",
-    description: "Secured top percentile in GATE Computer Science paper with stellar performance in Algorithms and Systems.",
-    iconBg: "bg-[#E0F2FE]",
-    iconText: "text-[#0369A1]",
-    statBg: "bg-[#0A2647] text-white",
+    category: "GATE 2025 Dual Rank",
+    title: "AIR 23 (DS & AI) & AIR 289 (CS & IT)",
+    stat: "GATE 2025",
+    name: "Abhishek Srivastava",
+    branch: "Computer Science Engineering",
+    description: "Secured All India Rank (AIR) 23 in Data Science & Artificial Intelligence (DS & AI) and AIR 289 in Computer Science & Information Technology (CS & IT).",
+    badge: "GATE 2025 National Rank",
+    image: "/images/achievements/abhishek_srivastava.png",
   },
   {
     id: 2,
-    category: "NATIONAL HACKATHON",
-    title: "1st Prize — Smart India Hackathon",
-    stat: "₹1,000,000 Award",
-    name: "Team TechVanguard",
-    branch: "Cross-Disciplinary Team",
-    description: "Developed an AI-driven real-time disaster response system now deployed by state emergency agencies.",
-    iconBg: "bg-[#FEF3C7]",
-    iconText: "text-[#92400E]",
-    statBg: "bg-[#144272] text-white",
+    category: "UPSC IES",
+    title: "UPSC Indian Engineering Services",
+    stat: "AIR 15",
+    name: "Krishna Meerendra",
+    branch: "Indian Engineering Services Officer",
+    description: "Secured 15th Rank All India in the prestigious UPSC Indian Engineering Services examination and selected as an IES Officer.",
+    badge: "UPSC IES Selection",
   },
   {
     id: 3,
-    category: "RESEARCH EXCELLENCE",
-    title: "IEEE Best Paper Award",
-    stat: "Tokyo Conference",
-    name: "Rohan Verma",
-    branch: "ECE (2022–26)",
-    description: "Authored award-winning paper on ultra-low-power VLSI architectures presented at international IEEE conference.",
-    iconBg: "bg-[#E0E7FF]",
-    iconText: "text-[#3730A3]",
-    statBg: "bg-[#2C74B3] text-white",
-  },
-  {
-    id: 4,
-    category: "OFF-CAMPUS BENCHMARK",
-    title: "Highest Global Package Offer",
-    stat: "₹60.0 LPA",
-    name: "Aarav Singh",
-    branch: "CSE (2022–26)",
-    description: "Secured international software engineering offer with leading global tech firm, setting a record for the session.",
-    iconBg: "bg-[#DCFCE7]",
-    iconText: "text-[#166534]",
-    statBg: "bg-[#0B1A2E] text-white",
+    category: "IIT BOMBAY COMPETITION",
+    title: "Agribot e-Yantra Competition",
+    stat: "2nd Position",
+    name: "Meha Shukla, Aviral Singh, Anmol Sharma, Aparna Gupta",
+    branch: "Student Team Project",
+    description: "IET Lucknow student team secured 2nd Position nationwide in the Agribot track at e-Yantra, IIT Bombay.",
+    badge: "National Finalist",
   },
 ];
 
@@ -408,51 +391,95 @@ function OverallTab() {
         </div>
       </section>
 
-      <section className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-8">
-        <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C74B3]">EXCELLENCE & RECOGNITION</p>
-            <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733] sm:text-3xl">Student Achievements & Highlights</h3>
-            <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Spotlight on competitive exam ranks, national awards, research publications, and record placement benchmarks.</p>
-          </div>
+      <section className="rounded-[32px] border border-slate-200/80 bg-white p-6 shadow-[0_20px_50px_rgba(11,60,109,0.08)] sm:p-8 lg:p-10">
+        <div className="border-b border-slate-100 pb-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2C74B3]">EXCELLENCE & HIGHLIGHTS</p>
+          <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733] sm:text-3xl">Student Achievements</h3>
+          <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Celebrating outstanding accomplishments in competitive exams, government services, and innovation challenges.</p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {overallAchievements.map((item) => (
-            <div
-              key={item.id}
-              className="group flex flex-col justify-between rounded-[24px] border border-slate-200/80 bg-[#fcfdff] p-5 transition-all duration-300 hover:border-[#2C74B3]/30 hover:shadow-[0_16px_36px_rgba(11,60,109,0.12)]"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2">
-                  <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${item.iconBg} ${item.iconText}`}>
-                    {item.category}
-                  </span>
-                  <span className={`inline-flex rounded-full px-3 py-1 text-xs font-bold ${item.statBg}`}>
-                    {item.stat}
-                  </span>
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12">
+          {/* Featured Spotlight Card — Abhishek Srivastava (1st Place) */}
+          <div className="rounded-[28px] bg-gradient-to-br from-[#0A2647] via-[#144272] to-[#071733] p-6 text-white shadow-[0_20px_45px_rgba(10,38,71,0.22)] sm:p-8 lg:col-span-12">
+            <div className="grid grid-cols-1 items-center gap-6 sm:grid-cols-[160px_1fr] md:grid-cols-[210px_1fr] lg:gap-8">
+              {/* Left Side: Big Image */}
+              {overallAchievements[0].image && (
+                <div className="relative mx-auto h-[220px] w-[180px] shrink-0 overflow-hidden rounded-[22px] border border-white/20 shadow-2xl sm:h-[230px] sm:w-[160px] md:h-[250px] md:w-[210px]">
+                  <img
+                    src={overallAchievements[0].image}
+                    alt={overallAchievements[0].name}
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+              )}
+
+              {/* Right Side: Details & Description */}
+              <div className="flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-md">
+                      {overallAchievements[0].category}
+                    </span>
+                    <span className="inline-flex rounded-full bg-[#38BDF8] px-3.5 py-1 text-xs font-bold text-[#071733]">
+                      {overallAchievements[0].stat}
+                    </span>
+                  </div>
+
+                  <h4 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
+                    {overallAchievements[0].title}
+                  </h4>
+
+                  <p className="mt-3 text-sm leading-relaxed text-slate-200/90 sm:text-[15px]">
+                    {overallAchievements[0].description}
+                  </p>
                 </div>
 
-                <h4 className="mt-4 text-base font-bold text-[#071733] leading-snug">
-                  {item.title}
-                </h4>
-
-                <p className="mt-3 text-xs leading-relaxed text-[#52606d]">
-                  {item.description}
-                </p>
-              </div>
-
-              <div className="mt-6 border-t border-slate-100 pt-4 flex items-center gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0A2647] text-xs font-bold text-white shadow-sm">
-                  {item.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-xs font-bold text-[#071733]">{item.name}</p>
-                  <p className="truncate text-[11px] text-[#52606d]">{item.branch}</p>
+                <div className="mt-6 border-t border-white/15 pt-4 flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-base font-bold text-white">{overallAchievements[0].name}</p>
+                    <p className="text-xs text-slate-300">{overallAchievements[0].branch}</p>
+                  </div>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-sky-200">
+                    Top National Achievement
+                  </span>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Secondary Cards — Krishna Meerendra & Agribot Team */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-12">
+            {overallAchievements.slice(1).map((item) => (
+              <div
+                key={item.id}
+                className="group flex flex-col justify-between rounded-[26px] border border-slate-200/80 bg-[#fcfdff] p-6 shadow-[0_10px_30px_rgba(11,60,109,0.06)] transition-all duration-300 hover:border-[#2C74B3]/30 hover:shadow-[0_16px_36px_rgba(11,60,109,0.12)]"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="inline-flex rounded-full bg-[#eaf1fb] px-3 py-1 text-xs font-semibold text-[#0A2647]">
+                      {item.category}
+                    </span>
+                    <span className="inline-flex rounded-full bg-[#0A2647] px-3.5 py-1 text-xs font-bold text-white">
+                      {item.stat}
+                    </span>
+                  </div>
+
+                  <h5 className="mt-4 text-lg font-bold text-[#071733]">
+                    {item.title}
+                  </h5>
+
+                  <p className="mt-2 text-xs leading-relaxed text-[#52606d] sm:text-sm">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="mt-5 border-t border-slate-100 pt-4">
+                  <p className="text-sm font-bold text-[#071733]">{item.name}</p>
+                  <p className="text-xs text-[#52606d]">{item.branch}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
