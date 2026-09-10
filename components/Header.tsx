@@ -48,7 +48,7 @@ export default function Header() {
               {/* INSIGHTS DROPDOWN */}
               <div className="relative group">
                 <button className="inline-flex items-center gap-1.5 text-brand-900/70 hover:text-brand-accent transition-colors">
-                  <span className="nav-link-underline uppercase">INSIGHTS</span>
+                  <span className="nav-link-underline">Insights</span>
                   <svg className="w-4 h-4 text-brand-900/40 group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -97,7 +97,7 @@ export default function Header() {
               {/* RECRUITER DROPDOWN */}
               <div className="relative group">
                 <button className="inline-flex items-center gap-1.5 text-brand-900/70 hover:text-brand-accent transition-colors">
-                  <span className="nav-link-underline uppercase">FOR RECRUITER</span>
+                  <span className="nav-link-underline">For Recruiters</span>
                   <svg className="w-4 h-4 text-brand-900/40 group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -222,7 +222,7 @@ export default function Header() {
                 onClick={() => setMobileRecruiterOpen(!mobileRecruiterOpen)}
                 className="w-full flex items-center justify-between py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors"
               >
-                For Recruiter
+                For Recruiters
                 <svg className={`w-4 h-4 transition-transform ${mobileRecruiterOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
