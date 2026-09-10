@@ -892,7 +892,7 @@ function CustomPlacementTooltip({
     const offers = payload.find((item) => item.name === "Total Offers")?.value ?? 0;
 
     return (
-        <div className="min-w-[290px] rounded-[28px] border border-slate-200/80 bg-white px-5 py-5 shadow-[0_28px_70px_rgba(11,60,109,0.16)]">
+        <div className="w-[210px] max-w-[calc(100vw-40px)] rounded-[20px] border border-slate-200/80 bg-white p-4 shadow-[0_16px_40px_rgba(11,60,109,0.14)] sm:w-[260px] sm:rounded-[26px] sm:p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
                 Session
             </p>
@@ -923,7 +923,7 @@ function CustomCompensationTooltip({
     if (!active || !payload || !payload.length) return null;
 
     return (
-        <div className="min-w-[290px] rounded-[28px] border border-slate-200/80 bg-white px-5 py-5 shadow-[0_28px_70px_rgba(11,60,109,0.16)]">
+        <div className="w-[210px] max-w-[calc(100vw-40px)] rounded-[20px] border border-slate-200/80 bg-white p-4 shadow-[0_16px_40px_rgba(11,60,109,0.14)] sm:w-[260px] sm:rounded-[26px] sm:p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
                 Session
             </p>
@@ -1079,6 +1079,7 @@ export default function PlacementTabsOnly() {
                                     <Tooltip
                                         cursor={{ fill: "rgba(31,90,166,0.06)" }}
                                         content={<CustomPlacementTooltip />}
+                                        wrapperStyle={{ outline: "none" }}
                                     />
 
                                     <Legend
@@ -1095,12 +1096,12 @@ export default function PlacementTabsOnly() {
                                         )}
                                     />
 
-                                    
-
                                     <Bar
                                         dataKey="offers"
                                         name="Total Offers"
                                         fill="url(#offersGradient)"
+                                        stroke="none"
+                                        strokeWidth={0}
                                         radius={[14, 14, 0, 0]}
                                         maxBarSize={40}
                                     />

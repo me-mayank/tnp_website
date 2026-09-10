@@ -21,6 +21,16 @@ html.lenis body {
   overflow: clip;
 }
 
+/* Recharts Mobile Tap Highlight & Black Border Removal */
+.recharts-responsive-container *,
+.recharts-bar-rectangle,
+.recharts-bar-rectangle path,
+.recharts-bar-rectangle rect,
+.recharts-rectangle {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;

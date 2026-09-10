@@ -128,7 +128,7 @@ function CustomPlacementTooltip({ active, payload, label }: any) {
   const data = payload[0]?.payload;
 
   return (
-    <div className="min-w-[220px] rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_18px_40px_rgba(11,60,109,0.14)]">
+    <div className="w-[190px] max-w-[calc(100vw-40px)] rounded-2xl border border-slate-200 bg-white p-3.5 shadow-[0_16px_36px_rgba(11,60,109,0.14)] sm:w-[220px] sm:p-4">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#2C74B3]">Session</p>
       <h4 className="mt-1 text-base font-bold text-[#071733]">{label}</h4>
 
@@ -150,7 +150,7 @@ function CustomCompensationTooltip({ active, payload, label }: any) {
   const data = payload[0]?.payload;
 
   return (
-    <div className="min-w-[240px] rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_18px_40px_rgba(11,60,109,0.14)]">
+    <div className="w-[210px] max-w-[calc(100vw-40px)] rounded-2xl border border-slate-200 bg-white p-3.5 shadow-[0_16px_36px_rgba(11,60,109,0.14)] sm:w-[240px] sm:p-4">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#2C74B3]">Session</p>
       <h4 className="mt-1 text-base font-bold text-[#1f2933]">{label}</h4>
 
@@ -313,14 +313,14 @@ function OverallTab() {
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e6edf5" />
               <XAxis dataKey="session" tickLine={false} axisLine={false} tick={{ fill: "#52606d", fontSize: 13, fontWeight: 500 }} />
               <YAxis tickLine={false} axisLine={false} tick={{ fill: "#52606d", fontSize: 13 }} width={44} />
-              <Tooltip cursor={{ fill: "rgba(11,60,109,0.04)" }} content={<CustomPlacementTooltip />} />
+              <Tooltip cursor={{ fill: "rgba(11,60,109,0.04)" }} content={<CustomPlacementTooltip />} wrapperStyle={{ outline: "none" }} />
               <Legend
                 verticalAlign="top"
                 align="right"
                 iconType="circle"
                 wrapperStyle={{ paddingBottom: "18px", fontSize: "13px", color: "#52606d" }}
               />
-              <Bar dataKey="offers" name="Total Offers" fill="url(#offersGradient)" radius={[10, 10, 0, 0]} maxBarSize={34} />
+              <Bar dataKey="offers" name="Total Offers" fill="url(#offersGradient)" stroke="none" strokeWidth={0} radius={[10, 10, 0, 0]} maxBarSize={34} />
             </BarChart>
           </ResponsiveContainer>
         </div>
