@@ -182,13 +182,13 @@ export default function PastRecruiters() {
                 return (
                   <div
                     key={`${logo.src}-${index}`}
-                    className="card-wrapper"
+                    className="recruiter-card-wrapper"
                     style={{ "--card-delay": delay } as React.CSSProperties}
                   >
-                    <div className="flip-card">
-                      <div className="flip-card-inner">
+                    <div className="recruiter-flip-card">
+                      <div className="recruiter-flip-inner">
 
-                        <div className="flip-card-front">
+                        <div className="recruiter-flip-front">
                           <Image
                             src={logo.src}
                             alt={logo.alt}
@@ -200,11 +200,11 @@ export default function PastRecruiters() {
                           />
                         </div>
 
-                        <div className="flip-card-back">
-                          <div className="flip-card-back-content">
-                            <div className="flip-card-count">{logo.recruitments}</div>
-                            <div className="flip-card-divider" />
-                            <div className="flip-card-label">Recruitments</div>
+                        <div className="recruiter-flip-back">
+                          <div className="recruiter-flip-back-content">
+                            <div className="recruiter-flip-count">{logo.recruitments}</div>
+                            <div className="recruiter-flip-divider" />
+                            <div className="recruiter-flip-label">Recruitments</div>
                           </div>
                         </div>
 

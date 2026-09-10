@@ -563,45 +563,47 @@ svg {
   text-align: center;
 }
 
-.card-shell {
+.placement-procedure .card-shell {
   max-width: 860px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
 
-.flip-card {
+.placement-procedure .flip-card {
   -webkit-perspective: 1400px;
   perspective: 1400px;
   width: 100%;
-  height: 380px;
+  height: 390px;
+  min-height: 390px;
   box-sizing: border-box;
 }
 
-.flip-card-inner {
+.placement-procedure .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
+  min-height: 100%;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   will-change: transform;
 }
 
-.flip-face {
+.placement-procedure .flip-face {
   box-sizing: border-box;
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border-radius: 24px;
-  padding: 44px 48px;
+  padding: 40px 48px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 18px;
+  gap: 16px;
   text-align: left;
   box-shadow: 0 20px 40px rgba(10, 38, 71, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(226, 232, 240, 0.8);
@@ -609,7 +611,7 @@ svg {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.flip-front {
+.placement-procedure .flip-front {
   z-index: 2;
 }
 
@@ -824,6 +826,14 @@ svg {
   }
 }
 
+@media (max-width: 900px) {
+  .placement-procedure .flip-card,
+  .placement-procedure .flip-card-inner {
+    height: 440px;
+    min-height: 440px;
+  }
+}
+
 @media (max-width: 640px) {
   .placement-procedure {
     padding: 48px 16px;
@@ -853,15 +863,15 @@ svg {
     min-height: auto;
   }
 
-  .flip-card,
-  .flip-card-inner {
-    height: 530px;
+  .placement-procedure .flip-card,
+  .placement-procedure .flip-card-inner {
+    height: 520px;
+    min-height: 520px;
   }
 
-  .flip-face {
-    padding: 48px 24px 32px 24px;
-    gap: 14px;
-
+  .placement-procedure .flip-face {
+    padding: 36px 20px 24px 20px;
+    gap: 12px;
   }
 
   .flip-face h3 {
@@ -872,5 +882,15 @@ svg {
     font-size: 0.95rem;
     line-height: 1.6;
     padding-left: 16px;
+  }
+}
+
+/* Mobile flip card toggle for About Us past records */
+@media (max-width: 767px) {
+  .mobile-card-flipped {
+    transform: rotateY(180deg) !important;
+  }
+  .mobile-card-unflipped {
+    transform: rotateY(0deg) !important;
   }
 }

@@ -28,32 +28,32 @@ const tabs: { key: TabKey; label: string; short: string }[] = [
 ];
 
 const recruiterHighlights = [
-  { name: "Amazon", tone: "bg-white text-[#0b3c6d]" },
-  { name: "TCS", tone: "bg-[#f4b400] text-[#0b3c6d]" },
-  { name: "Infosys", tone: "bg-white/90 text-[#123a6f]" },
-  { name: "Deloitte", tone: "bg-white text-[#0b3c6d]" },
-  { name: "Accenture", tone: "bg-white/95 text-[#123a6f]" },
-  { name: "Wipro", tone: "bg-[#eaf1fb] text-[#0b3c6d]" },
+  { name: "Amazon", tone: "bg-white text-[#071733]" },
+  { name: "TCS", tone: "bg-[#2C74B3] text-[#071733]" },
+  { name: "Infosys", tone: "bg-white/90 text-[#144272]" },
+  { name: "Deloitte", tone: "bg-white text-[#071733]" },
+  { name: "Accenture", tone: "bg-white/95 text-[#144272]" },
+  { name: "Wipro", tone: "bg-[#eaf1fb] text-[#071733]" },
 ];
 
 const placementOffersData = [
-  { session: "2020-21", offers: 320, placed: 248 },
-  { session: "2021-22", offers: 396, placed: 301 },
-  { session: "2022-23", offers: 455, placed: 348 },
-  { session: "2023-24", offers: 548, placed: 421 },
-  { session: "2024-25", offers: 612, placed: 487 },
+  { session: "2021-22", offers: 396 },
+  { session: "2022-23", offers: 455 },
+  { session: "2023-24", offers: 390 },
+  { session: "2024-25", offers: 525 },
+  { session: "2025-26", offers: 526 },
 ];
 
 const compensationTrendData = [
-  { session: "2020-21", highest: 28, median: 5.2, average: 6.4 },
   { session: "2021-22", highest: 32, median: 5.8, average: 7.1 },
   { session: "2022-23", highest: 38, median: 6.4, average: 7.8 },
-  { session: "2023-24", highest: 44, median: 7.2, average: 8.3 },
-  { session: "2024-25", highest: 54, median: 8.1, average: 8.9 },
+  { session: "2023-24", highest: 59.91, median: 6.15, average: 6.78 },
+  { session: "2024-25", highest: 54, median: 6, average: 6.44 },
+  { session: "2025-26", highest: 60.0, median: 6.4, average: 6.52 },
 ];
 
 const topPlacements = [
-  { id: 1, name: "Aarav Singh", company: "Amazon", role: "SDE", package: "₹54 LPA", branch: "CSE" },
+  { id: 1, name: "Aarav Singh", company: "Amazon", role: "SDE", package: "₹60.0 LPA", branch: "CSE" },
   { id: 2, name: "Priya Sharma", company: "Microsoft", role: "Software Engineer", package: "₹48 LPA", branch: "IT" },
   { id: 3, name: "Rohan Verma", company: "Google", role: "Analyst", package: "₹45 LPA", branch: "CSE" },
   { id: 4, name: "Sneha Yadav", company: "Adobe", role: "Frontend Engineer", package: "₹42 LPA", branch: "IT" },
@@ -76,51 +76,69 @@ const topPlacements = [
 ];
 
 const academicProgrammesData = [
-  { key: "btech", short: "B.Tech", name: "B.Tech", value: 541, color: "#b191d5" },
-  { key: "mtech", short: "M.Tech", name: "M.Tech", value: 108, color: "#7199a8" },
-  { key: "mca", short: "MCA", name: "MCA", value: 67, color: "#ee98b4" },
-  { key: "mba", short: "MBA", name: "MBA", value: 57, color: "#f7c26b" },
+  { key: "btech", short: "B.Tech", name: "B.Tech", value: 541, color: "#0A2647" },
+  { key: "mtech", short: "M.Tech", name: "M.Tech", value: 108, color: "#144272" },
+  { key: "mca", short: "MCA", name: "MCA", value: 67, color: "#2C74B3" },
+  { key: "mba", short: "MBA", name: "MBA", value: 57, color: "#38BDF8" },
+];
+
+const overallAchievements = [
+  {
+    id: 1,
+    category: "GATE 2025 Dual Rank",
+    title: "AIR 23 (DS & AI) & AIR 289 (CS & IT)",
+    stat: "GATE 2025",
+    name: "Abhishek Srivastava",
+    branch: "Computer Science Engineering",
+    description: "Secured All India Rank (AIR) 23 in Data Science & Artificial Intelligence (DS & AI) and AIR 289 in Computer Science & Information Technology (CS & IT).",
+    badge: "GATE 2025 National Rank",
+    image: "/images/achievements/abhishek_srivastava.png",
+  },
+  {
+    id: 2,
+    category: "UPSC IES",
+    title: "UPSC Indian Engineering Services",
+    stat: "AIR 15",
+    name: "Krishna Meerendra",
+    branch: "Indian Engineering Services Officer",
+    description: "Secured 15th Rank All India in the prestigious UPSC Indian Engineering Services examination and selected as an IES Officer.",
+    badge: "UPSC IES Selection",
+  },
+  {
+    id: 3,
+    category: "IIT BOMBAY COMPETITION",
+    title: "Agribot e-Yantra Competition",
+    stat: "2nd Position",
+    name: "Meha Shukla, Aviral Singh, Anmol Sharma, Aparna Gupta",
+    branch: "Student Team Project",
+    description: "IET Lucknow student team secured 2nd Position nationwide in the Agribot track at e-Yantra, IIT Bombay.",
+    badge: "National Finalist",
+  },
 ];
 
 const overallKpis = [
-  { label: "Highest Package", value: "₹54 LPA", helperText: "Top offer across recent sessions", progress: "100%" },
-  { label: "Average Package", value: "₹8.9 LPA", helperText: "Weighted average compensation", progress: "72%" },
-  { label: "Placement Percentage", value: "87%", helperText: "Students placed from eligible batch", progress: "87%" },
-  { label: "Total Offers", value: "612", helperText: "Offers received in 2024–25", progress: "100%" },
+  { label: "Highest Package", value: "₹60.0 LPA", helperText: "Top offer across recent sessions", progress: "100%" },
+  { label: "Average Package", value: "₹6.52 LPA", helperText: "Weighted average compensation", progress: "72%" },
+  { label: "Placement Percentage", value: "80%", helperText: "Students placed from eligible batch", progress: "80%" },
+  { label: "Total Offers", value: "526", helperText: "Offers received in 2025–26", progress: "100%" },
 ];
 
 function CustomPlacementTooltip({ active, payload, label }: any) {
   if (!active || !payload || !payload.length) return null;
   const data = payload[0]?.payload;
-  const conversion = ((data.placed / data.offers) * 100).toFixed(1);
 
   return (
     <div className="min-w-[220px] rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_18px_40px_rgba(11,60,109,0.14)]">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1f5aa6]">Session</p>
-      <h4 className="mt-1 text-base font-bold text-[#1f2933]">{label}</h4>
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#2C74B3]">Session</p>
+      <h4 className="mt-1 text-base font-bold text-[#071733]">{label}</h4>
 
       <div className="mt-4 space-y-3">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#0b3c6d]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#0A2647]" />
             <span className="text-sm text-[#52606d]">Total Offers</span>
           </div>
-          <span className="text-sm font-semibold text-[#1f2933]">{data.offers}</span>
-        </div>
-
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#f4b400]" />
-            <span className="text-sm text-[#52606d]">Students Placed</span>
-          </div>
-          <span className="text-sm font-semibold text-[#1f2933]">{data.placed}</span>
-        </div>
-
-        <div className="border-t border-slate-100 pt-3">
-          <div className="flex items-center justify-between gap-4">
-            <span className="text-sm text-[#52606d]">Placement Conversion</span>
-            <span className="text-sm font-bold text-[#123a6f]">{conversion}%</span>
-          </div>
+          <span className="text-sm font-semibold text-[#071733]">{data.offers}</span>
         </div>
       </div>
     </div>
@@ -133,21 +151,21 @@ function CustomCompensationTooltip({ active, payload, label }: any) {
 
   return (
     <div className="min-w-[240px] rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_18px_40px_rgba(11,60,109,0.14)]">
-      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1f5aa6]">Session</p>
+      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#2C74B3]">Session</p>
       <h4 className="mt-1 text-base font-bold text-[#1f2933]">{label}</h4>
 
       <div className="mt-4 space-y-3">
         <div className="flex items-center justify-between">
           <span className="text-sm text-[#52606d]">Highest Package</span>
-          <span className="text-sm font-bold text-[#0b3c6d]">₹{data.highest} LPA</span>
+          <span className="text-sm font-bold text-[#071733]">₹{data.highest} LPA</span>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-sm text-[#52606d]">Median Package</span>
-          <span className="text-sm font-bold text-[#f4b400]">₹{data.median} LPA</span>
+          <span className="text-sm font-bold text-[#2C74B3]">₹{data.median} LPA</span>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-sm text-[#52606d]">Average Package</span>
-          <span className="text-sm font-bold text-[#1f5aa6]">₹{data.average} LPA</span>
+          <span className="text-sm font-bold text-[#2C74B3]">₹{data.average} LPA</span>
         </div>
       </div>
     </div>
@@ -160,13 +178,13 @@ function KPIGrid({ items }: { items: typeof overallKpis }) {
       {items.map((item) => (
         <article
           key={item.label}
-          className="group rounded-3xl border border-slate-200/70 bg-white p-5 shadow-[0_8px_24px_rgba(11,60,109,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(11,60,109,0.12)]"
+          className="group rounded-3xl border border-slate-200/70 bg-white p-5 shadow-[0_8px_24px_rgba(11,60,109,0.08)] transition-all duration-300  hover:shadow-[0_16px_40px_rgba(11,60,109,0.12)]"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#52606d]">{item.label}</p>
           <h3 className="mt-3 text-3xl font-bold tracking-tight text-[#1f2933]">{item.value}</h3>
           <p className="mt-3 text-sm text-[#52606d]">{item.helperText}</p>
           <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-slate-100">
-            <div className="h-full rounded-full bg-[linear-gradient(135deg,#0b3c6d,#1f5aa6)]" style={{ width: item.progress }} />
+            <div className="h-full rounded-full bg-[linear-gradient(135deg,#071733,#2C74B3)]" style={{ width: item.progress }} />
           </div>
         </article>
       ))}
@@ -186,8 +204,8 @@ function ChartCardTitle({ title, subtitle }: { title: string; subtitle: string }
 function OverallTab() {
   return (
     <section className="space-y-6">
-      <section className="relative overflow-hidden rounded-[32px] border border-[#dbe4f0] bg-[linear-gradient(135deg,#0b3c6d,#123a6f,#1f5aa6)] shadow-[0_24px_60px_rgba(11,60,109,0.18)]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(244,180,0,0.16),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.10),transparent_30%)]" />
+      <section className="relative overflow-hidden rounded-[32px] border border-[#dbe4f0] bg-[#0B1A2E] shadow-[0_24px_60px_rgba(11,60,109,0.18)]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(44,116,179,0.16),transparent_24%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.10),transparent_30%)]" />
         <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:32px_32px]" />
 
         <div className="relative grid grid-cols-1 gap-10 px-5 py-8 sm:px-6 sm:py-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-10">
@@ -205,10 +223,10 @@ function OverallTab() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {["120+ Recruiters", "600+ Offers", "87% Placement"].map((item) => (
+              {["80+ Recruiters", "500+ Offers", "80% Placement"].map((item) => (
                 <div
                   key={item}
-                  className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md transition-transform duration-300 hover:-translate-y-0.5"
+                  className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md transition-transform duration-300 "
                 >
                   {item}
                 </div>
@@ -217,30 +235,30 @@ function OverallTab() {
           </div>
 
           <div className="relative flex min-h-[320px] items-center justify-center lg:min-h-[360px]">
-            <div className="relative h-full w-full max-w-[460px]">
-              <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(244,180,0,0.32),rgba(244,180,0,0.04),transparent_70%)] blur-2xl" />
+            <div className="group/spotlight relative h-full w-full max-w-[460px] scale-[0.85] origin-center sm:scale-100">
+              <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(44,116,179,0.32),rgba(44,116,179,0.04),transparent_70%)] blur-2xl" />
 
-              <div className="absolute right-8 top-0 z-10 rounded-[24px] border border-white/15 bg-white/10 px-5 py-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.2)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">Highlight</p>
-                <p className="mt-2 text-3xl font-bold tracking-tight">₹54 LPA</p>
-                <p className="mt-1 text-sm text-white/75">Highest package offered</p>
+              <div className="absolute right-8 top-0 z-10 cursor-pointer rounded-[24px] border border-white/20 bg-white/15 px-5 py-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.2)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:-translate-y-4 group-hover/spotlight:translate-x-4 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/75">Highlight</p>
+                <p className="mt-2 text-3xl font-bold tracking-tight">₹60.0 LPA</p>
+                <p className="mt-1 text-sm text-white/85">Highest package offered</p>
               </div>
 
-              <div className="absolute left-0 top-10 z-10 w-[150px] rounded-[22px] border border-white/15 bg-white/10 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/65">Active Hiring</p>
-                <p className="mt-2 text-2xl font-bold">120+</p>
-                <p className="mt-1 text-xs text-white/75">Participating companies</p>
+              <div className="absolute left-0 top-10 z-10 w-[150px] cursor-pointer rounded-[22px] border border-white/20 bg-white/15 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:-translate-x-5 group-hover/spotlight:-translate-y-2 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">Active Hiring</p>
+                <p className="mt-2 text-2xl font-bold">80+</p>
+                <p className="mt-1 text-xs text-white/85">Participating companies</p>
               </div>
 
-              <div className="absolute bottom-0 right-2 z-10 w-[190px] rounded-[24px] border border-white/15 bg-white/10 p-4 shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60">Placement Rate</p>
-                <p className="mt-2 text-3xl font-bold text-white">87%</p>
-                <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/15">
-                  <div className="h-full w-[87%] rounded-full bg-[#f4b400]" />
+              <div className="absolute bottom-0 right-2 z-10 w-[190px] cursor-pointer rounded-[24px] border border-white/20 bg-white/15 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:translate-x-4 group-hover/spotlight:translate-y-4 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">Placement Rate</p>
+                <p className="mt-2 text-3xl font-bold text-white">80%</p>
+                <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/20">
+                  <div className="h-full w-[80%] rounded-full bg-[#38BDF8]" />
                 </div>
               </div>
 
-              <div className="absolute left-1/2 top-1/2 z-10 w-full max-w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-white/15 bg-white/10 p-5 shadow-[0_22px_50px_rgba(3,20,38,0.22)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1">
+              <div className="absolute left-1/2 top-1/2 z-20 w-full max-w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-white/20 bg-white/15 p-5 shadow-[0_22px_50px_rgba(3,20,38,0.22)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:scale-[0.96] group-hover/spotlight:opacity-90 hover:!z-30 hover:!scale-100 hover:!opacity-100">
                 <div className="mb-4 flex items-center justify-between">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">Recruiter Spotlight</p>
@@ -268,12 +286,12 @@ function OverallTab() {
       <section className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-7 lg:p-8">
         <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1f5aa6]">PLACEMENT OFFERS</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2C74B3]">PLACEMENT OFFERS</p>
             <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#1f2933]">Session-wise Placement Offers</h3>
             <p className="mt-2 text-sm text-[#52606d]">Placement offers across recent academic sessions.</p>
           </div>
 
-          <div className="inline-flex w-fit items-center rounded-full bg-[#f5f7fa] px-4 py-2 text-sm font-semibold text-[#123a6f] ring-1 ring-slate-200/70">
+          <div className="inline-flex w-fit items-center rounded-full bg-[#f5f7fa] px-4 py-2 text-sm font-semibold text-[#144272] ring-1 ring-slate-200/70">
             4 Academic Programmes
           </div>
         </div>
@@ -283,12 +301,12 @@ function OverallTab() {
             <BarChart data={placementOffersData} barCategoryGap="22%" margin={{ top: 16, right: 12, left: 0, bottom: 8 }}>
               <defs>
                 <linearGradient id="offersGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#1f5aa6" />
-                  <stop offset="100%" stopColor="#0b3c6d" />
+                  <stop offset="0%" stopColor="#2C74B3" />
+                  <stop offset="100%" stopColor="#071733" />
                 </linearGradient>
                 <linearGradient id="placedGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#ffd54a" />
-                  <stop offset="100%" stopColor="#f4b400" />
+                  <stop offset="0%" stopColor="#38BDF8" />
+                  <stop offset="100%" stopColor="#2C74B3" />
                 </linearGradient>
               </defs>
 
@@ -303,7 +321,6 @@ function OverallTab() {
                 wrapperStyle={{ paddingBottom: "18px", fontSize: "13px", color: "#52606d" }}
               />
               <Bar dataKey="offers" name="Total Offers" fill="url(#offersGradient)" radius={[10, 10, 0, 0]} maxBarSize={34} />
-              <Bar dataKey="placed" name="Students Placed" fill="url(#placedGradient)" radius={[10, 10, 0, 0]} maxBarSize={34} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -329,9 +346,9 @@ function OverallTab() {
                   iconType="circle"
                   wrapperStyle={{ paddingBottom: "18px", fontSize: "13px", color: "#52606d" }}
                 />
-                <Line type="monotone" dataKey="highest" name="Highest" stroke="#0b3c6d" strokeWidth={3} dot={{ r: 4, fill: "#0b3c6d", strokeWidth: 0 }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="median" name="Median" stroke="#f4b400" strokeWidth={3} dot={{ r: 4, fill: "#f4b400", strokeWidth: 0 }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="average" name="Average" stroke="#1f5aa6" strokeWidth={3} dot={{ r: 4, fill: "#1f5aa6", strokeWidth: 0 }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="highest" name="Highest" stroke="#071733" strokeWidth={3} dot={{ r: 4, fill: "#071733", strokeWidth: 0 }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="median" name="Median" stroke="#144272" strokeWidth={3} dot={{ r: 4, fill: "#144272", strokeWidth: 0 }} activeDot={{ r: 6 }} />
+                <Line type="monotone" dataKey="average" name="Average" stroke="#2C74B3" strokeWidth={3} dot={{ r: 4, fill: "#2C74B3", strokeWidth: 0 }} activeDot={{ r: 6 }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -340,31 +357,31 @@ function OverallTab() {
         <div className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-7">
           <ChartCardTitle
             title="Top 20 Student Placements"
-            subtitle="Highest-value student offers with recruiter, role, and branch details."
+            subtitle="Highest-value student offers with recruiter and branch details."
           />
 
-          <div className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto pr-2 [scrollbar-width:thin] [scrollbar-color:#1f5aa6_#eaf1fb]">
+          <div data-lenis-prevent className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
             {topPlacements.map((student, index) => (
               <div
                 key={student.id}
-                className="group rounded-[22px] border border-slate-200/70 bg-[#fcfdff] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[#1f5aa6]/20 hover:shadow-[0_12px_30px_rgba(11,60,109,0.10)]"
+                className="group rounded-[22px] border border-slate-200/70 bg-[#fcfdff] p-4 transition-all duration-300  hover:border-[#2C74B3]/20 hover:shadow-[0_12px_30px_rgba(11,60,109,0.10)]"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <div className="flex items-center gap-2">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#eaf1fb] text-xs font-bold text-[#0b3c6d]">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#eaf1fb] text-xs font-bold text-[#071733]">
                         {index + 1}
                       </div>
                       <h4 className="text-sm font-bold text-[#1f2933]">{student.name}</h4>
                     </div>
 
-                    <p className="mt-3 text-sm font-semibold text-[#0b3c6d]">{student.company}</p>
+                    <p className="mt-3 text-sm font-semibold text-[#071733]">{student.company}</p>
                     <p className="mt-1 text-xs text-[#52606d]">
-                      {student.role} • {student.branch}
+                      {student.branch}
                     </p>
                   </div>
 
-                  <div className="rounded-full bg-[#fff6db] px-3 py-1 text-sm font-bold text-[#9a6a00]">
+                  <div className="rounded-full bg-[#E0F2FE] px-3 py-1 text-sm font-bold text-[#0369A1]">
                     {student.package}
                   </div>
                 </div>
@@ -374,18 +391,110 @@ function OverallTab() {
         </div>
       </section>
 
+      <section className="rounded-[32px] border border-slate-200/80 bg-white p-6 shadow-[0_20px_50px_rgba(11,60,109,0.08)] sm:p-8 lg:p-10">
+        <div className="border-b border-slate-100 pb-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2C74B3]">EXCELLENCE & HIGHLIGHTS</p>
+          <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733] sm:text-3xl">Student Achievements</h3>
+          <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Celebrating outstanding accomplishments in competitive exams, government services, and innovation challenges.</p>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12">
+          {/* Featured Spotlight Card — Abhishek Srivastava (1st Place) */}
+          <div className="rounded-[28px] bg-gradient-to-br from-[#0A2647] via-[#144272] to-[#071733] p-6 text-white shadow-[0_20px_45px_rgba(10,38,71,0.22)] sm:p-8 lg:col-span-12">
+            <div className="grid grid-cols-1 items-center gap-6 sm:grid-cols-[160px_1fr] md:grid-cols-[210px_1fr] lg:gap-8">
+              {/* Left Side: Big Image */}
+              {overallAchievements[0].image && (
+                <div className="relative mx-auto h-[220px] w-[180px] shrink-0 overflow-hidden rounded-[22px] border border-white/20 shadow-2xl sm:h-[230px] sm:w-[160px] md:h-[250px] md:w-[210px]">
+                  <img
+                    src={overallAchievements[0].image}
+                    alt={overallAchievements[0].name}
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+              )}
+
+              {/* Right Side: Details & Description */}
+              <div className="flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-md">
+                      {overallAchievements[0].category}
+                    </span>
+                    <span className="inline-flex rounded-full bg-[#38BDF8] px-3.5 py-1 text-xs font-bold text-[#071733]">
+                      {overallAchievements[0].stat}
+                    </span>
+                  </div>
+
+                  <h4 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
+                    {overallAchievements[0].title}
+                  </h4>
+
+                  <p className="mt-3 text-sm leading-relaxed text-slate-200/90 sm:text-[15px]">
+                    {overallAchievements[0].description}
+                  </p>
+                </div>
+
+                <div className="mt-6 border-t border-white/15 pt-4 flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-base font-bold text-white">{overallAchievements[0].name}</p>
+                    <p className="text-xs text-slate-300">{overallAchievements[0].branch}</p>
+                  </div>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-sky-200">
+                    Top National Achievement
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Secondary Cards — Krishna Meerendra & Agribot Team */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-12">
+            {overallAchievements.slice(1).map((item) => (
+              <div
+                key={item.id}
+                className="group flex flex-col justify-between rounded-[26px] border border-slate-200/80 bg-[#fcfdff] p-6 shadow-[0_10px_30px_rgba(11,60,109,0.06)] transition-all duration-300 hover:border-[#2C74B3]/30 hover:shadow-[0_16px_36px_rgba(11,60,109,0.12)]"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="inline-flex rounded-full bg-[#eaf1fb] px-3 py-1 text-xs font-semibold text-[#0A2647]">
+                      {item.category}
+                    </span>
+                    <span className="inline-flex rounded-full bg-[#0A2647] px-3.5 py-1 text-xs font-bold text-white">
+                      {item.stat}
+                    </span>
+                  </div>
+
+                  <h5 className="mt-4 text-lg font-bold text-[#071733]">
+                    {item.title}
+                  </h5>
+
+                  <p className="mt-2 text-xs leading-relaxed text-[#52606d] sm:text-sm">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="mt-5 border-t border-slate-100 pt-4">
+                  <p className="text-sm font-bold text-[#071733]">{item.name}</p>
+                  <p className="text-xs text-[#52606d]">{item.branch}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-[#f8fbff] to-white p-6 shadow-[0_25px_60px_rgba(11,60,109,0.12)] ring-1 ring-slate-200/60 sm:p-8">
-        <div className="absolute -top-20 -right-20 h-[300px] w-[300px] rounded-full bg-[#1f5aa6]/10 blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 h-[260px] w-[260px] rounded-full bg-[#f4b400]/10 blur-3xl" />
+        <div className="absolute -top-20 -right-20 h-[300px] w-[300px] rounded-full bg-[#2C74B3]/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 h-[260px] w-[260px] rounded-full bg-[#2C74B3]/10 blur-3xl" />
 
         <div className="relative flex flex-col gap-4 border-b border-slate-200/60 pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1f5aa6]">Academic Programmes</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C74B3]">Academic Programmes</p>
             <h3 className="mt-2 text-3xl font-bold tracking-tight text-[#1f2933]">Programme Distribution</h3>
             <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Student distribution across major academic programmes.</p>
           </div>
 
-          <div className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#123a6f] shadow-sm ring-1 ring-slate-200">
+          <div className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#144272] shadow-sm ring-1 ring-slate-200">
             Total: {academicProgrammesData.reduce((sum, item) => sum + item.value, 0)} Students
           </div>
         </div>
@@ -410,7 +519,7 @@ function OverallTab() {
                         <span className="h-3.5 w-3.5 rounded-full" style={{ backgroundColor: item.color }} />
                         <span className="text-sm font-semibold text-[#1f2933]">{item.name}</span>
                       </div>
-                      <span className="text-sm font-bold text-[#123a6f]">{item.value}</span>
+                      <span className="text-sm font-bold text-[#144272]">{item.value}</span>
                     </div>
 
                     <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-slate-100">
@@ -433,7 +542,7 @@ function OverallTab() {
                 <h4 className="text-lg font-bold text-[#1f2933]">Distribution Chart</h4>
                 <p className="mt-1 text-sm text-[#52606d]">Relative share of each programme.</p>
               </div>
-              <div className="rounded-full bg-[#f5f7fa] px-3 py-1 text-xs font-semibold text-[#123a6f]">4 Programmes</div>
+              <div className="rounded-full bg-[#f5f7fa] px-3 py-1 text-xs font-semibold text-[#144272]">4 Programmes</div>
             </div>
 
             <div className="relative mt-6 h-[340px]">
@@ -488,9 +597,9 @@ function BranchTab() {
       aria-labelledby="branch-tab"
       className="mx-auto w-full max-w-6xl rounded-[32px] border border-slate-200/70 bg-white p-8 shadow-[0_20px_50px_rgba(11,60,109,0.08)]"
     >
-      <div className="flex min-h-[260px] items-center justify-center rounded-[24px] border-2 border-dashed border-[#1f5aa6]/20 bg-[#f8fbff] text-center">
+      <div className="flex min-h-[260px] items-center justify-center rounded-[24px] border-2 border-dashed border-[#2C74B3]/20 bg-[#f8fbff] text-center">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1f5aa6]">Branch-wise Section</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#2C74B3]">Branch-wise Section</p>
           <h2 className="mt-2 text-2xl font-bold text-[#1f2933]">Branch content will come next</h2>
           <p className="mt-2 text-sm text-[#52606d]">We are currently focusing on the overall placement page first.</p>
         </div>
@@ -499,81 +608,6 @@ function BranchTab() {
   );
 }
 
-export default function PlacementTabsOnly() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const isBranchRoute = pathname.includes("branchwise");
-
-  return (
-    <div className="mt-4 w-full space-y-6">
-      <div className="mx-auto w-full max-w-3xl">
-        <div className="rounded-[28px] border border-white/60 bg-white/80 p-2 shadow-[0_20px_60px_rgba(11,60,109,0.12)] backdrop-blur-xl">
-
-          <div
-            role="tablist"
-            aria-label="Placement statistics tabs"
-            className="relative grid grid-cols-2 rounded-[22px] bg-gradient-to-r from-slate-100 to-slate-50 p-1.5 overflow-hidden"
-          >
-
-            {/* 🔥 Sliding Indicator */}
-            <div
-              className={`
-              absolute top-1.5 left-1.5
-              h-[calc(100%-12px)]
-              w-[calc(50%-6px)]
-              rounded-[18px]
-              bg-[linear-gradient(135deg,#0b3c6d,#1f5aa6)]
-              shadow-[0_10px_30px_rgba(11,60,109,0.28)]
-
-              transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-              will-change-transform
-
-              ${isBranchRoute ? "translate-x-[calc(100%+6px)]" : "translate-x-0"}
-            `}
-            />
-
-            {tabs.map((tab) => {
-              const isBranch = tab.key === "branch";
-
-              const isActive =
-                (tab.key === "overall" && !isBranchRoute) ||
-                (tab.key === "branch" && isBranchRoute);
-
-              return (
-                <button
-                  key={tab.key}
-                  role="tab"
-                  onClick={() => {
-                    if (isBranch) {
-                      router.push("/recruiters/demographic/branchwise");
-                    } else {
-                      router.push("/recruiters/demographic");
-                    }
-                  }}
-                  className={`
-                  relative z-10 flex min-h-[58px] items-center justify-center rounded-[18px] px-4 sm:px-6
-                  text-center text-sm font-semibold tracking-[-0.01em]
-                  transition-all duration-300
-
-                  ${isActive
-                      ? "text-white scale-[1.03]"
-                      : "text-[#52606d] hover:text-[#1f2933]"
-                    }
-                `}
-                >
-                  <span className="hidden sm:inline">{tab.label}</span>
-                  <span className="sm:hidden">{tab.short}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      <div className="mx-auto w-full max-w-7xl pb-20">
-        <OverallTab />
-      </div>
-    </div>
-    
-  );
+export default function Page() {
+  return <OverallTab />;
 }

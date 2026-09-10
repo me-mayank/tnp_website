@@ -99,7 +99,7 @@ const PlacementSection = () => {
   ];
 
   const coreData = [
-    { name: 'Core Engg', value: 72, fill: '#2563eb' },
+    { name: 'Core Engg', value: 72, fill: '#2C74B3' },
     { name: 'Other', value: 28, fill: '#dbeafe' },
   ];
 
@@ -133,8 +133,8 @@ const PlacementSection = () => {
               <AreaChart data={averageData} margin={{ top: 20, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorAvg" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#2563eb" stopOpacity={0}/>
+                    <stop offset="5%" stopColor="#2C74B3" stopOpacity={0.3}/>
+                    <stop offset="95%" stopColor="#2C74B3" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
@@ -143,7 +143,7 @@ const PlacementSection = () => {
                 <Tooltip 
                   contentStyle={{ borderRadius: '8px', border: '1px solid #dbeafe', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
                 />
-                <Area type="monotone" dataKey="avg" stroke="#2563eb" strokeWidth={3} fillOpacity={1} fill="url(#colorAvg)" />
+                <Area type="monotone" dataKey="avg" stroke="#2C74B3" strokeWidth={3} fillOpacity={1} fill="url(#colorAvg)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -159,7 +159,7 @@ const PlacementSection = () => {
                 <Tooltip 
                   contentStyle={{ borderRadius: '8px', border: '1px solid #dbeafe', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
                 />
-                <Line type="monotone" dataKey="highest" stroke="#2563eb" strokeWidth={4} dot={{ r: 6, fill: '#2563eb', strokeWidth: 2, stroke: '#fff' }} activeDot={{ r: 8 }} />
+                <Line type="monotone" dataKey="highest" stroke="#2C74B3" strokeWidth={4} dot={{ r: 6, fill: '#2C74B3', strokeWidth: 2, stroke: '#fff' }} activeDot={{ r: 8 }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -242,7 +242,7 @@ const PlacementSection = () => {
                 >
                 {/* Base text (normal state) */}
                 <div className="relative z-10 w-full flex flex-col items-center">
-                  <div className="placement-stat-value text-[32px] md:text-[36px] font-black text-[#60a5fa] leading-none mb-1.5" data-target={stat.value} data-suffix={stat.suffix}>
+                  <div className="placement-stat-value text-[32px] md:text-[36px] font-black text-[#2C74B3] leading-none mb-1.5" data-target={stat.value} data-suffix={stat.suffix}>
                     0
                   </div>
                   <h5 className="text-[12px] md:text-[13px] font-black text-black uppercase tracking-normal leading-none">{stat.label}</h5>
@@ -250,7 +250,7 @@ const PlacementSection = () => {
 
                 {/* Fill layer (active/hover state) */}
                 <div
-                  className={`absolute inset-0 bg-[#60a5fa] flex flex-col justify-center items-center text-center z-20 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${activeCard === index ? '[clip-path:inset(0_0_0_0)]' : '[clip-path:inset(100%_0_0_0)] group-hover:[clip-path:inset(0_0_0_0)]'}`}
+                  className={`absolute inset-0 bg-[#2C74B3] flex flex-col justify-center items-center text-center z-20 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${activeCard === index ? '[clip-path:inset(0_0_0_0)]' : '[clip-path:inset(100%_0_0_0)] group-hover:[clip-path:inset(0_0_0_0)]'}`}
                 >
                   <div className="placement-stat-value text-[32px] md:text-[36px] font-black text-white leading-none mb-1.5" data-target={stat.value} data-suffix={stat.suffix}>
                     0
@@ -402,7 +402,7 @@ function PlacementOffersChart({ data }: { data: any[] }) {
       <div className="mb-2 flex items-end justify-between px-2">
         <div className="flex flex-col justify-end">
           <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-1">Placement Offers</p>
-          <p className="text-[#2563eb] text-4xl font-black tracking-tighter leading-none">
+          <p className="text-[#2C74B3] text-4xl font-black tracking-tighter leading-none">
             <NumberFlow value={selectedData.value} />
           </p>
         </div>
@@ -444,7 +444,7 @@ function PlacementOffersChart({ data }: { data: any[] }) {
 
           <Bar
             dataKey="offers"
-            fill="#2563eb"
+            fill="#2C74B3"
             radius={4}
             maxBarSize={48}
             shape={(props: BarShapeProps) => (

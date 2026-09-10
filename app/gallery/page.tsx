@@ -64,6 +64,7 @@ export default function GalleryPage() {
       "/images/auditorium.png",
       "/images/library.jpeg",
       "/images/sportscom.jpg",
+      "/images/audi11.jpg",
     ],
   };
 
@@ -85,12 +86,26 @@ export default function GalleryPage() {
     <div className="bg-white text-brand-800">
       <GallerySection
         title={tnpact.title}
+        tag={tnpact.tag}
         description={tnpact.description}
         images={tnpact.image}
         modalImages={tnpactModalImages}
+        variant="accordion"
       />
-      <GallerySection title={campusarch.title} description={campusarch.description} images={campusarch.image} />
-      <GallerySection title={facilities.title} description={facilities.description} images={facilities.image} />
+      <GallerySection 
+        title={campusarch.title} 
+        tag={campusarch.tag}
+        description={campusarch.description} 
+        images={campusarch.image} 
+        variant="bento"
+      />
+      <GallerySection 
+        title={facilities.title} 
+        tag={facilities.tag}
+        description={facilities.description} 
+        images={facilities.image} 
+        variant="elastic"
+      />
     </div>
   );
 }
