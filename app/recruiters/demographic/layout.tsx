@@ -15,7 +15,7 @@ export default function DemographicLayout({ children }: { children: ReactNode })
 
   return (
     <div className="mt-4 w-full space-y-6">
-      <div className="mx-auto w-full max-w-3xl">
+      <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
         <div className="rounded-[28px] border border-white/60 bg-white/80 p-2 shadow-[0_20px_60px_rgba(11,60,109,0.12)] backdrop-blur-xl">
           <div
             role="tablist"
@@ -35,7 +35,7 @@ export default function DemographicLayout({ children }: { children: ReactNode })
               transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
               will-change-transform
 
-              ${isBranchRoute ? "translate-x-[calc(100%+6px)]" : "translate-x-0"}
+              ${isBranchRoute ? "translate-x-full" : "translate-x-0"}
             `}
             />
 
@@ -76,7 +76,7 @@ export default function DemographicLayout({ children }: { children: ReactNode })
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-7xl pb-20">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
         {children}
       </div>
     </div>

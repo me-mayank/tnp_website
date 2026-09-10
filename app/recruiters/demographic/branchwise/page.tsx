@@ -953,7 +953,7 @@ export default function PlacementTabsOnly() {
     return (
         <div className="mt-4 w-full space-y-6">
             
-                <div className="mx-auto w-full max-w-3xl">
+                <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
                     <div className="relative">
                         <label className="mb-2 block text-sm font-semibold text-[#144272]">
                             Select Branch

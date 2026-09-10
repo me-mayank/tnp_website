@@ -252,7 +252,7 @@ function OverallTab() {
           </div>
 
           <div className="relative flex min-h-[320px] items-center justify-center lg:min-h-[360px]">
-            <div className="relative h-full w-full max-w-[460px]">
+            <div className="relative h-full w-full max-w-[460px] scale-[0.85] sm:scale-100 origin-center">
               <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(44,116,179,0.32),rgba(44,116,179,0.04),transparent_70%)] blur-2xl" />
 
               <div className="absolute right-8 top-0 z-10 rounded-[24px] border border-white/15 bg-white/10 px-5 py-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.2)] backdrop-blur-xl transition-all duration-500 ">
