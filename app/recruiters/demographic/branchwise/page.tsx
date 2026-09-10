@@ -988,7 +988,7 @@ export default function PlacementTabsOnly() {
                                 role="listbox"
                                 className="absolute z-30 mt-3 w-full overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-[0_20px_50px_rgba(11,60,109,0.14)]"
                             >
-                                <div className="max-h-[320px] overflow-y-auto p-2">
+                                <div data-lenis-prevent className="max-h-[320px] overflow-y-auto p-2">
                                     {branches.map((branch) => {
                                         const isSelected = selectedBranch === branch.key;
 
@@ -1257,7 +1257,7 @@ export default function PlacementTabsOnly() {
                         </div>
                     </div>
 
-                    <div className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
+                    <div data-lenis-prevent className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
                         {branchDocuments[activeBranch.key].map((doc, index) => (
                             <div
                                 key={`${doc.id}-${doc.year ?? "common"}`}
