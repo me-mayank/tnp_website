@@ -76,16 +76,50 @@ const topPlacements = [
 ];
 
 const academicProgrammesData = [
-  { key: "btech", short: "B.Tech", name: "B.Tech", value: 541, color: "#b191d5" },
-  { key: "mtech", short: "M.Tech", name: "M.Tech", value: 108, color: "#7199a8" },
-  { key: "mca", short: "MCA", name: "MCA", value: 67, color: "#ee98b4" },
-  { key: "mba", short: "MBA", name: "MBA", value: 57, color: "#f7c26b" },
+  { key: "btech", short: "B.Tech", name: "B.Tech", value: 541, color: "#0A2647" },
+  { key: "mtech", short: "M.Tech", name: "M.Tech", value: 108, color: "#144272" },
+  { key: "mca", short: "MCA", name: "MCA", value: 67, color: "#2C74B3" },
+  { key: "mba", short: "MBA", name: "MBA", value: 57, color: "#38BDF8" },
+];
+
+const overallAchievements = [
+  {
+    id: 1,
+    category: "GATE 2025 Dual Rank",
+    title: "AIR 23 (DS & AI) & AIR 289 (CS & IT)",
+    stat: "GATE 2025",
+    name: "Abhishek Srivastava",
+    branch: "Computer Science Engineering",
+    description: "Secured All India Rank (AIR) 23 in Data Science & Artificial Intelligence (DS & AI) and AIR 289 in Computer Science & Information Technology (CS & IT).",
+    badge: "GATE 2025 National Rank",
+    image: "/images/achievements/abhishek_srivastava.png",
+  },
+  {
+    id: 2,
+    category: "UPSC IES",
+    title: "UPSC Indian Engineering Services",
+    stat: "AIR 15",
+    name: "Krishna Meerendra",
+    branch: "Indian Engineering Services Officer",
+    description: "Secured 15th Rank All India in the prestigious UPSC Indian Engineering Services examination and selected as an IES Officer.",
+    badge: "UPSC IES Selection",
+  },
+  {
+    id: 3,
+    category: "IIT BOMBAY COMPETITION",
+    title: "Agribot e-Yantra Competition",
+    stat: "2nd Position",
+    name: "Meha Shukla, Aviral Singh, Anmol Sharma, Aparna Gupta",
+    branch: "Student Team Project",
+    description: "IET Lucknow student team secured 2nd Position nationwide in the Agribot track at e-Yantra, IIT Bombay.",
+    badge: "National Finalist",
+  },
 ];
 
 const overallKpis = [
   { label: "Highest Package", value: "₹60.0 LPA", helperText: "Top offer across recent sessions", progress: "100%" },
   { label: "Average Package", value: "₹6.52 LPA", helperText: "Weighted average compensation", progress: "72%" },
-  { label: "Placement Percentage", value: "87%", helperText: "Students placed from eligible batch", progress: "87%" },
+  { label: "Placement Percentage", value: "80%", helperText: "Students placed from eligible batch", progress: "80%" },
   { label: "Total Offers", value: "526", helperText: "Offers received in 2025–26", progress: "100%" },
 ];
 
@@ -189,7 +223,7 @@ function OverallTab() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {["120+ Recruiters", "600+ Offers", "87% Placement"].map((item) => (
+              {["80+ Recruiters", "500+ Offers", "80% Placement"].map((item) => (
                 <div
                   key={item}
                   className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md transition-transform duration-300 "
@@ -201,30 +235,30 @@ function OverallTab() {
           </div>
 
           <div className="relative flex min-h-[320px] items-center justify-center lg:min-h-[360px]">
-            <div className="relative h-full w-full max-w-[460px]">
+            <div className="group/spotlight relative h-full w-full max-w-[460px] scale-[0.85] origin-center sm:scale-100">
               <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(44,116,179,0.32),rgba(44,116,179,0.04),transparent_70%)] blur-2xl" />
 
-              <div className="absolute right-8 top-0 z-10 rounded-[24px] border border-white/15 bg-white/10 px-5 py-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.2)] backdrop-blur-xl transition-all duration-500 ">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">Highlight</p>
+              <div className="absolute right-8 top-0 z-10 cursor-pointer rounded-[24px] border border-white/20 bg-white/15 px-5 py-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.2)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:-translate-y-4 group-hover/spotlight:translate-x-4 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/75">Highlight</p>
                 <p className="mt-2 text-3xl font-bold tracking-tight">₹60.0 LPA</p>
-                <p className="mt-1 text-sm text-white/75">Highest package offered</p>
+                <p className="mt-1 text-sm text-white/85">Highest package offered</p>
               </div>
 
-              <div className="absolute left-0 top-10 z-10 w-[150px] rounded-[22px] border border-white/15 bg-white/10 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/65">Active Hiring</p>
-                <p className="mt-2 text-2xl font-bold">120+</p>
-                <p className="mt-1 text-xs text-white/75">Participating companies</p>
+              <div className="absolute left-0 top-10 z-10 w-[150px] cursor-pointer rounded-[22px] border border-white/20 bg-white/15 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:-translate-x-5 group-hover/spotlight:-translate-y-2 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">Active Hiring</p>
+                <p className="mt-2 text-2xl font-bold">80+</p>
+                <p className="mt-1 text-xs text-white/85">Participating companies</p>
               </div>
 
-              <div className="absolute bottom-0 right-2 z-10 w-[190px] rounded-[24px] border border-white/15 bg-white/10 p-4 shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60">Placement Rate</p>
-                <p className="mt-2 text-3xl font-bold text-white">87%</p>
-                <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/15">
-                  <div className="h-full w-[87%] rounded-full bg-[#2C74B3]" />
+              <div className="absolute bottom-0 right-2 z-10 w-[190px] cursor-pointer rounded-[24px] border border-white/20 bg-white/15 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:translate-x-4 group-hover/spotlight:translate-y-4 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">Placement Rate</p>
+                <p className="mt-2 text-3xl font-bold text-white">80%</p>
+                <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/20">
+                  <div className="h-full w-[80%] rounded-full bg-[#38BDF8]" />
                 </div>
               </div>
 
-              <div className="absolute left-1/2 top-1/2 z-10 w-full max-w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-white/15 bg-white/10 p-5 shadow-[0_22px_50px_rgba(3,20,38,0.22)] backdrop-blur-xl transition-all duration-500 ">
+              <div className="absolute left-1/2 top-1/2 z-20 w-full max-w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-white/20 bg-white/15 p-5 shadow-[0_22px_50px_rgba(3,20,38,0.22)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:scale-[0.96] group-hover/spotlight:opacity-90 hover:!z-30 hover:!scale-100 hover:!opacity-100">
                 <div className="mb-4 flex items-center justify-between">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">Recruiter Spotlight</p>
@@ -326,7 +360,7 @@ function OverallTab() {
             subtitle="Highest-value student offers with recruiter and branch details."
           />
 
-          <div className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
+          <div data-lenis-prevent className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
             {topPlacements.map((student, index) => (
               <div
                 key={student.id}
@@ -350,6 +384,98 @@ function OverallTab() {
                   <div className="rounded-full bg-[#E0F2FE] px-3 py-1 text-sm font-bold text-[#0369A1]">
                     {student.package}
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="rounded-[32px] border border-slate-200/80 bg-white p-6 shadow-[0_20px_50px_rgba(11,60,109,0.08)] sm:p-8 lg:p-10">
+        <div className="border-b border-slate-100 pb-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2C74B3]">EXCELLENCE & HIGHLIGHTS</p>
+          <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733] sm:text-3xl">Student Achievements</h3>
+          <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Celebrating outstanding accomplishments in competitive exams, government services, and innovation challenges.</p>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12">
+          {/* Featured Spotlight Card — Abhishek Srivastava (1st Place) */}
+          <div className="rounded-[28px] bg-gradient-to-br from-[#0A2647] via-[#144272] to-[#071733] p-6 text-white shadow-[0_20px_45px_rgba(10,38,71,0.22)] sm:p-8 lg:col-span-12">
+            <div className="grid grid-cols-1 items-center gap-6 sm:grid-cols-[160px_1fr] md:grid-cols-[210px_1fr] lg:gap-8">
+              {/* Left Side: Big Image */}
+              {overallAchievements[0].image && (
+                <div className="relative mx-auto h-[220px] w-[180px] shrink-0 overflow-hidden rounded-[22px] border border-white/20 shadow-2xl sm:h-[230px] sm:w-[160px] md:h-[250px] md:w-[210px]">
+                  <img
+                    src={overallAchievements[0].image}
+                    alt={overallAchievements[0].name}
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
+              )}
+
+              {/* Right Side: Details & Description */}
+              <div className="flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur-md">
+                      {overallAchievements[0].category}
+                    </span>
+                    <span className="inline-flex rounded-full bg-[#38BDF8] px-3.5 py-1 text-xs font-bold text-[#071733]">
+                      {overallAchievements[0].stat}
+                    </span>
+                  </div>
+
+                  <h4 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
+                    {overallAchievements[0].title}
+                  </h4>
+
+                  <p className="mt-3 text-sm leading-relaxed text-slate-200/90 sm:text-[15px]">
+                    {overallAchievements[0].description}
+                  </p>
+                </div>
+
+                <div className="mt-6 border-t border-white/15 pt-4 flex flex-wrap items-center justify-between gap-3">
+                  <div>
+                    <p className="text-base font-bold text-white">{overallAchievements[0].name}</p>
+                    <p className="text-xs text-slate-300">{overallAchievements[0].branch}</p>
+                  </div>
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-sky-200">
+                    Top National Achievement
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Secondary Cards — Krishna Meerendra & Agribot Team */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-12">
+            {overallAchievements.slice(1).map((item) => (
+              <div
+                key={item.id}
+                className="group flex flex-col justify-between rounded-[26px] border border-slate-200/80 bg-[#fcfdff] p-6 shadow-[0_10px_30px_rgba(11,60,109,0.06)] transition-all duration-300 hover:border-[#2C74B3]/30 hover:shadow-[0_16px_36px_rgba(11,60,109,0.12)]"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="inline-flex rounded-full bg-[#eaf1fb] px-3 py-1 text-xs font-semibold text-[#0A2647]">
+                      {item.category}
+                    </span>
+                    <span className="inline-flex rounded-full bg-[#0A2647] px-3.5 py-1 text-xs font-bold text-white">
+                      {item.stat}
+                    </span>
+                  </div>
+
+                  <h5 className="mt-4 text-lg font-bold text-[#071733]">
+                    {item.title}
+                  </h5>
+
+                  <p className="mt-2 text-xs leading-relaxed text-[#52606d] sm:text-sm">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="mt-5 border-t border-slate-100 pt-4">
+                  <p className="text-sm font-bold text-[#071733]">{item.name}</p>
+                  <p className="text-xs text-[#52606d]">{item.branch}</p>
                 </div>
               </div>
             ))}

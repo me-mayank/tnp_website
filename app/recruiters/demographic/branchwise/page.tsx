@@ -100,7 +100,7 @@ const branchPlacementTrendData: Record<string, { session: string; highest: numbe
     "cse": [
         {"session":"2023-24","highest":59.91,"median":7.5,"average":9.77},
         {"session":"2024-25","highest":54,"median":6,"average":7.63},
-        {"session":"2025-26","highest":16,"median":7,"average":7.58},
+        {"session":"2025-26","highest":60,"median":7,"average":7.58},
     ],
     "cse_sf": [
         {"session":"2024-25","highest":54,"median":6,"average":8.89},
@@ -157,308 +157,399 @@ const branchPlacementTrendData: Record<string, { session: string; highest: numbe
         {"session":"2025-26","highest":8.6,"median":7.32,"average":6.57},
     ],
 };
-const branchDocuments: Record<
-    string,
-    {
-        id: number;
-        title: string;
-        type: string;
-        description: string;
-        format: string;
-        year?: string;
-        url: string;
-    }[]
-> = {
-    "cse_sf": [],
-    "cse_ai": [],
-    "it": [],
-    "ei": [],
-    "mca": [],
-    "mba": [],
-    "mtech": [],
-    cse: [
+const branchDocuments: Record<string, { id: number; title: string; type: string; description: string; format: string; year?: string; url: string; }[]> = {
+    "cse": [
         {
-            id: 1,
-            title: "CSE Academic Calendar",
-            type: "Academic Calendar",
-            description: "Common academic calendar for Computer Science Engineering.",
-            format: "PDF",
-            url: "/pdfs/cse/academic-calendar.pdf",
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
         },
         {
-            id: 2,
-            title: "CSE 1st Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for first year students of Computer Science Engineering.",
-            format: "PDF",
-            year: "1st Year",
-            url: "/pdfs/cse/syllabus-1st-year.pdf",
+            "id": 2,
+            "title": "1st Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 1st Year Syllabus",
+            "format": "PDF",
+            "year": "1st Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/IET_BTech_1st_Year_Syllabus_I_Series_wef_2023_24_1.pdf"
         },
         {
-            id: 3,
-            title: "CSE 2nd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for second year students of Computer Science Engineering.",
-            format: "PDF",
-            year: "2nd Year",
-            url: "/pdfs/cse/syllabus-2nd-year.pdf",
+            "id": 3,
+            "title": "2nd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech CSE/CSE(AI) 2nd Year Syllabus",
+            "format": "PDF",
+            "year": "2nd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/New%20Course%20Structure%20and%20Syllabus%20of%20B%20Tech%20CSE_CSE_AI_2nd_Yr%202023-24_1.pdf"
         },
         {
-            id: 4,
-            title: "CSE 3rd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for third year students of Computer Science Engineering.",
-            format: "PDF",
-            year: "3rd Year",
-            url: "/pdfs/cse/syllabus-3rd-year.pdf",
+            "id": 4,
+            "title": "3rd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech CSE 3rd Year Syllabus",
+            "format": "PDF",
+            "year": "3rd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/B%20Tech%20CSE%20Detail%20Syllabus%203rd%20Year%202024-25_Final.pdf"
         },
         {
-            id: 5,
-            title: "CSE 4th Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for fourth year students of Computer Science Engineering.",
-            format: "PDF",
-            year: "4th Year",
-            url: "/pdfs/cse/syllabus-4th-year.pdf",
-        },
+            "id": 5,
+            "title": "4th Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech CSE 4th Year Syllabus",
+            "format": "PDF",
+            "year": "4th Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/ilovepdf_merged%20%281%29.pdf"
+        }
     ],
-
-    ece: [
+    "cse_sf": [
         {
-            id: 1,
-            title: "ECE Academic Calendar",
-            type: "Academic Calendar",
-            description: "Common academic calendar for Electronics & Communication Engineering.",
-            format: "PDF",
-            url: "/pdfs/ece/academic-calendar.pdf",
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
         },
         {
-            id: 2,
-            title: "ECE 1st Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for first year students of Electronics & Communication Engineering.",
-            format: "PDF",
-            year: "1st Year",
-            url: "/pdfs/ece/syllabus-1st-year.pdf",
+            "id": 2,
+            "title": "1st Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 1st Year Syllabus",
+            "format": "PDF",
+            "year": "1st Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/IET_BTech_1st_Year_Syllabus_I_Series_wef_2023_24_1.pdf"
         },
         {
-            id: 3,
-            title: "ECE 2nd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for second year students of Electronics & Communication Engineering.",
-            format: "PDF",
-            year: "2nd Year",
-            url: "/pdfs/ece/syllabus-2nd-year.pdf",
+            "id": 3,
+            "title": "2nd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech CSE/CSE(AI) 2nd Year Syllabus",
+            "format": "PDF",
+            "year": "2nd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/New%20Course%20Structure%20and%20Syllabus%20of%20B%20Tech%20CSE_CSE_AI_2nd_Yr%202023-24_1.pdf"
         },
         {
-            id: 4,
-            title: "ECE 3rd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for third year students of Electronics & Communication Engineering.",
-            format: "PDF",
-            year: "3rd Year",
-            url: "/pdfs/ece/syllabus-3rd-year.pdf",
+            "id": 4,
+            "title": "3rd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech CSE 3rd Year Syllabus",
+            "format": "PDF",
+            "year": "3rd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/B%20Tech%20CSE%20Detail%20Syllabus%203rd%20Year%202024-25_Final.pdf"
         },
         {
-            id: 5,
-            title: "ECE 4th Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for fourth year students of Electronics & Communication Engineering.",
-            format: "PDF",
-            year: "4th Year",
-            url: "/pdfs/ece/syllabus-4th-year.pdf",
-        },
+            "id": 5,
+            "title": "4th Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech CSE 4th Year Syllabus",
+            "format": "PDF",
+            "year": "4th Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/ilovepdf_merged%20%281%29.pdf"
+        }
     ],
-
-    ee: [
+    "cse_ai": [
         {
-            id: 1,
-            title: "EE Academic Calendar",
-            type: "Academic Calendar",
-            description: "Common academic calendar for Electrical Engineering.",
-            format: "PDF",
-            url: "/pdfs/ee/academic-calendar.pdf",
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
         },
         {
-            id: 2,
-            title: "EE 1st Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for first year students of Electrical Engineering.",
-            format: "PDF",
-            year: "1st Year",
-            url: "/pdfs/ee/syllabus-1st-year.pdf",
+            "id": 2,
+            "title": "1st Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 1st Year Syllabus",
+            "format": "PDF",
+            "year": "1st Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/IET_BTech_1st_Year_Syllabus_I_Series_wef_2023_24_1.pdf"
         },
         {
-            id: 3,
-            title: "EE 2nd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for second year students of Electrical Engineering.",
-            format: "PDF",
-            year: "2nd Year",
-            url: "/pdfs/ee/syllabus-2nd-year.pdf",
+            "id": 3,
+            "title": "2nd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech CSE/CSE(AI) 2nd Year Syllabus",
+            "format": "PDF",
+            "year": "2nd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/New%20Course%20Structure%20and%20Syllabus%20of%20B%20Tech%20CSE_CSE_AI_2nd_Yr%202023-24_1.pdf"
         },
         {
-            id: 4,
-            title: "EE 3rd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for third year students of Electrical Engineering.",
-            format: "PDF",
-            year: "3rd Year",
-            url: "/pdfs/ee/syllabus-3rd-year.pdf",
+            "id": 4,
+            "title": "3rd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech CSE 3rd Year Syllabus",
+            "format": "PDF",
+            "year": "3rd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/B%20Tech%20CSE%20Detail%20Syllabus%203rd%20Year%202024-25_Final.pdf"
         },
         {
-            id: 5,
-            title: "EE 4th Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for fourth year students of Electrical Engineering.",
-            format: "PDF",
-            year: "4th Year",
-            url: "/pdfs/ee/syllabus-4th-year.pdf",
-        },
+            "id": 5,
+            "title": "4th Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech CSE 4th Year Syllabus",
+            "format": "PDF",
+            "year": "4th Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/ilovepdf_merged%20%281%29.pdf"
+        }
     ],
-
-    me: [
+    "ece": [
         {
-            id: 1,
-            title: "ME Academic Calendar",
-            type: "Academic Calendar",
-            description: "Common academic calendar for Mechanical Engineering.",
-            format: "PDF",
-            url: "/pdfs/me/academic-calendar.pdf",
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
         },
         {
-            id: 2,
-            title: "ME 1st Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for first year students of Mechanical Engineering.",
-            format: "PDF",
-            year: "1st Year",
-            url: "/pdfs/me/syllabus-1st-year.pdf",
+            "id": 2,
+            "title": "1st Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 1st Year Syllabus",
+            "format": "PDF",
+            "year": "1st Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/IET_BTech_1st_Year_Syllabus_I_Series_wef_2023_24_9.pdf"
         },
         {
-            id: 3,
-            title: "ME 2nd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for second year students of Mechanical Engineering.",
-            format: "PDF",
-            year: "2nd Year",
-            url: "/pdfs/me/syllabus-2nd-year.pdf",
+            "id": 3,
+            "title": "2nd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 2nd Year Syllabus",
+            "format": "PDF",
+            "year": "2nd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/BTech_2nd_Year_Curriculam_2023_25_26.pdf"
         },
         {
-            id: 4,
-            title: "ME 3rd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for third year students of Mechanical Engineering.",
-            format: "PDF",
-            year: "3rd Year",
-            url: "/pdfs/me/syllabus-3rd-year.pdf",
+            "id": 4,
+            "title": "3rd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 3rd Year Syllabus",
+            "format": "PDF",
+            "year": "3rd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/BTech_3rd_Year_Curriculam_2024_25_26.pdf"
         },
         {
-            id: 5,
-            title: "ME 4th Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for fourth year students of Mechanical Engineering.",
-            format: "PDF",
-            year: "4th Year",
-            url: "/pdfs/me/syllabus-4th-year.pdf",
-        },
+            "id": 5,
+            "title": "4th Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 4th Year Syllabus",
+            "format": "PDF",
+            "year": "4th Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/BTech_4th_Year_Curriculam_2025_26_1.pdf"
+        }
     ],
-
-    ce: [
+    "ee": [
         {
-            id: 1,
-            title: "CE Academic Calendar",
-            type: "Academic Calendar",
-            description: "Common academic calendar for Civil Engineering.",
-            format: "PDF",
-            url: "/pdfs/ce/academic-calendar.pdf",
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
         },
         {
-            id: 2,
-            title: "CE 1st Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for first year students of Civil Engineering.",
-            format: "PDF",
-            year: "1st Year",
-            url: "/pdfs/ce/syllabus-1st-year.pdf",
+            "id": 2,
+            "title": "1st Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 1st Year Syllabus",
+            "format": "PDF",
+            "year": "1st Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/IET_BTech_1st_Year_Syllabus_I_Series_wef_2023_24_9.pdf"
         },
         {
-            id: 3,
-            title: "CE 2nd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for second year students of Civil Engineering.",
-            format: "PDF",
-            year: "2nd Year",
-            url: "/pdfs/ce/syllabus-2nd-year.pdf",
+            "id": 3,
+            "title": "2nd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 2nd Year Syllabus",
+            "format": "PDF",
+            "year": "2nd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/Second_Year_Syllabus.pdf"
         },
         {
-            id: 4,
-            title: "CE 3rd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for third year students of Civil Engineering.",
-            format: "PDF",
-            year: "3rd Year",
-            url: "/pdfs/ce/syllabus-3rd-year.pdf",
+            "id": 4,
+            "title": "3rd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 3rd Year Syllabus",
+            "format": "PDF",
+            "year": "3rd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/Third_Year_Syllabus.pdf"
         },
         {
-            id: 5,
-            title: "CE 4th Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for fourth year students of Civil Engineering.",
-            format: "PDF",
-            year: "4th Year",
-            url: "/pdfs/ce/syllabus-4th-year.pdf",
-        },
+            "id": 5,
+            "title": "4th Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 4th Year Syllabus",
+            "format": "PDF",
+            "year": "4th Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/Final%20_Year_Syllabus_%20I%20_Series.pdf"
+        }
     ],
-
-    che: [
+    "me": [
         {
-            id: 1,
-            title: "CHE Academic Calendar",
-            type: "Academic Calendar",
-            description: "Common academic calendar for Chemical Engineering.",
-            format: "PDF",
-            url: "/pdfs/che/academic-calendar.pdf",
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
         },
         {
-            id: 2,
-            title: "CHE 1st Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for first year students of Chemical Engineering.",
-            format: "PDF",
-            year: "1st Year",
-            url: "/pdfs/che/syllabus-1st-year.pdf",
+            "id": 2,
+            "title": "1st Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 1st Year Syllabus",
+            "format": "PDF",
+            "year": "1st Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/IET_BTech_1st_Year_Syllabus_I_Series_wef_2023_24_9.pdf"
         },
         {
-            id: 3,
-            title: "CHE 2nd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for second year students of Chemical Engineering.",
-            format: "PDF",
-            year: "2nd Year",
-            url: "/pdfs/che/syllabus-2nd-year.pdf",
+            "id": 3,
+            "title": "2nd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 2nd Year Syllabus",
+            "format": "PDF",
+            "year": "2nd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/Second%20year%20syllabus%20Mechanical%20Engineering.pdf"
         },
         {
-            id: 4,
-            title: "CHE 3rd Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for third year students of Chemical Engineering.",
-            format: "PDF",
-            year: "3rd Year",
-            url: "/pdfs/che/syllabus-3rd-year.pdf",
+            "id": 4,
+            "title": "3rd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 3rd Year Syllabus",
+            "format": "PDF",
+            "year": "3rd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/Third%20Year%20Syllabus%20Mechanical%20Engineering.pdf"
         },
         {
-            id: 5,
-            title: "CHE 4th Year Syllabus",
-            type: "Syllabus",
-            description: "Detailed syllabus for fourth year students of Chemical Engineering.",
-            format: "PDF",
-            year: "4th Year",
-            url: "/pdfs/che/syllabus-4th-year.pdf",
-        },
+            "id": 5,
+            "title": "4th Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 4th Year Syllabus",
+            "format": "PDF",
+            "year": "4th Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/Final%20Year%20Syllabus%20Mechanical%20Engineering.pdf"
+        }
     ],
+    "ce": [
+        {
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
+        },
+        {
+            "id": 2,
+            "title": "1st Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 1st Year Syllabus",
+            "format": "PDF",
+            "year": "1st Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/IET_BTech_1st_Year_Syllabus_I_Series_wef_2023_24_1.pdf"
+        }
+    ],
+    "che": [
+        {
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
+        },
+        {
+            "id": 2,
+            "title": "1st Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 1st Year Syllabus",
+            "format": "PDF",
+            "year": "1st Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/IET_BTech_1st_Year_Syllabus_I_Series_wef_2023_24_1.pdf"
+        },
+        {
+            "id": 3,
+            "title": "2nd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 2nd Year Syllabus",
+            "format": "PDF",
+            "year": "2nd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/CH2_BTech_2nd_Year_K_Series_Syllabus_EFS_2019_20.pdf"
+        },
+        {
+            "id": 4,
+            "title": "3rd Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 3rd Year Syllabus",
+            "format": "PDF",
+            "year": "3rd Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/CH3_BTech_3rd_Year_K_Series_Syllabus_EFS_2020_21_0.pdf"
+        },
+        {
+            "id": 5,
+            "title": "4th Year Syllabus",
+            "type": "syllabus",
+            "description": "B.Tech 4th Year Syllabus",
+            "format": "PDF",
+            "year": "4th Year",
+            "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/CH4_BTech_4th_Year_R_Series_Syllabus_EFS_2019_20.pdf"
+        }
+    ],
+    "it": [
+        {
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
+        }
+    ],
+    "ei": [
+        {
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
+        }
+    ],
+    "mca": [
+        {
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
+        }
+    ],
+    "mba": [
+        {
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
+        }
+    ],
+    "mtech": [
+        {
+            "title": "Academic Calendar",
+            "type": "calendar",
+            "description": "Current academic session schedule and important dates",
+            "format": "Link",
+            "url": "https://www.ietlucknow.ac.in/ac/2627",
+            "id": 1
+        }
+    ]
 };
-
 const branchAchievementStats: Record<
     string,
     { label: string; value: string }[]
@@ -862,7 +953,7 @@ export default function PlacementTabsOnly() {
     return (
         <div className="mt-4 w-full space-y-6">
             
-                <div className="mx-auto w-full max-w-3xl">
+                <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
                     <div className="relative">
                         <label className="mb-2 block text-sm font-semibold text-[#144272]">
                             Select Branch
@@ -897,7 +988,7 @@ export default function PlacementTabsOnly() {
                                 role="listbox"
                                 className="absolute z-30 mt-3 w-full overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-[0_20px_50px_rgba(11,60,109,0.14)]"
                             >
-                                <div className="max-h-[320px] overflow-y-auto p-2">
+                                <div data-lenis-prevent className="max-h-[320px] overflow-y-auto p-2">
                                     {branches.map((branch) => {
                                         const isSelected = selectedBranch === branch.key;
 
@@ -943,7 +1034,7 @@ export default function PlacementTabsOnly() {
                     </div>
 
                     <div className="mt-8 rounded-[30px] bg-[#fcfdff] p-4 sm:p-6">
-                        <div className="h-[470px] w-full">
+                        <div className="h-[380px] w-full">
                             <ResponsiveContainer width="100%" height="100%">
                                 <BarChart
                                     data={placementOffersData}
@@ -1166,7 +1257,7 @@ export default function PlacementTabsOnly() {
                         </div>
                     </div>
 
-                    <div className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
+                    <div data-lenis-prevent className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
                         {branchDocuments[activeBranch.key].map((doc, index) => (
                             <div
                                 key={`${doc.id}-${doc.year ?? "common"}`}
@@ -1204,7 +1295,7 @@ export default function PlacementTabsOnly() {
                                                 rel="noopener noreferrer"
                                                 className="inline-flex min-h-[40px] items-center justify-center rounded-[12px] bg-[#0A2647] px-4 text-xs font-semibold text-white transition-all duration-300 hover:bg-[#144272]"
                                             >
-                                                View PDF
+                                                View Document
                                             </a>
                                         </div>
                                     </div>
@@ -1214,98 +1305,6 @@ export default function PlacementTabsOnly() {
                                     </div>
                                 </div>
                             </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="relative mx-auto w-full max-w-7xl overflow-hidden rounded-[32px] bg-gradient-to-br from-[#f8fbff] to-white p-6 shadow-[0_25px_60px_rgba(11,60,109,0.12)] ring-1 ring-slate-200/60 sm:p-8">
-                <div className="absolute -top-20 -right-20 h-[300px] w-[300px] rounded-full bg-[#2C74B3]/10 blur-3xl" />
-                <div className="absolute -bottom-20 -left-20 h-[260px] w-[260px] rounded-full bg-[#2C74B3]/10 blur-3xl" />
-
-                <div className="relative">
-                    <div className="border-b border-slate-200/60 pb-6">
-                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2C74B3]">
-                            ACHIEVEMENTS
-                        </p>
-                        <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733]">
-                            Student Achievement Highlights
-                        </h3>
-                        <p className="mt-2 text-sm text-[#52606d]">
-                            Spotlight achievements, competitive exams, hackathons, design awards, and research highlights for{" "}
-                            {activeBranch.label}.
-                        </p>
-                    </div>
-
-                    <div className="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-2">
-                        {branchAchievements[activeBranch.key].map((item) => (
-                            <article
-                                key={item.id}
-                                className="grid min-h-[280px] grid-cols-1 gap-5 rounded-[28px] border border-slate-200/70 bg-white/85 p-5 shadow-[0_12px_32px_rgba(15,23,42,0.06)] backdrop-blur-xl transition-all duration-300 hover:shadow-[0_18px_45px_rgba(11,60,109,0.12)] sm:grid-cols-[1.08fr_0.92fr]"
-                            >
-                                <div className="flex flex-col">
-                                    <div className="flex items-center justify-between">
-                                        <span className="inline-flex w-fit items-center rounded-full bg-[#edf4ff] px-3 py-1 text-xs font-semibold text-[#144272]">
-                                            {item.category}
-                                        </span>
-
-                                        <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-500">
-                                            •••
-                                        </div>
-                                    </div>
-
-                                    <h4 className="mt-5 max-w-[12ch] text-[30px] font-bold leading-[1.02] tracking-[-0.04em] text-[#111827] sm:text-[38px]">
-                                        {item.title}
-                                    </h4>
-
-                                    <p className="mt-5 text-[15px] leading-6 text-[#374151]">
-                                        {item.subtitle}
-                                    </p>
-
-                                    {(item.person || item.meta) && (
-                                        <div className="mt-5 flex items-center gap-3">
-                                            <div className="h-12 w-12 overflow-hidden rounded-full bg-slate-200">
-                                                <img
-                                                    src={item.image}
-                                                    alt={item.person || item.title}
-                                                    width={48}
-                                                    height={48}
-                                                    loading="lazy"
-                                                    className="h-full w-full object-cover"
-                                                />
-                                            </div>
-
-                                            <div>
-                                                {item.person && (
-                                                    <p className="text-[16px] font-semibold text-[#111827]">
-                                                        {item.person}
-                                                    </p>
-                                                )}
-                                                {item.meta && (
-                                                    <p className="text-sm text-[#52606d]">{item.meta}</p>
-                                                )}
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    <p className="mt-5 text-sm leading-6 text-[#52606d]">
-                                        {item.description}
-                                    </p>
-                                </div>
-
-                                <div className="flex items-center justify-center">
-                                    <div className="w-full overflow-hidden rounded-[22px] bg-white shadow-[0_12px_28px_rgba(15,23,42,0.10)] ring-1 ring-slate-200/70">
-                                        <img
-                                            src={item.image}
-                                            alt={item.title}
-                                            width={600}
-                                            height={420}
-                                            loading="lazy"
-                                            className="h-[220px] w-full object-cover"
-                                        />
-                                    </div>
-                                </div>
-                            </article>
                         ))}
                     </div>
                 </div>

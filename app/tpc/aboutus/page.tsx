@@ -19,6 +19,16 @@ const facilities = [
 export default function AboutUsPage() {
   const [activeFacility, setActiveFacility] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({});
+
+  const toggleCardFlip = (index: number) => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      setFlippedCards((prev) => ({
+        ...prev,
+        [index]: !prev[index],
+      }));
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -266,9 +276,27 @@ export default function AboutUsPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-                {records.map((record, index) => (
-                  <div key={index} className="group h-[300px] transition-all duration-700 ease-in-out [perspective:1000px]">
-                    <div className="relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                {records.map((record, index) => {
+                  const isFlipped = !!flippedCards[index];
+                  return (
+                    <div
+                      key={index}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => toggleCardFlip(index)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          toggleCardFlip(index);
+                        }
+                      }}
+                      className="group h-[300px] transition-all duration-700 ease-in-out [perspective:1000px] cursor-pointer md:cursor-default select-none touch-manipulation [-webkit-tap-highlight-color:transparent]"
+                    >
+                      <div
+                        className={`relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] ${
+                          isFlipped ? "mobile-card-flipped" : "mobile-card-unflipped"
+                        }`}
+                      >
 
                       {/* Front Face */}
                       <div className="absolute inset-0 bg-white border border-gray-100 rounded-3xl shadow-sm flex flex-col [backface-visibility:hidden] overflow-hidden">
@@ -331,7 +359,8 @@ export default function AboutUsPage() {
 
                     </div>
                   </div>
-                ))}
+                );
+              })}
               </div>
             </div>
           </section>
