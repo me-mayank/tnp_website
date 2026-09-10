@@ -886,3 +886,13 @@ svg {
     padding-left: 16px;
   }
 }
+
+/* Mobile flip card toggle for About Us past records */
+@media (max-width: 767px) {
+  .mobile-card-flipped {
+    transform: rotateY(180deg) !important;
+  }
+  .mobile-card-unflipped {
+    transform: rotateY(0deg) !important;
+  }
+}
