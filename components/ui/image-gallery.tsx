@@ -320,7 +320,7 @@ function ElasticGallerySection({
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-black uppercase leading-tight text-white md:text-4xl drop-shadow-md">
+                  <h3 className="text-lg md:text-2xl lg:text-3xl font-bold uppercase leading-tight text-white drop-shadow-md">
                     {displayTitle}
                   </h3>
 

@@ -14,32 +14,32 @@ export default function GalleryPage() {
     image: [
       {
         src: getOptimizedImageUrl("/DLF/IMG-20260117-WA0023.jpg"),
-        title: "DLF Corporate Engagement & Drive",
+        title: "DLF Drive",
         alt: "DLF Placement Session and Technical Interview",
       },
       {
         src: getOptimizedImageUrl("/TCS/IMG-20260119-WA0056.jpg"),
-        title: "TCS National Recruitment Drive",
+        title: "TCS Drive",
         alt: "TCS Campus Recruitment Drive at IET",
       },
       {
         src: getOptimizedImageUrl("/Inmobi/IMG-20250909-WA0011.jpg"),
-        title: "InMobi Tech Colloquium & Interaction",
+        title: "InMobi Session",
         alt: "InMobi technical session with engineering students",
       },
       {
         src: getOptimizedImageUrl("/TCS/IMG_20260119_092455290_HDR.jpg"),
-        title: "Technical Assessment & Mock Drives",
+        title: "Mock Drive",
         alt: "Placement assessment and student coding test",
       },
       {
         src: getOptimizedImageUrl("/Zeta/IMG-20250828-WA0079.jpg"),
-        title: "Zeta Recruitment & Coding Drive",
+        title: "Zeta Drive",
         alt: "Zeta student placement orientation and interviews",
       },
       {
         src: getOptimizedImageUrl("/VECV/IMG-20260109-WA0026.jpg"),
-        title: "VE Commercial Vehicles Technical Drive",
+        title: "VECV Drive",
         alt: "VECV campus placement process",
       },
     ],
@@ -53,37 +53,37 @@ export default function GalleryPage() {
     image: [
       {
         src: getOptimizedImageUrl("/images/campus.jpg"),
-        title: "Main Campus Quadrangle & Lawns",
+        title: "Campus Quad",
         alt: "IET Main Campus Quadrangle and Lawns",
       },
       {
         src: getOptimizedImageUrl("/images/sports.jpg"),
-        title: "Sports Complex & Athletic Grounds",
+        title: "Sports Complex",
         alt: "Campus Sports Complex and Outdoor Playgrounds",
       },
       {
         src: getOptimizedImageUrl("/images/college_image.svg"),
-        title: "Institute Central Plaza",
+        title: "Central Plaza",
         alt: "Institute Central Plaza and Landmark",
       },
       {
         src: getOptimizedImageUrl("/images/Campus copy.jpg", { angle: 270 }),
-        title: "Campus Architecture & Lawns",
+        title: "Campus Lawns",
         alt: "Campus Architecture and Departmental Wings",
       },
       {
-        src: getOptimizedImageUrl("/images/library.jpeg"),
-        title: "Central Academic Library",
+        src: getOptimizedImageUrl("/images/Library.jpg"),
+        title: "Central Library",
         alt: "Central Academic Library and Study Halls",
       },
       {
         src: getOptimizedImageUrl("/images/academicblock.webp"),
-        title: "Main Academic Block",
+        title: "Academic Block",
         alt: "Academic Block and Lecture Theatres",
       },
       {
         src: getOptimizedImageUrl("/images/audi11.jpg"),
-        title: "University Auditorium & Amphitheatre",
+        title: "Auditorium",
         alt: "University Auditorium exterior and entrance",
       },
     ],
@@ -97,32 +97,32 @@ export default function GalleryPage() {
     image: [
       {
         src: getOptimizedImageUrl("/images/facilities/computer.png"),
-        title: "High Performance Computing Lab",
+        title: "Computing Lab",
         alt: "Computing Center Lab with high-end workstations",
       },
       {
-        src: getOptimizedImageUrl("/images/facilities/workspace.webp"),
-        title: "Placement Cell & Corporate Relations",
-        alt: "Training & Placement Cell Office and Boardroom",
+        src: getOptimizedImageUrl("/images/TNP.jpg"),
+        title: "Placement Cell",
+        alt: "Training & Placement Cell Office and Entrance",
       },
       {
         src: getOptimizedImageUrl("/images/facilities/training.jpg"),
-        title: "Skill Development & Training Center",
+        title: "Training Center",
         alt: "Dedicated student training and development center",
       },
       {
         src: getOptimizedImageUrl("/images/facilities/interview.jpg"),
-        title: "Corporate Interview & GD Suites",
+        title: "Interview Suites",
         alt: "Executive interview suites for corporate recruiters",
       },
       {
         src: getOptimizedImageUrl("/images/facilities/presentation.jpg"),
-        title: "Interactive Presentation Hall",
+        title: "Presentation Hall",
         alt: "Multimedia seminar and presentation hall",
       },
       {
         src: getOptimizedImageUrl("/images/newaudi.jpg"),
-        title: "Main Campus Auditorium",
+        title: "Auditorium",
         alt: "Modern campus auditorium with tiered seating",
       },
     ],

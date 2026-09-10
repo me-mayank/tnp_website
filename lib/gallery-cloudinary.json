@@ -953,5 +953,23 @@
     "format": "jpg",
     "width": 2448,
     "height": 3264
+  },
+  "/images/Library.jpg": {
+    "original": "/images/Library.jpg",
+    "publicId": "tnp_gallery/images/Library",
+    "secureUrl": "https://res.cloudinary.com/bghkkwzm/image/upload/v1789056489/tnp_gallery/images/Library.jpg",
+    "optimizedUrl": "https://res.cloudinary.com/bghkkwzm/image/upload/f_auto,q_auto/v1/tnp_gallery/images/Library?_a=BAMAROZW0",
+    "format": "jpg",
+    "width": 2880,
+    "height": 1924
+  },
+  "/images/TNP.jpg": {
+    "original": "/images/TNP.jpg",
+    "publicId": "tnp_gallery/images/TNP",
+    "secureUrl": "https://res.cloudinary.com/bghkkwzm/image/upload/v1789056491/tnp_gallery/images/TNP.jpg",
+    "optimizedUrl": "https://res.cloudinary.com/bghkkwzm/image/upload/f_auto,q_auto/v1/tnp_gallery/images/TNP?_a=BAMAROZW0",
+    "format": "jpg",
+    "width": 2880,
+    "height": 1924
   }
 }
