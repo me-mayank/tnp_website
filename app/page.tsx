@@ -340,34 +340,11 @@ export default function Home() {
           </div>
         </div>
       </RevealSection>
-      )}n>
+      )}
 
-      {/* Gallery Section
-      <RevealSection id="gallery" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <SplitText text="Campus Gallery" tag="h2" className="text-3xl md:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
-            <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
-            <p className="text-slate-600 mt-6 max-w-2xl mx-auto">
-              A glimpse into life at IET Lucknow through our facilities, events, and learning spaces.
-            </p>
-          </div>
 
-          <InteractiveSelector options={GALLERY_OPTIONS} />
 
-          <div className="mt-8 text-center">
-            <Link
-              href="/gallery"
-              className="inline-flex items-center gap-2 bg-brand-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-              <span>View More</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </RevealSection>
-      */}
+
 
 
       {/* Collaboration Section */}
@@ -810,6 +787,7 @@ export default function Home() {
         </div>
       </RevealSection>
       )}
+
 
       
       <FAQSection />
