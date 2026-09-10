@@ -7,7 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Poppins } from "next/font/google";
 import dynamic from "next/dynamic";
-import ContrastMarqueeText from "./ContrastMarqueeText";
+/* import ContrastMarqueeText from "./ContrastMarqueeText"; */
 
 const LogoLoop = dynamic(() => import("./LogoLoop"), { ssr: false }) as any;
 
@@ -89,6 +89,7 @@ export default function HeroSection() {
   return (
     <div ref={wrapperRef} className="relative w-full -mt-[92px] md:-mt-[104px]">
       <section ref={heroSectionRef} className="relative overflow-hidden bg-slate-950 shadow-xl md:sticky md:top-0 md:min-h-[100svh] md:h-[100dvh]">
+        {/*
         <div
           suppressHydrationWarning
           className="hidden md:block absolute left-0 top-[80px] z-20 w-full"
@@ -116,6 +117,7 @@ export default function HeroSection() {
             ariaLabel="Placement highlights"
           />
         </div>
+*/}
 
         {/* MOBILE HERO VIEW (< md) */}
         <div className="relative w-full overflow-hidden bg-slate-950 md:hidden">
