@@ -75,7 +75,7 @@ export default function GalleryPage() {
       "Modern labs and learning spaces designed for hands-on experience and research.",
     image: [
       "/images/facilities/computer.png",
-      "/images/facilities/workspace.webp",
+      "/images/facilities/1workspace.webp.png",
       "/images/facilities/training.jpg",
       "/images/facilities/interview.jpg",
       "/images/facilities/presentation.jpg",

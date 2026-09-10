@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const facilities = [
-  { src: "/images/facilities/workspace.webp", title: "Workspace", desc: "A modern workspace for all official placement processes." },
+  { src: "/images/facilities/1workspace.webp.png", title: "Workspace", desc: "A modern workspace for all official placement processes." },
   { src: "/images/facilities/interview.jpg", title: "Interview Rooms", desc: "6 air-conditioned interview cabins equipped with WiFi-enabled PCs and printing facilities." },
   { src: "/images/facilities/gd.jpg", title: "Group Discussion Room", desc: "A dedicated Group Discussion Hall for placement procedure rounds by visiting companies." },
   { src: "/images/facilities/computer.png", title: "Computer Center", desc: "Department labs with modern systems for conducting online technical rounds." },
