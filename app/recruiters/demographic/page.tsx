@@ -252,30 +252,30 @@ function OverallTab() {
           </div>
 
           <div className="relative flex min-h-[320px] items-center justify-center lg:min-h-[360px]">
-            <div className="relative h-full w-full max-w-[460px] scale-[0.85] sm:scale-100 origin-center">
+            <div className="group/spotlight relative h-full w-full max-w-[460px] scale-[0.85] origin-center sm:scale-100">
               <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(44,116,179,0.32),rgba(44,116,179,0.04),transparent_70%)] blur-2xl" />
 
-              <div className="absolute right-8 top-0 z-10 rounded-[24px] border border-white/15 bg-white/10 px-5 py-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.2)] backdrop-blur-xl transition-all duration-500 ">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">Highlight</p>
+              <div className="absolute right-8 top-0 z-10 cursor-pointer rounded-[24px] border border-white/20 bg-white/15 px-5 py-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.2)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:-translate-y-4 group-hover/spotlight:translate-x-4 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/75">Highlight</p>
                 <p className="mt-2 text-3xl font-bold tracking-tight">₹60.0 LPA</p>
-                <p className="mt-1 text-sm text-white/75">Highest package offered</p>
+                <p className="mt-1 text-sm text-white/85">Highest package offered</p>
               </div>
 
-              <div className="absolute left-0 top-10 z-10 w-[150px] rounded-[22px] border border-white/15 bg-white/10 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/65">Active Hiring</p>
+              <div className="absolute left-0 top-10 z-10 w-[150px] cursor-pointer rounded-[22px] border border-white/20 bg-white/15 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:-translate-x-5 group-hover/spotlight:-translate-y-2 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">Active Hiring</p>
                 <p className="mt-2 text-2xl font-bold">120+</p>
-                <p className="mt-1 text-xs text-white/75">Participating companies</p>
+                <p className="mt-1 text-xs text-white/85">Participating companies</p>
               </div>
 
-              <div className="absolute bottom-0 right-2 z-10 w-[190px] rounded-[24px] border border-white/15 bg-white/10 p-4 shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/60">Placement Rate</p>
+              <div className="absolute bottom-0 right-2 z-10 w-[190px] cursor-pointer rounded-[24px] border border-white/20 bg-white/15 p-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.18)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:z-25 group-hover/spotlight:translate-x-4 group-hover/spotlight:translate-y-4 group-hover/spotlight:scale-105 group-hover/spotlight:border-white/40 group-hover/spotlight:bg-white/25 group-hover/spotlight:shadow-[0_25px_50px_rgba(3,20,38,0.4)] hover:!z-40 hover:!scale-110">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">Placement Rate</p>
                 <p className="mt-2 text-3xl font-bold text-white">87%</p>
-                <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/15">
-                  <div className="h-full w-[87%] rounded-full bg-[#2C74B3]" />
+                <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/20">
+                  <div className="h-full w-[87%] rounded-full bg-[#38BDF8]" />
                 </div>
               </div>
 
-              <div className="absolute left-1/2 top-1/2 z-10 w-full max-w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-white/15 bg-white/10 p-5 shadow-[0_22px_50px_rgba(3,20,38,0.22)] backdrop-blur-xl transition-all duration-500 ">
+              <div className="absolute left-1/2 top-1/2 z-20 w-full max-w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-white/20 bg-white/15 p-5 shadow-[0_22px_50px_rgba(3,20,38,0.22)] backdrop-blur-xl transition-all duration-500 ease-out group-hover/spotlight:scale-[0.96] group-hover/spotlight:opacity-90 hover:!z-30 hover:!scale-100 hover:!opacity-100">
                 <div className="mb-4 flex items-center justify-between">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">Recruiter Spotlight</p>
