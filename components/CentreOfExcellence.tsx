@@ -22,21 +22,21 @@ const LABS: LabItem[] = [
   { 
     id: 'ev-lab', 
     title: 'EV Lab', 
-    image: '/images/c-ev.png',
+    image: '/images/2-ev.png',
     description: 'Hands-on research and innovation in Electric Vehicle systems, battery technologies, and sustainable transportation solutions.',
     tagline: 'SUSTAINABLE MOBILITY SMARTER TOMORROW'
   },
   { 
     id: 'ai-lab', 
     title: 'AI Lab', 
-    image: '/images/c-ai.png',
+    image: '/images/2ai.png',
     description: 'Exploring the frontiers of Artificial Intelligence, Machine Learning, and Deep Learning to solve complex real-world challenges.',
     tagline: 'INTELLIGENT FUTURE THROUGH AI'
   },
   { 
     id: 'solar-lab', 
     title: 'Solar Lab', 
-    image: '/images/c-sl.png',
+    image: '/images/1solar.png',
     description: 'Advancing renewable energy through cutting-edge solar cell research, photovoltaic systems, and smart grid integration.',
     tagline: 'POWERING THE WORLD WITH SOLAR'
   },
@@ -48,6 +48,7 @@ const LABS: LabItem[] = [
 function MobileCentreOfExcellence() {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
 
   const handleNext = () => {
     setActiveIndex((prev) => (prev + 1) % LABS.length);
@@ -57,153 +58,150 @@ function MobileCentreOfExcellence() {
     setActiveIndex((prev) => (prev - 1 + LABS.length) % LABS.length);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (diff > 50) {
+      handleNext();
+    } else if (diff < -50) {
+      handlePrev();
+    }
+    touchStartX.current = null;
+  };
+
   useGSAP(() => {
     const tl = gsap.timeline();
     
     tl.to('.lab-content-mobile', {
       opacity: 0,
-      y: 15,
-      duration: 0.25,
+      y: 10,
+      duration: 0.2,
       ease: 'power2.in',
     })
     .to('.lab-image-mobile', {
-      scale: 1.08,
-      opacity: 0.3,
-      duration: 0.25,
+      scale: 1.05,
+      opacity: 0.4,
+      duration: 0.2,
       ease: 'power2.in',
     }, '<')
-    .set('.lab-content-mobile', { y: -15 })
+    .set('.lab-content-mobile', { y: -10 })
     .to('.lab-content-mobile', {
       opacity: 1,
       y: 0,
-      duration: 0.45,
+      duration: 0.4,
       ease: 'power3.out',
     })
     .to('.lab-image-mobile', {
       scale: 1,
-      opacity: 0.6,
-      duration: 0.6,
+      opacity: 0.85,
+      duration: 0.5,
       ease: 'power3.out',
-    }, '-=0.25');
+    }, '-=0.2');
 
   }, { dependencies: [activeIndex], scope: containerRef });
 
   return (
     <div 
       ref={containerRef} 
-      className="w-full bg-white py-16 px-4 sm:px-6 md:px-10 overflow-hidden font-poppins relative"
+      className="w-full bg-white py-12 px-4 sm:px-6 overflow-hidden font-poppins relative"
     >
       {/* Header Section */}
-      <div className="max-w-[1600px] mx-auto flex flex-col justify-between items-start mb-8 gap-4">
-        <div className="relative">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] leading-tight tracking-tight uppercase">
-            Centre of <br />
-            <span className="text-blue-600">Excellence</span>
+      <div className="max-w-[1600px] mx-auto mb-6">
+        <div className="relative inline-block">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] leading-tight tracking-tight uppercase">
+            Centre of <span className="text-blue-600">Excellence</span>
           </h2>
-          <div className="h-1.5 w-20 bg-blue-600 mt-3 rounded-full"></div>
+          <div className="h-1 w-14 bg-blue-600 mt-2 rounded-full"></div>
         </div>
-        
-        <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          Empowering innovation through advanced laboratories, cutting-edge technology, and industry-driven practical learning environments.
-        </p>
       </div>
 
-      {/* Main Slider Card */}
-      <div className="max-w-[1600px] mx-auto relative group">
-        <div className="relative aspect-[4/5] sm:aspect-[16/10] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-2xl">
+      {/* Main Clean Card */}
+      <div className="max-w-[1600px] mx-auto relative select-none">
+        <div 
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="relative aspect-[4/3] sm:aspect-[16/9] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-xl border border-slate-100"
+        >
           {/* Background Image */}
           <div className="lab-image-mobile absolute inset-0 w-full h-full">
             <Image 
               src={LABS[activeIndex].image} 
               alt={LABS[activeIndex].title} 
               fill 
-              className="object-cover opacity-60" 
+              className="object-cover opacity-85" 
               priority
             />
-            {/* Gradient Overlay for Text Readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/30 sm:bg-gradient-to-r sm:from-black/90 sm:via-black/50 sm:to-transparent" />
+            {/* Cinematic Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
           </div>
 
-          {/* Content Overlay */}
-          <div className="absolute inset-0 flex flex-col justify-end sm:justify-center p-6 sm:p-10 z-10">
-            <div className="lab-content-mobile max-w-xl">
-              {/* Tagline */}
-              <p className="text-blue-400 text-xs sm:text-sm font-semibold tracking-wider uppercase mb-2">
-                {LABS[activeIndex].tagline}
-              </p>
-
-              <h3 className="text-white text-3xl sm:text-4xl font-bold mb-3 tracking-tight">
+          {/* Content Overlay - Clean, Professional & Uncluttered */}
+          <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
+            <div className="lab-content-mobile">
+              <h3 className="text-white text-2xl sm:text-3xl font-extrabold tracking-tight drop-shadow-lg">
                 {LABS[activeIndex].title}
               </h3>
-              
-              <p className="text-white/80 text-xs sm:text-sm mb-6 leading-relaxed font-inter line-clamp-4 sm:line-clamp-none">
-                {LABS[activeIndex].description}
-              </p>
-              
-              <button className="bg-blue-600 hover:bg-blue-700 active:scale-95 text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl text-xs sm:text-sm font-bold inline-flex items-center gap-2 transition-all shadow-lg">
-                Explore Lab 
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </button>
             </div>
 
-            {/* Slide Counter */}
-            <div className="absolute top-5 right-5 sm:top-auto sm:bottom-6 sm:left-10 flex items-baseline gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-              <span className="text-white text-sm font-bold">
+            {/* Slide Counter Badge */}
+            <div className="absolute top-4 right-4 flex items-baseline gap-1 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
+              <span className="text-white text-xs font-bold font-mono">
                 {String(activeIndex + 1).padStart(2, '0')}
               </span>
-              <span className="text-white/40 text-xs">/</span>
-              <span className="text-white/40 text-xs font-medium">
+              <span className="text-white/40 text-[10px] font-mono">/</span>
+              <span className="text-white/40 text-[10px] font-mono font-medium">
                 {String(LABS.length).padStart(2, '0')}
               </span>
             </div>
           </div>
 
           {/* Navigation Arrows */}
-          <div className="absolute bottom-5 right-5 flex gap-2 z-20">
+          <div className="absolute bottom-4 right-4 flex gap-2 z-20">
             <button 
               onClick={handlePrev}
               aria-label="Previous Slide"
-              className="w-10 h-10 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full flex items-center justify-center border border-white/20 active:scale-95 transition-all"
+              className="w-9 h-9 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full flex items-center justify-center border border-white/20 active:scale-95 transition-all shadow-md"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button 
               onClick={handleNext}
               aria-label="Next Slide"
-              className="w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all"
+              className="w-9 h-9 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-md active:scale-95 transition-all"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
               </svg>
             </button>
           </div>
         </div>
 
         {/* Progress Dots */}
-        <div className="flex justify-center gap-2.5 mt-6">
-          {LABS.map((_, index) => (
+        <div className="flex justify-center gap-2 mt-5">
+          {LABS.map((lab, index) => (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`Go to ${lab.title}`}
               className={`h-2 transition-all duration-300 rounded-full ${
-                index === activeIndex ? 'w-10 bg-blue-600' : 'w-2 bg-slate-200'
+                index === activeIndex ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300'
               }`}
             />
           ))}
         </div>
       </div>
       
-      {/* Background Decorative Element */}
-      <div className="absolute top-0 right-0 -z-10 opacity-20 pointer-events-none translate-x-1/3 -translate-y-1/3">
-        <svg width="400" height="400" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Subtle Decorative Element */}
+      <div className="absolute top-0 right-0 -z-10 opacity-15 pointer-events-none translate-x-1/3 -translate-y-1/3">
+        <svg width="350" height="350" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="400" cy="400" r="400" stroke="#3B82F6" strokeOpacity="0.2" strokeWidth="2"/>
           <circle cx="400" cy="400" r="300" stroke="#3B82F6" strokeOpacity="0.2" strokeWidth="2"/>
-          <circle cx="400" cy="400" r="200" stroke="#3B82F6" strokeOpacity="0.2" strokeWidth="2"/>
         </svg>
       </div>
     </div>
@@ -334,8 +332,9 @@ function DesktopCentreOfExcellence() {
       className="h-screen w-full bg-[#070707] relative overflow-hidden flex items-center justify-center font-poppins"
     >
       {/* Persistent Section Title */}
-      <div className="absolute top-8 left-8 md:top-12 md:left-12 z-[100]">
-        <h1 className="text-white/80 text-xl md:text-2xl font-medium tracking-widest uppercase">
+      <div className="absolute top-8 left-8 md:top-12 md:left-12 z-[100] flex items-center gap-3">
+        <div className="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.8)]"></div>
+        <h1 className="text-white/90 text-lg md:text-xl font-semibold tracking-widest uppercase">
           Centre of Excellence
         </h1>
       </div>
@@ -360,20 +359,50 @@ function DesktopCentreOfExcellence() {
                 priority={index === 0}
               />
               {/* Cinematic Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/20" />
             </div>
           </div>
 
+          {/* Desktop Content Overlay: includes Tagline, Title, Description, and Details */}
           <div
-            className="text-wrapper absolute inset-0 flex flex-col justify-end p-8 md:p-16 lg:p-24 pointer-events-none opacity-0 translate-y-12"
+            className="text-wrapper absolute inset-0 flex flex-col justify-end p-8 md:p-14 lg:p-20 pointer-events-none opacity-0 translate-y-12 z-20"
           >
-            <div className="flex items-end justify-between w-full max-w-[1600px] mx-auto">
-              <h2 className="text-white text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter leading-none drop-shadow-2xl">
-                {lab.title}
-              </h2>
-              <span className="text-white/70 text-sm md:text-lg uppercase tracking-[0.3em] font-inter mb-2 md:mb-6 whitespace-nowrap">
-                (Scroll)
-              </span>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between w-full max-w-[1600px] mx-auto gap-8">
+              <div className="max-w-3xl">
+                {/* Tagline Badge */}
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 backdrop-blur-md mb-4 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                  <span className="text-blue-300 text-xs md:text-sm font-semibold tracking-widest uppercase">
+                    {lab.tagline}
+                  </span>
+                </div>
+
+                {/* Lab Title */}
+                <h2 className="text-white text-5xl md:text-6xl lg:text-[5.5rem] font-black tracking-tight leading-none drop-shadow-2xl mb-4">
+                  {lab.title}
+                </h2>
+
+                {/* Description */}
+                <p className="text-white/85 text-sm md:text-base lg:text-lg leading-relaxed font-inter max-w-2xl drop-shadow-md">
+                  {lab.description}
+                </p>
+              </div>
+
+              {/* Right Side: Counter & Hint */}
+              <div className="flex flex-col items-start lg:items-end gap-3 shrink-0">
+                <div className="flex items-baseline gap-1.5 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-lg">
+                  <span className="text-white text-base md:text-lg font-bold font-mono">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-white/40 text-sm font-mono">/</span>
+                  <span className="text-white/40 text-sm font-mono font-medium">
+                    {String(LABS.length).padStart(2, '0')}
+                  </span>
+                </div>
+                <span className="text-white/70 text-xs uppercase tracking-[0.25em] font-inter whitespace-nowrap">
+                  (Scroll to explore)
+                </span>
+              </div>
             </div>
           </div>
         </div>

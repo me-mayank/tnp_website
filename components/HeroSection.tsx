@@ -91,7 +91,7 @@ export default function HeroSection() {
       <section ref={heroSectionRef} className="relative overflow-hidden bg-slate-950 shadow-xl md:sticky md:top-0 md:min-h-[100svh] md:h-[100dvh]">
         <div
           suppressHydrationWarning
-          className="absolute left-0 top-[76px] z-20 w-full md:top-[80px]"
+          className="hidden md:block absolute left-0 top-[80px] z-20 w-full"
           style={{ height: "50px" }}
         >
           <LogoLoop
@@ -117,82 +117,103 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className="hero-bg-svg pointer-events-none select-none relative w-screen aspect-[5/4] md:absolute md:inset-0 md:w-auto md:aspect-auto">
-          <Image
-            src={HERO_BG.image}
-            alt="IET Lucknow placements hero"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition: HERO_BG.objectPosition }}
-          />
+        {/* MOBILE HERO VIEW (< md) */}
+        <div className="relative w-full overflow-hidden bg-slate-950 md:hidden">
+          <div className="relative w-full aspect-[2/3]">
+            <Image
+              src="/images/2phone-hero.png"
+              alt="IET Lucknow Placements"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
 
-          <div className="absolute inset-0 z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-transparent px-5 pb-6 pt-[120px] flex flex-col justify-center md:hidden">
-            <h1 className={`hero-title flex flex-col gap-0.5 text-left text-[clamp(1.35rem,6.2vw,2.1rem)] font-[800] leading-[1.08] tracking-tight ${poppins.className}`}>
-              <span className="block w-full text-blue-500 [text-shadow:0_2px_10px_rgba(37,99,235,0.4)]">Architecting</span>
-              <span className="block w-full text-white [text-shadow:0_2px_10px_rgba(15,23,42,0.5)]">Careers</span>
-              <span className="block w-full text-blue-500 [text-shadow:0_2px_10px_rgba(37,99,235,0.4)]">Fostering</span>
-              <span className="block w-full text-white [text-shadow:0_2px_10px_rgba(15,23,42,0.5)]">Innovation</span>
-            </h1>
-          </div>
-        </div>
-
-        <div className="hero-opening-content relative z-10 hidden min-h-[100svh] items-start pb-16 pl-[clamp(24px,3.8vw,56px)] pr-4 pt-[180px] sm:pr-6 md:flex md:pt-[168px] lg:pb-12">
-          <div className="w-full">
-            <div className="max-w-[min(48rem,92vw)]">
-              <h1 className={`hero-title max-w-[15ch] text-[clamp(2.4rem,4.5vw,4.5rem)] font-[800] leading-[1.05] tracking-tight ${poppins.className}`}>
-                <span className="block text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Architecting</span>
-                <span className="block text-[#0B1F3A] [text-shadow:0_2px_10px_rgba(255,255,255,0.28)]">Careers</span>
-                <span className="block text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Fostering</span>
-                <span className="block text-[#0B1F3A] [text-shadow:0_2px_10px_rgba(255,255,255,0.28)]">Innovation</span>
+            {/* Mobile Hero Heading & Tagline */}
+            <div className="absolute top-0 left-0 z-10 w-full pt-28 sm:pt-32 px-6 sm:px-8">
+              <h1 className={`hero-title flex flex-col text-left text-[clamp(1.6rem,6.2vw,2.3rem)] font-[800] leading-[1.06] tracking-tight ${poppins.className}`}>
+                <span className="block text-[#0B1F3A]">Architecting</span>
+                <span className="block text-[#2563EB]">Careers</span>
+                <span className="block text-[#2563EB]">Fostering</span>
+                <span className="block text-[#0B1F3A]">Innovation</span>
               </h1>
-
-              <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
-                <Link
-                  href="/recruiters/invitation"
-                  className="hero-cta inline-flex items-center justify-center gap-2 w-[180px] py-4 rounded-xl bg-[#0B1F3A] text-white text-[15px] font-semibold transition-all hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1"
-                >
-                  Hire Our Talent
-                </Link>
-                <Link
-                  href="/downloads"
-                  className="hero-cta group inline-flex items-center justify-center gap-2 w-[180px] py-4 rounded-xl bg-[#111827] text-white text-[15px] font-semibold transition-all hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1"
-                >
-                  Our Brochure
-                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
+              <div className="mt-2 text-[9px] sm:text-[10px] font-bold text-slate-700/90 uppercase tracking-[0.16em] leading-snug">
+                <div>TALENT &bull; OPPORTUNITY</div>
+                <div className="mt-0.5">BRIGHTER TOMORROW</div>
               </div>
+            </div>
+
+            {/* Interactive Action Buttons aligned with mobile design */}
+            <div className="absolute inset-x-0 bottom-6 z-20 flex flex-col gap-3 px-6 sm:px-10">
+              <Link
+                href="/recruiters/invitation"
+                className="hero-cta flex w-full items-center justify-center rounded-full bg-[#0B1F3A] py-3.5 text-center text-sm font-semibold text-white shadow-xl border border-white/20 active:scale-95 transition-all hover:bg-[#132B4F]"
+              >
+                Hire Our Talent
+              </Link>
+              <Link
+                href="/downloads"
+                className="hero-cta group flex w-full items-center justify-center gap-2 rounded-full bg-[#0B1F3A]/90 backdrop-blur-sm py-3.5 text-center text-sm font-semibold text-white shadow-xl border-2 border-white/80 active:scale-95 transition-all hover:bg-[#0B1F3A]"
+              >
+                <span>Our Brochure</span>
+                <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
 
-        <div className="bg-white px-4 py-5 shadow-[0_-1px_0_rgba(226,232,240,0.8)] sm:px-6 md:hidden">
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/recruiters/invitation"
-              className="hero-cta inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0B1F3A] px-5 py-4 text-[15px] font-semibold text-white transition-all hover:-translate-y-1 hover:bg-gray-800 hover:shadow-xl sm:w-[180px]"
-            >
-              Hire Our Talent
-            </Link>
-            <Link
-              href="/downloads"
-              className="hero-cta group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#111827] px-5 py-4 text-[15px] font-semibold text-white transition-all hover:-translate-y-1 hover:bg-gray-800 hover:shadow-xl sm:w-[180px]"
-            >
-              Our Brochure
-              <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+        {/* DESKTOP HERO VIEW (>= md) */}
+        <div className="hidden md:block">
+          <div className="hero-bg-svg pointer-events-none select-none absolute inset-0">
+            <Image
+              src={HERO_BG.image}
+              alt="IET Lucknow placements hero"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+              style={{ objectPosition: HERO_BG.objectPosition }}
+            />
           </div>
-        </div>
 
-        <div className="hero-scroll-hint absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-slate-500 md:flex">
-          <span className="text-[10px] uppercase tracking-[0.3em] font-semibold">Scroll to explore</span>
-          <div className="w-[1px] h-8 bg-slate-300 relative overflow-hidden">
-            <div className="absolute inset-x-0 top-0 h-full bg-slate-900 animate-[scrollDown_1.8s_ease-in-out_infinite]" />
+          <div className="hero-opening-content relative z-10 min-h-[100svh] flex items-start pb-16 pl-[clamp(24px,3.8vw,56px)] pr-4 pt-[168px] sm:pr-6 lg:pb-12">
+            <div className="w-full">
+              <div className="max-w-[min(48rem,92vw)]">
+                <h1 className={`hero-title max-w-[15ch] text-[clamp(2.4rem,4.5vw,4.5rem)] font-[800] leading-[1.05] tracking-tight ${poppins.className}`}>
+                  <span className="block text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Architecting</span>
+                  <span className="block text-[#0B1F3A] [text-shadow:0_2px_10px_rgba(255,255,255,0.28)]">Careers</span>
+                  <span className="block text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Fostering</span>
+                  <span className="block text-[#0B1F3A] [text-shadow:0_2px_10px_rgba(255,255,255,0.28)]">Innovation</span>
+                </h1>
+
+                <div className="mt-6 flex flex-wrap gap-3 sm:mt-8">
+                  <Link
+                    href="/recruiters/invitation"
+                    className="hero-cta inline-flex items-center justify-center gap-2 w-[180px] py-4 rounded-xl bg-[#0B1F3A] text-white text-[15px] font-semibold transition-all hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1"
+                  >
+                    Hire Our Talent
+                  </Link>
+                  <Link
+                    href="/downloads"
+                    className="hero-cta group inline-flex items-center justify-center gap-2 w-[180px] py-4 rounded-xl bg-[#111827] text-white text-[15px] font-semibold transition-all hover:bg-gray-800 hover:shadow-xl hover:-translate-y-1"
+                  >
+                    Our Brochure
+                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-scroll-hint absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500">
+            <span className="text-[10px] uppercase tracking-[0.3em] font-semibold">Scroll to explore</span>
+            <div className="w-[1px] h-8 bg-slate-300 relative overflow-hidden">
+              <div className="absolute inset-x-0 top-0 h-full bg-slate-900 animate-[scrollDown_1.8s_ease-in-out_infinite]" />
+            </div>
           </div>
         </div>
       </section>
