@@ -76,10 +76,61 @@ const topPlacements = [
 ];
 
 const academicProgrammesData = [
-  { key: "btech", short: "B.Tech", name: "B.Tech", value: 541, color: "#b191d5" },
-  { key: "mtech", short: "M.Tech", name: "M.Tech", value: 108, color: "#7199a8" },
-  { key: "mca", short: "MCA", name: "MCA", value: 67, color: "#ee98b4" },
-  { key: "mba", short: "MBA", name: "MBA", value: 57, color: "#f7c26b" },
+  { key: "btech", short: "B.Tech", name: "B.Tech", value: 541, color: "#0A2647" },
+  { key: "mtech", short: "M.Tech", name: "M.Tech", value: 108, color: "#144272" },
+  { key: "mca", short: "MCA", name: "MCA", value: 67, color: "#2C74B3" },
+  { key: "mba", short: "MBA", name: "MBA", value: 57, color: "#38BDF8" },
+];
+
+const overallAchievements = [
+  {
+    id: 1,
+    category: "GATE 2026",
+    title: "AIR 12 — All India Rank",
+    stat: "99.8 Percentile",
+    name: "Ananya Sharma",
+    branch: "CSE (2022–26)",
+    description: "Secured top percentile in GATE Computer Science paper with stellar performance in Algorithms and Systems.",
+    iconBg: "bg-[#E0F2FE]",
+    iconText: "text-[#0369A1]",
+    statBg: "bg-[#0A2647] text-white",
+  },
+  {
+    id: 2,
+    category: "NATIONAL HACKATHON",
+    title: "1st Prize — Smart India Hackathon",
+    stat: "₹1,000,000 Award",
+    name: "Team TechVanguard",
+    branch: "Cross-Disciplinary Team",
+    description: "Developed an AI-driven real-time disaster response system now deployed by state emergency agencies.",
+    iconBg: "bg-[#FEF3C7]",
+    iconText: "text-[#92400E]",
+    statBg: "bg-[#144272] text-white",
+  },
+  {
+    id: 3,
+    category: "RESEARCH EXCELLENCE",
+    title: "IEEE Best Paper Award",
+    stat: "Tokyo Conference",
+    name: "Rohan Verma",
+    branch: "ECE (2022–26)",
+    description: "Authored award-winning paper on ultra-low-power VLSI architectures presented at international IEEE conference.",
+    iconBg: "bg-[#E0E7FF]",
+    iconText: "text-[#3730A3]",
+    statBg: "bg-[#2C74B3] text-white",
+  },
+  {
+    id: 4,
+    category: "OFF-CAMPUS BENCHMARK",
+    title: "Highest Global Package Offer",
+    stat: "₹60.0 LPA",
+    name: "Aarav Singh",
+    branch: "CSE (2022–26)",
+    description: "Secured international software engineering offer with leading global tech firm, setting a record for the session.",
+    iconBg: "bg-[#DCFCE7]",
+    iconText: "text-[#166534]",
+    statBg: "bg-[#0B1A2E] text-white",
+  },
 ];
 
 const overallKpis = [
@@ -201,7 +252,7 @@ function OverallTab() {
           </div>
 
           <div className="relative flex min-h-[320px] items-center justify-center lg:min-h-[360px]">
-            <div className="relative h-full w-full max-w-[460px]">
+            <div className="relative h-full w-full max-w-[460px] scale-[0.85] sm:scale-100 origin-center">
               <div className="absolute left-1/2 top-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(44,116,179,0.32),rgba(44,116,179,0.04),transparent_70%)] blur-2xl" />
 
               <div className="absolute right-8 top-0 z-10 rounded-[24px] border border-white/15 bg-white/10 px-5 py-4 text-white shadow-[0_18px_40px_rgba(3,20,38,0.2)] backdrop-blur-xl transition-all duration-500 ">
@@ -354,6 +405,54 @@ function OverallTab() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-8">
+        <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C74B3]">EXCELLENCE & RECOGNITION</p>
+            <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733] sm:text-3xl">Student Achievements & Highlights</h3>
+            <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Spotlight on competitive exam ranks, national awards, research publications, and record placement benchmarks.</p>
+          </div>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {overallAchievements.map((item) => (
+            <div
+              key={item.id}
+              className="group flex flex-col justify-between rounded-[24px] border border-slate-200/80 bg-[#fcfdff] p-5 transition-all duration-300 hover:border-[#2C74B3]/30 hover:shadow-[0_16px_36px_rgba(11,60,109,0.12)]"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${item.iconBg} ${item.iconText}`}>
+                    {item.category}
+                  </span>
+                  <span className={`inline-flex rounded-full px-3 py-1 text-xs font-bold ${item.statBg}`}>
+                    {item.stat}
+                  </span>
+                </div>
+
+                <h4 className="mt-4 text-base font-bold text-[#071733] leading-snug">
+                  {item.title}
+                </h4>
+
+                <p className="mt-3 text-xs leading-relaxed text-[#52606d]">
+                  {item.description}
+                </p>
+              </div>
+
+              <div className="mt-6 border-t border-slate-100 pt-4 flex items-center gap-3">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0A2647] text-xs font-bold text-white shadow-sm">
+                  {item.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-xs font-bold text-[#071733]">{item.name}</p>
+                  <p className="truncate text-[11px] text-[#52606d]">{item.branch}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
