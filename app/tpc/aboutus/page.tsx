@@ -249,18 +249,18 @@ export default function AboutUsPage() {
 
             <button
               onClick={prevFacility}
-              className="absolute left-0 top-1/2 translate-y-4 -ml-2 md:ml-4 z-20 bg-white shadow-md p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
+              className="absolute left-0 top-1/2 translate-y-4 -ml-2 md:ml-4 z-20 bg-white shadow-md p-2 md:p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
               aria-label="Previous"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+              <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             </button>
 
             <button
               onClick={nextFacility}
-              className="absolute right-0 top-1/2 translate-y-4 -mr-2 md:mr-4 z-20 bg-white shadow-md p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
+              className="absolute right-0 top-1/2 translate-y-4 -mr-2 md:mr-4 z-20 bg-white shadow-md p-2 md:p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
               aria-label="Next"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
 
