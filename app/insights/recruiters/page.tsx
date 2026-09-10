@@ -14,6 +14,9 @@ const recruiterLogos = [
   { src: "/images/pastRecruiter/zomato.png", alt: "Zomato logo", recruitments: 1 },
   { src: "/images/pastRecruiter/InMobi.png", alt: "InMobi Group logo", recruitments: 7 },
   { src: "/images/pastRecruiter/walmart.jpg", alt: "Walmart logo", recruitments: 2 },
+  { src: "/images/pastRecruiter/meesho.jpg", alt: "Meesho logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/uber.jpg", alt: "Uber logo", recruitments: 1 },
+  { src: "/images/pastRecruiter/paytm.jpg", alt: "Paytm logo", recruitments: 14 },
   { src: "/images/pastRecruiter/hul.png", alt: "Hindustan Unilever logo", recruitments: 2 },
   { src: "/images/pastRecruiter/reliance.png", alt: "Reliance Industries logo", recruitments: 16 },
   { src: "/images/pastRecruiter/ibm-logo-hd.png", alt: "IBM logo", recruitments: 14 },
@@ -46,7 +49,6 @@ const recruiterLogos = [
   { src: "/images/pastRecruiter/gocomet.svg", alt: "GoComet logo", recruitments: 1 },
   { src: "/images/pastRecruiter/usefulbi.png", alt: "UsefulBI logo", recruitments: 15 },
   { src: "/images/pastRecruiter/adrosonic.png", alt: "Adrosonic logo", recruitments: 4 },
-  { src: "/images/pastRecruiter/averixis.png", alt: "Averixis Solutions logo", recruitments: 33 },
   { src: "/images/pastRecruiter/Mindseekers.jpg", alt: "Mindseekers logo", recruitments: 14 },
   { src: "/images/pastRecruiter/lawsikho.jpg", alt: "LawSikho & Skill Arbitrage logo", recruitments: 7 },
   { src: "/images/pastRecruiter/elythra.jpg", alt: "Elythra Edufyi Tech logo", recruitments: 20 },
@@ -63,8 +65,6 @@ const recruiterLogos = [
   { src: "/images/pastRecruiter/paramount.jpg", alt: "Paramount Powders logo", recruitments: 6 },
   { src: "/images/pastRecruiter/biopetro.jpg", alt: "Bio Petro Clean India logo", recruitments: 1 },
   { src: "/images/pastRecruiter/jyesta.jpg", alt: "Jyesta Corporate Entity logo", recruitments: 2 },
-  { src: "/images/pastRecruiter/faceprep.svg", alt: "FACE Prep logo", recruitments: 1 },
-  { src: "/images/pastRecruiter/fundsaudit.jpg", alt: "FundsAudit logo", recruitments: 3 },
   { src: "/images/pastRecruiter/newgen.avif", alt: "NewGenesis logo", recruitments: 6 },
   { src: "/images/pastRecruiter/inteligenai.jpg", alt: "InteligenAI logo", recruitments: 2 },
   { src: "/images/pastRecruiter/innoknowvex.jpg", alt: "Innoknowvex logo", recruitments: 2 },
@@ -72,7 +72,6 @@ const recruiterLogos = [
   { src: "/images/pastRecruiter/simpel.png", alt: "Simpel Techlabs logo", recruitments: 15 },
   { src: "/images/pastRecruiter/hightechnext.jpg", alt: "High Technext logo", recruitments: 6 },
   { src: "/images/pastRecruiter/cemtics.jpg", alt: "Cemtics logo", recruitments: 5 },
-  { src: "/images/pastRecruiter/carnation.png", alt: "Carnation Infotech logo", recruitments: 1 },
   { src: "/images/pastRecruiter/bacl.jpg", alt: "BACL logo", recruitments: 2 },
   { src: "/images/pastRecruiter/triveni.webp", alt: "Triveni Almirah logo", recruitments: 2 },
 ];
@@ -80,7 +79,7 @@ const recruiterLogos = [
 const recruiterTestimonials = [
   {
     name: "Khushboo Tyagi",
-    role: "Campus Recruiter",
+    role: "Senior Talent Partner",
     company: "SOTI",
     companyLogo: "/images/pastRecruiter/soti.png",
     img: "/images/testimonials/khushboo_tyagi.jpg",
@@ -96,7 +95,7 @@ const recruiterTestimonials = [
   },
   {
     name: "Catherine Solomon",
-    role: "Campus Recruiter",
+    role: "Specialist People Partner",
     company: "Zeta",
     companyLogo: "/images/pastRecruiter/zeta.png",
     img: "/images/testimonials/catherine_solomon.jpg",
@@ -104,7 +103,7 @@ const recruiterTestimonials = [
   },
   {
     name: "Manasa Deshpande",
-    role: "Campus Recruiter",
+    role: "Talent Acquisition",
     company: "InMobi",
     companyLogo: "/images/pastRecruiter/InMobi.png",
     img: "/images/testimonials/manasa_deshpande.jpg",
@@ -116,7 +115,17 @@ const recruiterTestimonials = [
 export default function PastRecruiters() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const isPausedRef = useRef(false);
+
+  const handleCardClick = useCallback((index: number) => {
+    if (isMobile) {
+      setFlippedIndex(index);
+      setTimeout(() => {
+        setFlippedIndex((prev) => (prev === index ? null : prev));
+      }, 800);
+    }
+  }, [isMobile]);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
@@ -184,9 +193,10 @@ export default function PastRecruiters() {
                     key={`${logo.src}-${index}`}
                     className="recruiter-card-wrapper"
                     style={{ "--card-delay": delay } as React.CSSProperties}
+                    onClick={() => handleCardClick(index)}
                   >
                     <div className="recruiter-flip-card">
-                      <div className="recruiter-flip-inner">
+                      <div className={`recruiter-flip-inner ${flippedIndex === index ? "mobile-flipped" : ""}`}>
 
                         <div className="recruiter-flip-front">
                           <Image
@@ -230,13 +240,13 @@ export default function PastRecruiters() {
 
             <div className="relative max-w-6xl mx-auto">
               <div
-                className="relative h-[620px] sm:h-[580px] md:h-[590px] flex items-start sm:items-center justify-center overflow-hidden"
+                className="relative h-[520px] sm:h-[480px] md:h-[500px] flex items-center justify-center overflow-hidden"
                 onMouseEnter={pauseAutoPlay}
                 onMouseLeave={resumeAutoPlay}
                 onTouchStart={pauseAutoPlay}
                 onTouchEnd={resumeAutoPlay}
               >
-                <div className="relative w-full h-full flex items-start sm:items-center justify-center [perspective:2000px] pt-4 sm:pt-0">
+                <div className="relative w-full h-full flex items-center justify-center [perspective:2000px]">
                   {recruiterTestimonials.map((item, index) => {
                     const position = getPosition(index);
                     const isActive = position === 0;
@@ -269,7 +279,7 @@ export default function PastRecruiters() {
                         >
                           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(96,165,250,0.10),transparent_30%)]" />
 
-                          <div className="relative z-10 flex items-center justify-between gap-3 mb-5">
+                          <div className="relative z-10 flex items-center justify-between gap-3 mb-6">
                             <span className="text-xl font-bold tracking-tight text-white/95">
                               {item.company}
                             </span>
@@ -278,21 +288,23 @@ export default function PastRecruiters() {
                             </span>
                           </div>
 
-                          <div className="relative z-10 mb-5 overflow-hidden rounded-2xl">
-                            <img
-                              src={item.img}
-                              alt={item.name}
-                              className="h-48 w-full object-cover object-[center_25%] transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                          <div className="relative z-10 flex items-center gap-5 mb-5">
+                            <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 overflow-hidden rounded-full border-[3px] border-white/20 shadow-lg">
+                              <img
+                                src={item.img}
+                                alt={item.name}
+                                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <h3 className="text-2xl sm:text-[1.8rem] leading-tight font-extrabold tracking-[-0.04em] text-white">
+                                {item.name}
+                              </h3>
+                            </div>
                           </div>
 
                           <div className="relative z-10">
-                            <h3 className="text-[1.8rem] leading-tight font-extrabold tracking-[-0.04em] text-white">
-                              {item.name}
-                            </h3>
-                            <p className="mt-2 text-[14px] text-white/75">{item.role}</p>
-                            <p className="mt-4 text-[14px] leading-7 text-white/85">{`"${item.text}"`}</p>
+                            <p className="text-[14px] leading-relaxed text-white/85 italic">{`"${item.text}"`}</p>
                           </div>
 
                           <div className="pointer-events-none absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
