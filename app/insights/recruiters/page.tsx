@@ -217,7 +217,7 @@ export default function PastRecruiters() {
           </section>
 
           <section className="py-16 sm:py-24 md:py-40 overflow-hidden">
-            <div className="flex flex-col md:flex-row justify-between mb-6 sm:mb-10 gap-4 sm:gap-8 relative z-[50]">
+            <div className="flex flex-col md:flex-row justify-between mb-6 sm:mb-10 gap-4 sm:gap-8 relative z-10">
               <div className="text-left">
                 <p className="text-xs tracking-[0.28em] uppercase text-slate-600 mb-2">
                   Shared Perspectives
