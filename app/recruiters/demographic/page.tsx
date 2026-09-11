@@ -372,22 +372,22 @@ function OverallTab() {
                 key={student.id}
                 className="group rounded-[22px] border border-slate-200/70 bg-[#fcfdff] p-4 transition-all duration-300  hover:border-[#2C74B3]/20 hover:shadow-[0_12px_30px_rgba(11,60,109,0.10)]"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
+                <div className="flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#eaf1fb] text-xs font-bold text-[#071733]">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#eaf1fb] text-xs font-bold text-[#071733]">
                         {index + 1}
                       </div>
-                      <h4 className="text-sm font-bold text-[#1f2933]">{student.name}</h4>
+                      <h4 className="truncate text-sm font-bold text-[#1f2933]">{student.name}</h4>
                     </div>
 
-                    <p className="mt-3 text-sm font-semibold text-[#071733]">{student.company}</p>
-                    <p className="mt-1 text-xs text-[#52606d]">
+                    <p className="mt-2 text-sm font-semibold text-[#071733]">{student.company}</p>
+                    <p className="mt-0.5 text-xs text-[#52606d]">
                       {student.branch}
                     </p>
                   </div>
 
-                  <div className="rounded-full bg-[#E0F2FE] px-3 py-1 text-sm font-bold text-[#0369A1]">
+                  <div className="shrink-0 whitespace-nowrap rounded-full bg-[#E0F2FE] px-3.5 py-1.5 text-xs font-bold text-[#0369A1] sm:text-sm">
                     {student.package}
                   </div>
                 </div>
@@ -510,12 +510,14 @@ function OverallTab() {
           </div>
 
           <div className="relative rounded-[26px] bg-white/80 p-6 backdrop-blur-xl ring-1 ring-slate-200/70 shadow-[0_10px_30px_rgba(11,60,109,0.08)]">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
               <div>
                 <h4 className="text-lg font-bold text-[#1f2933]">Distribution Chart</h4>
                 <p className="mt-1 text-sm text-[#52606d]">Relative share of each programme.</p>
               </div>
-              <div className="rounded-full bg-[#f5f7fa] px-3 py-1 text-xs font-semibold text-[#144272]">4 Programmes</div>
+              <div className="w-fit shrink-0 whitespace-nowrap rounded-full bg-[#f5f7fa] px-3 py-1 text-xs font-semibold text-[#144272]">
+                4 Programmes
+              </div>
             </div>
 
             <div className="relative mt-6 h-[340px]">
@@ -525,8 +527,8 @@ function OverallTab() {
                     data={academicProgrammesData}
                     dataKey="value"
                     nameKey="name"
-                    innerRadius={80}
-                    outerRadius={120}
+                    innerRadius={65}
+                    outerRadius={100}
                     paddingAngle={4}
                     stroke="#ffffff"
                     strokeWidth={3}
@@ -537,11 +539,17 @@ function OverallTab() {
                   </Pie>
 
                   <Tooltip
-                    formatter={(value, name) => [`${value ?? 0} students`, name ?? "Programme"]}
-                    contentStyle={{
-                      borderRadius: "14px",
-                      border: "1px solid #e2e8f0",
-                      boxShadow: "0 12px 30px rgba(11,60,109,0.15)",
+                    wrapperStyle={{ outline: "none", zIndex: 40 }}
+                    content={({ active, payload }) => {
+                      if (!active || !payload || !payload.length) return null;
+                      const data = payload[0];
+                      return (
+                        <div className="rounded-xl border border-slate-200 bg-white/95 px-3 py-1.5 shadow-[0_10px_25px_rgba(11,60,109,0.15)] backdrop-blur-md">
+                          <p className="text-xs font-bold text-[#071733]">
+                            {data.name}: <span className="text-[#2C74B3]">{data.value} students</span>
+                          </p>
+                        </div>
+                      );
                     }}
                   />
                 </PieChart>
