@@ -19,24 +19,24 @@ interface LabItem {
 }
 
 const LABS: LabItem[] = [
-  { 
-    id: 'ev-lab', 
-    title: 'EV Lab', 
-    image: '/images/2-ev.png',
+  {
+    id: 'ev-lab',
+    title: 'EV Lab',
+    image: '/images/facilities/3-ev.png',
     description: 'Hands-on research and innovation in Electric Vehicle systems, battery technologies, and sustainable transportation solutions.',
     tagline: 'SUSTAINABLE MOBILITY SMARTER TOMORROW'
   },
-  { 
-    id: 'ai-lab', 
-    title: 'AI Lab', 
+  {
+    id: 'ai-lab',
+    title: 'AI Lab',
     image: '/images/2ai.png',
     description: 'Exploring the frontiers of Artificial Intelligence, Machine Learning, and Deep Learning to solve complex real-world challenges.',
     tagline: 'INTELLIGENT FUTURE THROUGH AI'
   },
-  { 
-    id: 'solar-lab', 
-    title: 'Solar Lab', 
-    image: '/images/1solar.png',
+  {
+    id: 'solar-lab',
+    title: 'Solar Lab',
+    image: '/images/facilities/3solar.png',
     description: 'Advancing renewable energy through cutting-edge solar cell research, photovoltaic systems, and smart grid integration.',
     tagline: 'POWERING THE WORLD WITH SOLAR'
   },
@@ -75,38 +75,38 @@ function MobileCentreOfExcellence() {
 
   useGSAP(() => {
     const tl = gsap.timeline();
-    
+
     tl.to('.lab-content-mobile', {
       opacity: 0,
       y: 10,
       duration: 0.2,
       ease: 'power2.in',
     })
-    .to('.lab-image-mobile', {
-      scale: 1.05,
-      opacity: 0.4,
-      duration: 0.2,
-      ease: 'power2.in',
-    }, '<')
-    .set('.lab-content-mobile', { y: -10 })
-    .to('.lab-content-mobile', {
-      opacity: 1,
-      y: 0,
-      duration: 0.4,
-      ease: 'power3.out',
-    })
-    .to('.lab-image-mobile', {
-      scale: 1,
-      opacity: 0.85,
-      duration: 0.5,
-      ease: 'power3.out',
-    }, '-=0.2');
+      .to('.lab-image-mobile', {
+        scale: 1.05,
+        opacity: 0.4,
+        duration: 0.2,
+        ease: 'power2.in',
+      }, '<')
+      .set('.lab-content-mobile', { y: -10 })
+      .to('.lab-content-mobile', {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: 'power3.out',
+      })
+      .to('.lab-image-mobile', {
+        scale: 1,
+        opacity: 0.85,
+        duration: 0.5,
+        ease: 'power3.out',
+      }, '-=0.2');
 
   }, { dependencies: [activeIndex], scope: containerRef });
 
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       className="w-full bg-white py-12 px-4 sm:px-6 overflow-hidden font-poppins relative"
     >
       {/* Header Section */}
@@ -121,18 +121,18 @@ function MobileCentreOfExcellence() {
 
       {/* Main Clean Card */}
       <div className="max-w-[1600px] mx-auto relative select-none">
-        <div 
+        <div
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           className="relative aspect-[4/3] sm:aspect-[16/9] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-xl border border-slate-100"
         >
           {/* Background Image */}
           <div className="lab-image-mobile absolute inset-0 w-full h-full">
-            <Image 
-              src={LABS[activeIndex].image} 
-              alt={LABS[activeIndex].title} 
-              fill 
-              className="object-cover opacity-85" 
+            <Image
+              src={LABS[activeIndex].image}
+              alt={LABS[activeIndex].title}
+              fill
+              className="object-cover opacity-85"
               priority
             />
             {/* Cinematic Gradient Overlay */}
@@ -161,7 +161,7 @@ function MobileCentreOfExcellence() {
 
           {/* Navigation Arrows */}
           <div className="absolute bottom-4 right-4 flex gap-2 z-20">
-            <button 
+            <button
               onClick={handlePrev}
               aria-label="Previous Slide"
               className="w-9 h-9 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full flex items-center justify-center border border-white/20 active:scale-95 transition-all shadow-md"
@@ -170,7 +170,7 @@ function MobileCentreOfExcellence() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-            <button 
+            <button
               onClick={handleNext}
               aria-label="Next Slide"
               className="w-9 h-9 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center shadow-md active:scale-95 transition-all"
@@ -189,19 +189,18 @@ function MobileCentreOfExcellence() {
               key={index}
               onClick={() => setActiveIndex(index)}
               aria-label={`Go to ${lab.title}`}
-              className={`h-2 transition-all duration-300 rounded-full ${
-                index === activeIndex ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300'
-              }`}
+              className={`h-2 transition-all duration-300 rounded-full ${index === activeIndex ? 'w-8 bg-blue-600' : 'w-2 bg-slate-300'
+                }`}
             />
           ))}
         </div>
       </div>
-      
+
       {/* Subtle Decorative Element */}
       <div className="absolute top-0 right-0 -z-10 opacity-15 pointer-events-none translate-x-1/3 -translate-y-1/3">
         <svg width="350" height="350" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="400" cy="400" r="400" stroke="#3B82F6" strokeOpacity="0.2" strokeWidth="2"/>
-          <circle cx="400" cy="400" r="300" stroke="#3B82F6" strokeOpacity="0.2" strokeWidth="2"/>
+          <circle cx="400" cy="400" r="400" stroke="#3B82F6" strokeOpacity="0.2" strokeWidth="2" />
+          <circle cx="400" cy="400" r="300" stroke="#3B82F6" strokeOpacity="0.2" strokeWidth="2" />
         </svg>
       </div>
     </div>
