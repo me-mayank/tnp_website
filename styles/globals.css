@@ -14,7 +14,7 @@ html.lenis body {
 }
 
 .lenis.lenis-smooth iframe {
-  pointer-events: none;
+  pointer-events:  none;
 }
 
 .lenis.lenis-stopped {
