@@ -133,7 +133,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-slate-50 overflow-x-hidden min-h-screen">
+    <div className="bg-slate-50 overflow-x-hidden min-h-screen pt-20 sm:pt-24">
 
       {/* ══ HERO & STATS ══════════════════════════════════════════════════════ */}
       <div className="py-10 px-6">

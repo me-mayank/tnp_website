@@ -49,7 +49,7 @@ export default function Gallerythumb({
 
   if (normalizedImages.length === 0) {
     return (
-      <section className="w-full flex flex-col items-center justify-start py-12">
+      <section className="w-full flex flex-col items-center justify-start pt-28 pb-12">
         <div className="max-w-3xl text-center px-4">
           {tag && (
             <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-600 mb-2 uppercase tracking-wider">
@@ -69,7 +69,7 @@ export default function Gallerythumb({
   }
 
   return (
-    <section className="w-full flex flex-col items-center justify-start py-14">
+    <section className="w-full flex flex-col items-center justify-start pt-28 pb-14">
       {/* Header */}
       <div className="max-w-3xl text-center px-4 mb-8">
         {tag && (

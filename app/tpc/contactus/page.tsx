@@ -368,7 +368,7 @@ export default function ContactUsPage() {
 
   return (
     <>
-      <main className="bg-gray-50/50 py-16" id="contact-us">
+      <main className="bg-gray-50/50 pt-28 pb-16 md:pt-32" id="contact-us">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h1 className="text-4xl font-extrabold text-brand-800 tracking-tight">Contact Us</h1>

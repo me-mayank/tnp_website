@@ -14,7 +14,7 @@ export default function DemographicLayout({ children }: { children: ReactNode })
   const isBranchRoute = pathname.includes("branchwise");
 
   return (
-    <div className="mt-4 w-full space-y-6">
+    <div className="w-full space-y-6 pt-20 sm:pt-24">
       <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
         <div className="rounded-[28px] border border-white/60 bg-white/80 p-2 shadow-[0_20px_60px_rgba(11,60,109,0.12)] backdrop-blur-xl">
           <div

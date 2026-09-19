@@ -9,7 +9,7 @@ export default function Message() {
   return (
     <div className="bg-white">
       {/* Main Content */}
-      <main className="bg-white py-16" id="message">
+      <main className="bg-white pt-28 pb-16 md:pt-32" id="message">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-10">
             <TypewriterEffect
