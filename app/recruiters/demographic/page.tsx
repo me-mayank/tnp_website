@@ -9,8 +9,6 @@ import {
   CartesianGrid,
   Cell,
   Legend,
-  Line,
-  LineChart,
   Pie,
   PieChart,
   ResponsiveContainer,
@@ -341,21 +339,21 @@ function OverallTab() {
 
           <div className="mt-8 h-[400px] w-full rounded-[24px] bg-[#fcfdff] p-4 sm:p-6">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={compensationTrendData} margin={{ top: 10, right: 12, left: 0, bottom: 8 }}>
+              <BarChart data={compensationTrendData} margin={{ top: 10, right: 12, left: 0, bottom: 8 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e6edf5" />
                 <XAxis dataKey="session" tickLine={false} axisLine={false} tick={{ fill: "#52606d", fontSize: 13, fontWeight: 500 }} />
                 <YAxis tickLine={false} axisLine={false} tick={{ fill: "#52606d", fontSize: 13 }} width={44} />
-                <Tooltip content={<CustomCompensationTooltip />} />
+                <Tooltip cursor={{ fill: "rgba(11,60,109,0.04)" }} content={<CustomCompensationTooltip />} wrapperStyle={{ outline: "none" }} />
                 <Legend
                   verticalAlign="top"
                   align="right"
                   iconType="circle"
                   wrapperStyle={{ paddingBottom: "18px", fontSize: "13px", color: "#52606d" }}
                 />
-                <Line type="monotone" dataKey="highest" name="Highest" stroke="#071733" strokeWidth={3} dot={{ r: 4, fill: "#071733", strokeWidth: 0 }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="median" name="Median" stroke="#144272" strokeWidth={3} dot={{ r: 4, fill: "#144272", strokeWidth: 0 }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="average" name="Average" stroke="#2C74B3" strokeWidth={3} dot={{ r: 4, fill: "#2C74B3", strokeWidth: 0 }} activeDot={{ r: 6 }} />
-              </LineChart>
+                <Bar dataKey="highest" name="Highest" fill="#071733" radius={[8, 8, 0, 0]} maxBarSize={28} stroke="none" strokeWidth={0} />
+                <Bar dataKey="median" name="Median" fill="#144272" radius={[8, 8, 0, 0]} maxBarSize={28} stroke="none" strokeWidth={0} />
+                <Bar dataKey="average" name="Average" fill="#2C74B3" radius={[8, 8, 0, 0]} maxBarSize={28} stroke="none" strokeWidth={0} />
+              </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
