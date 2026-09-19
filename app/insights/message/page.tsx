@@ -26,13 +26,13 @@ export default function Message() {
           </div>
 
           <div className="bg-white border border-gray-200 rounded-2xl shadow-glow-md p-6 sm:p-8 lg:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-              <div className="flex flex-col items-center lg:items-stretch text-center lg:text-left">
-                <div className="w-full flex-1 mb-4 lg:mb-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+              <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+                <div className="w-full overflow-hidden rounded-xl shadow-md border border-gray-100">
                   <Image
                     src="/images/akt.jpeg"
                     alt="Dr. Arun Kumar Tiwari"
-                    className="w-full h-auto rounded-xl shadow-md border border-gray-100"
+                    className="w-full h-auto object-cover"
                     width={1200}
                     height={800}
                     sizes="(max-width: 1024px) 100vw, 33vw"
@@ -40,24 +40,42 @@ export default function Message() {
                   />
                 </div>
 
-                <div className="mt-2 lg:mt-4">
-                  <div className="text-sm font-semibold text-brand-800">
+                <div className="mt-4 space-y-1">
+                  <h3 className="text-base sm:text-lg font-bold text-brand-800 tracking-tight">
                     Dr. Arun Kumar Tiwari
-                  </div>
-                  <div className="text-xs text-muted">
-                    Office Incharge, Training &amp; Placement Cell
-                  </div>
+                  </h3>
+                  <p className="text-xs sm:text-sm font-medium text-muted">
+                    Officer Incharge, Training &amp; Placement Cell
+                  </p>
                 </div>
               </div>
 
-              <div className="lg:col-span-2 flex flex-col">
-                <div className="prose prose-sm sm:prose-base max-w-none text-justify text-muted leading-relaxed">
-                  <div className="prose prose-sm sm:prose-base max-w-none text-justify text-muted leading-relaxed">
-                    <MagicText
-                      text="On behalf of Institute of Engineering and Technology, Lucknow, it is my pleasure to invite you to our beautiful academic campus to conduct campus selection programme for our students. Established in the year 1984, the institute has improved in every domain in the last three decades. The students of this institute are occupying enviable positions in various organizations at home and abroad. Our students have lived up to the expectations of organizations that visit the campus, looking for bright candidates to take up important and challenging responsibilities at their workplace. The Institute has earned fame not only for its excellent academic and extracurricular activities but also for its research, consultancy and development activities. I am furnishing in the pages to follow all pertinent information about our college and students studying here. I would request you to kindly visit our campus for selecting candidates of your choice on any date convenient to both of us. Here at IET we look forward to nurture and extend our relationship in upcoming years. We truly appreciate the faith bestowed upon us by your organization and we look forward to continuing our relationship with you. Looking forward to meeting you at our campus!"
-                      className="text-right text-muted"
-                    />
-                  </div>
+              <div className="lg:col-span-2 flex flex-col justify-center">
+                <div className="prose prose-sm sm:prose-base max-w-none text-muted space-y-4">
+                  <MagicText
+                    text="On behalf of the Institute of Engineering and Technology (IET), Lucknow, it is my distinct privilege to extend a warm invitation to your esteemed organization to participate in our campus recruitment program. Since our inception in 1984, IET Lucknow has cultivated a steadfast legacy of academic excellence, evolving over the past four decades into a premier hub for engineering talent and technical innovation."
+                    className="text-muted"
+                    delay={0}
+                    stagger={0.012}
+                  />
+                  <MagicText
+                    text="Our rigorous academic curriculum, coupled with a strong emphasis on pioneering research, consultancy, and holistic development, ensures that our students are highly adaptable and industry-ready. Time and again, our cohorts have exceeded the expectations of leading recruiters by demonstrating exceptional problem-solving acumen and the technical proficiency required to tackle complex workplace challenges. Our alumni are a testament to this foundation, consistently occupying strategic leadership roles in top-tier organizations both across the nation and globally."
+                    className="text-muted"
+                    delay={0.5}
+                    stagger={0.012}
+                  />
+                  <MagicText
+                    text="Within this portal, you will find comprehensive information regarding our diverse talent pool, academic programs, and placement procedures. We invite you to explore these resources and would be honored to host your recruiting teams at our campus on a mutually convenient date to select the bright minds ready to drive your organization's future growth."
+                    className="text-muted"
+                    delay={1.1}
+                    stagger={0.012}
+                  />
+                  <MagicText
+                    text="We deeply value the trust and faith our corporate partners have placed in our institution over the years. We remain committed to nurturing these vital connections and eagerly look forward to hosting you at IET Lucknow to forge a lasting, mutually beneficial relationship."
+                    className="text-muted"
+                    delay={1.6}
+                    stagger={0.012}
+                  />
                 </div>
               </div>
             </div>
