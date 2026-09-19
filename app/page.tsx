@@ -89,7 +89,7 @@ const INFRASTRUCTURE_SLIDES = [
     imageUrls: [
 
       "/images/facilities/computer.png",
-      "/images/facilities/workspace.webp",
+      "/images/facilities/1workspace.webp.png",
       "/Inmobi/IMG-20250909-WA0011.jpg"
     ],
     description: "Offline test conducted as the part of the recruitment process"
@@ -343,75 +343,9 @@ export default function Home() {
       </RevealSection>
       )}
 
-      {/* Infrastructure Section */}
-      <RevealSection id="infrastructure" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <SplitText text="Facilities" tag="h2" className="text-3xl md:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
-            <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
-            <p className="text-slate-600 mt-6 max-w-2xl mx-auto">
-              Explore our state-of-the-art facilities designed to foster innovation and academic excellence.
-            </p>
-          </div>
 
-          <HoverSlider className="place-content-center">
-            <div className="flex flex-col md:flex-row items-center justify-evenly gap-6 md:gap-12">
-              <div className="flex flex-col space-y-2 md:space-y-4">
-                {INFRASTRUCTURE_SLIDES.map((slide, index) => (
-                  <TextStaggerHover
-                    key={slide.id}
-                    index={index}
-                    className="cursor-pointer text-2xl md:text-4xl font-bold uppercase tracking-tighter text-brand-800"
-                    text={slide.title}
-                  />
-                ))}
-              </div>
-              <HoverSliderImageWrap className="w-full md:w-1/2 h-[260px] sm:h-[320px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                {INFRASTRUCTURE_SLIDES.map((slide, index) => (
-                  <div key={slide.id} className="relative">
-                    <HoverSliderImage
-                      index={index}
-                      imageUrl={slide.imageUrl}
-                      imageUrls={slide.imageUrls}
-                      alt={slide.title}
-                      className="size-full object-cover"
-                      loading="eager"
-                      decoding="async"
-                    />
-                  </div>
-                ))}
-              </HoverSliderImageWrap>
-            </div>
-          </HoverSlider>
-        </div>
-      </RevealSection>
 
-      {/* Gallery Section
-      <RevealSection id="gallery" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <SplitText text="Campus Gallery" tag="h2" className="text-3xl md:text-4xl font-bold text-brand-800" delay={30} duration={1} splitType="chars" from={{ opacity: 0, y: 20 }} to={{ opacity: 1, y: 0 }} />
-            <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4"></div>
-            <p className="text-slate-600 mt-6 max-w-2xl mx-auto">
-              A glimpse into life at IET Lucknow through our facilities, events, and learning spaces.
-            </p>
-          </div>
 
-          <InteractiveSelector options={GALLERY_OPTIONS} />
-
-          <div className="mt-8 text-center">
-            <Link
-              href="/gallery"
-              className="inline-flex items-center gap-2 bg-brand-800 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-              <span>View More</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </RevealSection>
-      */}
 
 
       {/* Collaboration Section */}
@@ -854,6 +788,7 @@ export default function Home() {
         </div>
       </RevealSection>
       )}
+
 
       
       <FAQSection />

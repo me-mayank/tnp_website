@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const facilities = [
-  { src: "/images/facilities/workspace.webp", title: "Workspace", desc: "A modern workspace for all official placement processes." },
+  { src: "/images/facilities/1workspace.webp.png", title: "Workspace", desc: "A modern workspace for all official placement processes." },
   { src: "/images/facilities/interview.jpg", title: "Interview Rooms", desc: "6 air-conditioned interview cabins equipped with WiFi-enabled PCs and printing facilities." },
   { src: "/images/facilities/gd.jpg", title: "Group Discussion Room", desc: "A dedicated Group Discussion Hall for placement procedure rounds by visiting companies." },
   { src: "/images/facilities/computer.png", title: "Computer Center", desc: "Department labs with modern systems for conducting online technical rounds." },
@@ -19,6 +19,16 @@ const facilities = [
 export default function AboutUsPage() {
   const [activeFacility, setActiveFacility] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [flippedCards, setFlippedCards] = useState<Record<number, boolean>>({});
+
+  const toggleCardFlip = (index: number) => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      setFlippedCards((prev) => ({
+        ...prev,
+        [index]: !prev[index],
+      }));
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -239,18 +249,18 @@ export default function AboutUsPage() {
 
             <button
               onClick={prevFacility}
-              className="absolute left-0 top-1/2 translate-y-4 -ml-2 md:ml-4 z-20 bg-white shadow-md p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
+              className="absolute left-0 top-1/2 translate-y-4 -ml-2 md:ml-4 z-20 bg-white shadow-md p-2 md:p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
               aria-label="Previous"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+              <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             </button>
 
             <button
               onClick={nextFacility}
-              className="absolute right-0 top-1/2 translate-y-4 -mr-2 md:mr-4 z-20 bg-white shadow-md p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
+              className="absolute right-0 top-1/2 translate-y-4 -mr-2 md:mr-4 z-20 bg-white shadow-md p-2 md:p-3 rounded-full text-brand-800 hover:text-white hover:bg-brand-accent hover:scale-110 transition-all border border-gray-100"
               aria-label="Next"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              <svg className="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
 
@@ -266,9 +276,27 @@ export default function AboutUsPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-                {records.map((record, index) => (
-                  <div key={index} className="group h-[300px] transition-all duration-700 ease-in-out [perspective:1000px]">
-                    <div className="relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                {records.map((record, index) => {
+                  const isFlipped = !!flippedCards[index];
+                  return (
+                    <div
+                      key={index}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => toggleCardFlip(index)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          toggleCardFlip(index);
+                        }
+                      }}
+                      className="group h-[300px] transition-all duration-700 ease-in-out [perspective:1000px] cursor-pointer md:cursor-default select-none touch-manipulation [-webkit-tap-highlight-color:transparent]"
+                    >
+                      <div
+                        className={`relative h-full w-full transition-all duration-700 [transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] ${
+                          isFlipped ? "mobile-card-flipped" : "mobile-card-unflipped"
+                        }`}
+                      >
 
                       {/* Front Face */}
                       <div className="absolute inset-0 bg-white border border-gray-100 rounded-3xl shadow-sm flex flex-col [backface-visibility:hidden] overflow-hidden">
@@ -331,7 +359,8 @@ export default function AboutUsPage() {
 
                     </div>
                   </div>
-                ))}
+                );
+              })}
               </div>
             </div>
           </section>

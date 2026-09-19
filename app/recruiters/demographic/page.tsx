@@ -9,8 +9,6 @@ import {
   CartesianGrid,
   Cell,
   Legend,
-  Line,
-  LineChart,
   Pie,
   PieChart,
   ResponsiveContainer,
@@ -53,26 +51,26 @@ const compensationTrendData = [
 ];
 
 const topPlacements = [
-  { id: 1, name: "Aarav Singh", company: "Amazon", role: "SDE", package: "₹60.0 LPA", branch: "CSE" },
-  { id: 2, name: "Priya Sharma", company: "Microsoft", role: "Software Engineer", package: "₹48 LPA", branch: "IT" },
-  { id: 3, name: "Rohan Verma", company: "Google", role: "Analyst", package: "₹45 LPA", branch: "CSE" },
-  { id: 4, name: "Sneha Yadav", company: "Adobe", role: "Frontend Engineer", package: "₹42 LPA", branch: "IT" },
-  { id: 5, name: "Aditya Mishra", company: "Atlassian", role: "SDE-1", package: "₹39 LPA", branch: "CSE" },
-  { id: 6, name: "Neha Khan", company: "Deloitte", role: "Consultant", package: "₹26 LPA", branch: "ECE" },
-  { id: 7, name: "Shivam Gupta", company: "Oracle", role: "Developer", package: "₹24 LPA", branch: "IT" },
-  { id: 8, name: "Ananya Roy", company: "ZS", role: "Business Analyst", package: "₹22 LPA", branch: "CSE" },
-  { id: 9, name: "Karan Tiwari", company: "Accenture", role: "Associate", package: "₹19 LPA", branch: "ECE" },
-  { id: 10, name: "Harshita Jain", company: "Infosys", role: "Specialist Programmer", package: "₹18 LPA", branch: "IT" },
-  { id: 11, name: "Vaibhav Singh", company: "Wipro", role: "Project Engineer", package: "₹17 LPA", branch: "EE" },
-  { id: 12, name: "Isha Srivastava", company: "TCS Digital", role: "Digital Engineer", package: "₹16 LPA", branch: "CSE" },
-  { id: 13, name: "Nitin Maurya", company: "Capgemini", role: "Analyst", package: "₹15 LPA", branch: "ME" },
-  { id: 14, name: "Sakshi Patel", company: "Paytm", role: "Software Engineer", package: "₹14 LPA", branch: "AI/DS" },
-  { id: 15, name: "Abhishek Rai", company: "HCL", role: "Graduate Engineer", package: "₹13 LPA", branch: "CE" },
-  { id: 16, name: "Tanvi Sinha", company: "Cognizant", role: "Programmer Analyst", package: "₹12 LPA", branch: "IT" },
-  { id: 17, name: "Yash Tripathi", company: "Tech Mahindra", role: "Engineer", package: "₹11 LPA", branch: "ECE" },
-  { id: 18, name: "Ritika Das", company: "PwC", role: "Associate Consultant", package: "₹10 LPA", branch: "CSE" },
-  { id: 19, name: "Manav Saxena", company: "L&T", role: "GET", package: "₹9 LPA", branch: "ME" },
-  { id: 20, name: "Pooja Agrawal", company: "Flipkart", role: "Operations Analyst", package: "₹8.5 LPA", branch: "EE" },
+  { id: 1, name: "Raj Singh", company: "Google", role: "Software Engineer", package: "₹60.0 LPA", branch: "CSE" },
+  { id: 2, name: "Gaurav Srivastav", company: "Google", role: "Software Engineer", package: "₹60.0 LPA", branch: "CSE" },
+  { id: 3, name: "Yash Kumar", company: "Microsoft", role: "Software Engineer", package: "₹56.0 LPA", branch: "CSE" },
+  { id: 4, name: "Priyanka Bind", company: "Amazon", role: "SDE", package: "₹48.0 LPA", branch: "CSE" },
+  { id: 5, name: "Akash Singh", company: "Amazon", role: "SDE", package: "₹48.0 LPA", branch: "CSE" },
+  { id: 6, name: "Yash Kumar", company: "Amazon", role: "SDE", package: "₹48.0 LPA", branch: "CSE" },
+  { id: 7, name: "Shiv Kumar", company: "Amazon", role: "SDE", package: "₹48.0 LPA", branch: "ECE" },
+  { id: 8, name: "Pratham Dixit", company: "Zomato", role: "Software Engineer", package: "₹29.0 LPA", branch: "CSE" },
+  { id: 9, name: "Kanika Agrawal", company: "BNY Mellon", role: "Software Engineer", package: "₹22.0 LPA", branch: "CSE" },
+  { id: 10, name: "Karnakant Pandey", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 11, name: "Shivansh Singhal", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 12, name: "Amit Pandey", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 13, name: "Samyak Srivastav", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 14, name: "Tanisha Pandey", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 15, name: "Akshit Singh", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 16, name: "Utkarsh Awasthi", company: "InMobi", role: "Software Engineer", package: "₹19.0 LPA", branch: "CSE" },
+  { id: 17, name: "Shivansh Gupta", company: "Zeta", role: "Software Engineer", package: "₹16.0 LPA", branch: "CSE" },
+  { id: 18, name: "Priyanshu Mishra", company: "Zeta", role: "Software Engineer", package: "₹16.0 LPA", branch: "CSE" },
+  { id: 19, name: "Nitin Bajpai", company: "Zeta", role: "Software Engineer", package: "₹16.0 LPA", branch: "CSE" },
+  { id: 20, name: "Satvic Bajpai", company: "Zeta", role: "Software Engineer", package: "₹16.0 LPA", branch: "CSE" },
 ];
 
 const academicProgrammesData = [
@@ -85,51 +83,40 @@ const academicProgrammesData = [
 const overallAchievements = [
   {
     id: 1,
-    category: "GATE 2026",
-    title: "AIR 12 — All India Rank",
-    stat: "99.8 Percentile",
-    name: "Ananya Sharma",
-    branch: "CSE (2022–26)",
-    description: "Secured top percentile in GATE Computer Science paper with stellar performance in Algorithms and Systems.",
-    iconBg: "bg-[#E0F2FE]",
-    iconText: "text-[#0369A1]",
+    category: "GATE 2025",
+    title: "Dual All India Rank",
+    stat: "AIR 23 & 289",
+    name: "Abhishek Srivastava",
+    branch: "Computer Science Engineering",
+    description: "Secured All India Rank (AIR) 23 in Data Science & AI and AIR 289 in Computer Science & IT.",
+    badge: "GATE 2025 Excellence",
+    image: "/images/achievements/abhishek_srivastava.png",
     statBg: "bg-[#0A2647] text-white",
+    catBg: "bg-[#eaf1fb] text-[#0A2647]",
   },
   {
     id: 2,
-    category: "NATIONAL HACKATHON",
-    title: "1st Prize — Smart India Hackathon",
-    stat: "₹1,000,000 Award",
-    name: "Team TechVanguard",
-    branch: "Cross-Disciplinary Team",
-    description: "Developed an AI-driven real-time disaster response system now deployed by state emergency agencies.",
-    iconBg: "bg-[#FEF3C7]",
-    iconText: "text-[#92400E]",
+    category: "UPSC IES",
+    title: "Engineering Services Officer",
+    stat: "AIR 15",
+    name: "Krishna Meerendra",
+    branch: "Indian Engineering Services",
+    description: "Secured 15th Rank All India in the prestigious UPSC Indian Engineering Services examination.",
+    badge: "UPSC IES Officer",
     statBg: "bg-[#144272] text-white",
+    catBg: "bg-[#fef3c7] text-[#92400e]",
   },
   {
     id: 3,
-    category: "RESEARCH EXCELLENCE",
-    title: "IEEE Best Paper Award",
-    stat: "Tokyo Conference",
-    name: "Rohan Verma",
-    branch: "ECE (2022–26)",
-    description: "Authored award-winning paper on ultra-low-power VLSI architectures presented at international IEEE conference.",
-    iconBg: "bg-[#E0E7FF]",
-    iconText: "text-[#3730A3]",
+    category: "IIT BOMBAY",
+    title: "Agribot e-Yantra Competition",
+    stat: "2nd Position",
+    name: "Meha Shukla, Aviral Singh, Anmol Sharma, Aparna Gupta",
+    branch: "Student Team Project",
+    description: "IET Lucknow student team secured 2nd Position nationwide in the Agribot track at e-Yantra, IIT Bombay.",
+    badge: "National Finalist",
     statBg: "bg-[#2C74B3] text-white",
-  },
-  {
-    id: 4,
-    category: "OFF-CAMPUS BENCHMARK",
-    title: "Highest Global Package Offer",
-    stat: "₹60.0 LPA",
-    name: "Aarav Singh",
-    branch: "CSE (2022–26)",
-    description: "Secured international software engineering offer with leading global tech firm, setting a record for the session.",
-    iconBg: "bg-[#DCFCE7]",
-    iconText: "text-[#166534]",
-    statBg: "bg-[#0B1A2E] text-white",
+    catBg: "bg-[#e0f2fe] text-[#0369a1]",
   },
 ];
 
@@ -145,7 +132,7 @@ function CustomPlacementTooltip({ active, payload, label }: any) {
   const data = payload[0]?.payload;
 
   return (
-    <div className="min-w-[220px] rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_18px_40px_rgba(11,60,109,0.14)]">
+    <div className="w-[190px] max-w-[calc(100vw-40px)] rounded-2xl border border-slate-200 bg-white p-3.5 shadow-[0_16px_36px_rgba(11,60,109,0.14)] sm:w-[220px] sm:p-4">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#2C74B3]">Session</p>
       <h4 className="mt-1 text-base font-bold text-[#071733]">{label}</h4>
 
@@ -167,7 +154,7 @@ function CustomCompensationTooltip({ active, payload, label }: any) {
   const data = payload[0]?.payload;
 
   return (
-    <div className="min-w-[240px] rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_18px_40px_rgba(11,60,109,0.14)]">
+    <div className="w-[210px] max-w-[calc(100vw-40px)] rounded-2xl border border-slate-200 bg-white p-3.5 shadow-[0_16px_36px_rgba(11,60,109,0.14)] sm:w-[240px] sm:p-4">
       <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#2C74B3]">Session</p>
       <h4 className="mt-1 text-base font-bold text-[#1f2933]">{label}</h4>
 
@@ -330,14 +317,14 @@ function OverallTab() {
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e6edf5" />
               <XAxis dataKey="session" tickLine={false} axisLine={false} tick={{ fill: "#52606d", fontSize: 13, fontWeight: 500 }} />
               <YAxis tickLine={false} axisLine={false} tick={{ fill: "#52606d", fontSize: 13 }} width={44} />
-              <Tooltip cursor={{ fill: "rgba(11,60,109,0.04)" }} content={<CustomPlacementTooltip />} />
+              <Tooltip cursor={{ fill: "rgba(11,60,109,0.04)" }} content={<CustomPlacementTooltip />} wrapperStyle={{ outline: "none" }} />
               <Legend
                 verticalAlign="top"
                 align="right"
                 iconType="circle"
                 wrapperStyle={{ paddingBottom: "18px", fontSize: "13px", color: "#52606d" }}
               />
-              <Bar dataKey="offers" name="Total Offers" fill="url(#offersGradient)" radius={[10, 10, 0, 0]} maxBarSize={34} />
+              <Bar dataKey="offers" name="Total Offers" fill="url(#offersGradient)" stroke="none" strokeWidth={0} radius={[10, 10, 0, 0]} maxBarSize={34} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -352,21 +339,21 @@ function OverallTab() {
 
           <div className="mt-8 h-[400px] w-full rounded-[24px] bg-[#fcfdff] p-4 sm:p-6">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={compensationTrendData} margin={{ top: 10, right: 12, left: 0, bottom: 8 }}>
+              <BarChart data={compensationTrendData} margin={{ top: 10, right: 12, left: 0, bottom: 8 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e6edf5" />
                 <XAxis dataKey="session" tickLine={false} axisLine={false} tick={{ fill: "#52606d", fontSize: 13, fontWeight: 500 }} />
                 <YAxis tickLine={false} axisLine={false} tick={{ fill: "#52606d", fontSize: 13 }} width={44} />
-                <Tooltip content={<CustomCompensationTooltip />} />
+                <Tooltip cursor={{ fill: "rgba(11,60,109,0.04)" }} content={<CustomCompensationTooltip />} wrapperStyle={{ outline: "none" }} />
                 <Legend
                   verticalAlign="top"
                   align="right"
                   iconType="circle"
                   wrapperStyle={{ paddingBottom: "18px", fontSize: "13px", color: "#52606d" }}
                 />
-                <Line type="monotone" dataKey="highest" name="Highest" stroke="#071733" strokeWidth={3} dot={{ r: 4, fill: "#071733", strokeWidth: 0 }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="median" name="Median" stroke="#144272" strokeWidth={3} dot={{ r: 4, fill: "#144272", strokeWidth: 0 }} activeDot={{ r: 6 }} />
-                <Line type="monotone" dataKey="average" name="Average" stroke="#2C74B3" strokeWidth={3} dot={{ r: 4, fill: "#2C74B3", strokeWidth: 0 }} activeDot={{ r: 6 }} />
-              </LineChart>
+                <Bar dataKey="highest" name="Highest" fill="#071733" radius={[8, 8, 0, 0]} maxBarSize={28} stroke="none" strokeWidth={0} />
+                <Bar dataKey="median" name="Median" fill="#144272" radius={[8, 8, 0, 0]} maxBarSize={28} stroke="none" strokeWidth={0} />
+                <Bar dataKey="average" name="Average" fill="#2C74B3" radius={[8, 8, 0, 0]} maxBarSize={28} stroke="none" strokeWidth={0} />
+              </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
@@ -383,22 +370,22 @@ function OverallTab() {
                 key={student.id}
                 className="group rounded-[22px] border border-slate-200/70 bg-[#fcfdff] p-4 transition-all duration-300  hover:border-[#2C74B3]/20 hover:shadow-[0_12px_30px_rgba(11,60,109,0.10)]"
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
+                <div className="flex items-center justify-between gap-3">
+                  <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#eaf1fb] text-xs font-bold text-[#071733]">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#eaf1fb] text-xs font-bold text-[#071733]">
                         {index + 1}
                       </div>
-                      <h4 className="text-sm font-bold text-[#1f2933]">{student.name}</h4>
+                      <h4 className="truncate text-sm font-bold text-[#1f2933]">{student.name}</h4>
                     </div>
 
-                    <p className="mt-3 text-sm font-semibold text-[#071733]">{student.company}</p>
-                    <p className="mt-1 text-xs text-[#52606d]">
+                    <p className="mt-2 text-sm font-semibold text-[#071733]">{student.company}</p>
+                    <p className="mt-0.5 text-xs text-[#52606d]">
                       {student.branch}
                     </p>
                   </div>
 
-                  <div className="rounded-full bg-[#E0F2FE] px-3 py-1 text-sm font-bold text-[#0369A1]">
+                  <div className="shrink-0 whitespace-nowrap rounded-full bg-[#E0F2FE] px-3.5 py-1.5 text-xs font-bold text-[#0369A1] sm:text-sm">
                     {student.package}
                   </div>
                 </div>
@@ -408,47 +395,58 @@ function OverallTab() {
         </div>
       </section>
 
-      <section className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-8">
-        <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#2C74B3]">EXCELLENCE & RECOGNITION</p>
-            <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733] sm:text-3xl">Student Achievements & Highlights</h3>
-            <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Spotlight on competitive exam ranks, national awards, research publications, and record placement benchmarks.</p>
-          </div>
+      <section className="rounded-[32px] border border-slate-200/80 bg-white p-6 shadow-[0_20px_50px_rgba(11,60,109,0.08)] sm:p-8 lg:p-10">
+        <div className="border-b border-slate-100 pb-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#2C74B3]">EXCELLENCE & HIGHLIGHTS</p>
+          <h3 className="mt-2 text-2xl font-bold tracking-tight text-[#071733] sm:text-3xl">Student Achievements</h3>
+          <p className="mt-2 max-w-2xl text-sm text-[#52606d]">Spotlight on outstanding student accomplishments in national competitive examinations, civil services, and technical competitions.</p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
           {overallAchievements.map((item) => (
             <div
               key={item.id}
-              className="group flex flex-col justify-between rounded-[24px] border border-slate-200/80 bg-[#fcfdff] p-5 transition-all duration-300 hover:border-[#2C74B3]/30 hover:shadow-[0_16px_36px_rgba(11,60,109,0.12)]"
+              className="group flex flex-col justify-between rounded-[26px] border border-slate-200/80 bg-[#fcfdff] p-6 shadow-[0_12px_32px_rgba(11,60,109,0.06)] transition-all duration-300 hover:border-[#2C74B3]/40 hover:shadow-[0_20px_45px_rgba(11,60,109,0.12)]"
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${item.iconBg} ${item.iconText}`}>
+                  <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${item.catBg}`}>
                     {item.category}
                   </span>
-                  <span className={`inline-flex rounded-full px-3 py-1 text-xs font-bold ${item.statBg}`}>
+                  <span className={`inline-flex rounded-full px-3.5 py-1 text-xs font-bold ${item.statBg}`}>
                     {item.stat}
                   </span>
                 </div>
 
-                <h4 className="mt-4 text-base font-bold text-[#071733] leading-snug">
+                <h4 className="mt-5 text-xl font-bold leading-tight text-[#071733]">
                   {item.title}
                 </h4>
 
-                <p className="mt-3 text-xs leading-relaxed text-[#52606d]">
+                <p className="mt-3 text-xs leading-relaxed text-[#52606d] sm:text-sm">
                   {item.description}
                 </p>
               </div>
 
-              <div className="mt-6 border-t border-slate-100 pt-4 flex items-center gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0A2647] text-xs font-bold text-white shadow-sm">
-                  {item.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                </div>
+              <div className="mt-6 border-t border-slate-100 pt-4 flex items-center gap-3.5">
+                {item.image ? (
+                  <div className="h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-[#2C74B3] shadow-sm">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      width={48}
+                      height={48}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
+                ) : (
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0A2647] text-xs font-bold text-white shadow-sm">
+                    {item.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                  </div>
+                )}
+
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-xs font-bold text-[#071733]">{item.name}</p>
-                  <p className="truncate text-[11px] text-[#52606d]">{item.branch}</p>
+                  <p className="truncate text-sm font-bold text-[#071733]">{item.name}</p>
+                  <p className="truncate text-xs text-[#52606d]">{item.branch}</p>
                 </div>
               </div>
             </div>
@@ -510,12 +508,14 @@ function OverallTab() {
           </div>
 
           <div className="relative rounded-[26px] bg-white/80 p-6 backdrop-blur-xl ring-1 ring-slate-200/70 shadow-[0_10px_30px_rgba(11,60,109,0.08)]">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
               <div>
                 <h4 className="text-lg font-bold text-[#1f2933]">Distribution Chart</h4>
                 <p className="mt-1 text-sm text-[#52606d]">Relative share of each programme.</p>
               </div>
-              <div className="rounded-full bg-[#f5f7fa] px-3 py-1 text-xs font-semibold text-[#144272]">4 Programmes</div>
+              <div className="w-fit shrink-0 whitespace-nowrap rounded-full bg-[#f5f7fa] px-3 py-1 text-xs font-semibold text-[#144272]">
+                4 Programmes
+              </div>
             </div>
 
             <div className="relative mt-6 h-[340px]">
@@ -525,8 +525,8 @@ function OverallTab() {
                     data={academicProgrammesData}
                     dataKey="value"
                     nameKey="name"
-                    innerRadius={80}
-                    outerRadius={120}
+                    innerRadius={65}
+                    outerRadius={100}
                     paddingAngle={4}
                     stroke="#ffffff"
                     strokeWidth={3}
@@ -537,11 +537,17 @@ function OverallTab() {
                   </Pie>
 
                   <Tooltip
-                    formatter={(value, name) => [`${value ?? 0} students`, name ?? "Programme"]}
-                    contentStyle={{
-                      borderRadius: "14px",
-                      border: "1px solid #e2e8f0",
-                      boxShadow: "0 12px 30px rgba(11,60,109,0.15)",
+                    wrapperStyle={{ outline: "none", zIndex: 40 }}
+                    content={({ active, payload }) => {
+                      if (!active || !payload || !payload.length) return null;
+                      const data = payload[0];
+                      return (
+                        <div className="rounded-xl border border-slate-200 bg-white/95 px-3 py-1.5 shadow-[0_10px_25px_rgba(11,60,109,0.15)] backdrop-blur-md">
+                          <p className="text-xs font-bold text-[#071733]">
+                            {data.name}: <span className="text-[#2C74B3]">{data.value} students</span>
+                          </p>
+                        </div>
+                      );
                     }}
                   />
                 </PieChart>

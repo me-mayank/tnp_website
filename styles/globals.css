@@ -21,6 +21,16 @@ html.lenis body {
   overflow: clip;
 }
 
+/* Recharts Mobile Tap Highlight & Black Border Removal */
+.recharts-responsive-container *,
+.recharts-bar-rectangle,
+.recharts-bar-rectangle path,
+.recharts-bar-rectangle rect,
+.recharts-rectangle {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -607,9 +617,7 @@ svg {
   text-align: left;
   box-shadow: 0 20px 40px rgba(10, 38, 71, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
   border: 1px solid rgba(226, 232, 240, 0.8);
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
+  overflow: hidden;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -884,5 +892,15 @@ svg {
     font-size: 0.95rem;
     line-height: 1.6;
     padding-left: 16px;
+  }
+}
+
+/* Mobile flip card toggle for About Us past records */
+@media (max-width: 767px) {
+  .mobile-card-flipped {
+    transform: rotateY(180deg) !important;
+  }
+  .mobile-card-unflipped {
+    transform: rotateY(0deg) !important;
   }
 }

@@ -51,7 +51,13 @@
   transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.recruiter-flip-card:hover .recruiter-flip-inner {
+@media (hover: hover) and (pointer: fine) {
+  .recruiter-flip-card:hover .recruiter-flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+.recruiter-flip-inner.mobile-flipped {
   transform: rotateY(180deg);
 }
 

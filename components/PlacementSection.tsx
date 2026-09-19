@@ -70,7 +70,7 @@ const PlacementSection = () => {
 
   const stats: StatCard[] = [
     { value: '1700', label: 'Placement Offers', suffix: '+' },
-    { value: '12', label: 'Peak Average', suffix: ' LPA' },
+    { value: '12', label: 'Average', suffix: ' LPA' },
     { value: '60', label: 'Highest CTC', suffix: ' LPA' },
     { value: '70', label: 'Placement in Core', suffix: '%+' }
   ];
@@ -108,7 +108,7 @@ const PlacementSection = () => {
       <div className="mb-2 border-b border-brand-100/50 pb-2">
         <h3 className="text-xl font-bold text-brand-900 tracking-tight mb-1">
           {displayedGraph === 0 && "Placement Offers"}
-          {displayedGraph === 1 && "Peak Average CTC"}
+          {displayedGraph === 1 && "Average CTC"}
           {displayedGraph === 2 && "Highest CTC"}
           {displayedGraph === 3 && "Core Engineering Subjects"}
         </h3>

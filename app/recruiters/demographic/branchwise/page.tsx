@@ -9,8 +9,6 @@ import {
     CartesianGrid,
     Cell,
     Legend,
-    Line,
-    LineChart,
     Pie,
     PieChart,
     ResponsiveContainer,
@@ -892,7 +890,7 @@ function CustomPlacementTooltip({
     const offers = payload.find((item) => item.name === "Total Offers")?.value ?? 0;
 
     return (
-        <div className="min-w-[290px] rounded-[28px] border border-slate-200/80 bg-white px-5 py-5 shadow-[0_28px_70px_rgba(11,60,109,0.16)]">
+        <div className="w-[210px] max-w-[calc(100vw-40px)] rounded-[20px] border border-slate-200/80 bg-white p-4 shadow-[0_16px_40px_rgba(11,60,109,0.14)] sm:w-[260px] sm:rounded-[26px] sm:p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
                 Session
             </p>
@@ -923,7 +921,7 @@ function CustomCompensationTooltip({
     if (!active || !payload || !payload.length) return null;
 
     return (
-        <div className="min-w-[290px] rounded-[28px] border border-slate-200/80 bg-white px-5 py-5 shadow-[0_28px_70px_rgba(11,60,109,0.16)]">
+        <div className="w-[210px] max-w-[calc(100vw-40px)] rounded-[20px] border border-slate-200/80 bg-white p-4 shadow-[0_16px_40px_rgba(11,60,109,0.14)] sm:w-[260px] sm:rounded-[26px] sm:p-5">
             <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
                 Session
             </p>
@@ -1034,7 +1032,7 @@ export default function PlacementTabsOnly() {
                     </div>
 
                     <div className="mt-8 rounded-[30px] bg-[#fcfdff] p-4 sm:p-6">
-                        <div className="h-[470px] w-full">
+                        <div className="h-[380px] w-full">
                             <ResponsiveContainer width="100%" height="100%">
                                 <BarChart
                                     data={placementOffersData}
@@ -1079,6 +1077,7 @@ export default function PlacementTabsOnly() {
                                     <Tooltip
                                         cursor={{ fill: "rgba(31,90,166,0.06)" }}
                                         content={<CustomPlacementTooltip />}
+                                        wrapperStyle={{ outline: "none" }}
                                     />
 
                                     <Legend
@@ -1095,12 +1094,12 @@ export default function PlacementTabsOnly() {
                                         )}
                                     />
 
-                                    
-
                                     <Bar
                                         dataKey="offers"
                                         name="Total Offers"
                                         fill="url(#offersGradient)"
+                                        stroke="none"
+                                        strokeWidth={0}
                                         radius={[14, 14, 0, 0]}
                                         maxBarSize={40}
                                     />
@@ -1132,7 +1131,7 @@ export default function PlacementTabsOnly() {
 
                     <div className="mt-8 h-[400px] w-full rounded-[24px] bg-[#fcfdff] p-4 sm:p-6">
                         <ResponsiveContainer width="100%" height="100%">
-                            <LineChart
+                            <BarChart
                                 data={branchPlacementTrendData[activeBranch.key]}
                                 margin={{ top: 10, right: 12, left: 0, bottom: 8 }}
                             >
@@ -1150,6 +1149,8 @@ export default function PlacementTabsOnly() {
                                     width={44}
                                 />
                                 <Tooltip
+                                    cursor={{ fill: "rgba(11,60,109,0.04)" }}
+                                    wrapperStyle={{ outline: "none" }}
                                     content={({ active, payload, label }) => {
                                         if (!active || !payload || !payload.length) return null;
 
@@ -1210,34 +1211,34 @@ export default function PlacementTabsOnly() {
                                     iconType="circle"
                                     wrapperStyle={{ paddingBottom: "18px", fontSize: "13px", color: "#52606d" }}
                                 />
-                                <Line
-                                    type="monotone"
+                                <Bar
                                     dataKey="highest"
                                     name="Highest"
-                                    stroke="#071733"
-                                    strokeWidth={3}
-                                    dot={{ r: 4, fill: "#071733", strokeWidth: 0 }}
-                                    activeDot={{ r: 6 }}
+                                    fill="#071733"
+                                    radius={[8, 8, 0, 0]}
+                                    maxBarSize={28}
+                                    stroke="none"
+                                    strokeWidth={0}
                                 />
-                                <Line
-                                    type="monotone"
+                                <Bar
                                     dataKey="median"
                                     name="Median"
-                                    stroke="#144272"
-                                    strokeWidth={3}
-                                    dot={{ r: 4, fill: "#144272", strokeWidth: 0 }}
-                                    activeDot={{ r: 6 }}
+                                    fill="#144272"
+                                    radius={[8, 8, 0, 0]}
+                                    maxBarSize={28}
+                                    stroke="none"
+                                    strokeWidth={0}
                                 />
-                                <Line
-                                    type="monotone"
+                                <Bar
                                     dataKey="average"
                                     name="Average"
-                                    stroke="#2C74B3"
-                                    strokeWidth={3}
-                                    dot={{ r: 4, fill: "#2C74B3", strokeWidth: 0 }}
-                                    activeDot={{ r: 6 }}
+                                    fill="#2C74B3"
+                                    radius={[8, 8, 0, 0]}
+                                    maxBarSize={28}
+                                    stroke="none"
+                                    strokeWidth={0}
                                 />
-                            </LineChart>
+                            </BarChart>
                         </ResponsiveContainer>
                     </div>
                 </div>

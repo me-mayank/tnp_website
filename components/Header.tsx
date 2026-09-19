@@ -16,8 +16,9 @@ export default function Header() {
   };
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 relative z-50 pointer-events-none">
-      <header id="top" className={`mx-auto max-w-7xl pointer-events-auto bg-white border border-brand-800/40 shadow-lg shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
+
+    <div className="fixed top-0 left-0 right-0 w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 z-50">
+      <header id="top" className={`mx-auto max-w-7xl bg-white border border-brand-800/40 shadow-lg shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-2 sm:py-3">
             <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
@@ -47,7 +48,7 @@ export default function Header() {
               {/* INSIGHTS DROPDOWN */}
               <div className="relative group">
                 <button className="inline-flex items-center gap-1.5 text-brand-900/70 hover:text-brand-accent transition-colors">
-                  <span className="nav-link-underline uppercase">INSIGHTS</span>
+                  <span className="nav-link-underline">Insights</span>
                   <svg className="w-4 h-4 text-brand-900/40 group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -96,7 +97,7 @@ export default function Header() {
               {/* RECRUITER DROPDOWN */}
               <div className="relative group">
                 <button className="inline-flex items-center gap-1.5 text-brand-900/70 hover:text-brand-accent transition-colors">
-                  <span className="nav-link-underline uppercase">FOR RECRUITER</span>
+                  <span className="nav-link-underline">For Recruiters</span>
                   <svg className="w-4 h-4 text-brand-900/40 group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -221,7 +222,7 @@ export default function Header() {
                 onClick={() => setMobileRecruiterOpen(!mobileRecruiterOpen)}
                 className="w-full flex items-center justify-between py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors"
               >
-                For Recruiter
+                For Recruiters
                 <svg className={`w-4 h-4 transition-transform ${mobileRecruiterOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>

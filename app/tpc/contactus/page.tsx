@@ -403,7 +403,7 @@ export default function ContactUsPage() {
               >
                 <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-brand-800 flex items-center gap-2 sm:gap-3">
                   <span className="w-6 sm:w-8 h-1 bg-brand-accent rounded-full shrink-0"></span>
-                  <span className="truncate">PLACEMENT CO-ORDINATORS</span>
+                  <span className="truncate">PLACEMENT COORDINATORS</span>
                 </h2>
                 <svg
                   className={`w-6 h-6 text-brand-400 transform transition-transform duration-300 ${
