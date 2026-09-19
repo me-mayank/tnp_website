@@ -249,6 +249,10 @@ svg {
   display: inline-block;
 }
 
+.page-top-gap {
+  margin-top: 8px;
+}
+
 .nav-link-underline::after {
   content: '';
   position: absolute;

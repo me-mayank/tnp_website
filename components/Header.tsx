@@ -24,12 +24,12 @@ export default function Header() {
             <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
               <div className="bg-white p-1 rounded-full shadow-sm group-hover:shadow-md transition-shadow">
                 <Image
-                  className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+                  className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
                   src="/images/logo.png"
                   alt="ietlogo"
-                  width={56}
-                  height={56}
-                  sizes="(max-width: 640px) 48px, 56px"
+                  width={64}
+                  height={64}
+                  sizes="(max-width: 640px) 56px, 64px"
                   priority
                 />
               </div>

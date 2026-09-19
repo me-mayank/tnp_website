@@ -149,7 +149,7 @@ export default function PlacementProcedure(): JSX.Element {
   };
 
   return (
-    <section className={`placement-procedure ${themeClass}`}>
+    <section className={`page-top-gap placement-procedure ${themeClass}`}>
       <motion.div
         className="placement-header"
         initial={{ opacity: 0, y: 30 }}
