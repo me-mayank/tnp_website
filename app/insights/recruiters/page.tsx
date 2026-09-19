@@ -166,7 +166,7 @@ export default function PastRecruiters() {
 
 
   return (
-    <div className="bg-white">
+    <div className="page-top-gap bg-white">
       <main className="bg-white pt-28 pb-20 md:pt-32" id="recruiters">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
@@ -318,14 +318,14 @@ export default function PastRecruiters() {
                 <button
                   onClick={prevSlide}
                   type="button"
-                  className="absolute left-2 md:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-40 h-12 w-12 rounded-full border border-blue-900/10 bg-white/90 backdrop-blur shadow-md text-blue-900 text-xl hover:scale-105 transition"
+                  className="absolute left-2 md:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-40 h-8 w-8 md:h-12 md:w-12 rounded-full border border-blue-900/10 bg-white/90 backdrop-blur shadow-md text-blue-900 text-sm md:text-xl hover:scale-105 transition"
                   aria-label="Previous testimonial"
                 >←</button>
 
                 <button
                   onClick={nextSlide}
                   type="button"
-                  className="absolute right-2 md:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-40 h-12 w-12 rounded-full border border-blue-900/10 bg-white/90 backdrop-blur shadow-md text-blue-900 text-xl hover:scale-105 transition"
+                  className="absolute right-2 md:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-40 h-8 w-8 md:h-12 md:w-12 rounded-full border border-blue-900/10 bg-white/90 backdrop-blur shadow-md text-blue-900 text-sm md:text-xl hover:scale-105 transition"
                   aria-label="Next testimonial"
                 >→</button>
               </div>

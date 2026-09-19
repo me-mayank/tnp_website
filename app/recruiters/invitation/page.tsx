@@ -8,7 +8,7 @@ import Image from "next/image";
 
 function HeroSection(): JSX.Element {
   return (
-    <section className="relative w-full">
+    <section className="page-top-gap pt-24 sm:pt-28 relative w-full">
       {/* Mobile-only background image */}
       <div className="sm:hidden relative w-full aspect-[1024/572]">
         <Image
@@ -43,8 +43,8 @@ function Letter(): JSX.Element {
   return (
     <section className="relative -mt-16 sm:-mt-[20vh] md:-mt-[28vh] z-10 px-3 sm:px-4 md:px-6 mb-10">
       <div className="max-w-6xl mx-auto">
-        <div className="bg-[#efeee9] border border-black/10 rounded-[26px] shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:p-14 px-2">
-          <div className="relative max-w-5xl mx-auto w-full bg-white border border-gray-300 rounded-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.05)] px-6 sm:px-8 md:px-12 py-8 md:py-10 overflow-hidden">
+        <div className="bg-[#efeee9] border border-black/10 rounded-[26px] shadow-[0_24px_70px_rgba(0,0,0,0.14)] md:p-12 px-2">
+          <div className="relative max-w-5xl mx-auto w-full bg-white border border-gray-300 rounded-[18px] shadow-[0_10px_30px_rgba(0,0,0,0.05)] px-5 sm:px-7 md:px-10 py-7 md:py-8 overflow-hidden">
             <div className="absolute top-0 inset-x-0 h-[5px] bg-slate-700" />
 
             <div className="pb-5 border-b border-gray-300">

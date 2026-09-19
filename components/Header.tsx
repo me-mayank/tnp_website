@@ -20,16 +20,16 @@ export default function Header() {
     <div className="fixed top-0 left-0 right-0 w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 z-50">
       <header id="top" className={`mx-auto max-w-7xl bg-white border border-brand-800/40 shadow-lg shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-2 sm:py-3">
+          <div className="flex items-center justify-between py-3 sm:py-4">
             <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
               <div className="bg-white p-1 rounded-full shadow-sm group-hover:shadow-md transition-shadow">
                 <Image
-                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                  className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
                   src="/images/logo.png"
                   alt="ietlogo"
-                  width={48}
-                  height={48}
-                  sizes="(max-width: 640px) 40px, 48px"
+                  width={64}
+                  height={64}
+                  sizes="(max-width: 640px) 56px, 64px"
                   priority
                 />
               </div>
