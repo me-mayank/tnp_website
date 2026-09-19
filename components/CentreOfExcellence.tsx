@@ -29,7 +29,7 @@ const LABS: LabItem[] = [
   {
     id: 'ai-lab',
     title: 'AI Lab',
-    image: '/images/tnp_members/3ai.png',
+    image: '/images/4ai.png',
     description: 'Exploring the frontiers of Artificial Intelligence, Machine Learning, and Deep Learning to solve complex real-world challenges.',
     tagline: 'INTELLIGENT FUTURE THROUGH AI'
   },

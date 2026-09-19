@@ -22,7 +22,7 @@ export default function AboutIetPage() {
               <div className="w-full lg:w-2/5 lg:float-right lg:ml-8 mb-6 lg:mb-4">
                 <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
                   <Image
-                    src="/images/ietlko.png"
+                    src="/images/college_image.svg"
                     alt="IET Lucknow Campus"
                     className="w-full h-auto object-contain block"
                     width={1200}
