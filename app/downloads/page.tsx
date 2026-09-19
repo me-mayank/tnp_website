@@ -33,7 +33,7 @@ const departmentDocs = [
 export default function DownloadsPage() {
   return (
     <>
-      <main className="bg-gray-50/50 py-16" id="downloads">
+      <main className="bg-gray-50/50 pt-28 pb-16 md:pt-32" id="downloads">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="mb-16 text-center">
             <h1 className="text-4xl font-extrabold text-brand-800 tracking-tight">Resources</h1>

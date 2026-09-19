@@ -167,7 +167,7 @@ export default function PastRecruiters() {
 
   return (
     <div className="bg-white">
-      <main className="bg-white py-20" id="recruiters">
+      <main className="bg-white pt-28 pb-20 md:pt-32" id="recruiters">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
           <div className="text-center mb-8">

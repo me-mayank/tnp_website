@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function AboutIetPage() {
   return (
     <>
-      <main className="bg-white py-20" id="about-iet">
+      <main className="bg-white pt-28 pb-20 md:pt-32" id="about-iet">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl font-extrabold text-brand-800">About IET</h1>
