@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { BarChart, Bar, AreaChart, Area, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Rectangle, ReferenceLine, Legend, Sector, type BarShapeProps, type CartesianViewBox } from 'recharts';
+import { BarChart, Bar, PieChart, Pie, Cell, XAxis, Tooltip, ResponsiveContainer, Rectangle, ReferenceLine, Legend, Sector, type BarShapeProps, type CartesianViewBox } from 'recharts';
 import { useMotionValueEvent, useSpring, motion, AnimatePresence } from 'motion/react';
 import NumberFlow from '@number-flow/react';
 import { Montserrat } from 'next/font/google';
@@ -123,45 +123,36 @@ const PlacementSection = () => {
       <div className="flex-1 w-full min-h-[310px] sm:min-h-0 sm:aspect-[4/3] lg:aspect-auto lg:min-h-[310px] relative">
         {displayedGraph === 0 && (
           <div className="absolute inset-0">
-            <PlacementOffersChart data={placementData} />
+            <InteractiveHoverBarChart
+              key="offers"
+              data={placementData}
+              dataKey="offers"
+              metricLabel="Placement Offers"
+            />
           </div>
         )}
 
         {displayedGraph === 1 && (
           <div className="absolute inset-0">
-            <ResponsiveContainer width="100%" height="100%" minWidth={1}>
-              <AreaChart data={averageData} margin={{ top: 20, right: 10, left: -20, bottom: 0 }}>
-                <defs>
-                  <linearGradient id="colorAvg" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2C74B3" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#2C74B3" stopOpacity={0}/>
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
-                <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#6b7280' }} dy={10} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#6b7280' }} />
-                <Tooltip 
-                  contentStyle={{ borderRadius: '8px', border: '1px solid #dbeafe', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
-                />
-                <Area type="monotone" dataKey="avg" stroke="#2C74B3" strokeWidth={3} fillOpacity={1} fill="url(#colorAvg)" />
-              </AreaChart>
-            </ResponsiveContainer>
+            <InteractiveHoverBarChart
+              key="avg"
+              data={averageData}
+              dataKey="avg"
+              metricLabel="Average CTC"
+              suffix=" LPA"
+            />
           </div>
         )}
 
         {displayedGraph === 2 && (
           <div className="absolute inset-0">
-            <ResponsiveContainer width="100%" height="100%" minWidth={1}>
-              <LineChart data={highestData} margin={{ top: 20, right: 10, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f3f4f6" />
-                <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#6b7280' }} dy={10} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: '#6b7280' }} domain={[0, 75]} ticks={[0, 15, 30, 45, 60, 75]} />
-                <Tooltip 
-                  contentStyle={{ borderRadius: '8px', border: '1px solid #dbeafe', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
-                />
-                <Line type="monotone" dataKey="highest" stroke="#2C74B3" strokeWidth={4} dot={{ r: 6, fill: '#2C74B3', strokeWidth: 2, stroke: '#fff' }} activeDot={{ r: 8 }} />
-              </LineChart>
-            </ResponsiveContainer>
+            <InteractiveHoverBarChart
+              key="highest"
+              data={highestData}
+              dataKey="highest"
+              metricLabel="Highest CTC"
+              suffix=" LPA"
+            />
           </div>
         )}
 
@@ -292,18 +283,20 @@ const PlacementSection = () => {
 export default PlacementSection;
 
 // --- Custom Evil Hover Trace Bar Chart Implementation ---
-const CHART_MARGIN = 38;
+const CHART_MARGIN = 54;
 
 interface HoverTraceLabelProps {
   viewBox?: CartesianViewBox;
   value: number;
+  suffix?: string;
+  prefix?: string;
 }
 
-const HoverTraceLabel = ({ viewBox, value }: HoverTraceLabelProps) => {
+const HoverTraceLabel = ({ viewBox, value, suffix = '', prefix = '' }: HoverTraceLabelProps) => {
   const x = viewBox?.x ?? 0;
   const y = viewBox?.y ?? 0;
-  const formattedValue = value.toLocaleString();
-  const width = formattedValue.length * 8 + 12;
+  const formattedValue = `${prefix}${value.toLocaleString()}${suffix}`;
+  const width = Math.max(34, formattedValue.length * 7.5 + 10);
 
   return (
     <>
@@ -317,7 +310,7 @@ const HoverTraceLabel = ({ viewBox, value }: HoverTraceLabelProps) => {
       />
       <text
         className="text-[11px] font-medium"
-        x={x - CHART_MARGIN + 7}
+        x={x - CHART_MARGIN + 6}
         y={y + 4}
         fill="#ffffff"
       >
@@ -357,25 +350,43 @@ const HoverTraceBarShape = (props: HoverTraceBarShapeProps) => {
   );
 };
 
-function PlacementOffersChart({ data }: { data: any[] }) {
+interface InteractiveHoverBarChartProps {
+  data: Array<{ year: string; [key: string]: any }>;
+  dataKey: string;
+  metricLabel: string;
+  suffix?: string;
+  prefix?: string;
+  barColor?: string;
+}
+
+function InteractiveHoverBarChart({
+  data,
+  dataKey,
+  metricLabel,
+  suffix = '',
+  prefix = '',
+  barColor = '#2C74B3',
+}: InteractiveHoverBarChartProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const maxData = React.useMemo(
+  const maxData = React.useMemo<{ index: number; year: string; value: number }>(
     () =>
-      data.reduce(
+      data.reduce<{ index: number; year: string; value: number }>(
         (max, item, index) =>
-          item.offers > max.value ? { index, year: item.year, value: item.offers } : max,
-        { index: 0, year: data[0].year, value: data[0].offers },
+          Number(item[dataKey]) > max.value
+            ? { index, year: item.year, value: Number(item[dataKey]) }
+            : max,
+        { index: 0, year: data[0]?.year ?? '', value: Number(data[0]?.[dataKey] ?? 0) },
       ),
-    [data],
+    [data, dataKey],
   );
 
-  const selectedData =
+  const selectedData: { index: number; year: string; value: number } =
     activeIndex != null && data[activeIndex]
       ? {
           index: activeIndex,
           year: data[activeIndex].year,
-          value: data[activeIndex].offers,
+          value: Number(data[activeIndex][dataKey]),
         }
       : maxData;
 
@@ -383,37 +394,45 @@ function PlacementOffersChart({ data }: { data: any[] }) {
     stiffness: 110,
     damping: 20,
   });
-  const [springValue, setSpringValue] = useState(selectedData.value);
+  const [springValue, setSpringValue] = useState<number>(selectedData.value);
 
   const handleBarHover = React.useCallback(
     (index: number) => {
       setActiveIndex(index);
-      valueSpring.set(data[index]?.offers ?? maxData.value);
+      valueSpring.set(Number(data[index]?.[dataKey] ?? maxData.value));
     },
-    [maxData.value, valueSpring, data],
+    [maxData.value, valueSpring, data, dataKey],
   );
 
   useMotionValueEvent(valueSpring, "change", (latest) => {
-    setSpringValue(Math.round(Number(latest)));
+    setSpringValue(Number(latest));
   });
 
   return (
     <div className="flex h-full flex-col">
       <div className="mb-2 flex items-end justify-between px-2">
         <div className="flex flex-col justify-end">
-          <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-1">Placement Offers</p>
-          <p className="text-[#2C74B3] text-4xl font-black tracking-tighter leading-none">
+          <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-1">{metricLabel}</p>
+          <p className="text-[#2C74B3] text-4xl font-black tracking-tighter leading-none flex items-baseline">
+            {prefix && <span className="text-2xl font-bold mr-0.5 text-[#2C74B3]">{prefix}</span>}
             <NumberFlow value={selectedData.value} />
+            {suffix && <span className="text-xl font-bold ml-1 text-[#2C74B3]">{suffix}</span>}
           </p>
         </div>
 
         <div className="flex flex-col justify-end text-right">
           <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-1">Academic Year</p>
-          <p className="text-brand-900 text-[28px] md:text-3xl font-black tracking-tighter leading-none flex items-baseline justify-end">
-            <NumberFlow value={parseInt(selectedData.year.split('-')[0])} format={{ useGrouping: false }} />
-            <span className="mx-1 text-xl font-bold text-slate-400">-</span>
-            <NumberFlow value={parseInt(selectedData.year.split('-')[1])} format={{ useGrouping: false, minimumIntegerDigits: 2 }} />
-          </p>
+          {selectedData.year.includes('-') ? (
+            <p className="text-brand-900 text-[28px] md:text-3xl font-black tracking-tighter leading-none flex items-baseline justify-end">
+              <NumberFlow value={parseInt(selectedData.year.split('-')[0])} format={{ useGrouping: false }} />
+              <span className="mx-1 text-xl font-bold text-slate-400">-</span>
+              <NumberFlow value={parseInt(selectedData.year.split('-')[1])} format={{ useGrouping: false, minimumIntegerDigits: 2 }} />
+            </p>
+          ) : (
+            <p className="text-brand-900 text-[28px] md:text-3xl font-black tracking-tighter leading-none flex items-baseline justify-end">
+              <NumberFlow value={parseInt(selectedData.year)} format={{ useGrouping: false }} />
+            </p>
+          )}
         </div>
       </div>
 
@@ -443,8 +462,8 @@ function PlacementOffersChart({ data }: { data: any[] }) {
           <Tooltip cursor={false} content={() => null} />
 
           <Bar
-            dataKey="offers"
-            fill="#2C74B3"
+            dataKey={dataKey}
+            fill={barColor}
             radius={4}
             maxBarSize={48}
             shape={(props: BarShapeProps) => (
@@ -459,11 +478,21 @@ function PlacementOffersChart({ data }: { data: any[] }) {
             y={springValue}
             stroke="#1f2937"
             strokeDasharray="3 3"
-            label={<HoverTraceLabel value={selectedData.value} />}
+            label={<HoverTraceLabel value={selectedData.value} suffix={suffix} prefix={prefix} />}
           />
         </BarChart>
       </ResponsiveContainer>
     </div>
+  );
+}
+
+function PlacementOffersChart({ data }: { data: any[] }) {
+  return (
+    <InteractiveHoverBarChart
+      data={data}
+      dataKey="offers"
+      metricLabel="Placement Offers"
+    />
   );
 }
 
