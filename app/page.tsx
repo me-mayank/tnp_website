@@ -595,7 +595,7 @@ export default function Home() {
                 </div>
                 <h5 className="font-bold text-lg mb-3 text-brand-800">Placement Policy</h5>
                 <p className="text-slate-600 mb-4">Rules &amp; eligibility criteria for campus drives, offers and PPOs.</p>
-                <a href="../files/Student_Placement_Policy.pdf"
+                <a href="/files/Student_Placement_Policy.pdf"
                   className="text-brand-700 font-semibold flex items-center gap-2 group">
                   <span>Read policy</span>
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
