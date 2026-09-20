@@ -7,25 +7,33 @@ import { useRef } from "react";
 export interface MagicTextProps {
     text: string;
     className?: string;
+    delay?: number;
+    stagger?: number;
 }
 
-export const MagicText: React.FC<MagicTextProps> = ({ text, className }) => {
+export const MagicText: React.FC<MagicTextProps> = ({
+    text,
+    className,
+    delay = 0,
+    stagger = 0.018,
+}) => {
     const container = useRef(null);
-    const isInView = useInView(container, { once: true, margin: "-20%" });
+    const isInView = useInView(container, { once: true, margin: "200px" });
     const words = text.split(" ");
 
     const containerVariants = {
         hidden: {},
         visible: {
             transition: {
-                staggerChildren: 0.02, // Fast stagger for reading flow
+                delayChildren: delay,
+                staggerChildren: stagger,
             },
         },
     };
 
     const wordVariants = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { duration: 0.5 } },
+        hidden: { opacity: 0, y: 3 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.25 } },
     };
 
     return (
@@ -40,8 +48,8 @@ export const MagicText: React.FC<MagicTextProps> = ({ text, className }) => {
             animate={isInView ? "visible" : "hidden"}
         >
             {words.map((word, i) => (
-                <span key={i}>
-                    <motion.span variants={wordVariants} className="pt-1">
+                <span key={i} className="inline-block whitespace-pre">
+                    <motion.span variants={wordVariants} className="inline-block">
                         {word}
                     </motion.span>
                     {i < words.length - 1 ? " " : ""}

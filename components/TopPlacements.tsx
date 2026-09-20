@@ -7,12 +7,12 @@ import { useGSAP } from "@/hooks/useGSAP";
 gsap.registerPlugin(ScrollTrigger);
 
 const CARDS = [
-  { src: "/TCS/IMG-20260119-WA0047.jpg", label: "TCS Placement Drive 2025", year: "Batch 2025", badge: "6 LPA" },
+  { src: "/TCS/IMG-20260119-WA0047.jpg", label: "TCS Placement Drive 2025", year: "Batch 2025", badge: null },
   { src: "/images/training session.jpg", label: "Technical Training Sessions", year: "Pre-Placement Prep", badge: null },
   { src: "/images/gd.jpg", label: "Group Discussion Rounds", year: "Selection Process", badge: null },
   { src: "/images/PI.jpg", label: "Personal Interview Round", year: "Final Selection", badge: null },
   { src: "/images/auditorium.png", label: "Pre-Placement Talk – Auditorium", year: "Company Interaction", badge: null },
-  { src: "/images/presentation.jpg", label: "Company Presentations", year: "Industry Connect", badge: "54 LPA Highest" },
+  { src: "/images/presentation.jpg", label: "Company Presentations", year: "Industry Connect", badge: null },
 ];
 
 export default function TopPlacements() {
