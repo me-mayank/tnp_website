@@ -8,7 +8,7 @@ import Image from "next/image";
 
 function HeroSection(): JSX.Element {
   return (
-    <section className="page-top-gap pt-24 sm:pt-28 relative w-full">
+    <section className="pt-28 sm:pt-32 relative w-full">
       {/* Mobile-only background image */}
       <div className="sm:hidden relative w-full aspect-[1024/572]">
         <Image

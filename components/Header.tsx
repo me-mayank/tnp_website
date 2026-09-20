@@ -17,30 +17,30 @@ export default function Header() {
 
   return (
 
-    <div className="fixed top-0 left-0 right-0 w-full px-4 sm:px-6 lg:px-8 pt-4 pb-2 z-50">
-      <header id="top" className={`mx-auto max-w-7xl bg-white border border-brand-800/40 shadow-lg shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
-        <div className="px-4 sm:px-6 lg:px-8">
+    <div className="fixed top-0 left-0 right-0 w-full px-2 sm:px-6 lg:px-8 pt-4 pb-2 z-50">
+      <header id="top" className={`mx-auto max-w-7xl lg:max-w-[85rem] bg-white border border-brand-800/40 shadow-lg shadow-brand-900/5 transition-all duration-300 ${mobileMenuOpen ? 'rounded-3xl' : 'rounded-full'}`}>
+        <div className="px-3 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-3 sm:py-4">
-            <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
-              <div className="bg-white p-1 rounded-full shadow-sm group-hover:shadow-md transition-shadow">
+            <Link href="/" className="flex min-w-0 flex-1 items-center gap-2 sm:gap-4 group">
+              <div className="w-12 h-12 sm:w-[4.5rem] sm:h-[4.5rem] shrink-0 bg-white rounded-full shadow-sm group-hover:shadow-md transition-shadow">
                 <Image
-                  className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
+                  className="w-full h-full object-contain"
                   src="/images/logo.png"
                   alt="ietlogo"
-                  width={64}
-                  height={64}
-                  sizes="(max-width: 640px) 56px, 64px"
+                  width={72}
+                  height={72}
+                  sizes="(max-width: 640px) 48px, 72px"
                   priority
                 />
               </div>
-              <div className="min-w-0">
-                <div className="sm:text-xl text-sm font-extrabold text-brand-800 tracking-tight">Training & Placement Cell</div>
-                <div className="text-[9px] sm:text-[11px] font-medium text-brand-accent uppercase tracking-wider">Institute of Engineering & Technology, Lucknow</div>
+              <div className="min-w-0 max-w-full overflow-hidden leading-none">
+                <div className="text-sm sm:text-2xl font-extrabold text-brand-800 tracking-tight truncate">Training & Placement Cell</div>
+                <div className="mt-1 text-[8px] sm:text-xs font-medium text-brand-accent uppercase tracking-wider truncate">Institute of Engineering & Technology, Lucknow</div>
               </div>
             </Link>
 
             {/* DESKTOP NAV */}
-            <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold relative">
+            <nav className="hidden lg:flex items-center gap-8 text-[15px] font-semibold relative">
               <Link href="/tpc/aboutus" className="text-brand-900/70 hover:text-brand-accent transition-colors nav-link-underline">
                 About Us
               </Link>
@@ -155,7 +155,7 @@ export default function Header() {
             </nav>
 
             {/* MOBILE BUTTON */}
-            <div className="lg:hidden flex items-center">
+            <div className="lg:hidden flex shrink-0 items-center">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2.5 rounded-full text-brand-800 bg-brand-50 hover:bg-brand-100 transition-colors"
@@ -173,7 +173,7 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden mt-2 mx-auto max-w-7xl bg-white shadow-2xl border border-white/50 pointer-events-auto rounded-3xl overflow-hidden">
           <div className="px-6 py-4 space-y-3">
-            <Link href="/tpc/aboutus" className="block py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>
+            <Link href="/tpc/aboutus" className="block py-2 text-sm text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>
               About
             </Link>
 
@@ -181,7 +181,7 @@ export default function Header() {
             <div className="border-t border-gray-100 pt-2">
               <button
                 onClick={() => setMobileInsightsOpen(!mobileInsightsOpen)}
-                className="w-full flex items-center justify-between py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors"
+                className="w-full flex items-center justify-between py-2 text-sm text-brand-800 font-bold hover:text-brand-accent transition-colors"
               >
                 Insights
                 <svg className={`w-4 h-4 transition-transform ${mobileInsightsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -220,7 +220,7 @@ export default function Header() {
             <div className="border-t border-gray-100 pt-2">
               <button
                 onClick={() => setMobileRecruiterOpen(!mobileRecruiterOpen)}
-                className="w-full flex items-center justify-between py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors"
+                className="w-full flex items-center justify-between py-2 text-sm text-brand-800 font-bold hover:text-brand-accent transition-colors"
               >
                 For Recruiters
                 <svg className={`w-4 h-4 transition-transform ${mobileRecruiterOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -247,10 +247,10 @@ export default function Header() {
             </div>
 
             <div className="border-t border-gray-100 pt-2">
-              <Link href="/gallery" prefetch={true} className="block py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>
+              <Link href="/gallery" prefetch={true} className="block py-2 text-sm text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>
                 Gallery
               </Link>
-              <Link href="/downloads" className="block py-2 text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>
+              <Link href="/downloads" className="block py-2 text-sm text-brand-800 font-bold hover:text-brand-accent transition-colors" onClick={closeMobileMenu}>
                 Downloads
               </Link>
             </div>
@@ -258,7 +258,7 @@ export default function Header() {
             <div className="pt-2">
               <Link
                 href="/tpc/contactus"
-                className="block bg-gradient-to-r from-brand-700 to-brand-800 text-white px-4 py-3 rounded-xl text-center font-bold shadow-lg shadow-brand-800/20 active:scale-95 transition-all"
+                className="block bg-gradient-to-r from-brand-700 to-brand-800 text-white px-4 py-3 rounded-xl text-center text-sm font-bold shadow-lg shadow-brand-800/20 active:scale-95 transition-all"
                 onClick={closeMobileMenu}
               >
                 Contact Us

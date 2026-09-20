@@ -7,7 +7,7 @@ import { MagicText } from '@/components/ui/magic-text';
 
 export default function Message() {
   return (
-    <div className="page-top-gap bg-white">
+    <div className="page-top-gap-more bg-white">
       {/* Main Content */}
       <main className="bg-white pt-28 pb-16 md:pt-32" id="message">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
