@@ -100,7 +100,7 @@ export default function AboutIetPage() {
               <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-glow-sm hover:shadow-glow-md transition-all">
                 <h3 className="text-xl font-bold text-brand-700 mb-2">Top Rank</h3>
                 <p className="text-muted text-sm">
-                  IET is ranked 1st among the 700+ engineering colleges under DR APJ Abdul Kalam Technical University.
+                  IET is among the top-ranked engineering colleges under Dr. APJ Abdul Kalam Technical University, with a network of 700+ colleges.
                 </p>
               </div>
 
