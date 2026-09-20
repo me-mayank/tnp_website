@@ -250,7 +250,15 @@ svg {
 }
 
 .page-top-gap {
-  margin-top: 8px;
+  margin-top: 16px;
+}
+
+.page-top-gap-more {
+  margin-top: 24px;
+}
+
+.page-top-gap-largest {
+  margin-top: 32px;
 }
 
 .nav-link-underline::after {

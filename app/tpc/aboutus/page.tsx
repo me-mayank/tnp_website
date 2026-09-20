@@ -102,7 +102,7 @@ export default function AboutUsPage() {
 
   return (
     <>
-      <main className="page-top-gap bg-white pt-28 pb-12 md:pt-32 overflow-x-hidden" id="about">
+      <main className="page-top-gap-more bg-white pt-28 pb-12 md:pt-32 overflow-x-hidden" id="about">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-10">
             <h1 className="text-4xl font-extrabold text-brand-800">Training &amp; Placement Cell</h1>

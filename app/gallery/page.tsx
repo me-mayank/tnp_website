@@ -129,7 +129,7 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className="page-top-gap bg-white pt-4 sm:pt-6 text-brand-800">
+    <div className="mt-0 bg-white pt-6 sm:pt-8 text-brand-800">
       <GallerySection
         title={tnpact.title}
         tag={tnpact.tag}
