@@ -234,11 +234,53 @@ function DesktopCentreOfExcellence() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=400%', // 4 full screen heights for smooth scrub
+          end: '+=300%', // 3 full screen heights for balanced slide snapping
           pin: true,
-          scrub: 1, // Smooth scrub
+          scrub: 0.8, // Smooth scrub
           invalidateOnRefresh: true,
-        }
+          snap: {
+            snapTo: (progress, self) => {
+              const dur = tl.duration();
+              if (!dur) return progress;
+              const labLabels = ['lab-0', 'lab-1', 'lab-2'];
+              const points = labLabels
+                .map((name) => (tl.labels[name] !== undefined ? tl.labels[name] / dur : -1))
+                .filter((p) => p >= 0);
+
+              if (points.length === 0) return progress;
+
+              const dir = self ? self.direction : 1;
+              const threshold = 0.015;
+
+              if (dir > 0) {
+                // Scrolling down: past the last slide, snap to 1 to exit cleanly
+                if (progress > points[points.length - 1] + 0.04) {
+                  return 1;
+                }
+                for (let i = 0; i < points.length; i++) {
+                  if (points[i] >= progress - threshold) {
+                    return points[i];
+                  }
+                }
+                return 1;
+              } else {
+                // Scrolling up: before the first slide, snap to 0 to exit cleanly
+                if (progress < points[0] - 0.04) {
+                  return 0;
+                }
+                for (let i = points.length - 1; i >= 0; i--) {
+                  if (points[i] <= progress + threshold) {
+                    return points[i];
+                  }
+                }
+                return 0;
+              }
+            },
+            duration: { min: 0.25, max: 0.55 },
+            delay: 0.05,
+            ease: 'power2.inOut',
+          },
+        },
       });
 
       slides.forEach((slide, index) => {
@@ -254,73 +296,90 @@ function DesktopCentreOfExcellence() {
         if (index === 0) {
           // First slide starts already visible as a small card, then scales up
           tl.to(wrapper, {
-            width: '100%',
-            height: '100%',
+            width: '100vw',
+            height: '100vh',
             borderRadius: '0px',
             ease: 'power2.inOut',
             duration: 2,
           })
-            .to(imageScale, {
-              scale: 1,
-              ease: 'power2.inOut',
-              duration: 2,
-            }, '<') // Sync with wrapper scale
-            .to(text, {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-              ease: 'power3.out'
-            }, '-=0.5'); // Start text reveal slightly before expansion finishes
-
+            .to(
+              imageScale,
+              {
+                scale: 1,
+                ease: 'power2.inOut',
+                duration: 2,
+              },
+              '<'
+            )
+            .to(
+              text,
+              {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+              },
+              '-=0.5'
+            )
+            // Complete settled state for Lab 0:
+            .addLabel('lab-0')
+            .to({}, { duration: 1 });
         } else {
           // Subsequent slides start hidden
           gsap.set(wrapper, { opacity: 0, y: 100 });
 
           const prevText = slides[index - 1]?.querySelector('.text-wrapper');
 
-          // Add a slight delay at the full-screen state before the next image appears
-          tl.addLabel(`slide${index}`)
-            .to(prevText, {
-              opacity: 0,
-              y: -30,
-              duration: 0.8,
-              ease: 'power2.in'
-            }, `slide${index}+=0.5`)
-
+          tl.to(prevText, {
+            opacity: 0,
+            y: -30,
+            duration: 0.8,
+            ease: 'power2.in',
+          })
             // Fade and float in the new small image
-            .to(wrapper, {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-              ease: 'power3.out',
-            }, '<')
-
+            .to(
+              wrapper,
+              {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+              },
+              '<'
+            )
             // Expand the new image to full screen
             .to(wrapper, {
-              width: '100%',
-              height: '100%',
+              width: '100vw',
+              height: '100vh',
               borderRadius: '0px',
               ease: 'power2.inOut',
               duration: 2,
             })
-            .to(imageScale, {
-              scale: 1,
-              ease: 'power2.inOut',
-              duration: 2,
-            }, '<')
-
+            .to(
+              imageScale,
+              {
+                scale: 1,
+                ease: 'power2.inOut',
+                duration: 2,
+              },
+              '<'
+            )
             // Reveal the text for the new image
-            .to(text, {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-              ease: 'power3.out'
-            }, '-=0.5');
+            .to(
+              text,
+              {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power3.out',
+              },
+              '-=0.5'
+            )
+            // Complete settled state for this lab:
+            .addLabel(`lab-${index}`)
+            .to({}, { duration: 1 });
         }
       });
-
-      // Pause briefly at the very end to let user see the final state
-      tl.to({}, { duration: 1 });
     });
 
   }, { scope: containerRef });
