@@ -604,6 +604,22 @@ const contactPageSchema = {
           availableLanguage: ["English", "Hindi"],
         },
       ],
+      employee: [
+        {
+          "@type": "Person",
+          name: leadership[0].name,
+          jobTitle: leadership[0].role,
+          email: leadership[0].email,
+          url: leadership[0].href,
+        },
+        ...deputyIncharges.map((deputy) => ({
+          "@type": "Person",
+          name: deputy.name,
+          jobTitle: deputy.role,
+          email: deputy.email,
+          url: deputy.href,
+        })),
+      ],
     },
   },
 };

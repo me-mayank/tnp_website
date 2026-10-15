@@ -230,6 +230,7 @@ function DesktopCentreOfExcellence() {
         }
       });
 
+      // Master GSAP scroll-scrub timeline pinned over 4 screen heights for smooth continuous scrub
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -241,6 +242,7 @@ function DesktopCentreOfExcellence() {
         }
       });
 
+      // Orchestrate smooth sequential card expansion, image zoom, and text reveal transitions
       slides.forEach((slide, index) => {
         const wrapper = slide.querySelector('.image-wrapper');
         const text = slide.querySelector('.text-wrapper');
