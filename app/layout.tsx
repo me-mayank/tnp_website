@@ -55,8 +55,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       </head>
       <body className={`${poppins.className} ${poppins.variable} bg-white text-brand-800 antialiased overflow-x-hidden`}>
+        <Header />
         <SmoothScroll>
-          <Header />
           {children}
           <Footer />
         </SmoothScroll>

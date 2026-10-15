@@ -254,8 +254,8 @@ function DesktopCentreOfExcellence() {
         if (index === 0) {
           // First slide starts already visible as a small card, then scales up
           tl.to(wrapper, {
-            width: '100vw',
-            height: '100vh',
+            width: '100%',
+            height: '100%',
             borderRadius: '0px',
             ease: 'power2.inOut',
             duration: 2,
@@ -297,8 +297,8 @@ function DesktopCentreOfExcellence() {
 
             // Expand the new image to full screen
             .to(wrapper, {
-              width: '100vw',
-              height: '100vh',
+              width: '100%',
+              height: '100%',
               borderRadius: '0px',
               ease: 'power2.inOut',
               duration: 2,
