@@ -49,7 +49,7 @@ export default function GalleryPage() {
     tag: "Campus",
     title: "Campus & Architecture",
     description:
-      "A glimpse of the IET campus, iconic spaces, and student-friendly environments.",
+      "A Glimpse of the IET Campus, Iconic Spaces, and Student-Friendly Environments.",
     image: [
       {
         src: getOptimizedImageUrl("/images/campus.jpg"),
@@ -93,7 +93,7 @@ export default function GalleryPage() {
     tag: "Facilities",
     title: "Labs & Facilities",
     description:
-      "Modern labs and learning spaces designed for hands-on experience and research.",
+      "Modern Labs and Learning Spaces Designed for Hands-On Experience and Research.",
     image: [
       {
         src: getOptimizedImageUrl("/images/facilities/computer.png"),

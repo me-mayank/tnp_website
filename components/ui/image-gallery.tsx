@@ -27,7 +27,7 @@ type GallerythumbProps = {
 export default function Gallerythumb({
   images = [],
   title = "Gallery Highlights",
-  description = "A visual glimpse of Training & Placement activities, campus life, and facilities.",
+  description = "A Visual Glimpse of Training & Placement Activities, Campus Life, and Facilities.",
   tag,
   variant = 'accordion',
   onImageClick,
