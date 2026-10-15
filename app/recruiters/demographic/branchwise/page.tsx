@@ -138,18 +138,19 @@ const tabs: { key: TabKey; label: string; short: string }[] = [
 export interface BranchOption {
     key: string;
     label: string;
+    short: string;
 }
 
 /**
  * Primary engineering disciplines featured in the branch-wise dashboard dropdown.
  */
 const branches: BranchOption[] = [
-    { key: "cse", label: "Computer Science Engineering" },
-    { key: "ece", label: "Electronics & Communication Engineering" },
-    { key: "ee", label: "Electrical Engineering" },
-    { key: "me", label: "Mechanical Engineering" },
-    { key: "ce", label: "Civil Engineering" },
-    { key: "che", label: "Chemical Engineering" },
+    { key: "cse", label: "Computer Science Engineering", short: "CSE" },
+    { key: "ece", label: "Electronics & Communication Engineering", short: "ECE" },
+    { key: "ee", label: "Electrical Engineering", short: "EE" },
+    { key: "me", label: "Mechanical Engineering", short: "ME" },
+    { key: "ce", label: "Civil Engineering", short: "CE" },
+    { key: "che", label: "Chemical Engineering", short: "CHE" },
 ];
 
 /**
@@ -395,7 +396,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "cse": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -404,7 +405,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 2,
             "title": "1st Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 1st Year Syllabus",
             "format": "PDF",
             "year": "1st Year",
@@ -413,7 +414,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 3,
             "title": "2nd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech CSE/CSE(AI) 2nd Year Syllabus",
             "format": "PDF",
             "year": "2nd Year",
@@ -422,7 +423,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 4,
             "title": "3rd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech CSE 3rd Year Syllabus",
             "format": "PDF",
             "year": "3rd Year",
@@ -431,7 +432,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 5,
             "title": "4th Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech CSE 4th Year Syllabus",
             "format": "PDF",
             "year": "4th Year",
@@ -442,7 +443,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "cse_sf": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -451,7 +452,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 2,
             "title": "1st Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 1st Year Syllabus",
             "format": "PDF",
             "year": "1st Year",
@@ -460,7 +461,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 3,
             "title": "2nd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech CSE/CSE(AI) 2nd Year Syllabus",
             "format": "PDF",
             "year": "2nd Year",
@@ -469,7 +470,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 4,
             "title": "3rd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech CSE 3rd Year Syllabus",
             "format": "PDF",
             "year": "3rd Year",
@@ -478,7 +479,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 5,
             "title": "4th Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech CSE 4th Year Syllabus",
             "format": "PDF",
             "year": "4th Year",
@@ -489,7 +490,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "cse_ai": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -498,7 +499,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 2,
             "title": "1st Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 1st Year Syllabus",
             "format": "PDF",
             "year": "1st Year",
@@ -507,7 +508,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 3,
             "title": "2nd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech CSE/CSE(AI) 2nd Year Syllabus",
             "format": "PDF",
             "year": "2nd Year",
@@ -516,7 +517,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 4,
             "title": "3rd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech CSE 3rd Year Syllabus",
             "format": "PDF",
             "year": "3rd Year",
@@ -525,7 +526,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 5,
             "title": "4th Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech CSE 4th Year Syllabus",
             "format": "PDF",
             "year": "4th Year",
@@ -536,7 +537,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "ece": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -545,7 +546,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 2,
             "title": "1st Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 1st Year Syllabus",
             "format": "PDF",
             "year": "1st Year",
@@ -554,7 +555,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 3,
             "title": "2nd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 2nd Year Syllabus",
             "format": "PDF",
             "year": "2nd Year",
@@ -563,7 +564,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 4,
             "title": "3rd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 3rd Year Syllabus",
             "format": "PDF",
             "year": "3rd Year",
@@ -572,7 +573,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 5,
             "title": "4th Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 4th Year Syllabus",
             "format": "PDF",
             "year": "4th Year",
@@ -583,7 +584,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "ee": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -592,7 +593,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 2,
             "title": "1st Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 1st Year Syllabus",
             "format": "PDF",
             "year": "1st Year",
@@ -601,7 +602,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 3,
             "title": "2nd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 2nd Year Syllabus",
             "format": "PDF",
             "year": "2nd Year",
@@ -610,7 +611,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 4,
             "title": "3rd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 3rd Year Syllabus",
             "format": "PDF",
             "year": "3rd Year",
@@ -619,7 +620,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 5,
             "title": "4th Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 4th Year Syllabus",
             "format": "PDF",
             "year": "4th Year",
@@ -630,7 +631,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "me": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -639,7 +640,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 2,
             "title": "1st Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 1st Year Syllabus",
             "format": "PDF",
             "year": "1st Year",
@@ -648,7 +649,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 3,
             "title": "2nd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 2nd Year Syllabus",
             "format": "PDF",
             "year": "2nd Year",
@@ -657,7 +658,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 4,
             "title": "3rd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 3rd Year Syllabus",
             "format": "PDF",
             "year": "3rd Year",
@@ -666,7 +667,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 5,
             "title": "4th Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 4th Year Syllabus",
             "format": "PDF",
             "year": "4th Year",
@@ -677,7 +678,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "ce": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -686,7 +687,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 2,
             "title": "1st Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 1st Year Syllabus",
             "format": "PDF",
             "year": "1st Year",
@@ -697,7 +698,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "che": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -706,7 +707,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 2,
             "title": "1st Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 1st Year Syllabus",
             "format": "PDF",
             "year": "1st Year",
@@ -715,7 +716,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 3,
             "title": "2nd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 2nd Year Syllabus",
             "format": "PDF",
             "year": "2nd Year",
@@ -724,7 +725,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 4,
             "title": "3rd Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 3rd Year Syllabus",
             "format": "PDF",
             "year": "3rd Year",
@@ -733,7 +734,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
         {
             "id": 5,
             "title": "4th Year Syllabus",
-            "type": "syllabus",
+            "type": "Syllabus",
             "description": "B.Tech 4th Year Syllabus",
             "format": "PDF",
             "year": "4th Year",
@@ -744,7 +745,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "it": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -755,7 +756,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "ei": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -766,7 +767,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "mca": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -777,7 +778,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "mba": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -788,7 +789,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "mtech": [
         {
             "title": "Academic Calendar",
-            "type": "calendar",
+            "type": "Calendar",
             "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
@@ -1435,8 +1436,12 @@ export default function PlacementTabsOnly() {
                         </div>
 
                         {/* Visual Pill Badge identifying the selected active discipline */}
-                        <div className="inline-flex w-fit items-center rounded-full bg-[#f5f7fa] px-4 py-2 text-sm font-semibold text-[#144272] ring-1 ring-slate-200/70">
-                            {activeBranch.label}
+                        <div
+                            title={activeBranch.label}
+                            className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-[#f5f7fa] px-4 py-2 text-sm font-semibold text-[#144272] ring-1 ring-slate-200/70 shadow-sm"
+                        >
+                            <span className="h-2 w-2 rounded-full bg-[#2C74B3]" />
+                            <span>Branch: {activeBranch.short}</span>
                         </div>
                     </div>
 
@@ -1609,8 +1614,8 @@ export default function PlacementTabsOnly() {
                                             </h4>
                                         </div>
 
-                                        {/* Document Type Label (calendar | syllabus) */}
-                                        <p className="mt-3 text-sm font-semibold text-[#0A2647]">
+                                        {/* Document Type Label (Calendar | Syllabus) */}
+                                        <p className="mt-3 text-sm font-semibold capitalize text-[#0A2647]">
                                             {doc.type}
                                         </p>
 
