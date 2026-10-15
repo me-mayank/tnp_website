@@ -87,7 +87,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="relative w-full -mt-[92px] md:-mt-[104px]">
+    <div ref={wrapperRef} className="relative w-full">
       <section ref={heroSectionRef} className="relative overflow-hidden bg-slate-950 shadow-xl md:sticky md:top-0 md:min-h-[100svh] md:h-[100dvh]">
         {/*
         <div

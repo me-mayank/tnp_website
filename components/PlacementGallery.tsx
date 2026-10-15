@@ -7,26 +7,28 @@ import { useGSAP } from "@/hooks/useGSAP";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { getOptimizedImageUrl } from "@/lib/cloudinary-gallery";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const GALLERY_IMAGES = [
   {
-    src: "/images/PI.jpg",
+    src: getOptimizedImageUrl("/images/PI.jpg"),
     alt: "Placement interview at IET Lucknow",
     stat: " interview spaces",
   },
   {
-    src: "/images/gd.jpg",
+    src: getOptimizedImageUrl("/images/gd.jpg"),
     alt: "Group discussion round",
     stat: "GD and screening rounds",
   },
   {
-    src: "/images/training session.jpg",
+    src: getOptimizedImageUrl("/images/training session.jpg"),
     alt: "Training session at IET Lucknow",
     stat: "Pre-placement training",
   },
   {
-    src: "/images/presentation.jpg",
+    src: getOptimizedImageUrl("/images/presentation.jpg"),
     alt: "Company presentation at IET Lucknow",
     stat: "Recruiter interaction",
   },

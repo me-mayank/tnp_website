@@ -21,6 +21,7 @@ import AboutSection from '@/components/AboutSection';
 import CentreOfExcellence from '@/components/CentreOfExcellence';
 import FAQSection from '@/components/FAQSection';
 import PlacementSection from '@/components/PlacementSection';
+import { getOptimizedImageUrl } from '@/lib/cloudinary-gallery';
 
 const INFRASTRUCTURE_SLIDES = [
   {
@@ -112,37 +113,37 @@ const GALLERY_OPTIONS = [
   {
     title: "Campus View",
     description: "Our beautiful campus grounds",
-    image: "/images/campus.jpg",
+    image: getOptimizedImageUrl("/images/campus.jpg"),
     icon: "Building2"
   },
   {
     title: "Library",
     description: "State-of-the-art learning resources",
-    image: "/images/library.jpeg",
+    image: getOptimizedImageUrl("/images/library.jpeg"),
     icon: "BookOpen"
   },
   {
     title: "T&P Office",
     description: "Training and Placement Cell",
-    image: "/images/PI.jpg",
+    image: getOptimizedImageUrl("/images/PI.jpg"),
     icon: "Users"
   },
   {
     title: "Auditorium",
     description: "Modern presentation facilities",
-    image: "/images/auditorium.png",
+    image: getOptimizedImageUrl("/images/newaudi.jpg"),
     icon: "Presentation"
   },
   {
     title: "Group Discussion",
     description: "Interactive learning spaces",
-    image: "/images/gd.jpg",
+    image: getOptimizedImageUrl("/images/gd.jpg"),
     icon: "MessageSquare"
   },
   {
     title: "Events",
     description: "Company presentations & workshops",
-    image: "/images/presentation.jpg",
+    image: getOptimizedImageUrl("/images/presentation.jpg"),
     icon: "GraduationCap"
   }
 ];
@@ -594,7 +595,7 @@ export default function Home() {
                 </div>
                 <h5 className="font-bold text-lg mb-3 text-brand-800">Placement Policy</h5>
                 <p className="text-slate-600 mb-4">Rules &amp; eligibility criteria for campus drives, offers and PPOs.</p>
-                <a href="../files/Student_Placement_Policy.pdf"
+                <a href="/files/Student_Placement_Policy.pdf"
                   className="text-brand-700 font-semibold flex items-center gap-2 group">
                   <span>Read policy</span>
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
