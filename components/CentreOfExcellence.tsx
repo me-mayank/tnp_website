@@ -221,164 +221,106 @@ function DesktopCentreOfExcellence() {
       const initH = '500px';
 
       const slides = gsap.utils.toArray<HTMLElement>('.desktop-slide-container');
+      if (slides.length < 3) return;
 
-      // Ensure all wrappers have initial dimensions
-      slides.forEach((slide) => {
-        const wrapper = slide.querySelector('.image-wrapper');
+      // Slide 0 starts fully displayed and settled
+      const wrapper0 = slides[0].querySelector('.image-wrapper');
+      const text0 = slides[0].querySelector('.text-wrapper');
+      const imageScale0 = slides[0].querySelector('.image-scale');
+
+      if (wrapper0) {
+        gsap.set(wrapper0, { width: '100vw', height: '100vh', borderRadius: '0px', opacity: 1, y: 0 });
+      }
+      if (imageScale0) {
+        gsap.set(imageScale0, { scale: 1 });
+      }
+      if (text0) {
+        gsap.set(text0, { opacity: 1, y: 0 });
+      }
+
+      // Subsequent slides start hidden as small cards
+      for (let i = 1; i < slides.length; i++) {
+        const wrapper = slides[i].querySelector('.image-wrapper');
+        const text = slides[i].querySelector('.text-wrapper');
+        const imageScale = slides[i].querySelector('.image-scale');
+
         if (wrapper) {
-          gsap.set(wrapper, { width: initW, height: initH, borderRadius: '32px' });
+          gsap.set(wrapper, { width: initW, height: initH, borderRadius: '32px', opacity: 0, y: 100 });
         }
-      });
+        if (imageScale) {
+          gsap.set(imageScale, { scale: 1.3 });
+        }
+        if (text) {
+          gsap.set(text, { opacity: 0, y: 48 });
+        }
+      }
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: '+=300%', // 3 full screen heights for balanced slide snapping
-          pin: true,
-          scrub: 0.8, // Smooth scrub
-          invalidateOnRefresh: true,
-          snap: {
-            snapTo: (progress, self) => {
-              const dur = tl.duration();
-              if (!dur) return progress;
-              const labLabels = ['lab-0', 'lab-1', 'lab-2'];
-              const points = labLabels
-                .map((name) => (tl.labels[name] !== undefined ? tl.labels[name] / dur : -1))
-                .filter((p) => p >= 0);
+      // Master discrete timeline with full transitions
+      const tl = gsap.timeline({ paused: true });
 
-              if (points.length === 0) return progress;
+      // State 0: Lab 0
+      tl.addLabel('lab-0', 0);
 
-              const dir = self ? self.direction : 1;
-              const threshold = 0.015;
+      // Transition to Lab 1:
+      const wrapper1 = slides[1].querySelector('.image-wrapper');
+      const text1 = slides[1].querySelector('.text-wrapper');
+      const imageScale1 = slides[1].querySelector('.image-scale');
 
-              if (dir > 0) {
-                // Scrolling down: past the last slide, snap to 1 to exit cleanly
-                if (progress > points[points.length - 1] + 0.04) {
-                  return 1;
-                }
-                for (let i = 0; i < points.length; i++) {
-                  if (points[i] >= progress - threshold) {
-                    return points[i];
-                  }
-                }
-                return 1;
-              } else {
-                // Scrolling up: before the first slide, snap to 0 to exit cleanly
-                if (progress < points[0] - 0.04) {
-                  return 0;
-                }
-                for (let i = points.length - 1; i >= 0; i--) {
-                  if (points[i] <= progress + threshold) {
-                    return points[i];
-                  }
-                }
-                return 0;
-              }
-            },
-            duration: { min: 0.25, max: 0.55 },
-            delay: 0.05,
-            ease: 'power2.inOut',
-          },
-        },
-      });
+      tl.to(text0, { opacity: 0, y: -30, duration: 0.35, ease: 'power2.in' })
+        .to(wrapper1, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, '<')
+        .to(wrapper1, { width: '100vw', height: '100vh', borderRadius: '0px', duration: 0.65, ease: 'power2.inOut' })
+        .to(imageScale1, { scale: 1, duration: 0.65, ease: 'power2.inOut' }, '<')
+        .to(text1, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, '-=0.25')
+        .addLabel('lab-1');
 
-      slides.forEach((slide, index) => {
-        const wrapper = slide.querySelector('.image-wrapper');
-        const text = slide.querySelector('.text-wrapper');
-        const imageScale = slide.querySelector('.image-scale');
+      // Transition to Lab 2:
+      const wrapper2 = slides[2].querySelector('.image-wrapper');
+      const text2 = slides[2].querySelector('.text-wrapper');
+      const imageScale2 = slides[2].querySelector('.image-scale');
 
-        if (!wrapper || !text || !imageScale) return;
+      tl.to(text1, { opacity: 0, y: -30, duration: 0.35, ease: 'power2.in' })
+        .to(wrapper2, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, '<')
+        .to(wrapper2, { width: '100vw', height: '100vh', borderRadius: '0px', duration: 0.65, ease: 'power2.inOut' })
+        .to(imageScale2, { scale: 1, duration: 0.65, ease: 'power2.inOut' }, '<')
+        .to(text2, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, '-=0.25')
+        .addLabel('lab-2');
 
-        // Set initial zoom for the image inside
-        gsap.set(imageScale, { scale: 1.3 });
+      let activeIndex = 0;
+      let activeTween: gsap.core.Tween | null = null;
 
-        if (index === 0) {
-          // First slide starts already visible as a small card, then scales up
-          tl.to(wrapper, {
-            width: '100vw',
-            height: '100vh',
-            borderRadius: '0px',
-            ease: 'power2.inOut',
-            duration: 2,
-          })
-            .to(
-              imageScale,
-              {
-                scale: 1,
-                ease: 'power2.inOut',
-                duration: 2,
-              },
-              '<'
-            )
-            .to(
-              text,
-              {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
-              },
-              '-=0.5'
-            )
-            // Complete settled state for Lab 0:
-            .addLabel('lab-0')
-            .to({}, { duration: 1 });
-        } else {
-          // Subsequent slides start hidden
-          gsap.set(wrapper, { opacity: 0, y: 100 });
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: 'top top',
+        end: '+=180%',
+        pin: true,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          let target = 0;
+          if (self.progress >= 0.58) {
+            target = 2;
+          } else if (self.progress >= 0.25) {
+            target = 1;
+          }
 
-          const prevText = slides[index - 1]?.querySelector('.text-wrapper');
-
-          tl.to(prevText, {
-            opacity: 0,
-            y: -30,
-            duration: 0.8,
-            ease: 'power2.in',
-          })
-            // Fade and float in the new small image
-            .to(
-              wrapper,
-              {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
-              },
-              '<'
-            )
-            // Expand the new image to full screen
-            .to(wrapper, {
-              width: '100vw',
-              height: '100vh',
-              borderRadius: '0px',
+          if (target !== activeIndex) {
+            activeIndex = target;
+            activeTween?.kill();
+            activeTween = tl.tweenTo(`lab-${target}`, {
+              duration: 0.6,
               ease: 'power2.inOut',
-              duration: 2,
-            })
-            .to(
-              imageScale,
-              {
-                scale: 1,
-                ease: 'power2.inOut',
-                duration: 2,
-              },
-              '<'
-            )
-            // Reveal the text for the new image
-            .to(
-              text,
-              {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: 'power3.out',
-              },
-              '-=0.5'
-            )
-            // Complete settled state for this lab:
-            .addLabel(`lab-${index}`)
-            .to({}, { duration: 1 });
-        }
+            });
+          }
+        },
+        onRefresh: (self) => {
+          let target = 0;
+          if (self.progress >= 0.58) {
+            target = 2;
+          } else if (self.progress >= 0.25) {
+            target = 1;
+          }
+          activeIndex = target;
+          tl.seek(`lab-${target}`);
+        },
       });
     });
 
