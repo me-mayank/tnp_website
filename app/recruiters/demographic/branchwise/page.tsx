@@ -229,60 +229,73 @@ export interface CustomCompensationTooltipProps {
  * Maps branch key to an array of academic session records.
  */
 const branchPlacementOffers: Record<string, SessionPlacementRecord[]> = {
+    // Computer Science & Engineering (Regular Division) - Flagship computing branch
     "cse": [
         {"session":"2023-24","offers":60,"placed":0},
         {"session":"2024-25","offers":86,"placed":0},
         {"session":"2025-26","offers":78,"placed":0},
     ],
+    // Computer Science & Engineering (Self-Finance Division) - Expanded computing cohort
     "cse_sf": [
         {"session":"2024-25","offers":78,"placed":0},
         {"session":"2025-26","offers":62,"placed":0},
     ],
+    // Computer Science & Engineering (Artificial Intelligence) - Machine Learning & Data Systems
     "cse_ai": [
         {"session":"2024-25","offers":71,"placed":0},
         {"session":"2025-26","offers":48,"placed":0},
     ],
+    // Information Technology - Allied computing branch (historical cohort data)
     "it": [
         {"session":"2023-24","offers":56,"placed":0},
     ],
+    // Electronics & Communication Engineering - Core communications, VLSI, and IoT systems
     "ece": [
         {"session":"2023-24","offers":26,"placed":0},
         {"session":"2024-25","offers":71,"placed":0},
         {"session":"2025-26","offers":51,"placed":0},
     ],
+    // Applied Electronics & Instrumentation Engineering - Control systems & smart automation
     "ei": [
         {"session":"2023-24","offers":44,"placed":0},
     ],
+    // Electrical Engineering - Power systems, renewable energy, and industrial drives
     "ee": [
         {"session":"2023-24","offers":29,"placed":0},
         {"session":"2024-25","offers":29,"placed":0},
         {"session":"2025-26","offers":46,"placed":0},
     ],
+    // Mechanical Engineering - Design, thermal systems, manufacturing, and robotics
     "me": [
         {"session":"2023-24","offers":33,"placed":0},
         {"session":"2024-25","offers":42,"placed":0},
         {"session":"2025-26","offers":57,"placed":0},
     ],
+    // Civil Engineering - Structural modeling, transportation, and sustainable infrastructure
     "ce": [
         {"session":"2023-24","offers":20,"placed":0},
         {"session":"2024-25","offers":22,"placed":0},
         {"session":"2025-26","offers":38,"placed":0},
     ],
+    // Chemical Engineering - Industrial process design, reaction kinetics, and sustainability
     "che": [
         {"session":"2023-24","offers":36,"placed":0},
         {"session":"2024-25","offers":18,"placed":0},
         {"session":"2025-26","offers":34,"placed":0},
     ],
+    // Master of Computer Applications (MCA) - Postgraduate enterprise software engineering
     "mca": [
         {"session":"2023-24","offers":37,"placed":0},
         {"session":"2024-25","offers":48,"placed":0},
         {"session":"2025-26","offers":64,"placed":0},
     ],
+    // Master of Business Administration (MBA) - School of Management Sciences
     "mba": [
         {"session":"2023-24","offers":48,"placed":0},
         {"session":"2024-25","offers":54,"placed":0},
         {"session":"2025-26","offers":38,"placed":0},
     ],
+    // Master of Technology (M.Tech) - Postgraduate advanced research programs
     "mtech": [
         {"session":"2023-24","offers":1,"placed":0},
         {"session":"2024-25","offers":6,"placed":0},
@@ -297,60 +310,73 @@ const branchPlacementOffers: Record<string, SessionPlacementRecord[]> = {
  * @type {Record<string, CompensationTrendRecord[]>}
  */
 const branchPlacementTrendData: Record<string, CompensationTrendRecord[]> = {
+    // Computer Science & Engineering - Peak compensation of 60 LPA (2025-26) with steady 7-7.5 LPA median
     "cse": [
         {"session":"2023-24","highest":59.91,"median":7.5,"average":9.77},
         {"session":"2024-25","highest":54,"median":6,"average":7.63},
         {"session":"2025-26","highest":60,"median":7,"average":7.58},
     ],
+    // Computer Science & Engineering (Self-Finance) - 54 LPA peak in 2024-25, 6.96 LPA average in 2025-26
     "cse_sf": [
         {"session":"2024-25","highest":54,"median":6,"average":8.89},
         {"session":"2025-26","highest":16,"median":6.5,"average":6.96},
     ],
+    // Computer Science & Engineering (AI) - Emerging AI specialization with 6.4 LPA average in 2025-26
     "cse_ai": [
         {"session":"2024-25","highest":12.5,"median":4.8,"average":5.56},
         {"session":"2025-26","highest":12,"median":6.5,"average":6.4},
     ],
+    // Information Technology - 44.5 LPA peak and 8.24 LPA average for graduating cohort
     "it": [
         {"session":"2023-24","highest":44.5,"median":7.5,"average":8.24},
     ],
+    // Electronics & Communication Engineering - 25 LPA peak in 2024-25, rising to 6.79 LPA average in 2025-26
     "ece": [
         {"session":"2023-24","highest":20,"median":7.25,"average":7.15},
         {"session":"2024-25","highest":25,"median":4.8,"average":5.75},
         {"session":"2025-26","highest":12,"median":6.5,"average":6.79},
     ],
+    // Applied Electronics & Instrumentation Engineering - 16 LPA peak and 7.07 LPA average
     "ei": [
         {"session":"2023-24","highest":16,"median":7.5,"average":7.07},
     ],
+    // Electrical Engineering - Steady compensation growth reaching 12 LPA peak and 6.53 LPA average
     "ee": [
         {"session":"2023-24","highest":10,"median":5,"average":5.48},
         {"session":"2024-25","highest":11,"median":4,"average":4.89},
         {"session":"2025-26","highest":12,"median":6,"average":6.53},
     ],
+    // Mechanical Engineering - Core manufacturing & automotive growth, reaching 12.36 LPA peak
     "me": [
         {"session":"2023-24","highest":10,"median":5,"average":5.35},
         {"session":"2024-25","highest":8,"median":4,"average":4.75},
         {"session":"2025-26","highest":12.36,"median":5.5,"average":6.37},
     ],
+    // Civil Engineering - Infrastructure consultancy & EPC growth, rising to 12 LPA peak and 5.77 LPA average
     "ce": [
         {"session":"2023-24","highest":7.5,"median":4.25,"average":4.83},
         {"session":"2024-25","highest":8,"median":4,"average":4.54},
         {"session":"2025-26","highest":12,"median":5.5,"average":5.77},
     ],
+    // Chemical Engineering - Process & specialty chemicals recruitment, achieving 12.36 LPA peak
     "che": [
         {"session":"2023-24","highest":7.5,"median":5,"average":5.1},
         {"session":"2024-25","highest":8,"median":4,"average":4.67},
         {"session":"2025-26","highest":12.36,"median":6,"average":5.93},
     ],
+    // Master of Computer Applications (MCA) - Substantial growth reaching 12 LPA peak and 6.32 LPA average
     "mca": [
         {"session":"2023-24","highest":7.5,"median":3.5,"average":4.31},
         {"session":"2024-25","highest":8,"median":3.5,"average":4.41},
         {"session":"2025-26","highest":12,"median":6.35,"average":6.32},
     ],
+    // Master of Business Administration (MBA) - Corporate placements peaking at 12.36 LPA with 6 LPA median
     "mba": [
         {"session":"2023-24","highest":8,"median":5,"average":5.1},
         {"session":"2024-25","highest":8,"median":4,"average":4.45},
         {"session":"2025-26","highest":12.36,"median":6,"average":5.99},
     ],
+    // Master of Technology (M.Tech) - Specialized postgraduate engineering peaking at 8.6 LPA (6.57 LPA avg)
     "mtech": [
         {"session":"2023-24","highest":3.75,"median":3.75,"average":3.75},
         {"session":"2024-25","highest":8,"median":4,"average":5.17},
@@ -365,6 +391,7 @@ const branchPlacementTrendData: Record<string, CompensationTrendRecord[]> = {
  * @type {Record<string, BranchDocumentRecord[]>}
  */
 const branchDocuments: Record<string, BranchDocumentRecord[]> = {
+    // --- Computer Science & Engineering (CSE) Documents ---
     "cse": [
         {
             "title": "Academic Calendar",
@@ -411,6 +438,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/ilovepdf_merged%20%281%29.pdf"
         }
     ],
+    // --- Computer Science & Engineering Self-Finance (CSE-SF) Documents ---
     "cse_sf": [
         {
             "title": "Academic Calendar",
@@ -457,6 +485,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/ilovepdf_merged%20%281%29.pdf"
         }
     ],
+    // --- Computer Science & Engineering Artificial Intelligence (CSE-AI) Documents ---
     "cse_ai": [
         {
             "title": "Academic Calendar",
@@ -503,6 +532,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/ilovepdf_merged%20%281%29.pdf"
         }
     ],
+    // --- Electronics & Communication Engineering (ECE) Documents ---
     "ece": [
         {
             "title": "Academic Calendar",
@@ -549,6 +579,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/BTech_4th_Year_Curriculam_2025_26_1.pdf"
         }
     ],
+    // --- Electrical Engineering (EE) Documents ---
     "ee": [
         {
             "title": "Academic Calendar",
@@ -595,6 +626,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/Final%20_Year_Syllabus_%20I%20_Series.pdf"
         }
     ],
+    // --- Mechanical Engineering (ME) Documents ---
     "me": [
         {
             "title": "Academic Calendar",
@@ -641,6 +673,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/Final%20Year%20Syllabus%20Mechanical%20Engineering.pdf"
         }
     ],
+    // --- Civil Engineering (CE) Documents ---
     "ce": [
         {
             "title": "Academic Calendar",
@@ -660,6 +693,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/IET_BTech_1st_Year_Syllabus_I_Series_wef_2023_24_1.pdf"
         }
     ],
+    // --- Chemical Engineering (CHE) Documents ---
     "che": [
         {
             "title": "Academic Calendar",
@@ -706,6 +740,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "url": "https://www.ietlucknow.ac.in/sites/default/files/syllabus/CH4_BTech_4th_Year_R_Series_Syllabus_EFS_2019_20.pdf"
         }
     ],
+    // --- Information Technology (IT) Documents ---
     "it": [
         {
             "title": "Academic Calendar",
@@ -716,6 +751,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "id": 1
         }
     ],
+    // --- Applied Electronics & Instrumentation (EI) Documents ---
     "ei": [
         {
             "title": "Academic Calendar",
@@ -726,6 +762,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "id": 1
         }
     ],
+    // --- Master of Computer Applications (MCA) Documents ---
     "mca": [
         {
             "title": "Academic Calendar",
@@ -736,6 +773,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "id": 1
         }
     ],
+    // --- Master of Business Administration (MBA) Documents ---
     "mba": [
         {
             "title": "Academic Calendar",
@@ -746,6 +784,7 @@ const branchDocuments: Record<string, BranchDocumentRecord[]> = {
             "id": 1
         }
     ],
+    // --- Master of Technology (M.Tech) Documents ---
     "mtech": [
         {
             "title": "Academic Calendar",
@@ -825,6 +864,7 @@ const branchAchievements: Record<string, BranchAchievementCardItem[]> = {
     "mca": [],
     "mba": [],
     "mtech": [],
+    // --- CSE Student Achievements (GATE, SIH, ICPC, AI Research) ---
     cse: [
         {
             id: 1,
@@ -868,6 +908,7 @@ const branchAchievements: Record<string, BranchAchievementCardItem[]> = {
         },
     ],
 
+    // --- ECE Student Achievements (GATE ECE, Embedded Systems, VLSI, Signal Processing) ---
     ece: [
         {
             id: 1,
@@ -911,6 +952,7 @@ const branchAchievements: Record<string, BranchAchievementCardItem[]> = {
         },
     ],
 
+    // --- EE Student Achievements (GATE Power Systems, PSU Selections, Smart Grid, Automation) ---
     ee: [
         {
             id: 1,
@@ -954,6 +996,7 @@ const branchAchievements: Record<string, BranchAchievementCardItem[]> = {
         },
     ],
 
+    // --- ME Student Achievements (GATE Mechanical, CAD Innovation, Prototype Build, Thermal Systems) ---
     me: [
         {
             id: 1,
@@ -997,6 +1040,7 @@ const branchAchievements: Record<string, BranchAchievementCardItem[]> = {
         },
     ],
 
+    // --- CE Student Achievements (GATE Civil, Structural Design, Public Exams, Green Materials) ---
     ce: [
         {
             id: 1,
@@ -1040,6 +1084,7 @@ const branchAchievements: Record<string, BranchAchievementCardItem[]> = {
         },
     ],
 
+    // --- CHE Student Achievements (GATE Chemical, Process Innovation, Green Process Hackathon, Reaction Systems) ---
     che: [
         {
             id: 1,
@@ -1182,13 +1227,14 @@ export default function PlacementTabsOnly() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(branchwiseStructuredData) }}
             />
             
-            {/* Branch Selector Combobox Control */}
+            {/* Branch Selector Combobox Control: Accessible Dropdown Menu */}
             <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
                     <div className="relative">
                         <label className="mb-2 block text-sm font-semibold text-[#144272]">
                             Select Branch
                         </label>
 
+                        {/* Interactive Combobox Trigger Button */}
                         <button
                             type="button"
                             role="combobox"
@@ -1206,12 +1252,14 @@ export default function PlacementTabsOnly() {
                                 </p>
                             </div>
 
+                            {/* Chevron rotation indicator indicating expanded/collapsed state */}
                             <ChevronDown
                                 className={`h-5 w-5 text-[#52606d] transition-transform duration-300 ${isBranchMenuOpen ? "rotate-180" : ""
                                     }`}
                             />
                         </button>
 
+                        {/* Dropdown Options Popup Listbox with Lenis scroll trap prevention */}
                         {isBranchMenuOpen && (
                             <div
                                 id="branch-listbox"
@@ -1247,11 +1295,13 @@ export default function PlacementTabsOnly() {
                         )}
                     </div>
                 </div>
+
             {/* Section 1: Session-wise Placement Offers Bar Chart */}
             <section
                 aria-label="Session-wise Placement Offers Chart"
                 className="mx-auto max-w-7xl rounded-[34px] border border-slate-200/70 bg-white p-6 shadow-[0_20px_60px_rgba(11,60,109,0.08)] sm:p-8"
             >
+                    {/* Header: Section Eyebrow, Main Title, and Dynamic Branch Subtitle */}
                     <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
                             <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
@@ -1266,6 +1316,7 @@ export default function PlacementTabsOnly() {
                         </div>
                     </div>
 
+                    {/* Chart Container: Responsive Recharts Bar Visualizer */}
                     <div className="mt-8 rounded-[30px] bg-[#fcfdff] p-4 sm:p-6">
                         <div className="h-[380px] w-full">
                             <ResponsiveContainer width="100%" height="100%">
@@ -1275,6 +1326,7 @@ export default function PlacementTabsOnly() {
                                     barCategoryGap="28%"
                                     margin={{ top: 36, right: 22, left: 16, bottom: 6 }}
                                 >
+                                    {/* SVG Linear Gradients for Corporate Bar Fill Styling */}
                                     <defs>
                                         <linearGradient id="offersGradient" x1="0" y1="0" x2="0" y2="1">
                                             <stop offset="0%" stopColor="#2C74B3" />
@@ -1287,12 +1339,14 @@ export default function PlacementTabsOnly() {
                                         </linearGradient>
                                     </defs>
 
+                                    {/* Subtle Horizontal Grid Guidelines */}
                                     <CartesianGrid
                                         strokeDasharray="3 5"
                                         vertical={false}
                                         stroke="#e8eef6"
                                     />
 
+                                    {/* Categorical X-Axis: Academic Sessions */}
                                     <XAxis
                                         dataKey="session"
                                         tickLine={false}
@@ -1301,6 +1355,7 @@ export default function PlacementTabsOnly() {
                                         tick={{ fill: "#52606d", fontSize: 14, fontWeight: 500 }}
                                     />
 
+                                    {/* Numerical Y-Axis: Total Offers Scale */}
                                     <YAxis
                                         tickLine={false}
                                         axisLine={false}
@@ -1309,12 +1364,14 @@ export default function PlacementTabsOnly() {
                                         tick={{ fill: "#52606d", fontSize: 14 }}
                                     />
 
+                                    {/* Interactive Hover Tooltip */}
                                     <Tooltip
                                         cursor={{ fill: "rgba(31,90,166,0.06)" }}
                                         content={<CustomPlacementTooltip />}
                                         wrapperStyle={{ outline: "none" }}
                                     />
 
+                                    {/* Chart Legend Wrapper */}
                                     <Legend
                                         verticalAlign="top"
                                         align="right"
@@ -1329,6 +1386,7 @@ export default function PlacementTabsOnly() {
                                         )}
                                     />
 
+                                    {/* Total Offers Gradient Bar with Rounded Top Caps */}
                                     <Bar
                                         dataKey="offers"
                                         name="Total Offers"
@@ -1350,6 +1408,7 @@ export default function PlacementTabsOnly() {
             >
                 {/* Subsection 2A: Highest, Median & Average CTC Multi-Bar Analytics Card */}
                 <div className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-7">
+                    {/* Header: Title, Subtitle, and Current Branch Label Pill */}
                     <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
                             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2C74B3]">
@@ -1363,30 +1422,39 @@ export default function PlacementTabsOnly() {
                             </p>
                         </div>
 
+                        {/* Visual Pill Badge identifying the selected active discipline */}
                         <div className="inline-flex w-fit items-center rounded-full bg-[#f5f7fa] px-4 py-2 text-sm font-semibold text-[#144272] ring-1 ring-slate-200/70">
                             {activeBranch.label}
                         </div>
                     </div>
 
+                    {/* Multi-Bar Compensation Progression Chart Container */}
                     <div className="mt-8 h-[400px] w-full rounded-[24px] bg-[#fcfdff] p-4 sm:p-6">
                         <ResponsiveContainer width="100%" height="100%">
                             <BarChart
                                 data={branchPlacementTrendData[activeBranch.key]}
                                 margin={{ top: 10, right: 12, left: 0, bottom: 8 }}
                             >
+                                {/* Grid lines along the horizontal numerical value axis */}
                                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e6edf5" />
+
+                                {/* Categorical Session Axis */}
                                 <XAxis
                                     dataKey="session"
                                     tickLine={false}
                                     axisLine={false}
                                     tick={{ fill: "#52606d", fontSize: 13, fontWeight: 500 }}
                                 />
+
+                                {/* Numerical CTC Axis (in LPA) */}
                                 <YAxis
                                     tickLine={false}
                                     axisLine={false}
                                     tick={{ fill: "#52606d", fontSize: 13 }}
                                     width={44}
                                 />
+
+                                {/* Custom Floating Tooltip showing Highest, Median, and Average CTC */}
                                 <Tooltip
                                     cursor={{ fill: "rgba(11,60,109,0.04)" }}
                                     wrapperStyle={{ outline: "none" }}
@@ -1410,6 +1478,7 @@ export default function PlacementTabsOnly() {
                                                 </h4>
 
                                                 <div className="mt-5 space-y-4">
+                                                    {/* Highest CTC Row */}
                                                     <div className="flex items-center justify-between gap-8">
                                                         <div className="flex items-center gap-3">
                                                             <span className="h-3.5 w-3.5 rounded-full bg-[#071733]" />
@@ -1420,6 +1489,7 @@ export default function PlacementTabsOnly() {
                                                         </span>
                                                     </div>
 
+                                                    {/* Median CTC Row */}
                                                     <div className="flex items-center justify-between gap-8">
                                                         <div className="flex items-center gap-3">
                                                             <span className="h-3.5 w-3.5 rounded-full bg-[#144272]" />
@@ -1430,6 +1500,7 @@ export default function PlacementTabsOnly() {
                                                         </span>
                                                     </div>
 
+                                                    {/* Average CTC Row */}
                                                     <div className="flex items-center justify-between gap-8">
                                                         <div className="flex items-center gap-3">
                                                             <span className="h-3.5 w-3.5 rounded-full bg-[#2C74B3]" />
@@ -1444,12 +1515,16 @@ export default function PlacementTabsOnly() {
                                         );
                                     }}
                                 />
+
+                                {/* Legend: Identifying Highest, Median, and Average Series */}
                                 <Legend
                                     verticalAlign="top"
                                     align="right"
                                     iconType="circle"
                                     wrapperStyle={{ paddingBottom: "18px", fontSize: "13px", color: "#52606d" }}
                                 />
+
+                                {/* Tier 1: Highest CTC Bar (Deep Midnight Navy) */}
                                 <Bar
                                     dataKey="highest"
                                     name="Highest"
@@ -1459,6 +1534,8 @@ export default function PlacementTabsOnly() {
                                     stroke="none"
                                     strokeWidth={0}
                                 />
+
+                                {/* Tier 2: Median CTC Bar (Institutional Royal Blue) */}
                                 <Bar
                                     dataKey="median"
                                     name="Median"
@@ -1468,6 +1545,8 @@ export default function PlacementTabsOnly() {
                                     stroke="none"
                                     strokeWidth={0}
                                 />
+
+                                {/* Tier 3: Average CTC Bar (Vibrant Sapphire Blue) */}
                                 <Bar
                                     dataKey="average"
                                     name="Average"
@@ -1484,6 +1563,7 @@ export default function PlacementTabsOnly() {
 
                 {/* Subsection 2B: Departmental Academic Documents & Syllabus Repository */}
                 <div className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-7">
+                    {/* Header: Title and Documents Context for Current Discipline */}
                     <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
                             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2C74B3]">
@@ -1498,6 +1578,7 @@ export default function PlacementTabsOnly() {
                         </div>
                     </div>
 
+                    {/* Scrollable Document Cards List with smooth scroll container isolation */}
                     <div data-lenis-prevent className="top-placements-scroll mt-6 max-h-[400px] space-y-3 overflow-y-auto overscroll-contain pr-2 [scrollbar-width:thin] [scrollbar-color:#2C74B3_#eaf1fb]">
                         {branchDocuments[activeBranch.key].map((doc, index) => (
                             <div
@@ -1506,6 +1587,7 @@ export default function PlacementTabsOnly() {
                             >
                                 <div className="flex items-start justify-between gap-3">
                                     <div className="min-w-0 flex-1">
+                                        {/* Document Header: Order Index and Title */}
                                         <div className="flex items-center gap-2">
                                             <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#eaf1fb] text-xs font-bold text-[#0A2647]">
                                                 {index + 1}
@@ -1515,20 +1597,24 @@ export default function PlacementTabsOnly() {
                                             </h4>
                                         </div>
 
+                                        {/* Document Type Label (calendar | syllabus) */}
                                         <p className="mt-3 text-sm font-semibold text-[#0A2647]">
                                             {doc.type}
                                         </p>
 
+                                        {/* Academic Year Tag (e.g. 1st Year, 2nd Year) if present */}
                                         {doc.year && (
                                             <p className="mt-1 text-xs font-medium text-[#7b8794]">
                                                 Year: {doc.year}
                                             </p>
                                         )}
 
+                                        {/* Brief Description of Curriculum Scope or Academic Schedule */}
                                         <p className="mt-1 text-xs text-[#52606d]">
                                             {doc.description}
                                         </p>
 
+                                        {/* Action Button: Opens PDF or Portal link securely in a new tab */}
                                         <div className="mt-4">
                                             <a
                                                 href={doc.url}
@@ -1541,6 +1627,7 @@ export default function PlacementTabsOnly() {
                                         </div>
                                     </div>
 
+                                    {/* Document Format Badge (Link | PDF) */}
                                     <div className="shrink-0 rounded-full bg-[#E0F2FE] px-3 py-1 text-sm font-bold text-[#0369A1]">
                                         {doc.format}
                                     </div>
