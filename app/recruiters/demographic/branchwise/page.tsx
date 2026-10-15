@@ -1221,6 +1221,18 @@ export default function PlacementTabsOnly() {
 
     return (
         <div className="mt-4 w-full space-y-6">
+            {/* Native Head Hoisting for SEO Metadata */}
+            <title>Branch-wise Placement Statistics & Demographics | IET Lucknow</title>
+            <meta
+                name="description"
+                content="Explore discipline-specific placement statistics, salary packages (highest, median, average CTC), total job offers, academic calendars, and course syllabi across engineering branches at IET Lucknow."
+            />
+            <meta
+                name="keywords"
+                content="IET Lucknow Branch-wise Placements, IET Lucknow CSE Placements, IET Lucknow ECE Placements, IET Lucknow Electrical Engineering Placements, IET Lucknow Mechanical Engineering Placements, IET Lucknow Civil Engineering Placements, IET Lucknow Chemical Engineering Placements, IET Lucknow MCA MBA Placements, Engineering Demographics, Placement Statistics, Recruitment Trends, Training and Placement Cell, IET Lucknow"
+            />
+            <link rel="canonical" href="https://ietlucknow.ac.in/recruiters/demographic/branchwise" />
+
             {/* Schema.org Structured Data for Search Engine Optimization (SEO) */}
             <script
                 type="application/ld+json"
