@@ -56,7 +56,7 @@ export default function GallerySection({
           }}
           className="inline-flex items-center gap-2.5 bg-brand-800 hover:bg-brand-700 text-white px-7 py-3.5 rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95"
         >
-          <span>View all images</span>
+          <span>View All Images</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
