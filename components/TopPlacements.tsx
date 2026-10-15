@@ -144,7 +144,7 @@ export default function TopPlacements() {
       className={`relative ${isMobile ? "py-20 h-auto" : "h-screen"} overflow-hidden bg-[#0a1628] flex flex-col justify-center`}
     >
       {/* Header */}
-      <div className={`${isMobile ? "relative px-6 mb-12" : "absolute top-32 lg:top-36 left-16 z-10"}`}>
+      <div className={`${isMobile ? "relative px-6 mb-12" : "absolute top-12 left-16 z-10"}`}>
         <p ref={eyebrowRef} className="text-blue-400 text-xs tracking-[0.25em] uppercase font-semibold mb-2">
           Top Placements 2024–25
         </p>
@@ -155,7 +155,7 @@ export default function TopPlacements() {
       </div>
 
       {!isMobile && (
-        <div className="absolute top-32 lg:top-36 right-16 z-10 text-right">
+        <div className="absolute top-12 right-16 z-10 text-right">
           <span ref={counterRef} className="text-white/40 text-sm font-mono tracking-widest">01 / 06</span>
         </div>
       )}
@@ -163,7 +163,7 @@ export default function TopPlacements() {
       {/* Cards track */}
       <div 
         ref={trackRef} 
-        className={`${isMobile ? "flex flex-col gap-8 px-6" : "flex gap-8 px-24 mt-12 lg:mt-16"}`}
+        className={`${isMobile ? "flex flex-col gap-8 px-6" : "flex gap-8 px-24 mt-8"}`}
         style={{ width: isMobile ? "100%" : "max-content" }}
       >
         {CARDS.map((card, i) => (
