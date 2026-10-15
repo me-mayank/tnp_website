@@ -633,7 +633,7 @@ export default function ContactUsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
       />
 
-      <main className="bg-gray-50/50 py-16" id="contact-us" role="main">
+      <main className="page-top-gap-largest bg-gray-50/50 pt-28 pb-16 md:pt-32" id="contact-us" role="main">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Header & Page Description */}
           <header className="mb-16 text-center">
