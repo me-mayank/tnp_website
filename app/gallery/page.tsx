@@ -10,7 +10,7 @@ export default function GalleryPage() {
     tag: "Training & Placement",
     title: "T&P Activities",
     description:
-      "Workshops, mock drives, and engagement sessions hosted by the T&P Cell.",
+      "Workshops, Mock Drives, and Engagement Sessions Hosted by the T&P Cell.",
     image: [
       {
         src: getOptimizedImageUrl("/DLF/IMG-20260117-WA0023.jpg"),
