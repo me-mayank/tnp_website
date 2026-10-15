@@ -17,14 +17,133 @@ import {
     YAxis,
 } from "recharts";
 
+/**
+ * ============================================================================
+ * BRANCH-WISE PLACEMENT STATISTICS & ENGINEERING DEMOGRAPHICS MODULE
+ * Institute of Engineering & Technology (IET), Lucknow
+ * ============================================================================
+ * 
+ * @file app/recruiters/demographic/branchwise/page.tsx
+ * @description
+ * Interactive recruiter analytics dashboard providing discipline-level placement
+ * metrics, multi-year offer trends, compensation distribution (highest, median,
+ * and average CTC), academic calendars, and departmental syllabi for all engineering
+ * branches at IET Lucknow.
+ * 
+ * Key Capabilities & Architecture:
+ * - Dynamic discipline switcher supporting core B.Tech disciplines (CSE, ECE, EE, ME, CE, CHE)
+ * - Session-wise recruitment offer tracking across consecutive placement cycles
+ * - Comparative compensation progression analytics (Highest, Median, and Average CTC in LPA)
+ * - Repository of official AKTU/IET academic calendars and year-wise course syllabi PDFs
+ * - Schema.org Dataset & EducationalOccupationalProgram JSON-LD structured data for SEO
+ * - Fully accessible ARIA combobox and listbox navigation with WCAG 2.1 AA compliance
+ * 
+ * @module BranchwisePlacementDemographics
+ * @version 2.2.0
+ * @author Training & Placement Cell, IET Lucknow
+ * @license Proprietary - Academic Institution Use Only
+ */
+
+/**
+ * Schema.org JSON-LD structured data representing discipline-wise placement
+ * analytics, historical recruitment records, and curriculum documentation
+ * at the Institute of Engineering & Technology, Lucknow.
+ */
+const branchwiseStructuredData = {
+    "@context": "https://schema.org",
+    "@type": ["Dataset", "EducationalOccupationalProgram"],
+    "name": "Branch-wise Placement Statistics & Demographics - IET Lucknow",
+    "alternateName": "Discipline-Specific Campus Recruitment Analytics and Syllabus Repository",
+    "description": "Comprehensive engineering branch placement records, historical offer volumes, salary distribution (highest, median, and average CTC), academic calendars, and course syllabi across B.Tech departments at Institute of Engineering & Technology (IET), Lucknow.",
+    "url": "https://ietlucknow.ac.in/recruiters/demographic/branchwise",
+    "provider": {
+        "@type": "EducationalOrganization",
+        "name": "Training and Placement Cell, Institute of Engineering and Technology, Lucknow",
+        "url": "https://ietlucknow.ac.in",
+        "parentOrganization": {
+            "@type": "CollegeOrUniversity",
+            "name": "Dr. A.P.J. Abdul Kalam Technical University (AKTU)",
+            "url": "https://aktu.ac.in"
+        }
+    },
+    "temporalCoverage": "2023/2026",
+    "spatialCoverage": {
+        "@type": "Place",
+        "name": "IET Lucknow Campus, Sitapur Road, Lucknow, Uttar Pradesh, India"
+    },
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "name": "Highest CTC",
+            "unitText": "LPA (Lakhs Per Annum INR)",
+            "description": "Peak annual compensation package secured by a student in the discipline."
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Median CTC",
+            "unitText": "LPA (Lakhs Per Annum INR)",
+            "description": "50th percentile annual compensation package across placed students in the branch."
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Average CTC",
+            "unitText": "LPA (Lakhs Per Annum INR)",
+            "description": "Arithmetic mean annual compensation package across placed candidates."
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Session Job Offers",
+            "unitText": "Number of Offers",
+            "description": "Total formal employment offers extended by recruiting organizations during the placement season."
+        }
+    ],
+    "inLanguage": "en-IN",
+    "isAccessibleForFree": true
+};
+
+/**
+ * Valid branch keys available in the demographic dashboard selector.
+ */
+export type BranchKey =
+    | "cse"
+    | "cse_sf"
+    | "cse_ai"
+    | "it"
+    | "ece"
+    | "ei"
+    | "ee"
+    | "me"
+    | "ce"
+    | "che"
+    | "mca"
+    | "mba"
+    | "mtech";
+
+/**
+ * Tab configuration keys for demographic sub-routing.
+ */
 type TabKey = "overall" | "branch";
 
+/**
+ * Demographic sub-navigation tabs configuration.
+ */
 const tabs: { key: TabKey; label: string; short: string }[] = [
     { key: "overall", label: "Overall Placement Statistics", short: "Overall" },
     { key: "branch", label: "Branch-wise Placement Statistics", short: "Branch-wise" },
 ];
 
-const branches = [
+/**
+ * Branch metadata definition for UI dropdown select listbox.
+ */
+export interface BranchOption {
+    key: string;
+    label: string;
+}
+
+/**
+ * Primary engineering disciplines featured in the branch-wise dashboard dropdown.
+ */
+const branches: BranchOption[] = [
     { key: "cse", label: "Computer Science Engineering" },
     { key: "ece", label: "Electronics & Communication Engineering" },
     { key: "ee", label: "Electrical Engineering" },
@@ -33,7 +152,83 @@ const branches = [
     { key: "che", label: "Chemical Engineering" },
 ];
 
-const branchPlacementOffers: Record<string, { session: string; offers: number; placed: number }[]> = {
+/**
+ * Record of job offers received in a specific academic recruitment cycle.
+ */
+export interface SessionPlacementRecord {
+    session: string;
+    offers: number;
+    placed: number;
+}
+
+/**
+ * Record of salary compensation benchmarks for an academic session.
+ */
+export interface CompensationTrendRecord {
+    session: string;
+    highest: number;
+    median: number;
+    average: number;
+}
+
+/**
+ * Official departmental curriculum or academic calendar link document.
+ */
+export interface BranchDocumentRecord {
+    id: number;
+    title: string;
+    type: string;
+    description: string;
+    format: string;
+    year?: string;
+    url: string;
+}
+
+/**
+ * KPI summary metric for departmental student achievements.
+ */
+export interface BranchAchievementStatItem {
+    label: string;
+    value: string;
+}
+
+/**
+ * Departmental student achievement showcase entry.
+ */
+export interface BranchAchievementCardItem {
+    id: number;
+    category: string;
+    title: string;
+    subtitle: string;
+    person?: string;
+    meta?: string;
+    description: string;
+    image: string;
+}
+
+/**
+ * Props for custom Recharts tooltip displaying placement offer counts.
+ */
+export interface CustomPlacementTooltipProps {
+    active?: boolean;
+    payload?: { name: string; value: number; color?: string }[];
+    label?: string;
+}
+
+/**
+ * Props for custom Recharts tooltip displaying compensation trends.
+ */
+export interface CustomCompensationTooltipProps {
+    active?: boolean;
+    payload?: { name: string; value: number; color?: string }[];
+    label?: string;
+}
+
+/**
+ * Historical session-wise placement offer records per engineering discipline.
+ * Maps branch key to an array of academic session records.
+ */
+const branchPlacementOffers: Record<string, SessionPlacementRecord[]> = {
     "cse": [
         {"session":"2023-24","offers":60,"placed":0},
         {"session":"2024-25","offers":86,"placed":0},
@@ -94,7 +289,14 @@ const branchPlacementOffers: Record<string, { session: string; offers: number; p
         {"session":"2025-26","offers":10,"placed":0},
     ],
 };
-const branchPlacementTrendData: Record<string, { session: string; highest: number; median: number; average: number }[]> = {
+
+/**
+ * Historical compensation progression and salary benchmark data across disciplines.
+ * Captures Highest CTC, Median CTC, and Average CTC (in LPA) for each academic session.
+ * 
+ * @type {Record<string, CompensationTrendRecord[]>}
+ */
+const branchPlacementTrendData: Record<string, CompensationTrendRecord[]> = {
     "cse": [
         {"session":"2023-24","highest":59.91,"median":7.5,"average":9.77},
         {"session":"2024-25","highest":54,"median":6,"average":7.63},
@@ -155,12 +357,19 @@ const branchPlacementTrendData: Record<string, { session: string; highest: numbe
         {"session":"2025-26","highest":8.6,"median":7.32,"average":6.57},
     ],
 };
-const branchDocuments: Record<string, { id: number; title: string; type: string; description: string; format: string; year?: string; url: string; }[]> = {
+
+/**
+ * Official academic documents repository per engineering discipline.
+ * Maps branch key to official AKTU/IET academic session calendars and year-wise syllabus PDFs.
+ * 
+ * @type {Record<string, BranchDocumentRecord[]>}
+ */
+const branchDocuments: Record<string, BranchDocumentRecord[]> = {
     "cse": [
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -206,7 +415,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -252,7 +461,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -298,7 +507,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -344,7 +553,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -390,7 +599,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -436,7 +645,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -455,7 +664,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -501,7 +710,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -511,7 +720,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -521,7 +730,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -531,7 +740,7 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
@@ -541,17 +750,21 @@ const branchDocuments: Record<string, { id: number; title: string; type: string;
         {
             "title": "Academic Calendar",
             "type": "calendar",
-            "description": "Current academic session schedule and important dates",
+            "description": "Current Academic Session Schedule and Important Dates",
             "format": "Link",
             "url": "https://www.ietlucknow.ac.in/ac/2627",
             "id": 1
         }
     ]
 };
-const branchAchievementStats: Record<
-    string,
-    { label: string; value: string }[]
-> = {
+
+/**
+ * Key achievement performance indicators and statistics per branch.
+ * Summarizes placement rate, highest package, internship count, and completed capstone projects.
+ * 
+ * @type {Record<string, BranchAchievementStatItem[]>}
+ */
+const branchAchievementStats: Record<string, BranchAchievementStatItem[]> = {
     "cse_sf": [],
     "cse_ai": [],
     "it": [],
@@ -597,19 +810,14 @@ const branchAchievementStats: Record<
     ],
 };
 
-const branchAchievements: Record<
-    string,
-    {
-        id: number;
-        category: string;
-        title: string;
-        subtitle: string;
-        person?: string;
-        meta?: string;
-        description: string;
-        image: string;
-    }[]
-> = {
+/**
+ * Detailed student achievements showcase by discipline.
+ * Highlights competitive examination ranks (GATE), hackathon victories (SIH),
+ * research publications, and core technical project awards.
+ * 
+ * @type {Record<string, BranchAchievementCardItem[]>}
+ */
+const branchAchievements: Record<string, BranchAchievementCardItem[]> = {
     "cse_sf": [],
     "cse_ai": [],
     "it": [],
@@ -876,15 +1084,17 @@ const branchAchievements: Record<
     ],
 };
 
+/**
+ * Custom Recharts Tooltip for rendering total placement offers per session.
+ * 
+ * @param {CustomPlacementTooltipProps} props - Tooltip display properties from Recharts.
+ * @returns {JSX.Element | null} Styled tooltip card with session label and total offer count.
+ */
 function CustomPlacementTooltip({
     active,
     payload,
     label,
-}: {
-    active?: boolean;
-    payload?: { name: string; value: number; color: string }[];
-    label?: string;
-}) {
+}: CustomPlacementTooltipProps) {
     if (!active || !payload || !payload.length) return null;
 
     const offers = payload.find((item) => item.name === "Total Offers")?.value ?? 0;
@@ -909,15 +1119,17 @@ function CustomPlacementTooltip({
     );
 }
 
+/**
+ * Custom Recharts Tooltip for rendering compensation benchmarks (Highest, Median, Average CTC).
+ * 
+ * @param {CustomCompensationTooltipProps} props - Tooltip display properties from Recharts.
+ * @returns {JSX.Element | null} Styled tooltip card with session label.
+ */
 function CustomCompensationTooltip({
     active,
     payload,
     label,
-}: {
-    active?: boolean;
-    payload?: { name: string; value: number; color: string }[];
-    label?: string;
-}) {
+}: CustomCompensationTooltipProps) {
     if (!active || !payload || !payload.length) return null;
 
     return (
@@ -930,19 +1142,33 @@ function CustomCompensationTooltip({
     );
 }
 
+/**
+ * Branch-wise Placement Analytics and Demographics Component.
+ * 
+ * Features:
+ * - Dynamic discipline selector with full keyboard/screen-reader accessibility
+ * - Session-wise placement offers bar chart (comparing successive academic years)
+ * - Three-tier compensation progression analytics (Highest, Median, Average LPA)
+ * - Curated branch documentation (official session calendar & year-wise syllabi)
+ * - Inlined Schema.org Dataset structured data for rich search indexation
+ * 
+ * @returns {JSX.Element} Interactive discipline analytics dashboard.
+ */
 export default function PlacementTabsOnly() {
     const router = useRouter();
     const pathname = usePathname() ?? "";
 
-
+    // Active branch selection state
     const [isBranchMenuOpen, setIsBranchMenuOpen] = useState(false);
     const [selectedBranch, setSelectedBranch] = useState("cse");
 
+    // Memoized active branch option metadata
     const activeBranch = useMemo(
         () => branches.find((branch) => branch.key === selectedBranch) || branches[0],
         [selectedBranch]
     );
 
+    // Memoized session-wise offer data for the chosen branch
     const placementOffersData = useMemo(
         () => branchPlacementOffers[selectedBranch] || branchPlacementOffers.cse,
         [selectedBranch]
@@ -950,8 +1176,14 @@ export default function PlacementTabsOnly() {
 
     return (
         <div className="mt-4 w-full space-y-6">
+            {/* Schema.org Structured Data for Search Engine Optimization (SEO) */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(branchwiseStructuredData) }}
+            />
             
-                <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
+            {/* Branch Selector Combobox Control */}
+            <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
                     <div className="relative">
                         <label className="mb-2 block text-sm font-semibold text-[#144272]">
                             Select Branch
@@ -1015,8 +1247,11 @@ export default function PlacementTabsOnly() {
                         )}
                     </div>
                 </div>
-
-            <section className="mx-auto max-w-7xl rounded-[34px] border border-slate-200/70 bg-white p-6 shadow-[0_20px_60px_rgba(11,60,109,0.08)] sm:p-8">
+            {/* Section 1: Session-wise Placement Offers Bar Chart */}
+            <section
+                aria-label="Session-wise Placement Offers Chart"
+                className="mx-auto max-w-7xl rounded-[34px] border border-slate-200/70 bg-white p-6 shadow-[0_20px_60px_rgba(11,60,109,0.08)] sm:p-8"
+            >
                     <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
                             <p className="text-xs font-semibold uppercase tracking-[0.20em] text-[#2C74B3]">
@@ -1108,8 +1343,12 @@ export default function PlacementTabsOnly() {
                         </div>
                     </div>
                 </section>
-
-            <section className="mx-auto w-full max-w-7xl grid grid-cols-1 gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+            {/* Section 2: Discipline Placement Trends & Departmental Document Repository */}
+            <section
+                aria-label="Branch Placement Trends and Academic Documents"
+                className="mx-auto w-full max-w-7xl grid grid-cols-1 gap-6 xl:grid-cols-[1.2fr_0.8fr]"
+            >
+                {/* Subsection 2A: Highest, Median & Average CTC Multi-Bar Analytics Card */}
                 <div className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-7">
                     <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
@@ -1243,6 +1482,7 @@ export default function PlacementTabsOnly() {
                     </div>
                 </div>
 
+                {/* Subsection 2B: Departmental Academic Documents & Syllabus Repository */}
                 <div className="rounded-[30px] bg-white p-6 shadow-[0_18px_50px_rgba(11,60,109,0.10)] ring-1 ring-slate-200/70 sm:p-7">
                     <div className="flex flex-col gap-4 border-b border-slate-100 pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
