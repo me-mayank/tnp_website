@@ -39,7 +39,7 @@ const placementOffersData = [
   { session: "2022-23", offers: 455 },
   { session: "2023-24", offers: 390 },
   { session: "2024-25", offers: 525 },
-  { session: "2025-26", offers: 526 },
+  { session: "2025-26", offers: 581 },
 ];
 
 const compensationTrendData = [
@@ -47,7 +47,7 @@ const compensationTrendData = [
   { session: "2022-23", highest: 38, median: 6.4, average: 7.8 },
   { session: "2023-24", highest: 59.91, median: 6.15, average: 6.78 },
   { session: "2024-25", highest: 54, median: 6, average: 6.44 },
-  { session: "2025-26", highest: 60.0, median: 6.4, average: 6.52 },
+  { session: "2025-26", highest: 60.0, median: 6.4, average: 7.0 },
 ];
 
 const topPlacements = [
@@ -122,9 +122,9 @@ const overallAchievements = [
 
 const overallKpis = [
   { label: "Highest Package", value: "₹60.0 LPA", helperText: "Top offer across recent sessions", progress: "100%" },
-  { label: "Average Package", value: "₹6.52 LPA", helperText: "Weighted average compensation", progress: "72%" },
+  { label: "Average Package", value: "₹7.0 LPA", helperText: "Average compensation (2025–26)", progress: "72%" },
   { label: "Placement Percentage", value: "80%", helperText: "Students placed from eligible batch", progress: "80%" },
-  { label: "Total Offers", value: "526", helperText: "Offers received in 2025–26", progress: "100%" },
+  { label: "Total Offers", value: "581", helperText: "Offers received in 2025–26", progress: "100%" },
 ];
 
 function CustomPlacementTooltip({ active, payload, label }: any) {
