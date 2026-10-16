@@ -95,7 +95,7 @@ const deputyIncharges: Person[] = [
     role: "Deputy Incharge",
     dept: "Training & Placement Cell",
     email: "ajaysharma@ietlucknow.ac.in",
-    img: "/images/ajay-kumar-sharma.jpg",
+    img: "/images/tnp_members/aks_sir.jpg",
     href: "https://www.ietlucknow.ac.in/people/aksharma"
   },
   {
