@@ -121,6 +121,7 @@ export interface DepartmentDoc {
   name: string;
   href: string;
   icon: LucideIcon;
+  rotateClass: string;
 }
 
 /**
@@ -164,38 +165,44 @@ const studentDocs: StudentDocument[] = [
 
 /**
  * Official academic department web portals on the university main website (ietlucknow.ac.in).
- * Each department is assigned a unique, professional icon reflecting its academic discipline.
+ * Each department is assigned a unique, professional icon with tactile rotation and scale.
  */
 const departmentDocs: DepartmentDoc[] = [
   {
     name: "Computer Science & Eng.",
     href: "https://www.ietlucknow.ac.in/dept/cse",
     icon: Code2,
+    rotateClass: "group-hover:-rotate-6",
   },
   {
     name: "Chemical Engineering",
     href: "https://www.ietlucknow.ac.in/dept/che",
     icon: FlaskConical,
+    rotateClass: "group-hover:rotate-12",
   },
   {
     name: "Civil Engineering",
     href: "https://www.ietlucknow.ac.in/dept/ced",
     icon: DraftingCompass,
+    rotateClass: "group-hover:-rotate-12",
   },
   {
     name: "Electrical Engineering",
     href: "https://www.ietlucknow.ac.in/dept/eed",
     icon: Zap,
+    rotateClass: "group-hover:rotate-12",
   },
   {
     name: "Electronics Engineering",
     href: "https://www.ietlucknow.ac.in/dept/ec",
     icon: Cpu,
+    rotateClass: "group-hover:rotate-6",
   },
   {
     name: "Mechanical Engineering",
     href: "https://www.ietlucknow.ac.in/dept/me",
     icon: Cog,
+    rotateClass: "group-hover:rotate-45",
   },
 ];
 
@@ -400,8 +407,11 @@ export default function DownloadsPage() {
                     title={`Visit ${dept.name} on official college website`}
                   >
                     <div className="flex items-center gap-3.5 min-w-0">
-                      <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-700 group-hover:text-white transition-colors duration-200 ease-out">
-                        <IconComponent className="w-5 h-5 transition-transform duration-200 ease-out group-hover:scale-110" aria-hidden="true" />
+                      <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-700 group-hover:text-white transition-colors duration-250 ease-out">
+                        <IconComponent
+                          className={`w-5 h-5 transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:scale-110 ${dept.rotateClass}`}
+                          aria-hidden="true"
+                        />
                       </div>
                       <span className="text-sm font-bold text-brand-800 truncate group-hover:text-brand-700 transition-colors duration-200 ease-out">
                         {dept.name}
@@ -409,7 +419,10 @@ export default function DownloadsPage() {
                     </div>
 
                     <div className="p-2 text-slate-400 group-hover:text-brand-700 transition-colors duration-200 ease-out shrink-0">
-                      <ArrowUpRight className="w-5 h-5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                      <ArrowUpRight
+                        className="w-5 h-5 transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-110"
+                        aria-hidden="true"
+                      />
                     </div>
                   </a>
                 );
