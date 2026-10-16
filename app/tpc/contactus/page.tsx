@@ -473,14 +473,14 @@ function PersonCard({
             rel="noopener noreferrer"
             className={`absolute ${
               isLarge
-                ? "top-6 right-6 md:top-8 md:right-8"
-                : "top-4 right-4 sm:top-5 sm:right-5"
-            } h-7 sm:h-7.5 min-w-[28px] sm:min-w-[30px] px-1.75 rounded-full flex items-center justify-center bg-brand-50 text-brand-700 border border-brand-200/60 shadow-2xs transition-all duration-300 ease-out group/arrow shrink-0 overflow-hidden z-10 focus:outline-hidden focus:ring-2 focus:ring-brand-accent/40 group-hover/card:bg-brand-700 group-hover/card:text-white group-hover/card:border-brand-700 group-hover/card:shadow-xs`}
+                ? "top-3.5 right-4 sm:top-4 sm:right-5 md:top-4.5 md:right-5"
+                : "top-3 right-3 sm:top-3.5 sm:right-3.5 md:top-3.5 md:right-4"
+            } h-7 sm:h-7.5 min-w-[28px] sm:min-w-[30px] px-2 hover:pl-4 hover:pr-3 rounded-full flex items-center justify-center bg-brand-50 text-brand-700 border border-brand-200/60 shadow-2xs transition-all duration-300 ease-out group/arrow shrink-0 overflow-hidden z-10 focus:outline-hidden focus:ring-2 focus:ring-brand-accent/40 group-hover/card:bg-brand-700 group-hover/card:text-white group-hover/card:border-brand-700 group-hover/card:shadow-xs`}
             title="Faculty Profile"
             aria-label={`View faculty profile of ${person.name}`}
           >
-            {/* Hover text: expands smoothly to Faculty Profile only when the cursor is on the arrow */}
-            <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover/arrow:max-w-[100px] group-hover/arrow:opacity-100 group-hover/arrow:mr-1.5 group-hover/arrow:pl-1 transition-all duration-300 ease-out text-[11px] font-bold text-white pointer-events-none">
+            {/* Hover text: expands smoothly to Faculty Profile with generous side padding */}
+            <span className="inline-block max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover/arrow:max-w-[120px] group-hover/arrow:opacity-100 group-hover/arrow:mr-2 transition-all duration-300 ease-out text-[11px] font-bold text-white pointer-events-none">
               Faculty Profile
             </span>
             <span className="relative w-3.5 h-3.5 overflow-hidden flex items-center justify-center pointer-events-none shrink-0">
