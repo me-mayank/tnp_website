@@ -465,60 +465,62 @@ function PersonCard({
         proximity={64}
         inactiveZone={0.01}
       />
-      <div className={`${cardClass} ${cardPadding}`}>
+      <div className={`${cardClass} ${cardPadding} relative`}>
+        {person.href && (
+          <a
+            href={person.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`absolute ${
+              isLarge
+                ? "top-6 right-6 md:top-8 md:right-8"
+                : "top-4 right-4 sm:top-5 sm:right-5"
+            } h-7 sm:h-7.5 min-w-[28px] sm:min-w-[30px] px-1.75 rounded-full flex items-center justify-center bg-brand-50 text-brand-700 border border-brand-200/60 shadow-2xs transition-all duration-300 ease-out group/arrow shrink-0 overflow-hidden z-10 focus:outline-hidden focus:ring-2 focus:ring-brand-accent/40 group-hover/card:bg-brand-700 group-hover/card:text-white group-hover/card:border-brand-700 group-hover/card:shadow-xs`}
+            title="Faculty Profile"
+            aria-label={`View faculty profile of ${person.name}`}
+          >
+            {/* Hover text: expands smoothly to Faculty Profile only when the cursor is on the arrow */}
+            <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover/arrow:max-w-[100px] group-hover/arrow:opacity-100 group-hover/arrow:mr-1.5 group-hover/arrow:pl-1 transition-all duration-300 ease-out text-[11px] font-bold text-white pointer-events-none">
+              Faculty Profile
+            </span>
+            <span className="relative w-3.5 h-3.5 overflow-hidden flex items-center justify-center pointer-events-none shrink-0">
+              {/* Primary Arrow: slides up-right when card cursor is active */}
+              <svg
+                className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover/card:translate-x-full group-hover/card:-translate-y-full"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.2}
+                  d="M7 17L17 7M17 7H9M17 7V15"
+                />
+              </svg>
+              {/* Duplicate Arrow: slides in from bottom-left when card cursor is active */}
+              <svg
+                className="w-3.5 h-3.5 absolute inset-0 -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover/card:translate-x-0 group-hover/card:translate-y-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.2}
+                  d="M7 17L17 7M17 7H9M17 7V15"
+                />
+              </svg>
+            </span>
+          </a>
+        )}
         {imageNode}
         <div className="flex-1 min-w-0 text-center sm:text-left">
-          <div className="flex items-center justify-between gap-2 mb-2">
-            <span className={`${roleText} font-extrabold text-brand-accent uppercase opacity-90`}>
-              {person.role}
-            </span>
-            {person.href && (
-              <a
-                href={person.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-7 sm:h-7.5 min-w-[28px] sm:min-w-[30px] px-1.75 rounded-full flex items-center justify-center bg-brand-50 text-brand-700 border border-brand-200/60 shadow-2xs transition-all duration-300 ease-out group/arrow shrink-0 overflow-hidden focus:outline-hidden focus:ring-2 focus:ring-brand-accent/40 group-hover/card:bg-brand-700 group-hover/card:text-white group-hover/card:border-brand-700 group-hover/card:shadow-xs"
-                title="Faculty Profile"
-                aria-label={`View faculty profile of ${person.name}`}
-              >
-                {/* Hover text: expands smoothly to Faculty Profile only when the cursor is on the arrow */}
-                <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover/arrow:max-w-[100px] group-hover/arrow:opacity-100 group-hover/arrow:mr-1.5 group-hover/arrow:pl-1 transition-all duration-300 ease-out text-[11px] font-bold text-white pointer-events-none">
-                  Faculty Profile
-                </span>
-                <span className="relative w-3.5 h-3.5 overflow-hidden flex items-center justify-center pointer-events-none shrink-0">
-                  {/* Primary Arrow: slides up-right when card cursor is active */}
-                  <svg
-                    className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover/card:translate-x-full group-hover/card:-translate-y-full"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2.2}
-                      d="M7 17L17 7M17 7H9M17 7V15"
-                    />
-                  </svg>
-                  {/* Duplicate Arrow: slides in from bottom-left when card cursor is active */}
-                  <svg
-                    className="w-3.5 h-3.5 absolute inset-0 -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover/card:translate-x-0 group-hover/card:translate-y-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2.2}
-                      d="M7 17L17 7M17 7H9M17 7V15"
-                    />
-                  </svg>
-                </span>
-              </a>
-            )}
+          <div className={`${roleText} font-extrabold text-brand-accent uppercase mb-2 opacity-90`}>
+            {person.role}
           </div>
           {person.href ? (
             <a
