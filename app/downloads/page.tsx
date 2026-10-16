@@ -21,6 +21,16 @@
  */
 
 import type { Metadata } from "next";
+import {
+  Code2,
+  FlaskConical,
+  DraftingCompass,
+  Zap,
+  Cpu,
+  Cog,
+  ArrowUpRight,
+  type LucideIcon,
+} from "lucide-react";
 
 /**
  * Cache policy configuration: Statically compile and cache indefinitely
@@ -110,6 +120,7 @@ export interface StudentDocument {
 export interface DepartmentDoc {
   name: string;
   href: string;
+  icon: LucideIcon;
 }
 
 /**
@@ -153,15 +164,39 @@ const studentDocs: StudentDocument[] = [
 
 /**
  * Official academic department web portals on the university main website (ietlucknow.ac.in).
- * Verified links directing recruiters and visitors directly to the official university department pages.
+ * Each department is assigned a unique, professional icon reflecting its academic discipline.
  */
 const departmentDocs: DepartmentDoc[] = [
-  { name: "Computer Science & Eng.", href: "https://www.ietlucknow.ac.in/dept/cse" },
-  { name: "Chemical Engineering", href: "https://www.ietlucknow.ac.in/dept/che" },
-  { name: "Civil Engineering", href: "https://www.ietlucknow.ac.in/dept/ced" },
-  { name: "Electrical Engineering", href: "https://www.ietlucknow.ac.in/dept/eed" },
-  { name: "Electronics Engineering", href: "https://www.ietlucknow.ac.in/dept/ec" },
-  { name: "Mechanical Engineering", href: "https://www.ietlucknow.ac.in/dept/me" },
+  {
+    name: "Computer Science & Eng.",
+    href: "https://www.ietlucknow.ac.in/dept/cse",
+    icon: Code2,
+  },
+  {
+    name: "Chemical Engineering",
+    href: "https://www.ietlucknow.ac.in/dept/che",
+    icon: FlaskConical,
+  },
+  {
+    name: "Civil Engineering",
+    href: "https://www.ietlucknow.ac.in/dept/ced",
+    icon: DraftingCompass,
+  },
+  {
+    name: "Electrical Engineering",
+    href: "https://www.ietlucknow.ac.in/dept/eed",
+    icon: Zap,
+  },
+  {
+    name: "Electronics Engineering",
+    href: "https://www.ietlucknow.ac.in/dept/ec",
+    icon: Cpu,
+  },
+  {
+    name: "Mechanical Engineering",
+    href: "https://www.ietlucknow.ac.in/dept/me",
+    icon: Cog,
+  },
 ];
 
 /**
@@ -260,14 +295,10 @@ export default function DownloadsPage() {
               {instituteDocs.map((doc) => (
                 <div
                   key={doc.title}
-                  className="relative bg-white border-2 border-gray-100 rounded-3xl p-6 shadow-xs hover:shadow-[0_16px_36px_-12px_rgba(10,38,71,0.12),0_4px_16px_-4px_rgba(44,116,179,0.06)] hover:border-brand-accent/30 -translate-y-0 hover:-translate-y-1.5 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group flex items-center gap-6 overflow-hidden"
+                  className="bg-white border-2 border-gray-100 rounded-3xl p-6 shadow-xs hover:shadow-md hover:border-brand-accent/30 hover:-translate-y-1 transform-gpu transition-all duration-200 ease-out group flex items-center gap-6"
                 >
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/20 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none"
-                  />
-                  <div className="relative p-4 bg-blue-50 text-blue-600 rounded-2xl shrink-0 group-hover:scale-105 group-hover:bg-brand-700 group-hover:text-white transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                    <svg className="w-10 h-10 transition-transform duration-300 group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <div className="p-4 bg-blue-50 text-blue-600 rounded-2xl shrink-0 group-hover:bg-brand-700 group-hover:text-white transition-colors duration-200 ease-out">
+                    <svg className="w-10 h-10 transition-transform duration-200 ease-out group-hover:scale-105" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -276,16 +307,16 @@ export default function DownloadsPage() {
                       />
                     </svg>
                   </div>
-                  <div className="relative flex-1 min-w-0">
-                    <h3 className="font-bold text-brand-800 text-lg truncate group-hover:text-brand-700 transition-colors duration-300">{doc.title}</h3>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-brand-800 text-lg truncate group-hover:text-brand-700 transition-colors duration-200">{doc.title}</h3>
                     <p className="text-xs text-muted mb-4">{doc.subtitle}</p>
                     <a
                       href={doc.href}
                       download
-                      className="text-brand-700 font-bold text-sm inline-flex items-center gap-2 hover:text-brand-accent transition-colors focus:outline-hidden focus:underline group/btn"
+                      className="text-brand-700 font-bold text-sm inline-flex items-center gap-2 hover:text-brand-accent transition-colors duration-150 focus:outline-hidden focus:underline group/btn"
                       aria-label={`Download ${doc.title} (${doc.type})`}
                     >
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <svg className="w-4 h-4 transition-transform duration-200 ease-out group-hover/btn:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
@@ -314,27 +345,23 @@ export default function DownloadsPage() {
               {studentDocs.map((doc) => (
                 <div
                   key={doc.name}
-                  className="relative bg-white border border-gray-100 rounded-2xl p-5 shadow-xs hover:shadow-[0_12px_28px_-8px_rgba(10,38,71,0.1),0_4px_12px_-4px_rgba(44,116,179,0.06)] hover:border-brand-accent/30 -translate-y-0 hover:-translate-y-1 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group flex flex-col justify-between overflow-hidden"
+                  className="bg-white border border-gray-100 rounded-2xl p-5 shadow-xs hover:shadow-md hover:border-brand-accent/30 hover:-translate-y-1 transform-gpu transition-all duration-200 ease-out group flex flex-col justify-between"
                 >
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none"
-                  />
-                  <div className="relative">
+                  <div>
                     <div className="text-[10px] font-bold text-brand-accent uppercase mb-2 tracking-wider">
                       {doc.type}
                     </div>
-                    <h3 className="font-bold text-brand-800 mb-6 h-10 overflow-hidden text-sm leading-tight group-hover:text-brand-700 transition-colors duration-300">
+                    <h3 className="font-bold text-brand-800 mb-6 h-10 overflow-hidden text-sm leading-tight group-hover:text-brand-700 transition-colors duration-200">
                       {doc.name}
                     </h3>
                   </div>
                   <a
                     href={doc.href}
                     download
-                    className="relative w-full py-2 bg-blue-500 text-white rounded-lg text-xs font-bold hover:bg-brand-700 hover:shadow-xs active:scale-[0.98] transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-center gap-2 shadow-xs focus:outline-hidden focus:ring-2 focus:ring-brand-accent/20 group/btn"
+                    className="w-full py-2 bg-blue-500 text-white rounded-lg text-xs font-bold hover:bg-brand-700 hover:shadow-xs active:scale-[0.98] transition-all duration-200 ease-out flex items-center justify-center gap-2 shadow-xs focus:outline-hidden focus:ring-2 focus:ring-brand-accent/20 group/btn"
                     aria-label={`Download ${doc.name} (${doc.type})`}
                   >
-                    <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg className="w-4 h-4 transition-transform duration-200 ease-out group-hover/btn:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -360,62 +387,33 @@ export default function DownloadsPage() {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {departmentDocs.map((dept) => (
-                <a
-                  key={dept.name}
-                  href={dept.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-[0_12px_28px_-8px_rgba(10,38,71,0.12),0_4px_12px_-4px_rgba(44,116,179,0.06)] hover:border-brand-accent/40 -translate-y-0 hover:-translate-y-1 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden focus:outline-hidden focus:ring-2 focus:ring-brand-accent/30"
-                  aria-label={`Visit official ${dept.name} department page on IET Lucknow website (opens in a new tab)`}
-                  title={`Visit ${dept.name} on official college website`}
-                >
-                  {/* Subtle ambient shimmer backlight on hover */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-50/30 to-brand-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none"
-                  />
-
-                  <div className="relative flex items-center gap-3.5 min-w-0 z-10">
-                    <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-700 group-hover:text-white group-hover:scale-105 group-hover:shadow-xs transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                      <svg
-                        className="w-5 h-5 transition-transform duration-300 group-hover:scale-105"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                        />
-                      </svg>
+              {departmentDocs.map((dept) => {
+                const IconComponent = dept.icon;
+                return (
+                  <a
+                    key={dept.name}
+                    href={dept.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-xs hover:shadow-md hover:border-brand-accent/50 hover:-translate-y-1 transform-gpu transition-all duration-200 ease-out focus:outline-hidden focus:ring-2 focus:ring-brand-accent/30"
+                    aria-label={`Visit official ${dept.name} department page on IET Lucknow website (opens in a new tab)`}
+                    title={`Visit ${dept.name} on official college website`}
+                  >
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-700 group-hover:text-white transition-colors duration-200 ease-out">
+                        <IconComponent className="w-5 h-5 transition-transform duration-200 ease-out group-hover:scale-110" aria-hidden="true" />
+                      </div>
+                      <span className="text-sm font-bold text-brand-800 truncate group-hover:text-brand-700 transition-colors duration-200 ease-out">
+                        {dept.name}
+                      </span>
                     </div>
-                    <span className="text-sm font-bold text-brand-800 truncate group-hover:text-brand-700 transition-colors duration-300">
-                      {dept.name}
-                    </span>
-                  </div>
 
-                  <div className="relative p-2 text-brand-700/60 group-hover:text-white group-hover:bg-brand-700 rounded-lg transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0 z-10 group-hover:shadow-xs">
-                    <svg
-                      className="w-5 h-5 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </div>
-                </a>
-              ))}
+                    <div className="p-2 text-slate-400 group-hover:text-brand-700 transition-colors duration-200 ease-out shrink-0">
+                      <ArrowUpRight className="w-5 h-5 transition-transform duration-200 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </section>
         </div>
