@@ -15,7 +15,7 @@
  * - WCAG 2.1 AA Accessibility: Semantic landmarks, keyboard navigation, and descriptive `aria-label`s
  * 
  * @module DownloadsDirectory
- * @version 2.3.0
+ * @version 2.3.1
  * @author Training & Placement Cell, Institute of Engineering and Technology, Lucknow
  * @license Proprietary - Academic Institution Recruitment Portal
  */
@@ -107,12 +107,9 @@ export interface StudentDocument {
 /**
  * Interface representing official academic engineering department web portals.
  */
-export interface DepartmentPortal {
-  code: string;
+export interface DepartmentDoc {
   name: string;
-  fullName: string;
   href: string;
-  category: "Engineering" | "Postgraduate" | "Applied Sciences";
 }
 
 /**
@@ -156,52 +153,15 @@ const studentDocs: StudentDocument[] = [
 
 /**
  * Official academic department web portals on the university main website (ietlucknow.ac.in).
- * Verified and mapped directly to ensure visitors always access the latest curriculum,
- * faculty profiles, labs, and research achievements.
+ * Verified links directing recruiters and visitors directly to the official university department pages.
  */
-const departmentPortals: DepartmentPortal[] = [
-  {
-    code: "CSE",
-    name: "Computer Science & Engineering",
-    fullName: "Department of Computer Science & Engineering",
-    href: "https://www.ietlucknow.ac.in/dept/cse",
-    category: "Engineering",
-  },
-  {
-    code: "CHE",
-    name: "Chemical Engineering",
-    fullName: "Department of Chemical Engineering",
-    href: "https://www.ietlucknow.ac.in/dept/che",
-    category: "Engineering",
-  },
-  {
-    code: "CE",
-    name: "Civil Engineering",
-    fullName: "Department of Civil Engineering",
-    href: "https://www.ietlucknow.ac.in/dept/ced",
-    category: "Engineering",
-  },
-  {
-    code: "EE",
-    name: "Electrical Engineering",
-    fullName: "Department of Electrical Engineering",
-    href: "https://www.ietlucknow.ac.in/dept/eed",
-    category: "Engineering",
-  },
-  {
-    code: "ECE",
-    name: "Electronics & Communication Eng.",
-    fullName: "Department of Electronics & Communication Engineering",
-    href: "https://www.ietlucknow.ac.in/dept/ec",
-    category: "Engineering",
-  },
-  {
-    code: "ME",
-    name: "Mechanical Engineering",
-    fullName: "Department of Mechanical Engineering",
-    href: "https://www.ietlucknow.ac.in/dept/me",
-    category: "Engineering",
-  },
+const departmentDocs: DepartmentDoc[] = [
+  { name: "Computer Science & Eng.", href: "https://www.ietlucknow.ac.in/dept/cse" },
+  { name: "Chemical Engineering", href: "https://www.ietlucknow.ac.in/dept/che" },
+  { name: "Civil Engineering", href: "https://www.ietlucknow.ac.in/dept/ced" },
+  { name: "Electrical Engineering", href: "https://www.ietlucknow.ac.in/dept/eed" },
+  { name: "Electronics Engineering", href: "https://www.ietlucknow.ac.in/dept/ec" },
+  { name: "Mechanical Engineering", href: "https://www.ietlucknow.ac.in/dept/me" },
 ];
 
 /**
@@ -252,10 +212,10 @@ const downloadsStructuredData = {
       name: "Official Academic Department Portals",
       description:
         "Direct links to official engineering department portals on the IET Lucknow central institution website.",
-      itemListElement: departmentPortals.map((dept, index) => ({
+      itemListElement: departmentDocs.map((dept, index) => ({
         "@type": "ListItem",
         position: index + 1,
-        name: dept.fullName,
+        name: dept.name,
         url: dept.href,
       })),
     },
@@ -283,7 +243,7 @@ export default function DownloadsPage() {
             <h1 className="text-4xl font-extrabold text-brand-800 tracking-tight">Resources</h1>
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4" aria-hidden="true" />
             <p className="mt-6 text-muted max-w-2xl mx-auto text-lg leading-relaxed font-medium">
-              Official documents, placement policies, and direct links to academic department portals for students and recruiters.
+              Official documents, placement policies, and department-specific brochures for students and recruiters.
             </p>
           </header>
 
@@ -381,51 +341,47 @@ export default function DownloadsPage() {
             </div>
           </section>
 
-          {/* Section 3: Department Brochures & Official Academic Portals */}
-          <section className="mb-12" aria-labelledby="dept-portals-heading">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-8">
-              <h2
-                id="dept-portals-heading"
-                className="text-xl font-bold text-brand-800 flex items-center gap-3"
-              >
-                <span className="w-8 h-1 bg-brand-accent rounded-full" aria-hidden="true" />
-                DEPARTMENT BROCHURES
-              </h2>
-              <span className="text-xs font-semibold text-muted bg-gray-100 px-3 py-1 rounded-full self-start sm:self-auto">
-                Official College Department Portals
-              </span>
-            </div>
+          {/* Section 3: Department Brochures */}
+          <section className="mb-12" aria-labelledby="dept-docs-heading">
+            <h2
+              id="dept-docs-heading"
+              className="text-xl font-bold text-brand-800 mb-8 flex items-center gap-3"
+            >
+              <span className="w-8 h-1 bg-brand-accent rounded-full" aria-hidden="true" />
+              DEPARTMENT BROCHURES
+            </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {departmentPortals.map((dept) => (
-                <a
-                  key={dept.code}
-                  href={dept.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md hover:border-brand-accent transition-all group focus:outline-hidden focus:ring-2 focus:ring-brand-accent/20"
-                  aria-label={`Visit official ${dept.name} (${dept.code}) department portal on IET Lucknow website (opens in a new tab)`}
-                  title={`Visit ${dept.fullName} on official college website`}
+              {departmentDocs.map((dept) => (
+                <div
+                  key={dept.name}
+                  className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:border-brand-accent transition-all group"
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-brand-700 group-hover:text-white transition-colors font-bold text-xs tracking-wider">
-                      {dept.code}
+                    <div className="w-10 h-10 bg-brand-50 text-brand-700 rounded-xl flex items-center justify-center shrink-0">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                        />
+                      </svg>
                     </div>
-                    <div className="min-w-0">
-                      <span className="text-sm font-bold text-brand-800 truncate block group-hover:text-brand-700 transition-colors">
-                        {dept.name}
-                      </span>
-                      <span className="text-[11px] text-muted flex items-center gap-1.5 mt-0.5">
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
-                        <span>Official Portal</span>
-                        <span aria-hidden="true">&bull;</span>
-                        <span className="truncate">ietlucknow.ac.in</span>
-                      </span>
-                    </div>
+                    <span className="text-sm font-bold text-brand-800 truncate">
+                      {dept.name}
+                    </span>
                   </div>
-                  <div className="p-2 text-brand-700 bg-brand-50/60 group-hover:bg-brand-700 group-hover:text-white rounded-lg transition-all shrink-0 ml-2">
+                  <a
+                    href={dept.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 text-brand-700 hover:bg-brand-700 hover:text-white rounded-lg transition-all shrink-0"
+                    aria-label={`Visit official ${dept.name} department page on IET Lucknow website (opens in a new tab)`}
+                    title={`Visit ${dept.name} on official college website`}
+                  >
                     <svg
-                      className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      className="w-5 h-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -438,8 +394,8 @@ export default function DownloadsPage() {
                         d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                       />
                     </svg>
-                  </div>
-                </a>
+                  </a>
+                </div>
               ))}
             </div>
           </section>
