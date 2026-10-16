@@ -402,14 +402,14 @@ export default function DownloadsPage() {
                     href={dept.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between p-4.5 bg-white border border-slate-200/80 rounded-2xl shadow-xs hover:shadow-[0_12px_30px_-8px_rgba(37,99,235,0.12),0_4px_12px_-4px_rgba(0,0,0,0.04)] hover:border-blue-400/50 hover:-translate-y-1 transform-gpu transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] focus:outline-hidden focus:ring-2 focus:ring-blue-500/20"
+                    className="group flex items-center justify-between p-4 sm:p-4.5 bg-white border border-slate-200/80 rounded-2xl shadow-xs hover:shadow-[0_12px_28px_-6px_rgba(37,99,235,0.1),0_4px_10px_-2px_rgba(0,0,0,0.03)] hover:border-blue-400/50 hover:-translate-y-1 transform-gpu transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] focus:outline-hidden focus:ring-2 focus:ring-blue-500/20"
                     aria-label={`Visit official ${dept.name} department page on IET Lucknow website (opens in a new tab)`}
                     title={`Visit ${dept.name} on official college website`}
                   >
-                    <div className="flex items-center gap-4 min-w-0">
-                      <div className="w-8 h-8 flex items-center justify-center shrink-0">
+                    <div className="flex items-center gap-3.5 min-w-0">
+                      <div className="w-9 h-9 flex items-center justify-center shrink-0">
                         <IconComponent
-                          className={`w-6 h-6 text-slate-500 group-hover:text-blue-600 transform-gpu transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125 ${dept.rotateClass}`}
+                          className={`w-6 h-6 text-blue-600 group-hover:text-blue-500 transform-gpu origin-center will-change-transform transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125 ${dept.rotateClass}`}
                           aria-hidden="true"
                         />
                       </div>
@@ -418,9 +418,9 @@ export default function DownloadsPage() {
                       </span>
                     </div>
 
-                    <div className="p-2 text-slate-400 group-hover:text-blue-600 transition-colors duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0">
+                    <div className="p-1.5 text-slate-300 group-hover:text-blue-600 transition-colors duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0">
                       <ArrowUpRight
-                        className="w-5 h-5 transform-gpu transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-120"
+                        className="w-5 h-5 transform-gpu transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-115"
                         aria-hidden="true"
                       />
                     </div>
