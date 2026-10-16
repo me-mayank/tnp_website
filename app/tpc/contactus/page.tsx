@@ -455,7 +455,7 @@ function PersonCard({
   const phoneHref = person.phone ? `tel:${person.phone.replace(/\s+/g, "")}` : undefined;
 
   return (
-    <article className={`${wrapperClass} ${className}`.trim()} aria-label={`${person.name}, ${person.role}`}>
+    <article className={`${wrapperClass} ${className} group/card`.trim()} aria-label={`${person.name}, ${person.role}`}>
       <GlowingEffect
         blur={0}
         borderWidth={2}
@@ -465,10 +465,63 @@ function PersonCard({
         proximity={64}
         inactiveZone={0.01}
       />
-      <div className={`${cardClass} ${cardPadding}`}>
+      <div className={`${cardClass} ${cardPadding} relative`}>
+        {person.href && (
+          <a
+            href={person.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`absolute ${
+              isLarge
+                ? "top-3.5 right-4 sm:top-4 sm:right-5 md:top-4.5 md:right-5"
+                : "top-3 right-3 sm:top-3.5 sm:right-3.5 md:top-3.5 md:right-4"
+            } h-7 sm:h-7.5 min-w-[28px] sm:min-w-[30px] px-2 hover:pl-4 hover:pr-3 rounded-full flex items-center justify-center bg-brand-50 text-brand-700 border border-brand-200/60 shadow-2xs transition-all duration-300 ease-out group/arrow shrink-0 overflow-hidden z-10 focus:outline-hidden focus:ring-2 focus:ring-brand-accent/40 group-hover/card:bg-brand-700 group-hover/card:text-white group-hover/card:border-brand-700 group-hover/card:shadow-xs`}
+            title="Faculty Profile"
+            aria-label={`View faculty profile of ${person.name}`}
+          >
+            {/* Hover text: expands smoothly to Faculty Profile with generous side padding */}
+            <span className="inline-block max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover/arrow:max-w-[120px] group-hover/arrow:opacity-100 group-hover/arrow:mr-2 transition-all duration-300 ease-out text-[11px] font-bold text-white pointer-events-none">
+              Faculty Profile
+            </span>
+            <span className="relative w-3.5 h-3.5 overflow-hidden flex items-center justify-center pointer-events-none shrink-0">
+              {/* Primary Arrow: slides up-right when card cursor is active */}
+              <svg
+                className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover/card:translate-x-full group-hover/card:-translate-y-full"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.2}
+                  d="M7 17L17 7M17 7H9M17 7V15"
+                />
+              </svg>
+              {/* Duplicate Arrow: slides in from bottom-left when card cursor is active */}
+              <svg
+                className="w-3.5 h-3.5 absolute inset-0 -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover/card:translate-x-0 group-hover/card:translate-y-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.2}
+                  d="M7 17L17 7M17 7H9M17 7V15"
+                />
+              </svg>
+            </span>
+          </a>
+        )}
         {imageNode}
         <div className="flex-1 min-w-0 text-center sm:text-left">
-          <div className={`${roleText} font-extrabold text-brand-accent uppercase mb-2 opacity-90`}>{person.role}</div>
+          <div className={`${roleText} font-extrabold text-brand-accent uppercase mb-2 opacity-90`}>
+            {person.role}
+          </div>
           {person.href ? (
             <a
               href={person.href}
@@ -496,38 +549,29 @@ function PersonCard({
                 {person.emailp && (
                   <a
                     href={`mailto:${person.emailp}`}
-                    className="flex items-center gap-1.5 px-3 py-1.5 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50 shadow-2xs group/mail"
                     aria-label={`Send email to ${person.emailp}`}
                   >
+                    <svg className="w-3.5 h-3.5 shrink-0 opacity-75 group-hover/mail:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
                     <span className="text-xs font-semibold truncate">{person.emailp}</span>
                   </a>
                 )}
                 <a
                   href={`mailto:${person.email}`}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50 max-w-full"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-50 rounded-xl text-brand-700 hover:bg-brand-700 hover:text-white transition-all duration-200 border border-brand-100/50 max-w-full shadow-2xs group/mail"
                   title={person.email}
                   aria-label={`Send email to ${person.name} at ${person.email}`}
                 >
+                  <svg className="w-3.5 h-3.5 shrink-0 opacity-75 group-hover/mail:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
                   <span className={`text-xs font-semibold tracking-tight ${isMedium ? "whitespace-nowrap" : "truncate"}`}>
                     {person.email}
                   </span>
                 </a>
               </div>
-            )}
-            {person.href && (
-              <a
-                href={person.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-brand-50 hover:bg-brand-700 hover:text-white text-brand-700 rounded-xl transition-all duration-200 border border-brand-100/50 group/link"
-                title={`View ${person.name}'s Profile on College Website`}
-                aria-label={`View faculty profile of ${person.name}`}
-              >
-                <span className="text-xs font-bold">Profile</span>
-                <svg className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
             )}
             {phoneHref && (
               <a
