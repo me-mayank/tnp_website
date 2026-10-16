@@ -455,7 +455,7 @@ function PersonCard({
   const phoneHref = person.phone ? `tel:${person.phone.replace(/\s+/g, "")}` : undefined;
 
   return (
-    <article className={`${wrapperClass} ${className}`.trim()} aria-label={`${person.name}, ${person.role}`}>
+    <article className={`${wrapperClass} ${className} group/card`.trim()} aria-label={`${person.name}, ${person.role}`}>
       <GlowingEffect
         blur={0}
         borderWidth={2}
@@ -477,14 +477,18 @@ function PersonCard({
                 href={person.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full flex items-center justify-center bg-brand-50 hover:bg-brand-700 text-brand-700 hover:text-white border border-brand-200/60 shadow-2xs hover:shadow-sm transition-all duration-300 group/link shrink-0 focus:outline-hidden focus:ring-2 focus:ring-brand-accent/40"
-                title={`View ${person.name}'s Profile on College Website`}
+                className="h-7 sm:h-7.5 min-w-[28px] sm:min-w-[30px] px-1.75 rounded-full flex items-center justify-center bg-brand-50 text-brand-700 border border-brand-200/60 shadow-2xs transition-all duration-300 ease-out group/arrow shrink-0 overflow-hidden focus:outline-hidden focus:ring-2 focus:ring-brand-accent/40 group-hover/card:bg-brand-700 group-hover/card:text-white group-hover/card:border-brand-700 group-hover/card:shadow-xs"
+                title="Faculty Profile"
                 aria-label={`View faculty profile of ${person.name}`}
               >
-                <span className="relative w-3.5 h-3.5 overflow-hidden flex items-center justify-center pointer-events-none">
-                  {/* Primary Arrow: slides up-right on hover */}
+                {/* Hover text: expands smoothly to Faculty Profile only when the cursor is on the arrow */}
+                <span className="max-w-0 overflow-hidden whitespace-nowrap opacity-0 group-hover/arrow:max-w-[100px] group-hover/arrow:opacity-100 group-hover/arrow:mr-1.5 group-hover/arrow:pl-1 transition-all duration-300 ease-out text-[11px] font-bold text-white pointer-events-none">
+                  Faculty Profile
+                </span>
+                <span className="relative w-3.5 h-3.5 overflow-hidden flex items-center justify-center pointer-events-none shrink-0">
+                  {/* Primary Arrow: slides up-right when card cursor is active */}
                   <svg
-                    className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover/link:translate-x-full group-hover/link:-translate-y-full"
+                    className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover/card:translate-x-full group-hover/card:-translate-y-full"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -497,9 +501,9 @@ function PersonCard({
                       d="M7 17L17 7M17 7H9M17 7V15"
                     />
                   </svg>
-                  {/* Duplicate Arrow: slides in from bottom-left on hover */}
+                  {/* Duplicate Arrow: slides in from bottom-left when card cursor is active */}
                   <svg
-                    className="w-3.5 h-3.5 absolute inset-0 -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover/link:translate-x-0 group-hover/link:translate-y-0"
+                    className="w-3.5 h-3.5 absolute inset-0 -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover/card:translate-x-0 group-hover/card:translate-y-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
