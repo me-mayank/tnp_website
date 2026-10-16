@@ -468,7 +468,7 @@ function PersonCard({
       <div className={`${cardClass} ${cardPadding}`}>
         {imageNode}
         <div className="flex-1 min-w-0 text-center sm:text-left">
-          <div className="flex items-center justify-center sm:justify-between gap-2 mb-2 flex-wrap">
+          <div className="flex items-center justify-between gap-2 mb-2">
             <span className={`${roleText} font-extrabold text-brand-accent uppercase opacity-90`}>
               {person.role}
             </span>
@@ -477,22 +477,42 @@ function PersonCard({
                 href={person.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-brand-50 hover:bg-brand-700 hover:text-white text-brand-700 rounded-full transition-all duration-200 border border-brand-100/70 group/link shrink-0 shadow-2xs"
+                className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full flex items-center justify-center bg-brand-50 hover:bg-brand-700 text-brand-700 hover:text-white border border-brand-200/60 shadow-2xs hover:shadow-sm transition-all duration-300 group/link shrink-0 focus:outline-hidden focus:ring-2 focus:ring-brand-accent/40"
                 title={`View ${person.name}'s Profile on College Website`}
                 aria-label={`View faculty profile of ${person.name}`}
               >
-                <span className="text-[11px] font-bold">
-                  <span className="hidden sm:inline">Faculty </span>Profile
+                <span className="relative w-3.5 h-3.5 overflow-hidden flex items-center justify-center pointer-events-none">
+                  {/* Primary Arrow: slides up-right on hover */}
+                  <svg
+                    className="w-3.5 h-3.5 transition-transform duration-300 ease-out group-hover/link:translate-x-full group-hover/link:-translate-y-full"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.2}
+                      d="M7 17L17 7M17 7H9M17 7V15"
+                    />
+                  </svg>
+                  {/* Duplicate Arrow: slides in from bottom-left on hover */}
+                  <svg
+                    className="w-3.5 h-3.5 absolute inset-0 -translate-x-full translate-y-full transition-transform duration-300 ease-out group-hover/link:translate-x-0 group-hover/link:translate-y-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.2}
+                      d="M7 17L17 7M17 7H9M17 7V15"
+                    />
+                  </svg>
                 </span>
-                <svg
-                  className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
               </a>
             )}
           </div>
