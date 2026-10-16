@@ -178,19 +178,19 @@ const departmentDocs: DepartmentDoc[] = [
     name: "Chemical Engineering",
     href: "https://www.ietlucknow.ac.in/dept/che",
     icon: FlaskConical,
-    rotateClass: "group-hover:rotate-12",
+    rotateClass: "group-hover:rotate-8",
   },
   {
     name: "Civil Engineering",
     href: "https://www.ietlucknow.ac.in/dept/ced",
     icon: DraftingCompass,
-    rotateClass: "group-hover:-rotate-12",
+    rotateClass: "group-hover:-rotate-8",
   },
   {
     name: "Electrical Engineering",
     href: "https://www.ietlucknow.ac.in/dept/eed",
     icon: Zap,
-    rotateClass: "group-hover:rotate-12",
+    rotateClass: "group-hover:rotate-8",
   },
   {
     name: "Electronics Engineering",
@@ -202,7 +202,7 @@ const departmentDocs: DepartmentDoc[] = [
     name: "Mechanical Engineering",
     href: "https://www.ietlucknow.ac.in/dept/me",
     icon: Cog,
-    rotateClass: "group-hover:rotate-45",
+    rotateClass: "group-hover:rotate-12",
   },
 ];
 
@@ -409,18 +409,18 @@ export default function DownloadsPage() {
                     <div className="flex items-center gap-3.5 min-w-0">
                       <div className="w-9 h-9 flex items-center justify-center shrink-0">
                         <IconComponent
-                          className={`w-6 h-6 text-blue-600 group-hover:text-blue-500 transform-gpu origin-center will-change-transform transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125 ${dept.rotateClass}`}
+                          className={`w-6 h-6 text-blue-600 transform-gpu origin-center will-change-transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-125 ${dept.rotateClass}`}
                           aria-hidden="true"
                         />
                       </div>
-                      <span className="text-sm font-bold text-brand-800 truncate group-hover:text-blue-600 transition-colors duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                      <span className="text-sm font-bold text-brand-800 truncate">
                         {dept.name}
                       </span>
                     </div>
 
                     <div className="p-1.5 text-slate-300 group-hover:text-blue-600 transition-colors duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] shrink-0">
                       <ArrowUpRight
-                        className="w-5 h-5 transform-gpu transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-115"
+                        className="w-5 h-5 transform-gpu transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-115"
                         aria-hidden="true"
                       />
                     </div>
