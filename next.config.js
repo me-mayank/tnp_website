@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
+
+// Permit font downloads through SSL-inspecting campus/corporate proxies during development
+if (process.env.NODE_ENV !== 'production') {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+}
+
 const nextConfig = {
   images: {
     unoptimized: true,

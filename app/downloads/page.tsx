@@ -285,7 +285,7 @@ export default function DownloadsPage() {
             <h1 className="text-4xl font-extrabold text-brand-800 tracking-tight">Resources</h1>
             <div className="h-1.5 w-20 bg-brand-accent rounded-full mx-auto mt-4" aria-hidden="true" />
             <p className="mt-6 text-muted max-w-2xl mx-auto text-lg leading-relaxed font-medium">
-              Official documents, placement policies, and department-specific brochures for students and recruiters.
+              Official documents, placement policies, and academic departments for students and recruiters.
             </p>
           </header>
 
@@ -383,14 +383,14 @@ export default function DownloadsPage() {
             </div>
           </section>
 
-          {/* Section 3: Department Brochures */}
-          <section className="mb-12" aria-labelledby="dept-docs-heading">
+          {/* Section 3: Academic Departments */}
+          <section id="academic-departments" className="mb-12 scroll-mt-28" aria-labelledby="dept-docs-heading">
             <h2
               id="dept-docs-heading"
               className="text-xl font-bold text-brand-800 mb-8 flex items-center gap-3"
             >
               <span className="w-8 h-1 bg-brand-accent rounded-full" aria-hidden="true" />
-              DEPARTMENT BROCHURES
+              ACADEMIC DEPARTMENTS
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
