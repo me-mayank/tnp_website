@@ -33,9 +33,6 @@ import {
 } from 'recharts';
 import { useMotionValueEvent, useSpring, motion, AnimatePresence } from 'motion/react';
 import NumberFlow from '@number-flow/react';
-import { Montserrat } from 'next/font/google';
-
-const montserrat = Montserrat({ subsets: ['latin'] });
 
 /**
  * Schema.org JSON-LD Structured Data for Institutional Placement Analytics.
@@ -330,7 +327,7 @@ const PlacementSection = () => {
       role="tabpanel"
       id={`placement-graph-panel-${displayedGraph}`}
       aria-labelledby={`placement-tab-${displayedGraph}`}
-      className={`bg-gradient-to-br from-brand-50 to-white rounded-lg p-3 lg:p-4 lg:py-3 border border-brand-100 shadow-lg h-full flex flex-col justify-between ${montserrat.className}`}
+      className="bg-gradient-to-br from-brand-50 to-white rounded-lg p-3 lg:p-4 lg:py-3 border border-brand-100 shadow-lg h-full flex flex-col justify-between"
     >
       <div className="mb-2 border-b border-brand-100/50 pb-2">
         <h3 className="text-xl font-bold text-brand-900 tracking-tight mb-1">

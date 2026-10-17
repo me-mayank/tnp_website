@@ -465,6 +465,7 @@ export default function PlacementProcedure(): JSX.Element {
           <div className={`flip-card ${themeClass}`}>
             <motion.div
               className="flip-card-inner"
+              style={{ transformStyle: "preserve-3d" }}
               animate={{
                 rotateY: rotation,
                 scale: animating ? 0.96 : 1,
@@ -477,7 +478,12 @@ export default function PlacementProcedure(): JSX.Element {
               onAnimationComplete={handleAnimationComplete}
             >
               {/* Front Face: Active Step Display */}
-              <div className="flip-face flip-front">
+              <div
+                className="flip-face flip-front"
+                style={{
+                  visibility: !animating && flipped ? "hidden" : "visible",
+                }}
+              >
                 <div className="card-top-row">
                   <span className="card-step">Step {currentStep + 1}</span>
                   {getStepIcon(currentStep, "step-icon-glow")}
@@ -494,7 +500,12 @@ export default function PlacementProcedure(): JSX.Element {
               </div>
 
               {/* Back Face: Flip Transition Target Display */}
-              <div className="flip-face flip-back">
+              <div
+                className="flip-face flip-back"
+                style={{
+                  visibility: !animating && !flipped ? "hidden" : "visible",
+                }}
+              >
                 <div className="card-top-row">
                   <span className="card-step">Step {currentStep + 1}</span>
                   {getStepIcon(currentStep, "step-icon-glow")}

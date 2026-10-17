@@ -620,7 +620,10 @@ svg {
   border-radius: 24px;
   padding: 40px 48px;
   -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -634,11 +637,13 @@ svg {
 }
 
 .placement-procedure .flip-front {
-  z-index: 2;
+  transform: rotateY(0deg) translateZ(1px);
+  -webkit-transform: rotateY(0deg) translateZ(1px);
 }
 
-.flip-back {
-  z-index: 1;
+.placement-procedure .flip-back {
+  transform: rotateY(180deg) translateZ(1px);
+  -webkit-transform: rotateY(180deg) translateZ(1px);
 }
 
 .theme-even .flip-front {
@@ -650,7 +655,6 @@ svg {
 .theme-even .flip-back {
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
   color: var(--white);
-  transform: rotateY(180deg);
   border-top: 4px solid #60a5fa;
   border-left: 1px solid rgba(255, 255, 255, 0.05);
   border-right: 1px solid rgba(255, 255, 255, 0.05);
@@ -666,7 +670,6 @@ svg {
 .theme-odd .flip-back {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   color: var(--white);
-  transform: rotateY(180deg);
   border-top: 4px solid #38bdf8;
 }
 

@@ -78,8 +78,8 @@ export default function Header() {
                       <div className="bg-gray-50 p-4">
                         <div className="px-4 pt-2 pb-4 text-[10px] font-bold tracking-[0.2em] text-brand-accent/60 uppercase">Student Resources</div>
                         <div className="space-y-1">
-                          <Link href="/downloads#departmental-brochures" className="block px-4 py-3 hover:bg-white hover:shadow-md rounded-xl text-sm text-brand-700 font-semibold transition-all duration-200">
-                            Departmental Brochures
+                          <Link href="/downloads#academic-departments" className="block px-4 py-3 hover:bg-white hover:shadow-md rounded-xl text-sm text-brand-700 font-semibold transition-all duration-200">
+                            Department Portals
                           </Link>
                           <a href="/files/SUMMER_INTERNSHIP_NOC.pdf" target="_blank" rel="noopener noreferrer" className="block px-4 py-3 hover:bg-white hover:shadow-md rounded-xl text-sm text-brand-700 font-semibold transition-all duration-200">
                             Training Form
@@ -203,8 +203,8 @@ export default function Header() {
 
 
                   <div className="pt-2 pb-1 px-2 text-[10px] font-bold text-brand-accent/60 uppercase tracking-wider">Resources</div>
-                  <Link href="/downloads#departmental-brochures" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
-                    Departmental Brochures
+                  <Link href="/downloads#academic-departments" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
+                    Department Portals
                   </Link>
                   <a href="/files/SUMMER_INTERNSHIP_NOC.pdf" target="_blank" rel="noopener noreferrer" className="block py-2 text-muted hover:text-brand-800 transition-colors font-medium text-sm" onClick={closeMobileMenu}>
                     Training Form

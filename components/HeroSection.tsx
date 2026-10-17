@@ -5,13 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Poppins } from "next/font/google";
 import dynamic from "next/dynamic";
 /* import ContrastMarqueeText from "./ContrastMarqueeText"; */
 
 const LogoLoop = dynamic(() => import("./LogoLoop"), { ssr: false }) as any;
-
-const poppins = Poppins({ weight: ["700", "800"], subsets: ["latin"] });
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -133,7 +130,7 @@ export default function HeroSection() {
 
             {/* Mobile Hero Heading & Tagline */}
             <div className="absolute top-0 left-0 z-10 w-full pt-28 sm:pt-32 px-6 sm:px-8">
-              <h1 className={`hero-title flex flex-col text-left text-[clamp(1.76rem,6.5vw,2.5rem)] font-[800] leading-[1.06] tracking-tight ${poppins.className}`}>
+              <h1 className="hero-title flex flex-col text-left text-[clamp(1.76rem,6.5vw,2.5rem)] font-[800] leading-[1.06] tracking-tight font-poppins">
                 <span className="block text-[#0B1F3A]">Architecting</span>
                 <span className="block text-[#2563EB]">Careers</span>
                 <span className="block text-[#2563EB]">Fostering</span>
@@ -183,7 +180,7 @@ export default function HeroSection() {
           <div className="hero-opening-content relative z-10 min-h-[100svh] flex items-start pb-16 pl-[clamp(24px,3.8vw,56px)] pr-4 pt-[168px] sm:pr-6 lg:pb-12">
             <div className="w-full">
               <div className="max-w-[min(48rem,92vw)]">
-                <h1 className={`hero-title max-w-[15ch] text-[clamp(2.4rem,4.5vw,4.5rem)] font-[800] leading-[1.05] tracking-tight ${poppins.className}`}>
+                <h1 className="hero-title max-w-[15ch] text-[clamp(2.4rem,4.5vw,4.5rem)] font-[800] leading-[1.05] tracking-tight font-poppins">
                   <span className="block text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Architecting</span>
                   <span className="block text-[#0B1F3A] [text-shadow:0_2px_10px_rgba(255,255,255,0.28)]">Careers</span>
                   <span className="block text-[#2563EB] [text-shadow:0_2px_10px_rgba(255,255,255,0.35)]">Fostering</span>
